@@ -68,30 +68,16 @@ class LoginView:
             command=self.handle_login
         )
 
-        # Nhấn Enter để đăng nhập
         self.root.bind("<Return>", lambda event: self.handle_login())
 
     def show(self):
-        self.frame.pack(
-            padx=270,
-            pady=45,
-            fill="both",
-            expand=True
-        )
-
+        self.frame.pack(padx=270, pady=45, fill="both", expand=True)
         self.logo_label.pack(pady=(35, 5))
         self.title_label.pack(pady=(0, 8))
         self.subtitle_label.pack(pady=(0, 30))
-
         self.username_entry.pack(pady=(0, 14))
         self.password_entry.pack(pady=(0, 8))
-
-        self.show_password_checkbox.pack(
-            anchor="w",
-            padx=85,
-            pady=(0, 15)
-        )
-
+        self.show_password_checkbox.pack(anchor="w", padx=85, pady=(0, 15))
         self.error_label.pack(pady=(0, 10))
         self.login_button.pack(pady=(0, 20))
 
@@ -108,24 +94,26 @@ class LoginView:
         username = self.username_entry.get().strip()
         password = self.password_entry.get().strip()
 
-        if username == "":
-            self.error_label.configure(text="Vui lòng nhập tên đăng nhập!")
-            return
+        tai_khoan, thong_bao = self.auth_service.dang_nhap(username, password)
 
-        if password == "":
-            self.error_label.configure(text="Vui lòng nhập mật khẩu!")
-            return
-
-        result = self.auth_service.login(username, password)
-
-        if result is None:
-            self.error_label.configure(text="Sai tài khoản hoặc mật khẩu!")
+        if tai_khoan is None:
+            self.error_label.configure(text=thong_bao)
             return
 
         self.error_label.configure(text="")
-        self.app_context.set_current_user(result)
+        self.app_context.set_current_user(tai_khoan)
+        self.hide()
 
-        print("Đăng nhập thành công")
-        print("Username:", result.username)
-        print("Role:", result.role)
-        print("Quầy:", result.quay_id)
+        role = tai_khoan.role
+
+        if role == "quan_ly":
+            from views.quan_ly_view import QuanLyView
+            QuanLyView(self.root, self.app_context).show()
+
+        elif role == "tiep_nhan":
+            from views.tiep_nhan_view import TiepNhanView
+            TiepNhanView(self.root, self.app_context).show()
+
+        elif role == "nhan_vien_quay":
+            from views.nhan_vien_quay_view import NhanVienQuayView
+            NhanVienQuayView(self.root, self.app_context).show()

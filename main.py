@@ -1,11 +1,14 @@
-import tkinter as tk
+import customtkinter as ctk
 
 from app_context import AppContext
 from views.login_view import LoginView
 
 
 def main():
-    root = tk.Tk()
+    ctk.set_appearance_mode("light")
+    ctk.set_default_color_theme("blue")
+
+    root = ctk.CTk()
     root.title("Hệ thống mô phỏng hàng đợi ngân hàng")
     root.geometry("900x600")
     root.resizable(False, False)

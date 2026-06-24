@@ -246,6 +246,12 @@ background-color: #B91C1C;</string>
       <height>52</height>
      </rect>
     </property>
+    <property name="minimumSize">
+     <size>
+      <width>48</width>
+      <height>48</height>
+     </size>
+    </property>
     <property name="font">
      <font>
       <family>Segoe UI</family>
@@ -254,10 +260,29 @@ background-color: #B91C1C;</string>
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">background:#edf5ff; border:1px dashed #b8c7dc; border-radius:26px;</string>
+     <string notr="true">from PySide6.QtGui import QPixmap
+from PySide6.QtCore import Qt
+
+pix = QPixmap(&quot;assets/icons/customer.png&quot;)
+
+self.lblImgKhachDangPhucVu.setPixmap(
+    pix.scaled(
+        32,
+        32,
+        Qt.KeepAspectRatio,
+        Qt.SmoothTransformation
+    )
+)
+</string>
     </property>
     <property name="text">
      <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap>../images/iconquay.png</pixmap>
+    </property>
+    <property name="scaledContents">
+     <bool>true</bool>
     </property>
     <property name="alignment">
      <set>Qt::AlignmentFlag::AlignCenter</set>
@@ -330,6 +355,12 @@ background-color: #B91C1C;</string>
       <height>52</height>
      </rect>
     </property>
+    <property name="minimumSize">
+     <size>
+      <width>48</width>
+      <height>48</height>
+     </size>
+    </property>
     <property name="font">
      <font>
       <family>Segoe UI</family>
@@ -338,10 +369,29 @@ background-color: #B91C1C;</string>
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">background:#edf5ff; border:1px dashed #b8c7dc; border-radius:26px;</string>
+     <string notr="true">from PySide6.QtGui import QPixmap
+from PySide6.QtCore import Qt
+
+pix = QPixmap(&quot;assets/icons/customer.png&quot;)
+
+self.lblImgKhachDangPhucVu.setPixmap(
+    pix.scaled(
+        32,
+        32,
+        Qt.KeepAspectRatio,
+        Qt.SmoothTransformation
+    )
+)
+</string>
     </property>
     <property name="text">
      <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap>../images/khachcho.png</pixmap>
+    </property>
+    <property name="scaledContents">
+     <bool>true</bool>
     </property>
     <property name="alignment">
      <set>Qt::AlignmentFlag::AlignCenter</set>
@@ -414,6 +464,12 @@ background-color: #B91C1C;</string>
       <height>52</height>
      </rect>
     </property>
+    <property name="minimumSize">
+     <size>
+      <width>48</width>
+      <height>48</height>
+     </size>
+    </property>
     <property name="font">
      <font>
       <family>Segoe UI</family>
@@ -422,10 +478,29 @@ background-color: #B91C1C;</string>
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">background:#edf5ff; border:1px dashed #b8c7dc; border-radius:26px;</string>
+     <string notr="true">from PySide6.QtGui import QPixmap
+from PySide6.QtCore import Qt
+
+pix = QPixmap(&quot;assets/icons/customer.png&quot;)
+
+self.lblImgKhachDangPhucVu.setPixmap(
+    pix.scaled(
+        32,
+        32,
+        Qt.KeepAspectRatio,
+        Qt.SmoothTransformation
+    )
+)
+</string>
     </property>
     <property name="text">
      <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap>../images/tải xuống.png</pixmap>
+    </property>
+    <property name="scaledContents">
+     <bool>true</bool>
     </property>
     <property name="alignment">
      <set>Qt::AlignmentFlag::AlignCenter</set>
@@ -498,6 +573,12 @@ background-color: #B91C1C;</string>
       <height>52</height>
      </rect>
     </property>
+    <property name="minimumSize">
+     <size>
+      <width>48</width>
+      <height>48</height>
+     </size>
+    </property>
     <property name="font">
      <font>
       <family>Segoe UI</family>
@@ -506,10 +587,29 @@ background-color: #B91C1C;</string>
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">background:#edf5ff; border:1px dashed #b8c7dc; border-radius:26px;</string>
+     <string notr="true">from PySide6.QtGui import QPixmap
+from PySide6.QtCore import Qt
+
+pix = QPixmap(&quot;assets/icons/customer.png&quot;)
+
+self.lblImgKhachDangPhucVu.setPixmap(
+    pix.scaled(
+        32,
+        32,
+        Qt.KeepAspectRatio,
+        Qt.SmoothTransformation
+    )
+)
+</string>
     </property>
     <property name="text">
      <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap>../images/thoigiantb.png</pixmap>
+    </property>
+    <property name="scaledContents">
+     <bool>true</bool>
     </property>
     <property name="alignment">
      <set>Qt::AlignmentFlag::AlignCenter</set>
@@ -611,6 +711,12 @@ QHeaderView::section {
     </property>
     <property name="text">
      <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap>../images/nguoi.png</pixmap>
+    </property>
+    <property name="scaledContents">
+     <bool>true</bool>
     </property>
     <property name="alignment">
      <set>Qt::AlignmentFlag::AlignCenter</set>
@@ -729,11 +835,11 @@ hr { height: 1px; border-width: 0; }
 li.unchecked::marker { content: &quot;\2610&quot;; }
 li.checked::marker { content: &quot;\2612&quot;; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Segoe UI'; font-size:11pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Consolas'; font-size:10pt;&quot;&gt;Mã khách:       &lt;/span&gt;&lt;span style=&quot; font-family:'Consolas'; font-size:10pt; font-weight:700;&quot;&gt; KH001&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Consolas'; font-size:10pt;&quot;&gt;Họ và tên:       &lt;/span&gt;&lt;span style=&quot; font-family:'Consolas'; font-size:10pt; font-weight:700;&quot;&gt;Phạm Quang Huy&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Consolas'; font-size:10pt;&quot;&gt;Loại dịch vụ:    Khám tổng quát&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Consolas'; font-size:10pt;&quot;&gt;Nhóm khách:      VIP&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Consolas'; font-size:10pt;&quot;&gt;Mức ưu tiên:     1&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Mã khách:        KH001&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Họ và tên:       Phạm Quang Huy&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Loại dịch vụ:    Khám tổng quát&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Nhóm khách:      VIP&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Mức ưu tiên:     1&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
     <property name="plainText">
      <string>Mã khách:        KH001
@@ -921,6 +1027,12 @@ li.checked::marker { content: &quot;\2612&quot;; }
      <property name="text">
       <string/>
      </property>
+     <property name="pixmap">
+      <pixmap>../images/quaydangban.png</pixmap>
+     </property>
+     <property name="scaledContents">
+      <bool>true</bool>
+     </property>
      <property name="alignment">
       <set>Qt::AlignmentFlag::AlignCenter</set>
      </property>
@@ -1086,10 +1198,10 @@ li.checked::marker { content: &quot;\2612&quot;; }
     <widget class="QLabel" name="lblImgTrangThaiTot">
      <property name="geometry">
       <rect>
-       <x>632</x>
-       <y>54</y>
+       <x>630</x>
+       <y>40</y>
        <width>58</width>
-       <height>58</height>
+       <height>61</height>
       </rect>
      </property>
      <property name="font">
@@ -1104,6 +1216,12 @@ li.checked::marker { content: &quot;\2612&quot;; }
      </property>
      <property name="text">
       <string/>
+     </property>
+     <property name="pixmap">
+      <pixmap>../images/tải xuống (2).png</pixmap>
+     </property>
+     <property name="scaledContents">
+      <bool>true</bool>
      </property>
      <property name="alignment">
       <set>Qt::AlignmentFlag::AlignCenter</set>
@@ -1173,6 +1291,12 @@ font-weight: bold;</string>
     </property>
     <property name="text">
      <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap>../images/khachcho.png</pixmap>
+    </property>
+    <property name="scaledContents">
+     <bool>true</bool>
     </property>
     <property name="alignment">
      <set>Qt::AlignmentFlag::AlignCenter</set>
@@ -1618,6 +1742,12 @@ QHeaderView::section {
     </property>
     <property name="text">
      <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap>../images/tải xuống (1).png</pixmap>
+    </property>
+    <property name="scaledContents">
+     <bool>true</bool>
     </property>
     <property name="alignment">
      <set>Qt::AlignmentFlag::AlignCenter</set>

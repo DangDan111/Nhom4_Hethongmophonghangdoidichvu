@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='utf-8'?>
+<?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
  <class>QuanLyForm</class>
  <widget class="QWidget" name="QuanLyForm">
@@ -29,7 +29,7 @@
    <string notr="true">
 QWidget#QuanLyForm {
     background: #f6f9ff;
-    font-family: "Segoe UI";
+    font-family: &quot;Segoe UI&quot;;
     color: #111827;
 }
 QFrame {
@@ -154,7 +154,7 @@ QHeaderView::section {
      </font>
     </property>
     <property name="text">
-     <string />
+     <string/>
     </property>
    </widget>
    <widget class="QLabel" name="lblTaiKhoan">
@@ -228,6 +228,18 @@ QHeaderView::section {
       <height>54</height>
      </rect>
     </property>
+    <property name="minimumSize">
+     <size>
+      <width>54</width>
+      <height>54</height>
+     </size>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>54</width>
+      <height>54</height>
+     </size>
+    </property>
     <property name="font">
      <font>
       <family>Segoe UI</family>
@@ -236,10 +248,19 @@ QHeaderView::section {
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">background:#0f73df; color:white; border:0; border-radius:27px;</string>
+     <string notr="true">background-color: #E3F2FD;
+border-radius: 24px;
+min-width: 48px;
+max-width: 48px;
+min-height: 48px;
+max-height: 48px;
+image: url(icon1.png);</string>
     </property>
-    <property name="text">
-     <string>👥</string>
+    <property name="pixmap">
+     <pixmap>../../Downloads/group.png</pixmap>
+    </property>
+    <property name="scaledContents">
+     <bool>true</bool>
     </property>
     <property name="alignment">
      <set>Qt::AlignmentFlag::AlignCenter</set>
@@ -319,6 +340,18 @@ QHeaderView::section {
       <height>54</height>
      </rect>
     </property>
+    <property name="minimumSize">
+     <size>
+      <width>54</width>
+      <height>54</height>
+     </size>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>54</width>
+      <height>54</height>
+     </size>
+    </property>
     <property name="font">
      <font>
       <family>Segoe UI</family>
@@ -326,14 +359,20 @@ QHeaderView::section {
       <bold>true</bold>
      </font>
     </property>
-    <property name="styleSheet">
-     <string notr="true">background:#f59e0b; color:white; border:0; border-radius:27px;</string>
-    </property>
     <property name="text">
-     <string>◷</string>
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap>../../Downloads/clock.png</pixmap>
+    </property>
+    <property name="scaledContents">
+     <bool>true</bool>
     </property>
     <property name="alignment">
      <set>Qt::AlignmentFlag::AlignCenter</set>
+    </property>
+    <property name="wordWrap">
+     <bool>false</bool>
     </property>
     <property name="class" stdset="0">
      <string>iconCircle</string>
@@ -410,6 +449,18 @@ QHeaderView::section {
       <height>54</height>
      </rect>
     </property>
+    <property name="minimumSize">
+     <size>
+      <width>54</width>
+      <height>54</height>
+     </size>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>54</width>
+      <height>54</height>
+     </size>
+    </property>
     <property name="font">
      <font>
       <family>Segoe UI</family>
@@ -417,11 +468,11 @@ QHeaderView::section {
       <bold>true</bold>
      </font>
     </property>
-    <property name="styleSheet">
-     <string notr="true">background:#16a34a; color:white; border:0; border-radius:27px;</string>
+    <property name="pixmap">
+     <pixmap>../../Downloads/reception.png</pixmap>
     </property>
-    <property name="text">
-     <string>▣</string>
+    <property name="scaledContents">
+     <bool>true</bool>
     </property>
     <property name="alignment">
      <set>Qt::AlignmentFlag::AlignCenter</set>
@@ -508,11 +559,14 @@ QHeaderView::section {
       <bold>true</bold>
      </font>
     </property>
-    <property name="styleSheet">
-     <string notr="true">background:#6d3fd1; color:white; border:0; border-radius:27px;</string>
-    </property>
     <property name="text">
-     <string>▥</string>
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap>../../Downloads/reception (1).png</pixmap>
+    </property>
+    <property name="scaledContents">
+     <bool>true</bool>
     </property>
     <property name="alignment">
      <set>Qt::AlignmentFlag::AlignCenter</set>
@@ -599,11 +653,14 @@ QHeaderView::section {
       <bold>true</bold>
      </font>
     </property>
-    <property name="styleSheet">
-     <string notr="true">background:#0f73df; color:white; border:0; border-radius:27px;</string>
-    </property>
     <property name="text">
-     <string>◷</string>
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap>../../Downloads/hourglass.png</pixmap>
+    </property>
+    <property name="scaledContents">
+     <bool>true</bool>
     </property>
     <property name="alignment">
      <set>Qt::AlignmentFlag::AlignCenter</set>
@@ -615,9 +672,9 @@ QHeaderView::section {
    <widget class="QLabel" name="cardThoiGianChoTBTitle">
     <property name="geometry">
      <rect>
-      <x>88</x>
+      <x>73</x>
       <y>20</y>
-      <width>146</width>
+      <width>161</width>
       <height>24</height>
      </rect>
     </property>
@@ -690,11 +747,14 @@ QHeaderView::section {
       <bold>true</bold>
      </font>
     </property>
-    <property name="styleSheet">
-     <string notr="true">background:#16a34a; color:white; border:0; border-radius:27px;</string>
-    </property>
     <property name="text">
-     <string>✓</string>
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap>../../Downloads/light.png</pixmap>
+    </property>
+    <property name="scaledContents">
+     <bool>true</bool>
     </property>
     <property name="alignment">
      <set>Qt::AlignmentFlag::AlignCenter</set>
@@ -778,11 +838,14 @@ QHeaderView::section {
       <bold>true</bold>
      </font>
     </property>
-    <property name="styleSheet">
-     <string notr="true">color:#0f73df;</string>
-    </property>
     <property name="text">
-     <string>★</string>
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap>../../Downloads/star.png</pixmap>
+    </property>
+    <property name="scaledContents">
+     <bool>true</bool>
     </property>
     <property name="alignment">
      <set>Qt::AlignmentFlag::AlignCenter</set>
@@ -865,11 +928,14 @@ QHeaderView::section {
       <bold>true</bold>
      </font>
     </property>
-    <property name="styleSheet">
-     <string notr="true">color:#0f73df;</string>
-    </property>
     <property name="text">
-     <string>👥</string>
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap>../../Downloads/star (1).png</pixmap>
+    </property>
+    <property name="scaledContents">
+     <bool>true</bool>
     </property>
     <property name="alignment">
      <set>Qt::AlignmentFlag::AlignCenter</set>
@@ -952,11 +1018,14 @@ QHeaderView::section {
       <bold>true</bold>
      </font>
     </property>
-    <property name="styleSheet">
-     <string notr="true">color:#0f73df;</string>
-    </property>
     <property name="text">
-     <string>♟</string>
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap>../../Downloads/receptionist.png</pixmap>
+    </property>
+    <property name="scaledContents">
+     <bool>true</bool>
     </property>
     <property name="alignment">
      <set>Qt::AlignmentFlag::AlignCenter</set>
@@ -1118,11 +1187,14 @@ QHeaderView::section {
       <bold>true</bold>
      </font>
     </property>
-    <property name="styleSheet">
-     <string notr="true">color:#0f73df;</string>
-    </property>
     <property name="text">
-     <string>▤</string>
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap>../../Downloads/pencil.png</pixmap>
+    </property>
+    <property name="scaledContents">
+     <bool>true</bool>
     </property>
     <property name="alignment">
      <set>Qt::AlignmentFlag::AlignCenter</set>
@@ -1201,6 +1273,6 @@ QHeaderView::section {
    </widget>
   </widget>
  </widget>
- <resources />
- <connections />
+ <resources/>
+ <connections/>
 </ui>

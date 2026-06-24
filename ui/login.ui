@@ -25,7 +25,7 @@
   <property name="styleSheet">
    <string notr="true">QWidget{background:#f5f8ff;} QFrame#card{background:white;border:1px solid #d9e2f2;border-radius:14px;} QLineEdit{background:white;border:1px solid #cbd5e1;border-radius:6px;padding:8px;font-size:14px;} QPushButton{background:#0f5bd7;color:white;border-radius:6px;font-weight:700;font-size:14px;}</string>
   </property>
-  <widget class="QFrame" name="rightFrame"> 
+  <widget class="QFrame" name="rightFrame">
    <property name="geometry">
     <rect>
      <x>760</x>
@@ -41,7 +41,7 @@
     border-radius: 18px;
 }</string>
    </property>
-   <widget class="QLabel" name="lblTieuDe">
+   <widget class="QLabel" name="lblTieuDe1">
     <property name="geometry">
      <rect>
       <x>45</x>
@@ -67,28 +67,6 @@
      <set>Qt::AlignmentFlag::AlignCenter</set>
     </property>
    </widget>
-   <widget class="QLabel" name="lblPhuDe">
-    <property name="geometry">
-     <rect>
-      <x>45</x>
-      <y>260</y>
-      <width>340</width>
-      <height>48</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <family>Segoe UI</family>
-      <pointsize>12</pointsize>
-     </font>
-    </property>
-    <property name="text">
-     <string>Mật khẩu</string>
-    </property>
-    <property name="alignment">
-     <set>Qt::AlignmentFlag::AlignCenter</set>
-    </property>
-   </widget>
    <widget class="QPushButton" name="btnDangNhap">
     <property name="geometry">
      <rect>
@@ -99,10 +77,13 @@
      </rect>
     </property>
     <property name="text">
-     <string>↪  Đăng nhập</string>
+     <string>Đăng nhập</string>
     </property>
    </widget>
-   <widget class="QLabel" name="lblTaiKhoanMau">
+   <widget class="QLabel" name="lblThongBao">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
     <property name="geometry">
      <rect>
       <x>45</x>
@@ -182,7 +163,7 @@ QLineEdit:focus{
      <string>Nhập tên đăng nhập</string>
     </property>
    </widget>
-   <widget class="QCheckBox" name="checkBox">
+   <widget class="QCheckBox" name="chkRemember">
     <property name="geometry">
      <rect>
       <x>45</x>
@@ -191,11 +172,32 @@ QLineEdit:focus{
       <height>30</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">QCheckBox {
+    color: #111827;
+    font-size: 14px;
+    background: transparent;
+    border: none;
+}
+
+QCheckBox::indicator {
+    width: 18px;
+    height: 18px;
+    border: 1px solid #cbd5e1;
+    border-radius: 4px;
+    background: white;
+}
+
+QCheckBox::indicator:checked {
+    background-color: #0d6efd;
+    border: 1px solid #0d6efd;
+}</string>
+    </property>
     <property name="text">
      <string>Ghi nhớ đăng nhập</string>
     </property>
    </widget>
-   <widget class="QLabel" name="label_7">
+   <widget class="QLabel" name="lblQuenMatKhau">
     <property name="geometry">
      <rect>
       <x>270</x>
@@ -215,7 +217,7 @@ QLineEdit:focus{
      <string>Quên mật khẩu?</string>
     </property>
    </widget>
-   <widget class="QLabel" name="label_11">
+   <widget class="QLabel" name="lblMatKhau">
     <property name="geometry">
      <rect>
       <x>45</x>
@@ -243,6 +245,22 @@ QLineEdit:focus{
      <string>Mật khẩu</string>
     </property>
    </widget>
+   <widget class="QLineEdit" name="txtPassword&#10;">
+    <property name="geometry">
+     <rect>
+      <x>45</x>
+      <y>260</y>
+      <width>340</width>
+      <height>48</height>
+     </rect>
+    </property>
+    <property name="echoMode">
+     <enum>QLineEdit::EchoMode::Password</enum>
+    </property>
+    <property name="placeholderText">
+     <string>Nhập mật khẩu</string>
+    </property>
+   </widget>
   </widget>
   <widget class="QFrame" name="leftFrame">
    <property name="geometry">
@@ -266,7 +284,7 @@ QLineEdit:focus{
    <property name="frameShadow">
     <enum>QFrame::Shadow::Raised</enum>
    </property>
-   <widget class="QLabel" name="lblTieuDe_2">
+   <widget class="QLabel" name="lblTieuDe">
     <property name="geometry">
      <rect>
       <x>95</x>
@@ -286,7 +304,7 @@ QLineEdit:focus{
      <string>ĐĂNG NHẬP HỆ THỐNG</string>
     </property>
    </widget>
-   <widget class="QLabel" name="label">
+   <widget class="QLabel" name="lblPhuDe">
     <property name="geometry">
      <rect>
       <x>170</x>
@@ -302,7 +320,7 @@ QLineEdit:focus{
      <string>Hệ thống mô phỏng hàng đợi dịch vụ</string>
     </property>
    </widget>
-   <widget class="QLabel" name="label_2">
+   <widget class="QLabel" name="lblPhuDe_2">
     <property name="geometry">
      <rect>
       <x>135</x>

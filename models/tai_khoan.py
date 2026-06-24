@@ -1,4 +1,4 @@
-class TaiKhoan:
+﻿class TaiKhoan:
     def __init__(self, username, password, role, quay_id=None):
         self.username = username
         self.password = password

@@ -1,131 +1,118 @@
-import customtkinter as ctk
+﻿import customtkinter as ctk
 from tkinter import messagebox
 
-# Thiết kế giao diện theo phong cách hiện đại (Dark/Light mode)
-ctk.set_appearance_mode("System")  # Tự động theo giao diện máy tính (hoặc "Dark"/"Light")
-ctk.set_default_color_theme("blue") # Tone màu xanh hiện đại
 
 class TiepNhanView:
-    def __init__(self, root, username="tiepnhan", on_logout_callback=None):
+    def __init__(self, root, app_context):
         self.root = root
-        self.root.title("Giao diện Tiếp nhận - Nhóm 4")
-        self.root.geometry("650x550")
+        self.app_context = app_context
+        self.user = app_context.get_current_user()
+        self.he_thong = app_context.get_he_thong_hang_doi()
+        self.frame = None
+        self.service_options = {
+            "Khám tổng quát - Thường": ("Khám tổng quát", 5),
+            "Khám da liễu - Thường": ("Khám da liễu", 5),
+            "Khám mắt - Thường": ("Khám mắt", 5),
+            "VIP - Ưu tiên": ("VIP", 1),
+            "Cấp cứu - Ưu tiên": ("Cấp cứu", 2),
+            "Người cao tuổi - Ưu tiên": ("Người cao tuổi", 3),
+        }
+
+    def show(self):
+        self._clear_root()
+        self.root.title("Tiếp nhận khách hàng")
+        self.root.geometry("1520x820")
         self.root.resizable(False, False)
-        
-        self.username = username
-        self.on_logout_callback = on_logout_callback
-        
-        # Giao diện chính
-        self.init_components()
 
-    def init_components(self):
-        # 1. Header hiển thị thông tin chung (Dùng CTKFrame)
-        header_frame = ctk.CTkFrame(self.root, corner_radius=0, fg_color="#2c3e50")
-        header_frame.pack(fill=ctk.X, side=ctk.TOP)
-        
-        title_label = ctk.CTkLabel(
-            header_frame, 
-            text="GIAO DIỆN BỘ PHẬN TIẾP NHẬN", 
-            font=ctk.CTkFont(family="Arial", size=16, weight="bold"), 
-            text_color="white"
-        )
-        title_label.pack(side=ctk.LEFT, padx=15, pady=15)
-        
-        # Nút Đăng xuất kiểu bo góc hiện đại
-        btn_logout = ctk.CTkButton(
-            header_frame, 
-            text="Đăng xuất", 
-            command=self.logout, 
-            fg_color="#e74c3c", 
-            hover_color="#c0392b",
-            width=90,
-            font=ctk.CTkFont(family="Arial", size=12, weight="bold")
-        )
-        btn_logout.pack(side=ctk.RIGHT, padx=15, pady=15)
-        
-        # Hiển thị tên tài khoản
-        user_info = f"Tài khoản: {self.username}"
-        user_label = ctk.CTkLabel(header_frame, text=user_info, text_color="white", font=ctk.CTkFont(family="Arial", size=12))
-        user_label.pack(side=ctk.RIGHT, padx=5)
+        self.frame = ctk.CTkFrame(self.root, fg_color="#f5f8ff", corner_radius=0)
+        self.frame.pack(fill="both", expand=True)
 
-        # 2. KHUNG TIẾP NHẬN / THÊM KHÁCH HÀNG (Dùng CTKFrame làm hộp chứa)
-        add_customer_frame = ctk.CTkFrame(self.root)
-        add_customer_frame.pack(fill=ctk.X, padx=20, pady=20)
-        
-        # Tiêu đề nhóm nội bộ
-        section_title = ctk.CTkLabel(add_customer_frame, text="Tiếp nhận Khách hàng mới", font=ctk.CTkFont(size=14, weight="bold"))
-        section_title.grid(row=0, column=0, columnspan=2, sticky=ctk.W, padx=15, pady=(10, 5))
-        
-        # Nhập tên khách hàng (CTkEntry bo góc cực đẹp)
-        ctk.CTkLabel(add_customer_frame, text="Họ và tên khách hàng:", font=ctk.CTkFont(size=13)).grid(row=1, column=0, sticky=ctk.W, padx=15, pady=10)
-        self.ent_customer_name = ctk.CTkEntry(add_customer_frame, width=250, placeholder_text="Nhập tên khách hàng...")
-        self.ent_customer_name.grid(row=1, column=1, padx=15, pady=10, sticky=ctk.E)
-        
-        # Chọn loại dịch vụ (Sử dụng CTkOptionMenu hiện đại thay cho Combobox cũ)
-        ctk.CTkLabel(add_customer_frame, text="Loại dịch vụ:", font=ctk.CTkFont(size=13)).grid(row=2, column=0, sticky=ctk.W, padx=15, pady=10)
-        self.cbo_service_type = ctk.CTkOptionMenu(
-            add_customer_frame, 
-            values=["Thường", "VIP (Ưu tiên)"],
-            width=250
-        )
-        self.cbo_service_type.set("Thường") # Mặc định chọn dịch vụ Thường
-        self.cbo_service_type.grid(row=2, column=1, padx=15, pady=10, sticky=ctk.E)
-        
-        # Nút thêm khách (CTkButton)
-        self.btn_add_customer = ctk.CTkButton(
-            add_customer_frame, 
-            text="Thêm vào hàng đợi", 
-            command=self.handle_add_customer,
-            fg_color="#2ecc71", 
-            hover_color="#27ae60",
-            font=ctk.CTkFont(size=13, weight="bold"),
-            width=200
-        )
-        self.btn_add_customer.grid(row=3, column=0, columnspan=2, pady=(15, 15))
+        header = ctk.CTkFrame(self.frame, height=92, fg_color="white", corner_radius=0, border_width=1, border_color="#d9e2f2")
+        header.pack(fill="x")
+        header.pack_propagate(False)
+        ctk.CTkLabel(header, text="GIAO DIỆN TIẾP NHẬN", font=("Segoe UI", 26, "bold"), text_color="#0f5bd7").place(x=40, y=20)
+        ctk.CTkLabel(header, text="Thêm khách vào hàng đợi dịch vụ", font=("Segoe UI", 15), text_color="#4b5563").place(x=42, y=56)
+        ctk.CTkLabel(header, text=f"Tài khoản: {self.user.username}", font=("Segoe UI", 14, "bold"), text_color="#111827").place(x=1190, y=34)
+        ctk.CTkButton(header, text="Đăng xuất", width=135, height=38, font=("Segoe UI", 14, "bold"), fg_color="white", text_color="#0f5bd7", border_width=1, border_color="#0f5bd7", hover_color="#eef4ff", command=self.dang_xuat).place(x=1340, y=27)
 
-        # 3. KHUNG HIỂN THỊ TRẠNG THÁI HÀNG ĐỢI SƠ BỘ
-        queue_info_frame = ctk.CTkFrame(self.root)
-        queue_info_frame.pack(fill=ctk.BOTH, expand=True, padx=20, pady=(0, 20))
-        
-        # Tiêu đề vùng hiển thị trạng thái
-        queue_title = ctk.CTkLabel(queue_info_frame, text="Trạng thái hàng đợi hiện tại", font=ctk.CTkFont(size=14, weight="bold"))
-        queue_title.pack(anchor=ctk.W, padx=15, pady=(10, 5))
-        
-        # Số lượng khách đang chờ
-        self.lbl_queue_size = ctk.CTkLabel(queue_info_frame, text="Số lượng khách đang chờ: 0", font=ctk.CTkFont(size=12))
-        self.lbl_queue_size.pack(anchor=ctk.W, padx=15, pady=2)
-        
-        # Khung text giám sát (Dùng CTkTextbox mượt mà hơn Text thường)
-        self.txt_monitor = ctk.CTkTextbox(queue_info_frame, activate_scrollbars=True)
-        self.txt_monitor.pack(fill=ctk.BOTH, expand=True, padx=15, pady=(5, 15))
-        self.txt_monitor.configure(state="disabled")
+        body = ctk.CTkFrame(self.frame, fg_color="transparent")
+        body.pack(fill="both", expand=True, padx=28, pady=24)
+        body.grid_columnconfigure(0, weight=0)
+        body.grid_columnconfigure(1, weight=1)
 
-    def handle_add_customer(self):
-        """
-        Hàm xử lý khi bấm nút Thêm khách.
-        """
-        name = self.ent_customer_name.get().strip()
-        service = self.cbo_service_type.get()
-        
-        if not name:
-            messagebox.showwarning("Cảnh báo", "Vui lòng nhập tên khách hàng!")
+        form = ctk.CTkFrame(body, width=470, fg_color="white", corner_radius=10, border_width=1, border_color="#d9e2f2")
+        form.grid(row=0, column=0, sticky="ns", padx=(0, 18))
+        form.grid_propagate(False)
+
+        ctk.CTkLabel(form, text="Thông tin khách hàng", font=("Segoe UI", 20, "bold"), text_color="#0f5bd7").pack(anchor="w", padx=24, pady=(24, 16))
+        ctk.CTkLabel(form, text="Tên khách hàng", font=("Segoe UI", 14, "bold")).pack(anchor="w", padx=24)
+        self.ten_entry = ctk.CTkEntry(form, width=420, height=44, placeholder_text="Nhập họ tên khách hàng", font=("Segoe UI", 14))
+        self.ten_entry.pack(padx=24, pady=(8, 18))
+
+        ctk.CTkLabel(form, text="Loại dịch vụ", font=("Segoe UI", 14, "bold")).pack(anchor="w", padx=24)
+        self.loai_option = ctk.CTkOptionMenu(form, width=420, height=44, values=list(self.service_options.keys()), font=("Segoe UI", 14))
+        self.loai_option.set("Khám tổng quát - Thường")
+        self.loai_option.pack(padx=24, pady=(8, 22))
+
+        ctk.CTkButton(form, text="Thêm vào hàng đợi", height=44, width=420, font=("Segoe UI", 14, "bold"), fg_color="#16a34a", hover_color="#15803d", command=self.them_khach).pack(padx=24, pady=(0, 14))
+        ctk.CTkButton(form, text="Làm mới danh sách", height=40, width=420, font=("Segoe UI", 13, "bold"), fg_color="#0f5bd7", command=self.cap_nhat).pack(padx=24)
+
+        summary = ctk.CTkFrame(form, fg_color="#eef6ff", corner_radius=8)
+        summary.pack(fill="x", padx=24, pady=24)
+        self.count_label = ctk.CTkLabel(summary, text="", font=("Segoe UI", 18, "bold"), text_color="#0f5bd7")
+        self.count_label.pack(pady=16)
+
+        monitor = ctk.CTkFrame(body, fg_color="white", corner_radius=10, border_width=1, border_color="#d9e2f2")
+        monitor.grid(row=0, column=1, sticky="nsew")
+        monitor.grid_rowconfigure(1, weight=1)
+        monitor.grid_columnconfigure(0, weight=1)
+        ctk.CTkLabel(monitor, text="Theo dõi hàng đợi", font=("Segoe UI", 20, "bold"), text_color="#0f5bd7").grid(row=0, column=0, sticky="w", padx=24, pady=(22, 10))
+        self.monitor_text = ctk.CTkTextbox(monitor, font=("Consolas", 13), fg_color="#fbfdff", text_color="#111827")
+        self.monitor_text.grid(row=1, column=0, sticky="nsew", padx=24, pady=(0, 24))
+        self.cap_nhat()
+
+    def them_khach(self):
+        ten = self.ten_entry.get().strip()
+        loai_dich_vu, muc_do_uu_tien = self.service_options[self.loai_option.get()]
+        ok, thong_bao, khach = self.he_thong.them_khach(ten, loai_dich_vu, muc_do_uu_tien)
+        if not ok:
+            messagebox.showwarning("Cảnh báo", thong_bao)
             return
-            
-        messagebox.showinfo("Thành công", f"Đã tiếp nhận khách hàng: {name} ({service})")
-        
-        # Xóa trắng ô nhập sau khi thêm thành công
-        self.ent_customer_name.delete(0, ctk.END)
+        self.ten_entry.delete(0, "end")
+        messagebox.showinfo("Thành công", thong_bao)
+        self.cap_nhat()
 
-    def logout(self):
-        if messagebox.askyesno("Xác nhận", "Bạn có chắc chắn muốn đăng xuất?"):
-            if self.on_logout_callback:
-                self.on_logout_callback()
-            else:
-                self.root.destroy()
+    def cap_nhat(self):
+        thong_ke = self.he_thong.tinh_thong_ke()
+        self.count_label.configure(text=f"Khách đang chờ: {thong_ke['tong_khach_dang_cho']}")
+        lines = []
+        lines.append("HÀNG ĐỢI ƯU TIÊN")
+        lines.append(self._format_khach_list(self.he_thong.lay_danh_sach_hang_doi_uu_tien()))
+        lines.append("")
+        lines.append("HÀNG ĐỢI THƯỜNG")
+        lines.append(self._format_khach_list(self.he_thong.lay_danh_sach_hang_doi_thuong()))
+        self._set_text("\n".join(lines))
 
-# Chạy thử độc lập bằng CustomTkinter
-if __name__ == "__main__":
-    # Lưu ý: Khi dùng CustomTkinter chạy độc lập, root phải là ctk.CTk() chứ không phải tk.Tk()
-    root = ctk.CTk()
-    app = TiepNhanView(root)
-    root.mainloop()
+    def _format_khach_list(self, ds_khach):
+        if len(ds_khach) == 0:
+            return "  Chưa có khách đang chờ."
+        lines = ["  Mã KH   Tên khách                 Dịch vụ              Ưu tiên   Thời gian đến"]
+        for khach in ds_khach:
+            lines.append(f"  {khach.ma_khach():<7} {khach.ten:<24} {khach.loai_dich_vu:<20} {khach.muc_do_uu_tien:<8} {khach.thoi_gian_den.strftime('%H:%M:%S')}")
+        return "\n".join(lines)
+
+    def _set_text(self, text):
+        self.monitor_text.configure(state="normal")
+        self.monitor_text.delete("1.0", "end")
+        self.monitor_text.insert("1.0", text)
+        self.monitor_text.configure(state="disabled")
+
+    def dang_xuat(self):
+        self.app_context.set_current_user(None)
+        from views.login_view import LoginView
+        LoginView(self.root, self.app_context).show()
+
+    def _clear_root(self):
+        self.root.unbind("<Return>")
+        for widget in self.root.winfo_children():
+            widget.destroy()

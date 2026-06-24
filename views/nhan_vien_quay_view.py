@@ -7,7 +7,7 @@
     QMessageBox
 )
 
-from views.ui_helpers import find_required, load_ui
+from views.ui_helpers import confirm_logout, find_required, load_ui
 
 
 class NhanVienQuayView:
@@ -103,16 +103,7 @@ class NhanVienQuayView:
         self.window.show()
 
     def xac_nhan_dang_xuat(self):
-        tra_loi = QMessageBox.question(
-            self.window,
-            "Xác nhận đăng xuất",
-            "Bạn có muốn đăng xuất không?",
-            QMessageBox.StandardButton.Yes
-            | QMessageBox.StandardButton.No,
-            QMessageBox.StandardButton.No
-        )
-
-        if tra_loi == QMessageBox.StandardButton.Yes:
+        if confirm_logout(self.window):
             self.on_logout()
 
     def goi_khach(self):

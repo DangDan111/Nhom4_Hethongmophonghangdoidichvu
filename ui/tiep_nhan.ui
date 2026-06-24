@@ -764,7 +764,7 @@ QHeaderView::section {
     </property>
     <item>
      <property name="text">
-      <string>Khám tổng quát - Thường</string>
+      <string>Giao dịch nhanh - Thường</string>
      </property>
     </item>
    </widget>
@@ -816,7 +816,7 @@ QHeaderView::section {
     </item>
     <item>
      <property name="text">
-      <string>Cấp cứu</string>
+      <string>Khẩn cấp</string>
      </property>
     </item>
    </widget>
@@ -868,7 +868,7 @@ QHeaderView::section {
     </item>
     <item>
      <property name="text">
-      <string>Cấp cứu</string>
+      <string>Khẩn cấp</string>
      </property>
     </item>
    </widget>
@@ -1200,7 +1200,7 @@ QHeaderView::section {
     </item>
     <item row="0" column="2">
      <property name="text">
-      <string>Khám da liễu</string>
+      <string>Tư vấn dịch vụ</string>
      </property>
     </item>
     <item row="0" column="3">
@@ -1225,7 +1225,7 @@ QHeaderView::section {
     </item>
     <item row="1" column="2">
      <property name="text">
-      <string>Khám tim mạch</string>
+      <string>Giao dịch phức tạp</string>
      </property>
     </item>
     <item row="1" column="3">
@@ -1250,7 +1250,7 @@ QHeaderView::section {
     </item>
     <item row="2" column="2">
      <property name="text">
-      <string>Khám mắt</string>
+      <string>Giao dịch nhanh</string>
      </property>
     </item>
     <item row="2" column="3">
@@ -1275,7 +1275,7 @@ QHeaderView::section {
     </item>
     <item row="3" column="2">
      <property name="text">
-      <string>Khám tổng quát</string>
+      <string>Giao dịch nhanh</string>
      </property>
     </item>
     <item row="3" column="3">

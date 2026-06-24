@@ -1016,6 +1016,41 @@ QHeaderView::section {
      <string>badgeGreen</string>
     </property>
    </widget>
+   <widget class="QLabel" name="cardDaTiepNhanImage_2">
+    <property name="geometry">
+     <rect>
+      <x>290</x>
+      <y>260</y>
+      <width>31</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Segoe UI</family>
+      <pointsize>11</pointsize>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background:#edf5ff; border:1px dashed #b8c7dc; border-radius:24px;</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap>C:/Users/ADMIN/Downloads/invitation.png</pixmap>
+    </property>
+    <property name="scaledContents">
+     <bool>true</bool>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignmentFlag::AlignCenter</set>
+    </property>
+    <property name="class" stdset="0">
+     <string>imageSlot</string>
+    </property>
+   </widget>
   </widget>
   <widget class="QFrame" name="panelDanhSach">
    <property name="geometry">

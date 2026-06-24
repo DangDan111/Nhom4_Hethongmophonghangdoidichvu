@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='utf-8'?>
 <ui version="4.0">
  <class>QuanLyForm</class>
  <widget class="QWidget" name="QuanLyForm">
@@ -6,98 +6,131 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1520</width>
-    <height>820</height>
+    <width>1500</width>
+    <height>780</height>
    </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>1500</width>
+    <height>780</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>1500</width>
+    <height>780</height>
+   </size>
   </property>
   <property name="windowTitle">
    <string>Giao diện quản lý</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">QWidget {
-    background: #f5f8ff;
+   <string notr="true">
+QWidget#QuanLyForm {
+    background: #f6f9ff;
+    font-family: "Segoe UI";
+    color: #111827;
 }
 QFrame {
-    background: white;
-    border: 1px solid #d9e2f2;
+    background: #ffffff;
+    border: 1px solid #dfe7f3;
     border-radius: 8px;
 }
 QLabel {
     background: transparent;
     border: none;
-    border-radius: 0px;
 }
-QLabel#lblTitle,
+QLabel#lblTitle {
+    color: #0f6fd8;
+    font-weight: 800;
+    letter-spacing: 0px;
+}
+QLabel#lblSubtitle {
+    color: #374151;
+}
 QLabel.sectionTitle {
-    color: #0f5bd7;
-    font-weight: 700;
+    color: #155eb8;
+    font-weight: 800;
 }
-QLabel.value {
-    background: white;
-    border: 1px solid #d9e2f2;
-    border-radius: 8px;
-    font-size: 26px;
-    font-weight: 700;
-    color: #0f5bd7;
-    padding-left: 10px;
+QLabel.metricValue {
+    font-weight: 800;
 }
-
+QLabel.iconCircle {
+    min-width: 54px;
+    min-height: 54px;
+    max-width: 54px;
+    max-height: 54px;
+}
 QPushButton {
-    background: #0f5bd7;
+    background: #0f73df;
     color: white;
+    border: 1px solid #0b63c7;
     border-radius: 6px;
+    padding: 7px 14px;
     font-weight: 700;
 }
-
 QPushButton#btnDangXuat,
 QPushButton#btnSapXepBaoCao,
 QPushButton#btnLamMoi {
-    background: white;
-    color: #0f5bd7;
-    border: 1px solid #cbd5e1;
+    background: #ffffff;
+    color: #155eb8;
+    border: 1px solid #c8d6eb;
 }
-
 QPushButton#btnDongQuay {
     background: #ef4444;
-    color: white;
+    border-color: #dc2626;
 }
-
-QTableWidget {
-    background: white;
-    border: 1px solid #e5e7eb;
-    gridline-color: #e5e7eb;
-}
-
 QComboBox {
-    background: white;
-    border: 1px solid #cbd5e1;
+    background: #ffffff;
+    border: 1px solid #c8d6eb;
     border-radius: 6px;
-    padding: 4px;
-}</string>
+    padding: 5px 10px;
+}
+QTableWidget {
+    background: #ffffff;
+    alternate-background-color: #fbfdff;
+    border: 0px;
+    gridline-color: #edf1f7;
+    selection-background-color: #dbeafe;
+    selection-color: #111827;
+}
+QHeaderView::section {
+    background: #ffffff;
+    border: 0px;
+    border-bottom: 1px solid #e5eaf2;
+    padding: 8px 6px;
+    font-weight: 700;
+    color: #111827;
+}
+</string>
   </property>
   <widget class="QFrame" name="header">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1520</width>
-     <height>118</height>
+     <width>1500</width>
+     <height>106</height>
     </rect>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::Shape::StyledPanel</enum>
    </property>
    <widget class="QLabel" name="lblTitle">
     <property name="geometry">
      <rect>
-      <x>44</x>
+      <x>36</x>
       <y>24</y>
-      <width>420</width>
-      <height>40</height>
+      <width>430</width>
+      <height>42</height>
      </rect>
     </property>
     <property name="font">
      <font>
       <family>Segoe UI</family>
       <pointsize>24</pointsize>
-      <bold>true</bold>
+      <fontweight>ExtraBold</fontweight>
      </font>
     </property>
     <property name="text">
@@ -107,104 +140,183 @@ QComboBox {
    <widget class="QLabel" name="lblSubtitle">
     <property name="geometry">
      <rect>
-      <x>46</x>
+      <x>36</x>
       <y>66</y>
-      <width>390</width>
-      <height>26</height>
+      <width>1</width>
+      <height>1</height>
      </rect>
     </property>
     <property name="font">
      <font>
       <family>Segoe UI</family>
       <pointsize>12</pointsize>
+      <bold>false</bold>
      </font>
     </property>
     <property name="text">
-     <string>Hệ thống mô phỏng hàng đợi dịch vụ</string>
+     <string />
     </property>
    </widget>
    <widget class="QLabel" name="lblTaiKhoan">
     <property name="geometry">
      <rect>
-      <x>1190</x>
-      <y>43</y>
-      <width>160</width>
-      <height>28</height>
+      <x>1198</x>
+      <y>38</y>
+      <width>170</width>
+      <height>32</height>
      </rect>
     </property>
     <property name="font">
      <font>
       <family>Segoe UI</family>
-      <pointsize>12</pointsize>
+      <pointsize>11</pointsize>
       <bold>true</bold>
      </font>
     </property>
     <property name="text">
      <string>Tài khoản: admin</string>
     </property>
+    <property name="alignment">
+     <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
+    </property>
    </widget>
    <widget class="QPushButton" name="btnDangXuat">
     <property name="geometry">
      <rect>
-      <x>1355</x>
-      <y>38</y>
-      <width>120</width>
+      <x>1376</x>
+      <y>34</y>
+      <width>112</width>
       <height>38</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Segoe UI</family>
+      <pointsize>10</pointsize>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
     </property>
     <property name="text">
      <string>Đăng xuất</string>
     </property>
    </widget>
   </widget>
-  <widget class="QFrame" name="card1">
+  <widget class="QFrame" name="cardTongDaPhucVu">
    <property name="geometry">
     <rect>
-     <x>20</x>
-     <y>134</y>
-     <width>235</width>
+     <x>16</x>
+     <y>122</y>
+     <width>238</width>
      <height>88</height>
     </rect>
    </property>
-   <widget class="QLabel" name="lblCard1">
+   <property name="frameShape">
+    <enum>QFrame::Shape::StyledPanel</enum>
+   </property>
+   <property name="class" stdset="0">
+    <string>metricCard</string>
+   </property>
+   <widget class="QLabel" name="lblIconTongDaPhucVu">
     <property name="geometry">
      <rect>
-      <x>40</x>
-      <y>10</y>
-      <width>190</width>
+      <x>18</x>
+      <y>20</y>
+      <width>54</width>
+      <height>54</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Segoe UI</family>
+      <pointsize>22</pointsize>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background:#0f73df; color:white; border:0; border-radius:27px;</string>
+    </property>
+    <property name="text">
+     <string>👥</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignmentFlag::AlignCenter</set>
+    </property>
+    <property name="class" stdset="0">
+     <string>iconCircle</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="cardTongDaPhucVuTitle">
+    <property name="geometry">
+     <rect>
+      <x>88</x>
+      <y>20</y>
+      <width>140</width>
       <height>24</height>
      </rect>
     </property>
     <property name="font">
      <font>
+      <family>Segoe UI</family>
       <pointsize>10</pointsize>
+      <bold>true</bold>
      </font>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">QLabel#lblCard1 {
-    border: none;
-    background: transparent;
-    padding-left: 12px;
-    padding-top: 4px;
-}</string>
-    </property>
-    <property name="lineWidth">
-     <number>0</number>
     </property>
     <property name="text">
      <string>Tổng khách đã phục vụ</string>
-    </property>
-    <property name="alignment">
-     <set>Qt::AlignmentFlag::AlignCenter</set>
     </property>
    </widget>
    <widget class="QLabel" name="lblTongDaPhucVu">
     <property name="geometry">
      <rect>
-      <x>110</x>
-      <y>40</y>
-      <width>100</width>
+      <x>88</x>
+      <y>46</y>
+      <width>140</width>
       <height>36</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Segoe UI</family>
+      <pointsize>23</pointsize>
+      <fontweight>ExtraBold</fontweight>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color:#0f73df;</string>
+    </property>
+    <property name="text">
+     <string>128</string>
+    </property>
+    <property name="class" stdset="0">
+     <string>metricValue</string>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QFrame" name="cardKhachDangCho">
+   <property name="geometry">
+    <rect>
+     <x>262</x>
+     <y>122</y>
+     <width>238</width>
+     <height>88</height>
+    </rect>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::Shape::StyledPanel</enum>
+   </property>
+   <property name="class" stdset="0">
+    <string>metricCard</string>
+   </property>
+   <widget class="QLabel" name="lblIconKhachDangCho">
+    <property name="geometry">
+     <rect>
+      <x>18</x>
+      <y>20</y>
+      <width>54</width>
+      <height>54</height>
      </rect>
     </property>
     <property name="font">
@@ -215,117 +327,87 @@ QComboBox {
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">color:#0f5bd7;</string>
+     <string notr="true">background:#f59e0b; color:white; border:0; border-radius:27px;</string>
     </property>
     <property name="text">
-     <string>0</string>
+     <string>◷</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignmentFlag::AlignCenter</set>
+    </property>
+    <property name="class" stdset="0">
+     <string>iconCircle</string>
     </property>
    </widget>
-   <widget class="QLabel" name="label">
+   <widget class="QLabel" name="cardKhachDangChoTitle">
     <property name="geometry">
      <rect>
-      <x>20</x>
-      <y>25</y>
-      <width>41</width>
-      <height>41</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>TextLabel</string>
-    </property>
-   </widget>
-  </widget>
-  <widget class="QFrame" name="card2">
-   <property name="geometry">
-    <rect>
-     <x>270</x>
-     <y>134</y>
-     <width>235</width>
-     <height>88</height>
-    </rect>
-   </property>
-   <widget class="QLabel" name="lblCard2">
-    <property name="geometry">
-     <rect>
-      <x>60</x>
-      <y>10</y>
-      <width>151</width>
+      <x>88</x>
+      <y>20</y>
+      <width>140</width>
       <height>24</height>
      </rect>
     </property>
     <property name="font">
      <font>
+      <family>Segoe UI</family>
       <pointsize>10</pointsize>
+      <bold>true</bold>
      </font>
     </property>
     <property name="text">
      <string>Khách đang chờ</string>
     </property>
-    <property name="alignment">
-     <set>Qt::AlignmentFlag::AlignCenter</set>
-    </property>
    </widget>
    <widget class="QLabel" name="lblKhachDangCho">
     <property name="geometry">
      <rect>
-      <x>100</x>
-      <y>40</y>
-      <width>100</width>
+      <x>88</x>
+      <y>46</y>
+      <width>140</width>
       <height>36</height>
      </rect>
     </property>
     <property name="font">
      <font>
       <family>Segoe UI</family>
-      <pointsize>22</pointsize>
-      <bold>true</bold>
+      <pointsize>23</pointsize>
+      <fontweight>ExtraBold</fontweight>
      </font>
     </property>
     <property name="styleSheet">
      <string notr="true">color:#f59e0b;</string>
     </property>
     <property name="text">
-     <string>0</string>
+     <string>17</string>
+    </property>
+    <property name="class" stdset="0">
+     <string>metricValue</string>
     </property>
    </widget>
   </widget>
-  <widget class="QFrame" name="card3">
+  <widget class="QFrame" name="cardQuayDangMo">
    <property name="geometry">
     <rect>
-     <x>520</x>
-     <y>134</y>
-     <width>235</width>
+     <x>508</x>
+     <y>122</y>
+     <width>238</width>
      <height>88</height>
     </rect>
    </property>
-   <widget class="QLabel" name="lblCard3">
+   <property name="frameShape">
+    <enum>QFrame::Shape::StyledPanel</enum>
+   </property>
+   <property name="class" stdset="0">
+    <string>metricCard</string>
+   </property>
+   <widget class="QLabel" name="lblIconQuayDangMo">
     <property name="geometry">
      <rect>
-      <x>70</x>
-      <y>10</y>
-      <width>150</width>
-      <height>24</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <pointsize>10</pointsize>
-     </font>
-    </property>
-    <property name="text">
-     <string>Quầy đang mở</string>
-    </property>
-    <property name="alignment">
-     <set>Qt::AlignmentFlag::AlignCenter</set>
-    </property>
-   </widget>
-   <widget class="QLabel" name="lblQuayDangMo">
-    <property name="geometry">
-     <rect>
-      <x>120</x>
-      <y>50</y>
-      <width>100</width>
-      <height>36</height>
+      <x>18</x>
+      <y>20</y>
+      <width>54</width>
+      <height>54</height>
      </rect>
     </property>
     <property name="font">
@@ -333,53 +415,90 @@ QComboBox {
       <family>Segoe UI</family>
       <pointsize>22</pointsize>
       <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background:#16a34a; color:white; border:0; border-radius:27px;</string>
+    </property>
+    <property name="text">
+     <string>▣</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignmentFlag::AlignCenter</set>
+    </property>
+    <property name="class" stdset="0">
+     <string>iconCircle</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="cardQuayDangMoTitle">
+    <property name="geometry">
+     <rect>
+      <x>88</x>
+      <y>20</y>
+      <width>140</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Segoe UI</family>
+      <pointsize>10</pointsize>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>Quầy đang mở</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="lblQuayDangMo">
+    <property name="geometry">
+     <rect>
+      <x>88</x>
+      <y>46</y>
+      <width>140</width>
+      <height>36</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Segoe UI</family>
+      <pointsize>23</pointsize>
+      <fontweight>ExtraBold</fontweight>
      </font>
     </property>
     <property name="styleSheet">
      <string notr="true">color:#16a34a;</string>
     </property>
     <property name="text">
-     <string>0</string>
+     <string>3</string>
+    </property>
+    <property name="class" stdset="0">
+     <string>metricValue</string>
     </property>
    </widget>
   </widget>
-  <widget class="QFrame" name="card4">
+  <widget class="QFrame" name="cardQuayDangBan">
    <property name="geometry">
     <rect>
-     <x>770</x>
-     <y>134</y>
-     <width>235</width>
+     <x>754</x>
+     <y>122</y>
+     <width>238</width>
      <height>88</height>
     </rect>
    </property>
-   <widget class="QLabel" name="lblCard4">
+   <property name="frameShape">
+    <enum>QFrame::Shape::StyledPanel</enum>
+   </property>
+   <property name="class" stdset="0">
+    <string>metricCard</string>
+   </property>
+   <widget class="QLabel" name="lblIconQuayDangBan">
     <property name="geometry">
      <rect>
-      <x>70</x>
-      <y>10</y>
-      <width>150</width>
-      <height>24</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <pointsize>10</pointsize>
-     </font>
-    </property>
-    <property name="text">
-     <string>Quầy đang bận</string>
-    </property>
-    <property name="alignment">
-     <set>Qt::AlignmentFlag::AlignCenter</set>
-    </property>
-   </widget>
-   <widget class="QLabel" name="lblQuayDangBan">
-    <property name="geometry">
-     <rect>
-      <x>100</x>
-      <y>40</y>
-      <width>100</width>
-      <height>36</height>
+      <x>18</x>
+      <y>20</y>
+      <width>54</width>
+      <height>54</height>
      </rect>
     </property>
     <property name="font">
@@ -390,111 +509,234 @@ QComboBox {
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">color:#6d42d8;</string>
+     <string notr="true">background:#6d3fd1; color:white; border:0; border-radius:27px;</string>
     </property>
     <property name="text">
-     <string>0</string>
+     <string>▥</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignmentFlag::AlignCenter</set>
+    </property>
+    <property name="class" stdset="0">
+     <string>iconCircle</string>
     </property>
    </widget>
-  </widget>
-  <widget class="QFrame" name="card5">
-   <property name="geometry">
-    <rect>
-     <x>1020</x>
-     <y>134</y>
-     <width>235</width>
-     <height>88</height>
-    </rect>
-   </property>
-   <widget class="QLabel" name="lblCard5">
+   <widget class="QLabel" name="cardQuayDangBanTitle">
     <property name="geometry">
      <rect>
-      <x>70</x>
-      <y>10</y>
-      <width>150</width>
+      <x>88</x>
+      <y>20</y>
+      <width>140</width>
       <height>24</height>
      </rect>
     </property>
     <property name="font">
      <font>
+      <family>Segoe UI</family>
       <pointsize>10</pointsize>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>Quầy đang bận</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="lblQuayDangBan">
+    <property name="geometry">
+     <rect>
+      <x>88</x>
+      <y>46</y>
+      <width>140</width>
+      <height>36</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Segoe UI</family>
+      <pointsize>23</pointsize>
+      <fontweight>ExtraBold</fontweight>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color:#6d3fd1;</string>
+    </property>
+    <property name="text">
+     <string>2</string>
+    </property>
+    <property name="class" stdset="0">
+     <string>metricValue</string>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QFrame" name="cardThoiGianChoTB">
+   <property name="geometry">
+    <rect>
+     <x>1000</x>
+     <y>122</y>
+     <width>238</width>
+     <height>88</height>
+    </rect>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::Shape::StyledPanel</enum>
+   </property>
+   <property name="class" stdset="0">
+    <string>metricCard</string>
+   </property>
+   <widget class="QLabel" name="lblIconThoiGianChoTB">
+    <property name="geometry">
+     <rect>
+      <x>18</x>
+      <y>20</y>
+      <width>54</width>
+      <height>54</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Segoe UI</family>
+      <pointsize>22</pointsize>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background:#0f73df; color:white; border:0; border-radius:27px;</string>
+    </property>
+    <property name="text">
+     <string>◷</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignmentFlag::AlignCenter</set>
+    </property>
+    <property name="class" stdset="0">
+     <string>iconCircle</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="cardThoiGianChoTBTitle">
+    <property name="geometry">
+     <rect>
+      <x>88</x>
+      <y>20</y>
+      <width>146</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Segoe UI</family>
+      <pointsize>10</pointsize>
+      <bold>true</bold>
      </font>
     </property>
     <property name="text">
      <string>Thời gian chờ trung bình</string>
     </property>
-    <property name="alignment">
-     <set>Qt::AlignmentFlag::AlignCenter</set>
-    </property>
    </widget>
    <widget class="QLabel" name="lblThoiGianChoTB">
     <property name="geometry">
      <rect>
-      <x>90</x>
-      <y>40</y>
-      <width>100</width>
+      <x>88</x>
+      <y>46</y>
+      <width>140</width>
       <height>36</height>
      </rect>
     </property>
     <property name="font">
      <font>
       <family>Segoe UI</family>
-      <pointsize>20</pointsize>
+      <pointsize>23</pointsize>
+      <fontweight>ExtraBold</fontweight>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color:#0f73df;</string>
+    </property>
+    <property name="text">
+     <string>18 phút</string>
+    </property>
+    <property name="class" stdset="0">
+     <string>metricValue</string>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QFrame" name="cardCanhBao">
+   <property name="geometry">
+    <rect>
+     <x>1246</x>
+     <y>122</y>
+     <width>238</width>
+     <height>88</height>
+    </rect>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::Shape::StyledPanel</enum>
+   </property>
+   <property name="class" stdset="0">
+    <string>metricCard</string>
+   </property>
+   <widget class="QLabel" name="lblIconCanhBao">
+    <property name="geometry">
+     <rect>
+      <x>18</x>
+      <y>20</y>
+      <width>54</width>
+      <height>54</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Segoe UI</family>
+      <pointsize>22</pointsize>
       <bold>true</bold>
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">color:#0f5bd7;</string>
+     <string notr="true">background:#16a34a; color:white; border:0; border-radius:27px;</string>
     </property>
     <property name="text">
-     <string>0 phút</string>
+     <string>✓</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignmentFlag::AlignCenter</set>
+    </property>
+    <property name="class" stdset="0">
+     <string>iconCircle</string>
     </property>
    </widget>
-  </widget>
-  <widget class="QFrame" name="card6">
-   <property name="geometry">
-    <rect>
-     <x>1270</x>
-     <y>134</y>
-     <width>230</width>
-     <height>88</height>
-    </rect>
-   </property>
-   <widget class="QLabel" name="lblCard6">
+   <widget class="QLabel" name="cardCanhBaoTitle">
     <property name="geometry">
      <rect>
-      <x>100</x>
-      <y>10</y>
-      <width>80</width>
+      <x>88</x>
+      <y>20</y>
+      <width>116</width>
       <height>24</height>
      </rect>
     </property>
     <property name="font">
      <font>
+      <family>Segoe UI</family>
       <pointsize>10</pointsize>
+      <bold>true</bold>
      </font>
     </property>
     <property name="text">
      <string>Cảnh báo</string>
     </property>
-    <property name="alignment">
-     <set>Qt::AlignmentFlag::AlignCenter</set>
-    </property>
    </widget>
    <widget class="QLabel" name="lblCanhBao">
     <property name="geometry">
      <rect>
-      <x>100</x>
-      <y>40</y>
-      <width>100</width>
+      <x>88</x>
+      <y>46</y>
+      <width>120</width>
       <height>36</height>
      </rect>
     </property>
     <property name="font">
      <font>
       <family>Segoe UI</family>
-      <pointsize>20</pointsize>
-      <bold>true</bold>
+      <pointsize>23</pointsize>
+      <fontweight>ExtraBold</fontweight>
      </font>
     </property>
     <property name="styleSheet">
@@ -503,243 +745,462 @@ QComboBox {
     <property name="text">
      <string>Ổn định</string>
     </property>
+    <property name="class" stdset="0">
+     <string>metricValue</string>
+    </property>
    </widget>
   </widget>
-  <widget class="QFrame" name="frameUuTien">
+  <widget class="QFrame" name="panelHangDoiUuTien">
    <property name="geometry">
     <rect>
-     <x>20</x>
-     <y>238</y>
-     <width>495</width>
+     <x>16</x>
+     <y>226</y>
+     <width>500</width>
      <height>250</height>
     </rect>
    </property>
-   <widget class="QLabel" name="lblUuTien">
+   <property name="frameShape">
+    <enum>QFrame::Shape::StyledPanel</enum>
+   </property>
+   <widget class="QLabel" name="lblIconHangDoiUuTien">
     <property name="geometry">
      <rect>
-      <x>16</x>
-      <y>10</y>
-      <width>220</width>
+      <x>18</x>
+      <y>16</y>
+      <width>34</width>
+      <height>32</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Segoe UI</family>
+      <pointsize>22</pointsize>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color:#0f73df;</string>
+    </property>
+    <property name="text">
+     <string>★</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignmentFlag::AlignCenter</set>
+    </property>
+    <property name="class" stdset="0">
+     <string>sectionIcon</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="lblTitleHangDoiUuTien">
+    <property name="geometry">
+     <rect>
+      <x>58</x>
+      <y>18</y>
+      <width>260</width>
       <height>28</height>
      </rect>
     </property>
     <property name="font">
      <font>
       <family>Segoe UI</family>
-      <pointsize>14</pointsize>
-      <bold>true</bold>
+      <pointsize>13</pointsize>
+      <fontweight>ExtraBold</fontweight>
      </font>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">color:#0f5bd7;</string>
     </property>
     <property name="text">
      <string>Hàng đợi ưu tiên</string>
+    </property>
+    <property name="class" stdset="0">
+     <string>sectionTitle</string>
     </property>
    </widget>
    <widget class="QTableWidget" name="tblHangDoiUuTien">
     <property name="geometry">
      <rect>
-      <x>12</x>
-      <y>48</y>
-      <width>471</width>
-      <height>188</height>
+      <x>0</x>
+      <y>58</y>
+      <width>500</width>
+      <height>192</height>
      </rect>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::FocusPolicy::NoFocus</enum>
+    </property>
+    <property name="alternatingRowColors">
+     <bool>true</bool>
+    </property>
+    <property name="selectionBehavior">
+     <enum>QAbstractItemView::SelectionBehavior::SelectRows</enum>
+    </property>
+    <property name="showGrid">
+     <bool>true</bool>
     </property>
    </widget>
   </widget>
-  <widget class="QFrame" name="frameThuong">
+  <widget class="QFrame" name="panelHangDoiThuong">
    <property name="geometry">
     <rect>
-     <x>530</x>
-     <y>238</y>
-     <width>495</width>
+     <x>532</x>
+     <y>226</y>
+     <width>500</width>
      <height>250</height>
     </rect>
    </property>
-   <widget class="QLabel" name="lblThuong">
+   <property name="frameShape">
+    <enum>QFrame::Shape::StyledPanel</enum>
+   </property>
+   <widget class="QLabel" name="lblIconHangDoiThuong">
     <property name="geometry">
      <rect>
-      <x>16</x>
-      <y>10</y>
-      <width>220</width>
+      <x>18</x>
+      <y>16</y>
+      <width>34</width>
+      <height>32</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Segoe UI</family>
+      <pointsize>20</pointsize>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color:#0f73df;</string>
+    </property>
+    <property name="text">
+     <string>👥</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignmentFlag::AlignCenter</set>
+    </property>
+    <property name="class" stdset="0">
+     <string>sectionIcon</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="lblTitleHangDoiThuong">
+    <property name="geometry">
+     <rect>
+      <x>58</x>
+      <y>18</y>
+      <width>260</width>
       <height>28</height>
      </rect>
     </property>
     <property name="font">
      <font>
       <family>Segoe UI</family>
-      <pointsize>14</pointsize>
-      <bold>true</bold>
+      <pointsize>13</pointsize>
+      <fontweight>ExtraBold</fontweight>
      </font>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">color:#0f5bd7;</string>
     </property>
     <property name="text">
      <string>Hàng đợi thường</string>
+    </property>
+    <property name="class" stdset="0">
+     <string>sectionTitle</string>
     </property>
    </widget>
    <widget class="QTableWidget" name="tblHangDoiThuong">
     <property name="geometry">
      <rect>
-      <x>12</x>
-      <y>48</y>
-      <width>471</width>
-      <height>188</height>
+      <x>0</x>
+      <y>58</y>
+      <width>500</width>
+      <height>192</height>
      </rect>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::FocusPolicy::NoFocus</enum>
+    </property>
+    <property name="alternatingRowColors">
+     <bool>true</bool>
+    </property>
+    <property name="selectionBehavior">
+     <enum>QAbstractItemView::SelectionBehavior::SelectRows</enum>
+    </property>
+    <property name="showGrid">
+     <bool>true</bool>
     </property>
    </widget>
   </widget>
-  <widget class="QFrame" name="frameQuay">
+  <widget class="QFrame" name="panelTrangThaiQuay">
    <property name="geometry">
     <rect>
-     <x>1040</x>
-     <y>238</y>
-     <width>460</width>
+     <x>1048</x>
+     <y>226</y>
+     <width>436</width>
      <height>250</height>
     </rect>
    </property>
-   <widget class="QLabel" name="lblQuay">
+   <property name="frameShape">
+    <enum>QFrame::Shape::StyledPanel</enum>
+   </property>
+   <widget class="QLabel" name="lblIconTrangThaiQuay">
     <property name="geometry">
      <rect>
-      <x>16</x>
-      <y>10</y>
-      <width>220</width>
+      <x>18</x>
+      <y>16</y>
+      <width>34</width>
+      <height>32</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Segoe UI</family>
+      <pointsize>20</pointsize>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color:#0f73df;</string>
+    </property>
+    <property name="text">
+     <string>♟</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignmentFlag::AlignCenter</set>
+    </property>
+    <property name="class" stdset="0">
+     <string>sectionIcon</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="lblTitleTrangThaiQuay">
+    <property name="geometry">
+     <rect>
+      <x>58</x>
+      <y>18</y>
+      <width>240</width>
       <height>28</height>
      </rect>
     </property>
     <property name="font">
      <font>
       <family>Segoe UI</family>
-      <pointsize>14</pointsize>
-      <bold>true</bold>
+      <pointsize>13</pointsize>
+      <fontweight>ExtraBold</fontweight>
      </font>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">color:#0f5bd7;</string>
     </property>
     <property name="text">
      <string>Trạng thái quầy</string>
+    </property>
+    <property name="class" stdset="0">
+     <string>sectionTitle</string>
     </property>
    </widget>
    <widget class="QTableWidget" name="tblQuay">
     <property name="geometry">
      <rect>
-      <x>12</x>
-      <y>48</y>
-      <width>436</width>
+      <x>10</x>
+      <y>58</y>
+      <width>416</width>
       <height>142</height>
      </rect>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::FocusPolicy::NoFocus</enum>
+    </property>
+    <property name="alternatingRowColors">
+     <bool>true</bool>
+    </property>
+    <property name="selectionBehavior">
+     <enum>QAbstractItemView::SelectionBehavior::SelectRows</enum>
+    </property>
+    <property name="showGrid">
+     <bool>true</bool>
     </property>
    </widget>
    <widget class="QComboBox" name="cboQuay">
     <property name="geometry">
      <rect>
-      <x>12</x>
-      <y>204</y>
-      <width>90</width>
-      <height>32</height>
+      <x>10</x>
+      <y>208</y>
+      <width>82</width>
+      <height>34</height>
      </rect>
     </property>
    </widget>
    <widget class="QPushButton" name="btnMoQuay">
     <property name="geometry">
      <rect>
-      <x>112</x>
-      <y>204</y>
+      <x>102</x>
+      <y>208</y>
       <width>100</width>
-      <height>32</height>
+      <height>34</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <family>Segoe UI</family>
+      <pointsize>10</pointsize>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
     <property name="text">
-     <string>Mở quầy</string>
+     <string>+ Mở</string>
     </property>
    </widget>
    <widget class="QPushButton" name="btnDongQuay">
     <property name="geometry">
      <rect>
-      <x>222</x>
-      <y>204</y>
-      <width>105</width>
-      <height>32</height>
+      <x>212</x>
+      <y>208</y>
+      <width>100</width>
+      <height>34</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <family>Segoe UI</family>
+      <pointsize>10</pointsize>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
     <property name="text">
-     <string>Đóng quầy</string>
+     <string>− Đóng</string>
     </property>
    </widget>
    <widget class="QPushButton" name="btnLamMoi">
     <property name="geometry">
      <rect>
-      <x>337</x>
-      <y>204</y>
-      <width>100</width>
-      <height>32</height>
+      <x>322</x>
+      <y>208</y>
+      <width>104</width>
+      <height>34</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <family>Segoe UI</family>
+      <pointsize>10</pointsize>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
     <property name="text">
-     <string>Làm mới</string>
+     <string>⟳ Làm mới</string>
     </property>
    </widget>
   </widget>
-  <widget class="QFrame" name="frameBaoCao">
+  <widget class="QFrame" name="panelBaoCao">
    <property name="geometry">
     <rect>
-     <x>20</x>
-     <y>505</y>
-     <width>1480</width>
-     <height>290</height>
+     <x>16</x>
+     <y>492</y>
+     <width>1468</width>
+     <height>272</height>
     </rect>
    </property>
-   <widget class="QLabel" name="lblBaoCao">
+   <property name="frameShape">
+    <enum>QFrame::Shape::StyledPanel</enum>
+   </property>
+   <widget class="QLabel" name="lblIconBaoCao">
     <property name="geometry">
      <rect>
-      <x>16</x>
-      <y>12</y>
-      <width>310</width>
+      <x>18</x>
+      <y>14</y>
+      <width>34</width>
+      <height>32</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Segoe UI</family>
+      <pointsize>19</pointsize>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color:#0f73df;</string>
+    </property>
+    <property name="text">
+     <string>▤</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignmentFlag::AlignCenter</set>
+    </property>
+    <property name="class" stdset="0">
+     <string>sectionIcon</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="lblTitleBaoCao">
+    <property name="geometry">
+     <rect>
+      <x>58</x>
+      <y>16</y>
+      <width>320</width>
       <height>28</height>
      </rect>
     </property>
     <property name="font">
      <font>
       <family>Segoe UI</family>
-      <pointsize>14</pointsize>
-      <bold>true</bold>
+      <pointsize>13</pointsize>
+      <fontweight>ExtraBold</fontweight>
      </font>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">color:#0f5bd7;</string>
     </property>
     <property name="text">
      <string>Báo cáo khách đã phục vụ</string>
+    </property>
+    <property name="class" stdset="0">
+     <string>sectionTitle</string>
     </property>
    </widget>
    <widget class="QPushButton" name="btnSapXepBaoCao">
     <property name="geometry">
      <rect>
-      <x>1230</x>
-      <y>10</y>
-      <width>220</width>
-      <height>32</height>
+      <x>1248</x>
+      <y>12</y>
+      <width>205</width>
+      <height>34</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <family>Segoe UI</family>
+      <pointsize>10</pointsize>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
     <property name="text">
-     <string>Sắp xếp theo thời gian chờ</string>
+     <string>↕  Sắp xếp theo thời gian chờ</string>
     </property>
    </widget>
    <widget class="QTableWidget" name="tblBaoCao">
     <property name="geometry">
      <rect>
-      <x>12</x>
-      <y>52</y>
-      <width>1456</width>
-      <height>220</height>
+      <x>0</x>
+      <y>58</y>
+      <width>1468</width>
+      <height>214</height>
      </rect>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::FocusPolicy::NoFocus</enum>
+    </property>
+    <property name="alternatingRowColors">
+     <bool>true</bool>
+    </property>
+    <property name="selectionBehavior">
+     <enum>QAbstractItemView::SelectionBehavior::SelectRows</enum>
+    </property>
+    <property name="showGrid">
+     <bool>true</bool>
     </property>
    </widget>
   </widget>
  </widget>
- <resources/>
- <connections/>
+ <resources />
+ <connections />
 </ui>

@@ -45,9 +45,19 @@ class AppController:
     def _show(self, view):
         old_window = self.current_window.window if self.current_window is not None else None
         self.current_window = view
+        self._center_window(self.current_window.window)
         self.current_window.show()
         if old_window is not None:
             old_window.close()
+
+    def _center_window(self, window):
+        screen = QApplication.primaryScreen()
+        if screen is None:
+            return
+        available = screen.availableGeometry()
+        x = available.x() + (available.width() - window.width()) // 2
+        y = available.y() + (available.height() - window.height()) // 2
+        window.move(max(available.x(), x), max(available.y(), y))
 
 
 def main():
@@ -68,3 +78,4 @@ def main():
 
 if __name__ == "__main__":
     raise SystemExit(main())
+

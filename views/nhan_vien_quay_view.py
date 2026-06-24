@@ -11,7 +11,7 @@ class NhanVienQuayView:
         self.he_thong = app_context.get_he_thong_hang_doi()
         self.quay_id = self.user.quay_id or 1
         self.window = load_ui(ui_path)
-        self.window.setFixedSize(900, 620)
+        self.window.setFixedSize(1500, 780)
 
         self.lblTaiKhoan = find_required(self.window, QLabel, "lblTaiKhoan")
         self.lblQuay = find_required(self.window, QLabel, "lblQuay")
@@ -28,11 +28,22 @@ class NhanVienQuayView:
         self.txtLichSu.setReadOnly(True)
         self.btnGoiKhach.clicked.connect(self.goi_khach)
         self.btnHoanThanh.clicked.connect(self.hoan_thanh)
-        self.btnDangXuat.clicked.connect(self.on_logout)
+        self.btnDangXuat.clicked.connect(self.xac_nhan_dang_xuat)
         self.lam_moi()
 
     def show(self):
         self.window.show()
+
+    def xac_nhan_dang_xuat(self):
+        tra_loi = QMessageBox.question(
+            self.window,
+            "Xác nhận đăng xuất",
+            "Bạn có muốn đăng xuất không?",
+            QMessageBox.StandardButton.Yes | QMessageBox.StandardButton.No,
+            QMessageBox.StandardButton.No
+        )
+        if tra_loi == QMessageBox.StandardButton.Yes:
+            self.on_logout()
 
     def goi_khach(self):
         ok, message, khach = self.he_thong.goi_khach_tiep_theo(self.quay_id)

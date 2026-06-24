@@ -245,7 +245,7 @@ QCheckBox::indicator:checked {
      <string>Mật khẩu</string>
     </property>
    </widget>
-   <widget class="QLineEdit" name="txtPassword&#10;">
+   <widget class="QLineEdit" name="txtPassword">
     <property name="geometry">
      <rect>
       <x>45</x>

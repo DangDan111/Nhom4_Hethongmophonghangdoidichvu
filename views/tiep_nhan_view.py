@@ -46,16 +46,23 @@ class TiepNhanView:
         self.window.show()
 
     def xac_nhan_dang_xuat(self):
-        tra_loi = QMessageBox.question(
-            self.window,
-            "Xác nhận đăng xuất",
-            "Bạn có muốn đăng xuất không?",
-            QMessageBox.StandardButton.Yes | QMessageBox.StandardButton.No,
-            QMessageBox.StandardButton.No
-        )
+        try:
+            tra_loi = QMessageBox.question(
+                None,
+                "Xác nhận đăng xuất",
+                "Bạn có muốn đăng xuất không?",
+                QMessageBox.StandardButton.Yes | QMessageBox.StandardButton.No,
+                QMessageBox.StandardButton.No
+            )
 
-        if tra_loi == QMessageBox.StandardButton.Yes:
+            if tra_loi == QMessageBox.StandardButton.Yes:
+                print("Người dùng chọn YES")
             self.on_logout()
+        except Exception as e:
+            print(f"Lỗi rồi bạn ơi: {e}") # Xem lỗi cụ thể ở terminal
+    def on_logout(self):
+        print("Đã đăng xuất thành công!")
+    # Code đóng cửa sổ hoặc chuyển trang ở đây
 
     def them_khach(self):
         ten = self.txtTenKhach.text().strip()

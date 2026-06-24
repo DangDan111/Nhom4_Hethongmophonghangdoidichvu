@@ -1,94 +1,72 @@
-﻿import customtkinter as ctk
-from tkinter import messagebox
+﻿from PySide6.QtWidgets import QLabel, QPushButton, QTextEdit, QMessageBox
+
+from views.ui_helpers import find_required, load_ui
 
 
 class NhanVienQuayView:
-    def __init__(self, root, app_context):
-        self.root = root
+    def __init__(self, ui_path, app_context, on_logout):
         self.app_context = app_context
+        self.on_logout = on_logout
         self.user = app_context.get_current_user()
         self.he_thong = app_context.get_he_thong_hang_doi()
         self.quay_id = self.user.quay_id or 1
-        self.frame = None
+        self.window = load_ui(ui_path)
+        self.window.setFixedSize(900, 620)
+
+        self.lblTaiKhoan = find_required(self.window, QLabel, "lblTaiKhoan")
+        self.lblQuay = find_required(self.window, QLabel, "lblQuay")
+        self.lblTrangThai = find_required(self.window, QLabel, "lblTrangThai")
+        self.txtKhachDangPhucVu = find_required(self.window, QTextEdit, "txtKhachDangPhucVu")
+        self.txtLichSu = find_required(self.window, QTextEdit, "txtLichSu")
+        self.btnGoiKhach = find_required(self.window, QPushButton, "btnGoiKhach")
+        self.btnHoanThanh = find_required(self.window, QPushButton, "btnHoanThanh")
+        self.btnDangXuat = find_required(self.window, QPushButton, "btnDangXuat")
+
+        self.lblTaiKhoan.setText(f"Tài khoản: {self.user.username}")
+        self.lblQuay.setText(f"Quầy {self.quay_id}")
+        self.txtKhachDangPhucVu.setReadOnly(True)
+        self.txtLichSu.setReadOnly(True)
+        self.btnGoiKhach.clicked.connect(self.goi_khach)
+        self.btnHoanThanh.clicked.connect(self.hoan_thanh)
+        self.btnDangXuat.clicked.connect(self.on_logout)
+        self.lam_moi()
 
     def show(self):
-        self._clear_root()
-        self.root.title(f"Nhân viên quầy {self.quay_id}")
-        self.root.geometry("1520x820")
-        self.root.resizable(False, False)
-
-        self.frame = ctk.CTkFrame(self.root, fg_color="#f5f8ff", corner_radius=0)
-        self.frame.pack(fill="both", expand=True)
-
-        header = ctk.CTkFrame(self.frame, height=92, fg_color="white", corner_radius=0, border_width=1, border_color="#d9e2f2")
-        header.pack(fill="x")
-        header.pack_propagate(False)
-        ctk.CTkLabel(header, text="GIAO DIỆN NHÂN VIÊN QUẦY", font=("Segoe UI", 26, "bold"), text_color="#0f5bd7").place(x=40, y=20)
-        ctk.CTkLabel(header, text=f"Quầy {self.quay_id} - gọi khách và hoàn thành phục vụ", font=("Segoe UI", 15), text_color="#4b5563").place(x=42, y=56)
-        ctk.CTkLabel(header, text=f"Tài khoản: {self.user.username}", font=("Segoe UI", 14, "bold"), text_color="#111827").place(x=1190, y=34)
-        ctk.CTkButton(header, text="Đăng xuất", width=135, height=38, font=("Segoe UI", 14, "bold"), fg_color="white", text_color="#0f5bd7", border_width=1, border_color="#0f5bd7", hover_color="#eef4ff", command=self.dang_xuat).place(x=1340, y=27)
-
-        body = ctk.CTkFrame(self.frame, fg_color="transparent")
-        body.pack(fill="both", expand=True, padx=28, pady=24)
-        body.grid_columnconfigure(0, weight=1)
-        body.grid_columnconfigure(1, weight=1)
-        body.grid_rowconfigure(0, weight=1)
-
-        left = ctk.CTkFrame(body, fg_color="white", corner_radius=10, border_width=1, border_color="#d9e2f2")
-        left.grid(row=0, column=0, sticky="nsew", padx=(0, 12))
-        right = ctk.CTkFrame(body, fg_color="white", corner_radius=10, border_width=1, border_color="#d9e2f2")
-        right.grid(row=0, column=1, sticky="nsew", padx=(12, 0))
-
-        ctk.CTkLabel(left, text=f"Quầy {self.quay_id}", font=("Segoe UI", 24, "bold"), text_color="#0f5bd7").pack(anchor="w", padx=24, pady=(24, 8))
-        self.status_label = ctk.CTkLabel(left, text="", font=("Segoe UI", 16, "bold"), text_color="#111827")
-        self.status_label.pack(anchor="w", padx=24, pady=(0, 18))
-
-        ctk.CTkButton(left, text="Gọi khách tiếp theo", width=300, height=46, font=("Segoe UI", 15, "bold"), fg_color="#0f5bd7", command=self.goi_khach).pack(anchor="w", padx=24, pady=(0, 14))
-        ctk.CTkButton(left, text="Hoàn thành dịch vụ", width=300, height=46, font=("Segoe UI", 15, "bold"), fg_color="#16a34a", hover_color="#15803d", command=self.hoan_thanh).pack(anchor="w", padx=24, pady=(0, 20))
-
-        ctk.CTkLabel(left, text="Khách đang phục vụ", font=("Segoe UI", 20, "bold"), text_color="#0f5bd7").pack(anchor="w", padx=24, pady=(12, 8))
-        self.customer_text = ctk.CTkTextbox(left, height=300, font=("Consolas", 14), fg_color="#fbfdff", text_color="#111827")
-        self.customer_text.pack(fill="x", padx=24, pady=(0, 24))
-
-        ctk.CTkLabel(right, text="Lịch sử phục vụ của quầy", font=("Segoe UI", 20, "bold"), text_color="#0f5bd7").pack(anchor="w", padx=24, pady=(24, 10))
-        self.history_text = ctk.CTkTextbox(right, font=("Consolas", 13), fg_color="#fbfdff", text_color="#111827")
-        self.history_text.pack(fill="both", expand=True, padx=24, pady=(0, 24))
-        self.cap_nhat()
+        self.window.show()
 
     def goi_khach(self):
-        ok, thong_bao, khach = self.he_thong.goi_khach_tiep_theo(self.quay_id)
-        if not ok:
-            messagebox.showwarning("Thông báo", thong_bao)
+        ok, message, khach = self.he_thong.goi_khach_tiep_theo(self.quay_id)
+        if ok:
+            QMessageBox.information(self.window, "Thành công", message)
         else:
-            messagebox.showinfo("Thành công", thong_bao)
-        self.cap_nhat()
+            QMessageBox.warning(self.window, "Thông báo", message)
+        self.lam_moi()
 
     def hoan_thanh(self):
-        ok, thong_bao, khach = self.he_thong.hoan_thanh_phuc_vu(self.quay_id)
-        if not ok:
-            messagebox.showwarning("Thông báo", thong_bao)
+        ok, message, khach = self.he_thong.hoan_thanh_phuc_vu(self.quay_id)
+        if ok:
+            QMessageBox.information(self.window, "Thành công", message)
         else:
-            messagebox.showinfo("Thành công", thong_bao)
-        self.cap_nhat()
+            QMessageBox.warning(self.window, "Thông báo", message)
+        self.lam_moi()
 
-    def cap_nhat(self):
+    def lam_moi(self):
         quay = None
-        for item in self.he_thong.lay_danh_sach_quay():
-            if item.id_quay == self.quay_id:
-                quay = item
+        for q in self.he_thong.lay_danh_sach_quay():
+            if q.id_quay == self.quay_id:
+                quay = q
                 break
-
         if quay is None:
             return
 
         mo_dong = "Đang mở" if quay.dang_mo else "Đang đóng"
-        self.status_label.configure(text=f"Trạng thái: {mo_dong} - {quay.trang_thai}")
+        self.lblTrangThai.setText(f"Trạng thái: {mo_dong} - {quay.trang_thai}")
 
         khach = quay.khach_dang_phuc_vu
         if khach is None:
-            customer = "Hiện chưa có khách hàng nào đang phục vụ."
+            self.txtKhachDangPhucVu.setPlainText("Hiện chưa có khách hàng nào đang phục vụ.")
         else:
-            customer = (
+            self.txtKhachDangPhucVu.setPlainText(
                 f"Mã khách: {khach.ma_khach()}\n"
                 f"Tên khách: {khach.ten}\n"
                 f"Loại dịch vụ: {khach.loai_dich_vu}\n"
@@ -96,29 +74,11 @@ class NhanVienQuayView:
                 f"Thời gian đến: {khach.thoi_gian_den.strftime('%H:%M:%S')}\n"
                 f"Bắt đầu phục vụ: {khach.thoi_gian_bat_dau_phuc_vu.strftime('%H:%M:%S')}"
             )
-        self._set_text(self.customer_text, customer)
 
         if len(quay.lich_su_phuc_vu) == 0:
-            history = "Chưa có khách nào hoàn thành tại quầy này."
+            self.txtLichSu.setPlainText("Chưa có khách nào hoàn thành tại quầy này.")
         else:
             lines = ["Mã KH   Tên khách                 Dịch vụ              Chờ(phút)  Phục vụ(phút)"]
-            for khach in quay.lich_su_phuc_vu:
-                lines.append(f"{khach.ma_khach():<7} {khach.ten:<24} {khach.loai_dich_vu:<20} {khach.tinh_thoi_gian_cho():<9.1f} {khach.tinh_thoi_gian_phuc_vu():.1f}")
-            history = "\n".join(lines)
-        self._set_text(self.history_text, history)
-
-    def _set_text(self, textbox, text):
-        textbox.configure(state="normal")
-        textbox.delete("1.0", "end")
-        textbox.insert("1.0", text)
-        textbox.configure(state="disabled")
-
-    def dang_xuat(self):
-        self.app_context.set_current_user(None)
-        from views.login_view import LoginView
-        LoginView(self.root, self.app_context).show()
-
-    def _clear_root(self):
-        self.root.unbind("<Return>")
-        for widget in self.root.winfo_children():
-            widget.destroy()
+            for k in quay.lich_su_phuc_vu:
+                lines.append(f"{k.ma_khach():<7} {k.ten:<24} {k.loai_dich_vu:<20} {k.tinh_thoi_gian_cho():<9.1f} {k.tinh_thoi_gian_phuc_vu():.1f}")
+            self.txtLichSu.setPlainText("\n".join(lines))

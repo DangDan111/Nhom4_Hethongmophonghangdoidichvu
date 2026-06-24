@@ -2,7 +2,7 @@
 
 
 class AppContext:
-    def __init__(self, root):
+    def __init__(self, root=None):
         self.root = root
         self.current_user = None
         self.he_thong_hang_doi = HeThongHangDoi()

@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>LoginForm</class>
+ <widget class="QWidget" name="LoginForm">
+  <property name="geometry"><rect><x>0</x><y>0</y><width>520</width><height>470</height></rect></property>
+  <property name="windowTitle"><string>Đăng nhập hệ thống</string></property>
+  <property name="styleSheet"><string notr="true">QWidget{background:#f5f8ff;} QFrame#card{background:white;border:1px solid #d9e2f2;border-radius:14px;} QLineEdit{background:white;border:1px solid #cbd5e1;border-radius:6px;padding:8px;font-size:14px;} QPushButton{background:#0f5bd7;color:white;border-radius:6px;font-weight:700;font-size:14px;}</string></property>
+  <widget class="QFrame" name="card">
+   <property name="geometry"><rect><x>45</x><y>35</y><width>430</width><height>400</height></rect></property>
+   <widget class="QLabel" name="lblTieuDe">
+    <property name="geometry"><rect><x>30</x><y>45</y><width>370</width><height>42</height></rect></property>
+    <property name="font"><font><family>Segoe UI</family><pointsize>22</pointsize><bold>true</bold></font></property>
+    <property name="styleSheet"><string notr="true">color:#0f5bd7;</string></property>
+    <property name="alignment"><set>Qt::AlignCenter</set></property>
+    <property name="text"><string>ĐĂNG NHẬP HỆ THỐNG</string></property>
+   </widget>
+   <widget class="QLabel" name="lblPhuDe">
+    <property name="geometry"><rect><x>30</x><y>88</y><width>370</width><height>26</height></rect></property>
+    <property name="font"><font><family>Segoe UI</family><pointsize>12</pointsize></font></property>
+    <property name="alignment"><set>Qt::AlignCenter</set></property>
+    <property name="text"><string>Hệ thống mô phỏng hàng đợi dịch vụ</string></property>
+   </widget>
+   <widget class="QLineEdit" name="txtUsername">
+    <property name="geometry"><rect><x>55</x><y>150</y><width>320</width><height>42</height></rect></property>
+    <property name="placeholderText"><string>Tên đăng nhập</string></property>
+   </widget>
+   <widget class="QLineEdit" name="txtPassword">
+    <property name="geometry"><rect><x>55</x><y>207</y><width>320</width><height>42</height></rect></property>
+    <property name="placeholderText"><string>Mật khẩu</string></property>
+   </widget>
+   <widget class="QLabel" name="lblThongBao">
+    <property name="geometry"><rect><x>55</x><y>260</y><width>320</width><height>28</height></rect></property>
+    <property name="alignment"><set>Qt::AlignCenter</set></property>
+    <property name="text"><string/></property>
+   </widget>
+   <widget class="QPushButton" name="btnDangNhap">
+    <property name="geometry"><rect><x>55</x><y>302</y><width>320</width><height>44</height></rect></property>
+    <property name="text"><string>ĐĂNG NHẬP</string></property>
+   </widget>
+   <widget class="QLabel" name="lblTaiKhoanMau">
+    <property name="geometry"><rect><x>35</x><y>358</y><width>360</width><height>28</height></rect></property>
+    <property name="styleSheet"><string notr="true">color:#64748b;</string></property>
+    <property name="alignment"><set>Qt::AlignCenter</set></property>
+    <property name="text"><string>Tài khoản: admin, tiepnhan, quay1, quay2, quay3 / 123</string></property>
+   </widget>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

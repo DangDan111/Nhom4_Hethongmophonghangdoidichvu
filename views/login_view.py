@@ -11,7 +11,7 @@ class LoginView:
         self.on_login_success = on_login_success
         self.auth_service = AuthService()
         self.window = load_ui(ui_path)
-        self.window.setFixedSize(520, 470)
+        self.window.setFixedSize(1280, 720)
 
         self.lblTieuDe = find_required(self.window, QLabel, "lblTieuDe")
         self.lblPhuDe = find_required(self.window, QLabel, "lblPhuDe")

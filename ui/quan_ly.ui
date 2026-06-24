@@ -224,20 +224,20 @@ QHeaderView::section {
      <rect>
       <x>18</x>
       <y>20</y>
-      <width>54</width>
-      <height>54</height>
+      <width>48</width>
+      <height>48</height>
      </rect>
     </property>
     <property name="minimumSize">
      <size>
-      <width>54</width>
-      <height>54</height>
+      <width>48</width>
+      <height>48</height>
      </size>
     </property>
     <property name="maximumSize">
      <size>
-      <width>54</width>
-      <height>54</height>
+      <width>48</width>
+      <height>48</height>
      </size>
     </property>
     <property name="font">
@@ -469,7 +469,7 @@ image: url(icon1.png);</string>
      </font>
     </property>
     <property name="pixmap">
-     <pixmap>../../Downloads/reception.png</pixmap>
+     <pixmap>../images/group.png</pixmap>
     </property>
     <property name="scaledContents">
      <bool>true</bool>
@@ -563,7 +563,7 @@ image: url(icon1.png);</string>
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap>../../Downloads/reception (1).png</pixmap>
+     <pixmap>../images/reception.png</pixmap>
     </property>
     <property name="scaledContents">
      <bool>true</bool>
@@ -1060,8 +1060,8 @@ image: url(icon1.png);</string>
    <widget class="QTableWidget" name="tblQuay">
     <property name="geometry">
      <rect>
-      <x>10</x>
-      <y>58</y>
+      <x>0</x>
+      <y>50</y>
       <width>416</width>
       <height>142</height>
      </rect>

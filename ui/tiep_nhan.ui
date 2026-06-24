@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='utf-8'?>
+<?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
  <class>TiepNhanForm</class>
  <widget class="QWidget" name="TiepNhanForm">
@@ -29,7 +29,7 @@
    <string notr="true">
 QWidget#TiepNhanForm {
     background: #f6f9ff;
-    font-family: "Segoe UI";
+    font-family: &quot;Segoe UI&quot;;
     color: #111827;
 }
 QFrame {
@@ -120,7 +120,7 @@ QHeaderView::section {
     </rect>
    </property>
    <property name="frameShape">
-    <enum>QFrame::StyledPanel</enum>
+    <enum>QFrame::Shape::StyledPanel</enum>
    </property>
    <widget class="QLabel" name="lblTitle">
     <property name="geometry">
@@ -134,8 +134,8 @@ QHeaderView::section {
     <property name="font">
      <font>
       <family>Segoe UI</family>
-      <pointsize>25</pointsize>
-      <bold>true</bold>
+      <pointsize>-1</pointsize>
+      <fontweight>ExtraBold</fontweight>
      </font>
     </property>
     <property name="text">
@@ -182,7 +182,7 @@ QHeaderView::section {
      <string>Tài khoản: tiepnhan</string>
     </property>
     <property name="alignment">
-     <set>Qt::AlignRight|Qt::AlignVCenter</set>
+     <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
     </property>
    </widget>
    <widget class="QPushButton" name="btnDangXuat">
@@ -201,14 +201,14 @@ QHeaderView::section {
       <bold>true</bold>
      </font>
     </property>
-    <property name="class">
-     <string>secondary</string>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
     </property>
     <property name="text">
      <string>Đăng xuất</string>
     </property>
-    <property name="cursor">
-     <cursorShape>PointingHandCursor</cursorShape>
+    <property name="class" stdset="0">
+     <string>secondary</string>
     </property>
    </widget>
   </widget>
@@ -222,7 +222,7 @@ QHeaderView::section {
     </rect>
    </property>
    <property name="frameShape">
-    <enum>QFrame::StyledPanel</enum>
+    <enum>QFrame::Shape::StyledPanel</enum>
    </property>
    <widget class="QLabel" name="cardDaTiepNhanImage">
     <property name="geometry">
@@ -240,17 +240,23 @@ QHeaderView::section {
       <bold>false</bold>
      </font>
     </property>
-    <property name="class">
-     <string>imageSlot</string>
-    </property>
     <property name="styleSheet">
      <string notr="true">background:#edf5ff; border:1px dashed #b8c7dc; border-radius:24px;</string>
     </property>
     <property name="text">
-     <string />
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap>C:/Users/ADMIN/Downloads/group (1).png</pixmap>
+    </property>
+    <property name="scaledContents">
+     <bool>true</bool>
     </property>
     <property name="alignment">
-     <set>Qt::AlignCenter</set>
+     <set>Qt::AlignmentFlag::AlignCenter</set>
+    </property>
+    <property name="class" stdset="0">
+     <string>imageSlot</string>
     </property>
    </widget>
    <widget class="QLabel" name="cardDaTiepNhanTitle">
@@ -307,7 +313,7 @@ QHeaderView::section {
     </rect>
    </property>
    <property name="frameShape">
-    <enum>QFrame::StyledPanel</enum>
+    <enum>QFrame::Shape::StyledPanel</enum>
    </property>
    <widget class="QLabel" name="cardDangChoImage">
     <property name="geometry">
@@ -325,17 +331,23 @@ QHeaderView::section {
       <bold>false</bold>
      </font>
     </property>
-    <property name="class">
-     <string>imageSlot</string>
-    </property>
     <property name="styleSheet">
      <string notr="true">background:#edf5ff; border:1px dashed #b8c7dc; border-radius:24px;</string>
     </property>
     <property name="text">
-     <string />
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap>C:/Users/ADMIN/Downloads/clock.png</pixmap>
+    </property>
+    <property name="scaledContents">
+     <bool>true</bool>
     </property>
     <property name="alignment">
-     <set>Qt::AlignCenter</set>
+     <set>Qt::AlignmentFlag::AlignCenter</set>
+    </property>
+    <property name="class" stdset="0">
+     <string>imageSlot</string>
     </property>
    </widget>
    <widget class="QLabel" name="cardDangChoTitle">
@@ -392,7 +404,7 @@ QHeaderView::section {
     </rect>
    </property>
    <property name="frameShape">
-    <enum>QFrame::StyledPanel</enum>
+    <enum>QFrame::Shape::StyledPanel</enum>
    </property>
    <widget class="QLabel" name="cardUuTienImage">
     <property name="geometry">
@@ -410,17 +422,23 @@ QHeaderView::section {
       <bold>false</bold>
      </font>
     </property>
-    <property name="class">
-     <string>imageSlot</string>
-    </property>
     <property name="styleSheet">
      <string notr="true">background:#edf5ff; border:1px dashed #b8c7dc; border-radius:24px;</string>
     </property>
     <property name="text">
-     <string />
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap>C:/Users/ADMIN/Downloads/invitation.png</pixmap>
+    </property>
+    <property name="scaledContents">
+     <bool>true</bool>
     </property>
     <property name="alignment">
-     <set>Qt::AlignCenter</set>
+     <set>Qt::AlignmentFlag::AlignCenter</set>
+    </property>
+    <property name="class" stdset="0">
+     <string>imageSlot</string>
     </property>
    </widget>
    <widget class="QLabel" name="cardUuTienTitle">
@@ -477,7 +495,7 @@ QHeaderView::section {
     </rect>
    </property>
    <property name="frameShape">
-    <enum>QFrame::StyledPanel</enum>
+    <enum>QFrame::Shape::StyledPanel</enum>
    </property>
    <widget class="QLabel" name="cardThanhCongImage">
     <property name="geometry">
@@ -495,17 +513,23 @@ QHeaderView::section {
       <bold>false</bold>
      </font>
     </property>
-    <property name="class">
-     <string>imageSlot</string>
-    </property>
     <property name="styleSheet">
      <string notr="true">background:#edf5ff; border:1px dashed #b8c7dc; border-radius:24px;</string>
     </property>
     <property name="text">
-     <string />
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap>C:/Users/ADMIN/Downloads/to-do-list.png</pixmap>
+    </property>
+    <property name="scaledContents">
+     <bool>true</bool>
     </property>
     <property name="alignment">
-     <set>Qt::AlignCenter</set>
+     <set>Qt::AlignmentFlag::AlignCenter</set>
+    </property>
+    <property name="class" stdset="0">
+     <string>imageSlot</string>
     </property>
    </widget>
    <widget class="QLabel" name="cardThanhCongTitle">
@@ -557,12 +581,12 @@ QHeaderView::section {
     <rect>
      <x>16</x>
      <y>188</y>
-     <width>828</width>
-     <height>350</height>
+     <width>761</width>
+     <height>411</height>
     </rect>
    </property>
    <property name="frameShape">
-    <enum>QFrame::StyledPanel</enum>
+    <enum>QFrame::Shape::StyledPanel</enum>
    </property>
    <widget class="QLabel" name="lblImgThongTin">
     <property name="geometry">
@@ -580,17 +604,23 @@ QHeaderView::section {
       <bold>false</bold>
      </font>
     </property>
-    <property name="class">
-     <string>imageSlot</string>
-    </property>
     <property name="styleSheet">
      <string notr="true">background:#edf5ff; border:1px dashed #b8c7dc; border-radius:14px;</string>
     </property>
     <property name="text">
-     <string />
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap>C:/Users/ADMIN/Downloads/user.png</pixmap>
+    </property>
+    <property name="scaledContents">
+     <bool>true</bool>
     </property>
     <property name="alignment">
-     <set>Qt::AlignCenter</set>
+     <set>Qt::AlignmentFlag::AlignCenter</set>
+    </property>
+    <property name="class" stdset="0">
+     <string>imageSlot</string>
     </property>
    </widget>
    <widget class="QLabel" name="lblTitleThongTin">
@@ -606,14 +636,14 @@ QHeaderView::section {
      <font>
       <family>Segoe UI</family>
       <pointsize>12</pointsize>
-      <bold>true</bold>
+      <fontweight>ExtraBold</fontweight>
      </font>
-    </property>
-    <property name="class">
-     <string>sectionTitle</string>
     </property>
     <property name="text">
      <string>Thông tin tiếp nhận khách hàng</string>
+    </property>
+    <property name="class" stdset="0">
+     <string>sectionTitle</string>
     </property>
    </widget>
    <widget class="QLabel" name="lblHoTen">
@@ -681,7 +711,7 @@ QHeaderView::section {
      <rect>
       <x>512</x>
       <y>54</y>
-      <width>286</width>
+      <width>231</width>
       <height>34</height>
      </rect>
     </property>
@@ -763,7 +793,7 @@ QHeaderView::section {
      <rect>
       <x>512</x>
       <y>96</y>
-      <width>286</width>
+      <width>231</width>
       <height>34</height>
      </rect>
     </property>
@@ -867,7 +897,7 @@ QHeaderView::section {
      <rect>
       <x>118</x>
       <y>180</y>
-      <width>680</width>
+      <width>621</width>
       <height>58</height>
      </rect>
     </property>
@@ -887,7 +917,7 @@ QHeaderView::section {
      <rect>
       <x>18</x>
       <y>254</y>
-      <width>224</width>
+      <width>211</width>
       <height>40</height>
      </rect>
     </property>
@@ -898,22 +928,22 @@ QHeaderView::section {
       <bold>true</bold>
      </font>
     </property>
-    <property name="class">
-     <string>primary</string>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
     </property>
     <property name="text">
      <string>+  Thêm khách hàng</string>
     </property>
-    <property name="cursor">
-     <cursorShape>PointingHandCursor</cursorShape>
+    <property name="class" stdset="0">
+     <string>primary</string>
     </property>
    </widget>
    <widget class="QPushButton" name="btnLamMoi">
     <property name="geometry">
      <rect>
-      <x>264</x>
+      <x>272</x>
       <y>254</y>
-      <width>222</width>
+      <width>191</width>
       <height>40</height>
      </rect>
     </property>
@@ -924,14 +954,14 @@ QHeaderView::section {
       <bold>true</bold>
      </font>
     </property>
-    <property name="class">
-     <string>secondary</string>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
     </property>
     <property name="text">
      <string>Làm mới</string>
     </property>
-    <property name="cursor">
-     <cursorShape>PointingHandCursor</cursorShape>
+    <property name="class" stdset="0">
+     <string>secondary</string>
     </property>
    </widget>
    <widget class="QPushButton" name="btnTaoSoThuTu">
@@ -939,7 +969,7 @@ QHeaderView::section {
      <rect>
       <x>508</x>
       <y>254</y>
-      <width>290</width>
+      <width>231</width>
       <height>40</height>
      </rect>
     </property>
@@ -950,14 +980,14 @@ QHeaderView::section {
       <bold>true</bold>
      </font>
     </property>
-    <property name="class">
-     <string>success</string>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
     </property>
     <property name="text">
      <string>Tạo số thứ tự</string>
     </property>
-    <property name="cursor">
-     <cursorShape>PointingHandCursor</cursorShape>
+    <property name="class" stdset="0">
+     <string>success</string>
     </property>
    </widget>
    <widget class="QLabel" name="lblThongBaoThanhCong">
@@ -965,7 +995,7 @@ QHeaderView::section {
      <rect>
       <x>18</x>
       <y>306</y>
-      <width>780</width>
+      <width>721</width>
       <height>34</height>
      </rect>
     </property>
@@ -976,28 +1006,28 @@ QHeaderView::section {
       <bold>false</bold>
      </font>
     </property>
-    <property name="class">
-     <string>badgeGreen</string>
-    </property>
     <property name="text">
      <string>✓   Đã thêm khách hàng vào hệ thống thành công.</string>
     </property>
     <property name="alignment">
-     <set>Qt::AlignVCenter</set>
+     <set>Qt::AlignmentFlag::AlignVCenter</set>
+    </property>
+    <property name="class" stdset="0">
+     <string>badgeGreen</string>
     </property>
    </widget>
   </widget>
   <widget class="QFrame" name="panelDanhSach">
    <property name="geometry">
     <rect>
-     <x>860</x>
-     <y>188</y>
-     <width>624</width>
+     <x>800</x>
+     <y>190</y>
+     <width>681</width>
      <height>202</height>
     </rect>
    </property>
    <property name="frameShape">
-    <enum>QFrame::StyledPanel</enum>
+    <enum>QFrame::Shape::StyledPanel</enum>
    </property>
    <widget class="QLabel" name="lblImgDanhSach">
     <property name="geometry">
@@ -1015,17 +1045,23 @@ QHeaderView::section {
       <bold>false</bold>
      </font>
     </property>
-    <property name="class">
-     <string>imageSlot</string>
-    </property>
     <property name="styleSheet">
      <string notr="true">background:#edf5ff; border:1px dashed #b8c7dc; border-radius:14px;</string>
     </property>
     <property name="text">
-     <string />
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap>C:/Users/ADMIN/Downloads/people.png</pixmap>
+    </property>
+    <property name="scaledContents">
+     <bool>true</bool>
     </property>
     <property name="alignment">
-     <set>Qt::AlignCenter</set>
+     <set>Qt::AlignmentFlag::AlignCenter</set>
+    </property>
+    <property name="class" stdset="0">
+     <string>imageSlot</string>
     </property>
    </widget>
    <widget class="QLabel" name="lblTitleDanhSach">
@@ -1041,14 +1077,14 @@ QHeaderView::section {
      <font>
       <family>Segoe UI</family>
       <pointsize>12</pointsize>
-      <bold>true</bold>
+      <fontweight>ExtraBold</fontweight>
      </font>
-    </property>
-    <property name="class">
-     <string>sectionTitle</string>
     </property>
     <property name="text">
      <string>Danh sách khách vừa tiếp nhận</string>
+    </property>
+    <property name="class" stdset="0">
+     <string>sectionTitle</string>
     </property>
    </widget>
    <widget class="QTableWidget" name="tblKhachVuaTiepNhan">
@@ -1056,7 +1092,7 @@ QHeaderView::section {
      <rect>
       <x>0</x>
       <y>52</y>
-      <width>624</width>
+      <width>691</width>
       <height>150</height>
      </rect>
     </property>
@@ -1068,16 +1104,16 @@ QHeaderView::section {
      </font>
     </property>
     <property name="focusPolicy">
-     <enum>Qt::NoFocus</enum>
+     <enum>Qt::FocusPolicy::NoFocus</enum>
+    </property>
+    <property name="editTriggers">
+     <set>QAbstractItemView::EditTrigger::NoEditTriggers</set>
     </property>
     <property name="alternatingRowColors">
      <bool>true</bool>
     </property>
     <property name="selectionMode">
-     <enum>QAbstractItemView::NoSelection</enum>
-    </property>
-    <property name="editTriggers">
-     <set>QAbstractItemView::NoEditTriggers</set>
+     <enum>QAbstractItemView::SelectionMode::NoSelection</enum>
     </property>
     <property name="showGrid">
      <bool>true</bool>
@@ -1088,6 +1124,10 @@ QHeaderView::section {
     <property name="columnCount">
      <number>5</number>
     </property>
+    <row/>
+    <row/>
+    <row/>
+    <row/>
     <column>
      <property name="text">
       <string>Mã KH</string>
@@ -1218,20 +1258,20 @@ QHeaderView::section {
   <widget class="QFrame" name="panelTongQuan">
    <property name="geometry">
     <rect>
-     <x>860</x>
+     <x>803</x>
      <y>410</y>
-     <width>624</width>
-     <height>206</height>
+     <width>681</width>
+     <height>191</height>
     </rect>
    </property>
    <property name="frameShape">
-    <enum>QFrame::StyledPanel</enum>
+    <enum>QFrame::Shape::StyledPanel</enum>
    </property>
    <widget class="QLabel" name="lblImgTongQuan">
     <property name="geometry">
      <rect>
       <x>18</x>
-      <y>13</y>
+      <y>9</y>
       <width>28</width>
       <height>28</height>
      </rect>
@@ -1243,24 +1283,30 @@ QHeaderView::section {
       <bold>false</bold>
      </font>
     </property>
-    <property name="class">
-     <string>imageSlot</string>
-    </property>
     <property name="styleSheet">
      <string notr="true">background:#edf5ff; border:1px dashed #b8c7dc; border-radius:14px;</string>
     </property>
     <property name="text">
-     <string />
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap>C:/Users/ADMIN/Downloads/group (2).png</pixmap>
+    </property>
+    <property name="scaledContents">
+     <bool>true</bool>
     </property>
     <property name="alignment">
-     <set>Qt::AlignCenter</set>
+     <set>Qt::AlignmentFlag::AlignCenter</set>
+    </property>
+    <property name="class" stdset="0">
+     <string>imageSlot</string>
     </property>
    </widget>
    <widget class="QLabel" name="lblTitleTongQuan">
     <property name="geometry">
      <rect>
       <x>56</x>
-      <y>14</y>
+      <y>9</y>
       <width>300</width>
       <height>28</height>
      </rect>
@@ -1269,21 +1315,21 @@ QHeaderView::section {
      <font>
       <family>Segoe UI</family>
       <pointsize>12</pointsize>
-      <bold>true</bold>
+      <fontweight>ExtraBold</fontweight>
      </font>
-    </property>
-    <property name="class">
-     <string>sectionTitle</string>
     </property>
     <property name="text">
      <string>Tổng quan hàng chờ hiện tại</string>
+    </property>
+    <property name="class" stdset="0">
+     <string>sectionTitle</string>
     </property>
    </widget>
    <widget class="QTextEdit" name="txtTheoDoi">
     <property name="geometry">
      <rect>
-      <x>18</x>
-      <y>54</y>
+      <x>20</x>
+      <y>39</y>
       <width>416</width>
       <height>136</height>
      </rect>
@@ -1306,10 +1352,10 @@ Chưa có khách đang chờ.</string>
    <widget class="QLabel" name="lblQuyTac">
     <property name="geometry">
      <rect>
-      <x>454</x>
-      <y>58</y>
+      <x>520</x>
+      <y>39</y>
       <width>146</width>
-      <height>56</height>
+      <height>61</height>
      </rect>
     </property>
     <property name="font">
@@ -1319,24 +1365,25 @@ Chưa có khách đang chờ.</string>
       <bold>false</bold>
      </font>
     </property>
-    <property name="class">
-     <string>badgeBlue</string>
-    </property>
     <property name="text">
      <string>Quy tắc phục vụ:
-Ưu tiên trước</string>
+Ưu tiên trước,
+ thường sau</string>
     </property>
     <property name="alignment">
-     <set>Qt::AlignCenter</set>
+     <set>Qt::AlignmentFlag::AlignCenter</set>
+    </property>
+    <property name="class" stdset="0">
+     <string>badgeBlue</string>
     </property>
    </widget>
    <widget class="QLabel" name="lblLuuY">
     <property name="geometry">
      <rect>
-      <x>454</x>
-      <y>134</y>
+      <x>520</x>
+      <y>111</y>
       <width>146</width>
-      <height>56</height>
+      <height>61</height>
      </rect>
     </property>
     <property name="font">
@@ -1346,29 +1393,30 @@ Chưa có khách đang chờ.</string>
       <bold>false</bold>
      </font>
     </property>
-    <property name="class">
-     <string>badgeBlue</string>
-    </property>
     <property name="text">
-     <string>Không tự chọn
+     <string>Nhân viên tiếp nhận
+ không được tự chọn
 thứ tự phục vụ</string>
     </property>
     <property name="alignment">
-     <set>Qt::AlignCenter</set>
+     <set>Qt::AlignmentFlag::AlignCenter</set>
+    </property>
+    <property name="class" stdset="0">
+     <string>badgeBlue</string>
     </property>
    </widget>
   </widget>
   <widget class="QFrame" name="panelNhatKy">
    <property name="geometry">
     <rect>
-     <x>16</x>
-     <y>632</y>
+     <x>10</x>
+     <y>610</y>
      <width>1468</width>
      <height>142</height>
     </rect>
    </property>
    <property name="frameShape">
-    <enum>QFrame::StyledPanel</enum>
+    <enum>QFrame::Shape::StyledPanel</enum>
    </property>
    <widget class="QLabel" name="lblImgNhatKy">
     <property name="geometry">
@@ -1386,17 +1434,23 @@ thứ tự phục vụ</string>
       <bold>false</bold>
      </font>
     </property>
-    <property name="class">
-     <string>imageSlot</string>
-    </property>
     <property name="styleSheet">
      <string notr="true">background:#edf5ff; border:1px dashed #b8c7dc; border-radius:14px;</string>
     </property>
     <property name="text">
-     <string />
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap>C:/Users/ADMIN/Downloads/task.png</pixmap>
+    </property>
+    <property name="scaledContents">
+     <bool>true</bool>
     </property>
     <property name="alignment">
-     <set>Qt::AlignCenter</set>
+     <set>Qt::AlignmentFlag::AlignCenter</set>
+    </property>
+    <property name="class" stdset="0">
+     <string>imageSlot</string>
     </property>
    </widget>
    <widget class="QLabel" name="lblTitleNhatKy">
@@ -1412,14 +1466,14 @@ thứ tự phục vụ</string>
      <font>
       <family>Segoe UI</family>
       <pointsize>12</pointsize>
-      <bold>true</bold>
+      <fontweight>ExtraBold</fontweight>
      </font>
-    </property>
-    <property name="class">
-     <string>sectionTitle</string>
     </property>
     <property name="text">
      <string>Nhật ký tiếp nhận gần đây</string>
+    </property>
+    <property name="class" stdset="0">
+     <string>sectionTitle</string>
     </property>
    </widget>
    <widget class="QTableWidget" name="tblNhatKy">
@@ -1428,7 +1482,7 @@ thứ tự phục vụ</string>
       <x>0</x>
       <y>50</y>
       <width>1468</width>
-      <height>92</height>
+      <height>91</height>
      </rect>
     </property>
     <property name="font">
@@ -1439,16 +1493,16 @@ thứ tự phục vụ</string>
      </font>
     </property>
     <property name="focusPolicy">
-     <enum>Qt::NoFocus</enum>
+     <enum>Qt::FocusPolicy::NoFocus</enum>
+    </property>
+    <property name="editTriggers">
+     <set>QAbstractItemView::EditTrigger::NoEditTriggers</set>
     </property>
     <property name="alternatingRowColors">
      <bool>true</bool>
     </property>
     <property name="selectionMode">
-     <enum>QAbstractItemView::NoSelection</enum>
-    </property>
-    <property name="editTriggers">
-     <set>QAbstractItemView::NoEditTriggers</set>
+     <enum>QAbstractItemView::SelectionMode::NoSelection</enum>
     </property>
     <property name="showGrid">
      <bool>true</bool>
@@ -1459,6 +1513,9 @@ thứ tự phục vụ</string>
     <property name="columnCount">
      <number>3</number>
     </property>
+    <row/>
+    <row/>
+    <row/>
     <column>
      <property name="text">
       <string>Thời gian</string>
@@ -1522,6 +1579,6 @@ thứ tự phục vụ</string>
    </widget>
   </widget>
  </widget>
- <resources />
- <connections />
+ <resources/>
+ <connections/>
 </ui>

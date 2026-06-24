@@ -108,7 +108,7 @@ class QuanLyView:
             self.tblQuay,
             self._rows_quay()
         )
-
+#ádascv
         if self.bao_cao_da_sap_xep:
             ds = self.he_thong.sap_xep_bao_cao_theo_thoi_gian_cho()
         else:

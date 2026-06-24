@@ -469,7 +469,7 @@ image: url(icon1.png);</string>
      </font>
     </property>
     <property name="pixmap">
-     <pixmap>../../Downloads/reception.png</pixmap>
+     <pixmap>../images/group.png</pixmap>
     </property>
     <property name="scaledContents">
      <bool>true</bool>
@@ -563,7 +563,7 @@ image: url(icon1.png);</string>
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap>../../Downloads/reception (1).png</pixmap>
+     <pixmap>../images/reception.png</pixmap>
     </property>
     <property name="scaledContents">
      <bool>true</bool>

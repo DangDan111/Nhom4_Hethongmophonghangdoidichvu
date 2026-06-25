@@ -60,6 +60,7 @@ class AppController:
         window.move(max(available.x(), x), max(available.y(), y))
 
 
+
 def main():
     app = QApplication(sys.argv)
     app.setStyleSheet("""

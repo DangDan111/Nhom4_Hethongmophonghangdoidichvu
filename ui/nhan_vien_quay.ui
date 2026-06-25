@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
  <class>NhanVienQuayForm</class>
  <widget class="QWidget" name="NhanVienQuayForm">
@@ -83,20 +83,22 @@ QTextEdit {
 }
 QPushButton {
     border-radius: 6px;
-    padding: 8px 10px;
+    min-height: 50px;
+    padding: 10px 18px;
+    font-size: 15px;
     font-weight: 700;
 }
-QPushButton.primary {
+QPushButton[class=&quot;primary&quot;] {
     background: #0f73df;
     color: white;
     border: 1px solid #0b63c7;
 }
-QPushButton.success {
+QPushButton[class=&quot;success&quot;] {
     background: #16a34a;
     color: white;
     border: 1px solid #15803d;
 }
-QPushButton.secondary {
+QPushButton[class=&quot;secondary&quot;] {
     background: #ffffff;
     color: #155eb8;
     border: 1px solid #bcd0ea;
@@ -140,9 +142,17 @@ QHeaderView::section {
     <property name="font">
      <font>
       <family>Segoe UI</family>
-      <pointsize>-1</pointsize>
-      <fontweight>ExtraBold</fontweight>
+      <pointsize>22</pointsize>
+      <bold>true</bold>
      </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">
+background:white;
+border:none;
+font-size:22pt;
+font-weight:700;
+color:#1565C0;</string>
     </property>
     <property name="text">
      <string>GIAO DIỆN NHÂN VIÊN QUẦY</string>
@@ -163,6 +173,10 @@ QHeaderView::section {
       <pointsize>11</pointsize>
       <bold>false</bold>
      </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font-size:11pt;
+color:#444;</string>
     </property>
     <property name="text">
      <string>Theo dõi trạng thái quầy và phục vụ khách hàng</string>
@@ -195,15 +209,15 @@ QHeaderView::section {
     <property name="geometry">
      <rect>
       <x>1368</x>
-      <y>24</y>
+      <y>10</y>
       <width>112</width>
-      <height>40</height>
+      <height>70</height>
      </rect>
     </property>
     <property name="font">
      <font>
       <family>Segoe UI</family>
-      <pointsize>11</pointsize>
+      <pointsize>-1</pointsize>
       <bold>true</bold>
      </font>
     </property>
@@ -211,11 +225,18 @@ QHeaderView::section {
      <cursorShape>PointingHandCursor</cursorShape>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: #DC2626;
-color: white;
-border-radius: 6px;
-font-weight: bold;
-background-color: #B91C1C;</string>
+     <string notr="true">background:#C62828;
+color:white;
+border:none;
+border-radius:8px;
+font-size:15px;
+font-weight:bold;
+hover{
+background:#B71C1C;
+}
+pressed{
+background:#8E0000;
+}</string>
     </property>
     <property name="text">
      <string>Đăng xuất</string>
@@ -242,8 +263,8 @@ background-color: #B91C1C;</string>
      <rect>
       <x>22</x>
       <y>15</y>
-      <width>52</width>
-      <height>52</height>
+      <width>61</width>
+      <height>61</height>
      </rect>
     </property>
     <property name="minimumSize">
@@ -295,7 +316,7 @@ self.lblImgKhachDangPhucVu.setPixmap(
     <property name="geometry">
      <rect>
       <x>104</x>
-      <y>14</y>
+      <y>10</y>
       <width>220</width>
       <height>24</height>
      </rect>
@@ -307,30 +328,42 @@ self.lblImgKhachDangPhucVu.setPixmap(
       <bold>false</bold>
      </font>
     </property>
+    <property name="styleSheet">
+     <string notr="true">font-size:11pt;</string>
+    </property>
     <property name="text">
      <string>Quầy phụ trách</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignmentFlag::AlignCenter</set>
     </property>
    </widget>
    <widget class="QLabel" name="lblQuay">
     <property name="geometry">
      <rect>
       <x>104</x>
-      <y>38</y>
+      <y>30</y>
       <width>220</width>
-      <height>32</height>
+      <height>41</height>
      </rect>
     </property>
     <property name="font">
      <font>
-      <pointsize>22</pointsize>
+      <pointsize>15</pointsize>
       <bold>true</bold>
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">color:#0f73df;</string>
+     <string notr="true">color:#1565C0;
+font-size:15pt;
+font-weight:700;
+color:#1565C0;</string>
     </property>
     <property name="text">
      <string>Quầy 1</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignmentFlag::AlignCenter</set>
     </property>
    </widget>
   </widget>
@@ -404,7 +437,7 @@ self.lblImgKhachDangPhucVu.setPixmap(
     <property name="geometry">
      <rect>
       <x>104</x>
-      <y>14</y>
+      <y>10</y>
       <width>220</width>
       <height>24</height>
      </rect>
@@ -416,15 +449,21 @@ self.lblImgKhachDangPhucVu.setPixmap(
       <bold>false</bold>
      </font>
     </property>
+    <property name="styleSheet">
+     <string notr="true">font-size:11pt;</string>
+    </property>
     <property name="text">
      <string>Khách đang chờ</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignmentFlag::AlignCenter</set>
     </property>
    </widget>
    <widget class="QLabel" name="lblKhachChoCount">
     <property name="geometry">
      <rect>
       <x>104</x>
-      <y>38</y>
+      <y>30</y>
       <width>220</width>
       <height>32</height>
      </rect>
@@ -436,10 +475,15 @@ self.lblImgKhachDangPhucVu.setPixmap(
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">color:#f59e0b;</string>
+     <string notr="true">color:#f59e0b;
+font-size:22pt;
+font-weight:bold;</string>
     </property>
     <property name="text">
      <string>17</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignmentFlag::AlignCenter</set>
     </property>
    </widget>
   </widget>
@@ -460,8 +504,8 @@ self.lblImgKhachDangPhucVu.setPixmap(
      <rect>
       <x>22</x>
       <y>15</y>
-      <width>52</width>
-      <height>52</height>
+      <width>61</width>
+      <height>61</height>
      </rect>
     </property>
     <property name="minimumSize">
@@ -513,7 +557,7 @@ self.lblImgKhachDangPhucVu.setPixmap(
     <property name="geometry">
      <rect>
       <x>104</x>
-      <y>14</y>
+      <y>10</y>
       <width>220</width>
       <height>24</height>
      </rect>
@@ -525,15 +569,21 @@ self.lblImgKhachDangPhucVu.setPixmap(
       <bold>false</bold>
      </font>
     </property>
+    <property name="styleSheet">
+     <string notr="true">font-size:11pt;</string>
+    </property>
     <property name="text">
      <string>Đã phục vụ hôm nay</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignmentFlag::AlignCenter</set>
     </property>
    </widget>
    <widget class="QLabel" name="lblDaPhucVuCount">
     <property name="geometry">
      <rect>
       <x>104</x>
-      <y>38</y>
+      <y>30</y>
       <width>220</width>
       <height>32</height>
      </rect>
@@ -545,10 +595,15 @@ self.lblImgKhachDangPhucVu.setPixmap(
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">color:#16a34a;</string>
+     <string notr="true">color:#16a34a;
+font-size:22pt;
+font-weight:bold;</string>
     </property>
     <property name="text">
      <string>24</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignmentFlag::AlignCenter</set>
     </property>
    </widget>
   </widget>
@@ -569,8 +624,8 @@ self.lblImgKhachDangPhucVu.setPixmap(
      <rect>
       <x>22</x>
       <y>15</y>
-      <width>52</width>
-      <height>52</height>
+      <width>61</width>
+      <height>61</height>
      </rect>
     </property>
     <property name="minimumSize">
@@ -622,7 +677,7 @@ self.lblImgKhachDangPhucVu.setPixmap(
     <property name="geometry">
      <rect>
       <x>104</x>
-      <y>14</y>
+      <y>10</y>
       <width>220</width>
       <height>24</height>
      </rect>
@@ -634,30 +689,41 @@ self.lblImgKhachDangPhucVu.setPixmap(
       <bold>false</bold>
      </font>
     </property>
+    <property name="styleSheet">
+     <string notr="true">font-size:11pt;</string>
+    </property>
     <property name="text">
      <string>Trạng thái quầy</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignmentFlag::AlignCenter</set>
     </property>
    </widget>
    <widget class="QLabel" name="lblTrangThai">
     <property name="geometry">
      <rect>
       <x>100</x>
-      <y>30</y>
+      <y>20</y>
       <width>220</width>
       <height>41</height>
      </rect>
     </property>
     <property name="font">
      <font>
-      <pointsize>22</pointsize>
+      <pointsize>18</pointsize>
       <bold>true</bold>
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">color:#6d3fd1;</string>
+     <string notr="true">color:#6d3fd1;
+font-size:18pt;
+font-weight:bold;</string>
     </property>
     <property name="text">
      <string>Đang phục vụ</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignmentFlag::AlignCenter</set>
     </property>
    </widget>
   </widget>
@@ -671,21 +737,7 @@ self.lblImgKhachDangPhucVu.setPixmap(
     </rect>
    </property>
    <property name="styleSheet">
-    <string>QTableWidget {
-	padding: 4px;
-    gridline-color: #E5E7EB;
-    background: white;
-    alternate-background-color: #F8FAFC;
-item.setBackground(QColor(&quot;#DBEAFE&quot;));
-}
-
-QHeaderView::section {
-    background: #2563EB;
-    color: white;
-    font-weight: bold;
-    border: none;
-    padding: 6px;
-}</string>
+    <string notr="true"/>
    </property>
    <property name="frameShape">
     <enum>QFrame::Shape::StyledPanel</enum>
@@ -737,9 +789,15 @@ QHeaderView::section {
     <property name="font">
      <font>
       <family>Segoe UI</family>
-      <pointsize>16</pointsize>
-      <fontweight>ExtraBold</fontweight>
+      <pointsize>15</pointsize>
+      <bold>true</bold>
      </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color:#1565C0;
+font-size:15pt;
+font-weight:700;
+color:#1565C0;</string>
     </property>
     <property name="text">
      <string>Khách hàng đang phục vụ</string>
@@ -748,64 +806,12 @@ QHeaderView::section {
      <string>sectionTitle</string>
     </property>
    </widget>
-   <widget class="QLabel" name="lblDangPhucVuBadge">
-    <property name="geometry">
-     <rect>
-      <x>610</x>
-      <y>180</y>
-      <width>120</width>
-      <height>28</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <family>Segoe UI</family>
-      <pointsize>10</pointsize>
-      <bold>true</bold>
-     </font>
-    </property>
-    <property name="text">
-     <string>●  Đang phục vụ</string>
-    </property>
-    <property name="alignment">
-     <set>Qt::AlignmentFlag::AlignCenter</set>
-    </property>
-    <property name="class" stdset="0">
-     <string>badgeGreen</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="lblSoThuTu">
-    <property name="geometry">
-     <rect>
-      <x>610</x>
-      <y>220</y>
-      <width>132</width>
-      <height>32</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <family>Segoe UI</family>
-      <pointsize>11</pointsize>
-      <bold>true</bold>
-     </font>
-    </property>
-    <property name="text">
-     <string>Số thứ tự: A01</string>
-    </property>
-    <property name="alignment">
-     <set>Qt::AlignmentFlag::AlignCenter</set>
-    </property>
-    <property name="class" stdset="0">
-     <string>badgeBlue</string>
-    </property>
-   </widget>
    <widget class="QTextEdit" name="txtKhachDangPhucVu">
     <property name="geometry">
      <rect>
-      <x>20</x>
+      <x>10</x>
       <y>200</y>
-      <width>281</width>
+      <width>301</width>
       <height>105</height>
      </rect>
     </property>
@@ -818,14 +824,18 @@ QHeaderView::section {
     <property name="font">
      <font>
       <family>Segoe UI</family>
-      <pointsize>11</pointsize>
+      <pointsize>12</pointsize>
+      <italic>false</italic>
       <bold>false</bold>
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">background:#F0FDF4;
-border:1px solid #BBF7D0;
-border-radius:8px;</string>
+     <string notr="true">background:#F5FFF8;
+border:1px solid #A7E4B6;
+border-radius:8px;
+padding:8px;
+
+font:12pt &quot;Segoe UI&quot;;</string>
     </property>
     <property name="html">
      <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
@@ -834,7 +844,7 @@ p, li { white-space: pre-wrap; }
 hr { height: 1px; border-width: 0; }
 li.unchecked::marker { content: &quot;\2610&quot;; }
 li.checked::marker { content: &quot;\2612&quot;; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Segoe UI'; font-size:11pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Segoe UI'; font-size:12pt; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Mã khách:        KH001&lt;/p&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Họ và tên:       Phạm Quang Huy&lt;/p&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Loại dịch vụ:    Giao dịch nhanh&lt;/p&gt;
@@ -854,20 +864,20 @@ Mức ưu tiên:     1</string>
      <rect>
       <x>14</x>
       <y>310</y>
-      <width>330</width>
-      <height>50</height>
+      <width>300</width>
+      <height>72</height>
      </rect>
     </property>
     <property name="minimumSize">
      <size>
       <width>0</width>
-      <height>50</height>
+      <height>70</height>
      </size>
     </property>
     <property name="font">
      <font>
       <family>Segoe UI</family>
-      <pointsize>11</pointsize>
+      <pointsize>-1</pointsize>
       <bold>true</bold>
      </font>
     </property>
@@ -877,7 +887,9 @@ Mức ưu tiên:     1</string>
     <property name="styleSheet">
      <string notr="true">background:#2563EB;
 color:white;
-border-radius:8px;
+border:none;
+border-radius:10px;
+font-size:16px;
 font-weight:bold;</string>
     </property>
     <property name="text">
@@ -890,22 +902,22 @@ font-weight:bold;</string>
    <widget class="QPushButton" name="btn_finish_service">
     <property name="geometry">
      <rect>
-      <x>370</x>
+      <x>400</x>
       <y>310</y>
-      <width>350</width>
-      <height>50</height>
+      <width>300</width>
+      <height>72</height>
      </rect>
     </property>
     <property name="minimumSize">
      <size>
       <width>0</width>
-      <height>50</height>
+      <height>70</height>
      </size>
     </property>
     <property name="font">
      <font>
       <family>Segoe UI</family>
-      <pointsize>11</pointsize>
+      <pointsize>-1</pointsize>
       <bold>true</bold>
      </font>
     </property>
@@ -915,8 +927,16 @@ font-weight:bold;</string>
     <property name="styleSheet">
      <string notr="true">background:#16A34A;
 color:white;
-border-radius:8px;
-font-weight:bold;</string>
+border:none;
+border-radius:10px;
+font-size:16px;
+font-weight:bold;
+hover{
+background:#15803D;
+}
+pressed{
+background:#166534;
+}</string>
     </property>
     <property name="text">
      <string>Hoàn thành phục vụ</string>
@@ -925,38 +945,12 @@ font-weight:bold;</string>
      <string>success</string>
     </property>
    </widget>
-   <widget class="QLabel" name="lblQuyTacUuTien">
-    <property name="geometry">
-     <rect>
-      <x>18</x>
-      <y>364</y>
-      <width>706</width>
-      <height>38</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <family>Segoe UI</family>
-      <pointsize>11</pointsize>
-      <bold>false</bold>
-     </font>
-    </property>
-    <property name="text">
-     <string>i   Hệ thống sẽ ưu tiên hàng ưu tiên trước, sau đó mới đến hàng thường.</string>
-    </property>
-    <property name="alignment">
-     <set>Qt::AlignmentFlag::AlignVCenter</set>
-    </property>
-    <property name="class" stdset="0">
-     <string>badgeBlue</string>
-    </property>
-   </widget>
    <widget class="QTextEdit" name="textEdit">
     <property name="geometry">
      <rect>
-      <x>320</x>
+      <x>400</x>
       <y>200</y>
-      <width>281</width>
+      <width>301</width>
       <height>105</height>
      </rect>
     </property>
@@ -969,15 +963,18 @@ font-weight:bold;</string>
     <property name="font">
      <font>
       <family>Segoe UI</family>
-      <pointsize>11</pointsize>
+      <pointsize>12</pointsize>
+      <italic>false</italic>
       <bold>false</bold>
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">background:#F0FDF4;
-border:1px solid #BBF7D0;
+     <string notr="true">background:#F5FFF8;
+border:1px solid #A7E4B6;
 border-radius:8px;
-</string>
+padding:8px;
+
+font:12pt &quot;Segoe UI&quot;;</string>
     </property>
     <property name="html">
      <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
@@ -986,7 +983,7 @@ p, li { white-space: pre-wrap; }
 hr { height: 1px; border-width: 0; }
 li.unchecked::marker { content: &quot;\2610&quot;; }
 li.checked::marker { content: &quot;\2612&quot;; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Segoe UI'; font-size:11pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Segoe UI'; font-size:12pt; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Consolas'; font-size:10pt;&quot;&gt;Thời gian đến:   09:02&lt;/span&gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Consolas'; font-size:10pt;&quot;&gt;Bắt đầu phục vụ: 09:14&lt;/span&gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Consolas'; font-size:10pt;&quot;&gt;Thời gian chờ:   12 phút&lt;/span&gt;&lt;/p&gt;
@@ -1001,6 +998,11 @@ li.checked::marker { content: &quot;\2612&quot;; }
       <width>708</width>
       <height>141</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true"> background:white;
+    border:1px solid #DCE6F2;
+    border-radius:12px;</string>
     </property>
     <property name="frameShape">
      <enum>QFrame::Shape::NoFrame</enum>
@@ -1052,9 +1054,17 @@ li.checked::marker { content: &quot;\2612&quot;; }
      <property name="font">
       <font>
        <family>Segoe UI</family>
-       <pointsize>12</pointsize>
-       <fontweight>ExtraBold</fontweight>
+       <pointsize>15</pointsize>
+       <bold>true</bold>
       </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color:#1565C0;
+font-size:15pt;
+font-weight:700;
+color:#1565C0;
+border:none;
+background:transparent;</string>
      </property>
      <property name="text">
       <string>Thông tin quầy</string>
@@ -1075,9 +1085,15 @@ li.checked::marker { content: &quot;\2612&quot;; }
      <property name="font">
       <font>
        <family>Segoe UI</family>
-       <pointsize>10</pointsize>
-       <bold>false</bold>
+       <pointsize>11</pointsize>
+       <fontweight>DemiBold</fontweight>
       </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">font-size:11pt;
+font-weight:600;
+border:none;
+background:transparent;</string>
      </property>
      <property name="text">
       <string>Mã quầy:          1</string>
@@ -1095,9 +1111,15 @@ li.checked::marker { content: &quot;\2612&quot;; }
      <property name="font">
       <font>
        <family>Segoe UI</family>
-       <pointsize>10</pointsize>
-       <bold>false</bold>
+       <pointsize>11</pointsize>
+       <fontweight>DemiBold</fontweight>
       </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">font-size:11pt;
+border:none;
+background:transparent;
+font-weight:600;</string>
      </property>
      <property name="text">
       <string>Trạng thái:       Đang mở</string>
@@ -1113,7 +1135,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
      <property name="geometry">
       <rect>
        <x>36</x>
-       <y>108</y>
+       <y>104</y>
        <width>230</width>
        <height>24</height>
       </rect>
@@ -1121,9 +1143,15 @@ li.checked::marker { content: &quot;\2612&quot;; }
      <property name="font">
       <font>
        <family>Segoe UI</family>
-       <pointsize>10</pointsize>
-       <bold>false</bold>
+       <pointsize>11</pointsize>
+       <fontweight>DemiBold</fontweight>
       </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">font-size:11pt;
+border:none;
+background:transparent;
+font-weight:600;</string>
      </property>
      <property name="text">
       <string>Tình trạng:       Đang phục vụ</string>
@@ -1147,9 +1175,14 @@ li.checked::marker { content: &quot;\2612&quot;; }
      <property name="font">
       <font>
        <family>Segoe UI</family>
-       <pointsize>10</pointsize>
+       <pointsize>11</pointsize>
        <bold>true</bold>
       </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">font-size:11pt;
+border:none;
+background:transparent;</string>
      </property>
      <property name="text">
       <string>Tổng lượt hôm nay:      24</string>
@@ -1167,9 +1200,14 @@ li.checked::marker { content: &quot;\2612&quot;; }
      <property name="font">
       <font>
        <family>Segoe UI</family>
-       <pointsize>10</pointsize>
+       <pointsize>11</pointsize>
        <bold>true</bold>
       </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">font-size:11pt;
+border:none;
+background:transparent;</string>
      </property>
      <property name="text">
       <string>Khách cuối cùng:        KH014</string>
@@ -1187,9 +1225,14 @@ li.checked::marker { content: &quot;\2612&quot;; }
      <property name="font">
       <font>
        <family>Segoe UI</family>
-       <pointsize>10</pointsize>
+       <pointsize>11</pointsize>
        <bold>true</bold>
       </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">font-size:11pt;
+border:none;
+background:transparent;</string>
      </property>
      <property name="text">
       <string>Thời gian phục vụ TB:   15 phút</string>
@@ -1234,14 +1277,18 @@ li.checked::marker { content: &quot;\2612&quot;; }
      <property name="geometry">
       <rect>
        <x>340</x>
-       <y>30</y>
+       <y>14</y>
        <width>181</width>
-       <height>16</height>
+       <height>41</height>
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true">color: green;
-font-weight: bold;</string>
+      <string notr="true">
+border:none;
+background:transparent;
+padding:6px 12px;
+border-radius:12px;
+font-size:13px;</string>
      </property>
      <property name="text">
       <string>Hiệu suất hôm nay: Tốt</string>
@@ -1317,9 +1364,15 @@ font-weight: bold;</string>
     <property name="font">
      <font>
       <family>Segoe UI</family>
-      <pointsize>12</pointsize>
-      <fontweight>ExtraBold</fontweight>
+      <pointsize>15</pointsize>
+      <bold>true</bold>
      </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color:#1565C0;
+font-size:15pt;
+font-weight:700;
+color:#1565C0;</string>
     </property>
     <property name="text">
      <string>Hàng chờ tiếp theo</string>
@@ -1399,7 +1452,7 @@ border-radius:6px;</string>
     <property name="font">
      <font>
       <family>Segoe UI</family>
-      <pointsize>10</pointsize>
+      <pointsize>-1</pointsize>
       <bold>false</bold>
      </font>
     </property>
@@ -1407,24 +1460,46 @@ border-radius:6px;</string>
      <enum>Qt::FocusPolicy::NoFocus</enum>
     </property>
     <property name="styleSheet">
-     <string notr="true">QTableWidget {
-	padding: 4px;
-    gridline-color: #E5E7EB;
-    background: white;
-    alternate-background-color: #F8FAFC;
-	item.setBackground(QColor(&quot;#DBEAFE&quot;));
-	 border:1px solid #D1D5DB;
-    border-radius:6px;
-    gridline-color:#E5E7EB;
+     <string notr="true">QTableWidget{
+background:white;
+gridline-color:#E7EAF0;
+border:1px solid #DCE6F2;
+border-radius:8px;
+selection-background-color:#D6E8FF;
+selection-color:black;
+font-size:14px;
+}
+QHeaderView::section{
+background:#2563EB;
+color:white;
+font-weight:bold;
+border:none;
+height:32px;
+}
+QTableWidget::item{
+padding:6px;
+border-bottom:1px solid #ECECEC;
+}
+item:hover{
+background:#EEF6FF;
+}
+QTableWidget::item:selected{
+background:#CFE2FF;
+color:black;
+}
+QScrollBar::handle:vertical:hover{
+background:#9DB6DA;
+}
+QScrollBar:vertical{
+background:transparent;
+width:10px;
 }
 
-QHeaderView::section {
-    background: #2563EB;
-    color: white;
-    font-weight: bold;
-    border: none;
-    padding: 6px;
-}</string>
+QScrollBar::handle:vertical{
+background:#C4D3EA;
+border-radius:5px;
+}
+</string>
     </property>
     <property name="editTriggers">
      <set>QAbstractItemView::EditTrigger::NoEditTriggers</set>
@@ -1458,6 +1533,9 @@ QHeaderView::section {
     </attribute>
     <attribute name="verticalHeaderVisible">
      <bool>false</bool>
+    </attribute>
+    <attribute name="verticalHeaderDefaultSectionSize">
+     <number>32</number>
     </attribute>
     <row/>
     <row/>
@@ -1568,7 +1646,7 @@ border-radius:6px;</string>
     <property name="font">
      <font>
       <family>Segoe UI</family>
-      <pointsize>10</pointsize>
+      <pointsize>-1</pointsize>
       <bold>false</bold>
      </font>
     </property>
@@ -1576,24 +1654,46 @@ border-radius:6px;</string>
      <enum>Qt::FocusPolicy::NoFocus</enum>
     </property>
     <property name="styleSheet">
-     <string notr="true">QTableWidget {
-	padding: 4px;
-    gridline-color: #E5E7EB;
-    background: white;
-    alternate-background-color: #F8FAFC;
-	item.setBackground(QColor(&quot;#DBEAFE&quot;));
-	 border:1px solid #D1D5DB;
-    border-radius:6px;
-    gridline-color:#E5E7EB;
+     <string notr="true">QTableWidget{
+background:white;
+gridline-color:#E7EAF0;
+border:1px solid #DCE6F2;
+border-radius:8px;
+selection-background-color:#D6E8FF;
+selection-color:black;
+font-size:14px;
+}
+QHeaderView::section{
+background:#2563EB;
+color:white;
+font-weight:bold;
+border:none;
+height:32px;
+}
+QTableWidget::item{
+padding:6px;
+border-bottom:1px solid #ECECEC;
+}
+item:hover{
+background:#EEF6FF;
+}
+QTableWidget::item:selected{
+background:#CFE2FF;
+color:black;
+}
+QScrollBar::handle:vertical:hover{
+background:#9DB6DA;
+}
+QScrollBar:vertical{
+background:transparent;
+width:10px;
 }
 
-QHeaderView::section {
-    background: #2563EB;
-    color: white;
-    font-weight: bold;
-    border: none;
-    padding: 6px;
-}</string>
+QScrollBar::handle:vertical{
+background:#C4D3EA;
+border-radius:5px;
+}
+</string>
     </property>
     <property name="editTriggers">
      <set>QAbstractItemView::EditTrigger::NoEditTriggers</set>
@@ -1627,6 +1727,9 @@ QHeaderView::section {
     </attribute>
     <attribute name="verticalHeaderVisible">
      <bool>false</bool>
+    </attribute>
+    <attribute name="verticalHeaderDefaultSectionSize">
+     <number>32</number>
     </attribute>
     <row/>
     <row/>
@@ -1768,9 +1871,15 @@ QHeaderView::section {
     <property name="font">
      <font>
       <family>Segoe UI</family>
-      <pointsize>12</pointsize>
-      <fontweight>ExtraBold</fontweight>
+      <pointsize>15</pointsize>
+      <bold>true</bold>
      </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color:#1565C0;
+font-size:15pt;
+font-weight:700;
+color:#1565C0;</string>
     </property>
     <property name="text">
      <string>Lịch sử phục vụ gần đây</string>
@@ -1791,7 +1900,7 @@ QHeaderView::section {
     <property name="font">
      <font>
       <family>Segoe UI</family>
-      <pointsize>10</pointsize>
+      <pointsize>-1</pointsize>
       <bold>false</bold>
      </font>
     </property>
@@ -1799,24 +1908,46 @@ QHeaderView::section {
      <enum>Qt::FocusPolicy::NoFocus</enum>
     </property>
     <property name="styleSheet">
-     <string notr="true">QTableWidget {
-	padding: 4px;
-    gridline-color: #E5E7EB;
-    background: white;
-    alternate-background-color: #F8FAFC;
-	item.setBackground(QColor(&quot;#DBEAFE&quot;));
-	 border:1px solid #D1D5DB;
-    border-radius:6px;
-    gridline-color:#E5E7EB;
+     <string notr="true">QTableWidget{
+background:white;
+gridline-color:#E7EAF0;
+border:1px solid #DCE6F2;
+border-radius:8px;
+selection-background-color:#D6E8FF;
+selection-color:black;
+font-size:14px;
+}
+QHeaderView::section{
+background:#2563EB;
+color:white;
+font-weight:bold;
+border:none;
+height:32px;
+}
+QTableWidget::item{
+padding:6px;
+border-bottom:1px solid #ECECEC;
+}
+item:hover{
+background:#EEF6FF;
+}
+QTableWidget::item:selected{
+background:#CFE2FF;
+color:black;
+}
+QScrollBar::handle:vertical:hover{
+background:#9DB6DA;
+}
+QScrollBar:vertical{
+background:transparent;
+width:10px;
 }
 
-QHeaderView::section {
-    background: #2563EB;
-    color: white;
-    font-weight: bold;
-    border: none;
-    padding: 6px;
-}</string>
+QScrollBar::handle:vertical{
+background:#C4D3EA;
+border-radius:5px;
+}
+</string>
     </property>
     <property name="editTriggers">
      <set>QAbstractItemView::EditTrigger::NoEditTriggers</set>
@@ -1847,6 +1978,9 @@ QHeaderView::section {
     </attribute>
     <attribute name="verticalHeaderVisible">
      <bool>false</bool>
+    </attribute>
+    <attribute name="verticalHeaderDefaultSectionSize">
+     <number>32</number>
     </attribute>
     <row/>
     <row/>

@@ -76,10 +76,54 @@ def main():
     app.setStyleSheet("""
         QWidget { font-family: 'Segoe UI'; font-size: 13px; color: #111827; }
         QMainWindow, QWidget#centralwidget { background: #f5f8ff; }
-        QPushButton { min-height: 32px; font-weight: 600; border-radius: 6px; padding: 6px 12px; }
-        QTableWidget { background: white; alternate-background-color: #f8fbff; gridline-color: #e5e7eb; }
-        QHeaderView::section { background: #f8fafc; font-weight: 600; padding: 7px; border: 1px solid #e5e7eb; }
-        QLineEdit, QComboBox { min-height: 34px; padding: 4px 8px; }
+
+        QPushButton {
+            min-height: 32px;
+            font-weight: 600;
+            border-radius: 6px;
+            padding: 6px 12px;
+        }
+
+        QTableWidget {
+            background: white;
+            alternate-background-color: #f8fbff;
+            gridline-color: #e5e7eb;
+        }
+
+        QHeaderView::section {
+            background: #f8fafc;
+            font-weight: 600;
+            padding: 7px;
+            border: 1px solid #e5e7eb;
+        }
+
+        QLineEdit, QComboBox {
+            min-height: 34px;
+            padding: 4px 8px;
+            background-color: white;
+            color: #111827;
+        }
+
+        QMessageBox {
+            background-color: white;
+        }
+
+        QMessageBox QLabel {
+            color: #111827;
+            background-color: white;
+        }
+
+        QMessageBox QPushButton {
+            background-color: #2563eb;
+            color: white;
+            min-width: 80px;
+            min-height: 30px;
+            border-radius: 6px;
+        }
+
+        QMessageBox QPushButton:hover {
+            background-color: #1d4ed8;
+        }
     """)
 
     controller = AppController()

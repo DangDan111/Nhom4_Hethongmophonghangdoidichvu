@@ -2,14 +2,34 @@
 <ui version="4.0">
  <class>NhanVienQuayForm</class>
  <widget class="QWidget" name="NhanVienQuayForm">
-  <property name="geometry"><rect><x>0</x><y>0</y><width>1500</width><height>780</height></rect></property>
-  <property name="minimumSize"><size><width>1500</width><height>780</height></size></property>
-  <property name="maximumSize"><size><width>1500</width><height>780</height></size></property>
-  <property name="windowTitle"><string>Nhân viên quầy</string></property>
-  <property name="styleSheet"><string notr="true">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1500</width>
+    <height>780</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>1500</width>
+    <height>780</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>1500</width>
+    <height>780</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>Nhân viên quầy</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">
 QWidget#NhanVienQuayForm {
     background: #f6f9ff;
-    font-family: "Segoe UI";
+    font-family: &quot;Segoe UI&quot;;
     color: #111827;
 }
 QFrame {
@@ -94,419 +114,1895 @@ QHeaderView::section {
     padding: 7px;
     font-weight: 700;
 }
-</string></property>
-
+</string>
+  </property>
   <widget class="QFrame" name="header">
-   <property name="geometry"><rect><x>0</x><y>0</y><width>1500</width><height>84</height></rect></property>
-   <property name="frameShape"><enum>QFrame::StyledPanel</enum></property>
-   
-
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1500</width>
+     <height>84</height>
+    </rect>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::Shape::StyledPanel</enum>
+   </property>
    <widget class="QLabel" name="lblTitle">
-    <property name="geometry"><rect><x>24</x><y>14</y><width>500</width><height>36</height></rect></property>
-    <property name="font"><font><family>Segoe UI</family><pointsize>25</pointsize><bold>true</bold></font></property>
-    
-    
-    <property name="text"><string>GIAO DIỆN NHÂN VIÊN QUẦY</string></property>
-    
+    <property name="geometry">
+     <rect>
+      <x>24</x>
+      <y>14</y>
+      <width>500</width>
+      <height>36</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Segoe UI</family>
+      <pointsize>-1</pointsize>
+      <fontweight>ExtraBold</fontweight>
+     </font>
+    </property>
+    <property name="text">
+     <string>GIAO DIỆN NHÂN VIÊN QUẦY</string>
+    </property>
    </widget>
    <widget class="QLabel" name="lblSubtitle">
-    <property name="geometry"><rect><x>25</x><y>50</y><width>510</width><height>24</height></rect></property>
-    <property name="font"><font><family>Segoe UI</family><pointsize>12</pointsize><bold>false</bold></font></property>
-    
-    
-    <property name="text"><string>Theo dõi trạng thái quầy và phục vụ khách hàng</string></property>
-    
+    <property name="geometry">
+     <rect>
+      <x>25</x>
+      <y>50</y>
+      <width>510</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Segoe UI</family>
+      <pointsize>11</pointsize>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>Theo dõi trạng thái quầy và phục vụ khách hàng</string>
+    </property>
    </widget>
    <widget class="QLabel" name="lblTaiKhoan">
-    <property name="geometry"><rect><x>1200</x><y>32</y><width>150</width><height>30</height></rect></property>
-    <property name="font"><font><family>Segoe UI</family><pointsize>11</pointsize><bold>true</bold></font></property>
-    
-    
-    <property name="text"><string>Tài khoản: quay1</string></property>
-    <property name="alignment"><set>Qt::AlignRight|Qt::AlignVCenter</set></property>
+    <property name="geometry">
+     <rect>
+      <x>1200</x>
+      <y>32</y>
+      <width>150</width>
+      <height>30</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Segoe UI</family>
+      <pointsize>11</pointsize>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>Tài khoản: quay1</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
+    </property>
    </widget>
-   <widget class="QPushButton" name="btnDangXuat">
-    <property name="geometry"><rect><x>1368</x><y>24</y><width>112</width><height>40</height></rect></property>
-    <property name="font"><font><family>Segoe UI</family><pointsize>11</pointsize><bold>true</bold></font></property>
-    <property name="class"><string>secondary</string></property>
-    <property name="text"><string>Đăng xuất</string></property>
-    <property name="cursor"><cursorShape>PointingHandCursor</cursorShape></property>
+   <widget class="QPushButton" name="btn_logout">
+    <property name="geometry">
+     <rect>
+      <x>1368</x>
+      <y>24</y>
+      <width>112</width>
+      <height>40</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Segoe UI</family>
+      <pointsize>11</pointsize>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: #DC2626;
+color: white;
+border-radius: 6px;
+font-weight: bold;
+background-color: #B91C1C;</string>
+    </property>
+    <property name="text">
+     <string>Đăng xuất</string>
+    </property>
+    <property name="class" stdset="0">
+     <string>secondary</string>
+    </property>
    </widget>
   </widget>
   <widget class="QFrame" name="cardQuayPhuTrach">
-   <property name="geometry"><rect><x>16</x><y>112</y><width>354</width><height>82</height></rect></property>
-   <property name="frameShape"><enum>QFrame::StyledPanel</enum></property>
-   
-
+   <property name="geometry">
+    <rect>
+     <x>16</x>
+     <y>90</y>
+     <width>354</width>
+     <height>82</height>
+    </rect>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::Shape::StyledPanel</enum>
+   </property>
    <widget class="QLabel" name="cardQuayPhuTrachImage">
-    <property name="geometry"><rect><x>22</x><y>15</y><width>52</width><height>52</height></rect></property>
-    <property name="font"><font><family>Segoe UI</family><pointsize>11</pointsize><bold>false</bold></font></property>
-    <property name="class"><string>imageSlot</string></property>
-    <property name="styleSheet"><string notr="true">background:#edf5ff; border:1px dashed #b8c7dc; border-radius:26px;</string></property>
-    <property name="text"><string></string></property>
-    <property name="alignment"><set>Qt::AlignCenter</set></property>
+    <property name="geometry">
+     <rect>
+      <x>22</x>
+      <y>15</y>
+      <width>52</width>
+      <height>52</height>
+     </rect>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>48</width>
+      <height>48</height>
+     </size>
+    </property>
+    <property name="font">
+     <font>
+      <family>Segoe UI</family>
+      <pointsize>11</pointsize>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">from PySide6.QtGui import QPixmap
+from PySide6.QtCore import Qt
+
+pix = QPixmap(&quot;assets/icons/customer.png&quot;)
+
+self.lblImgKhachDangPhucVu.setPixmap(
+    pix.scaled(
+        32,
+        32,
+        Qt.KeepAspectRatio,
+        Qt.SmoothTransformation
+    )
+)
+</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap>../images/iconquay.png</pixmap>
+    </property>
+    <property name="scaledContents">
+     <bool>true</bool>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignmentFlag::AlignCenter</set>
+    </property>
+    <property name="class" stdset="0">
+     <string>imageSlot</string>
+    </property>
    </widget>
    <widget class="QLabel" name="cardQuayPhuTrachTitle">
-    <property name="geometry"><rect><x>104</x><y>14</y><width>220</width><height>24</height></rect></property>
-    <property name="font"><font><family>Segoe UI</family><pointsize>11</pointsize><bold>false</bold></font></property>
-    
-    
-    <property name="text"><string>Quầy phụ trách</string></property>
-    
+    <property name="geometry">
+     <rect>
+      <x>104</x>
+      <y>14</y>
+      <width>220</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Segoe UI</family>
+      <pointsize>11</pointsize>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>Quầy phụ trách</string>
+    </property>
    </widget>
    <widget class="QLabel" name="lblQuay">
-    <property name="geometry"><rect><x>104</x><y>38</y><width>220</width><height>32</height></rect></property>
-    <property name="font"><font><family>Segoe UI</family><pointsize>20</pointsize><bold>true</bold></font></property>
-    
-    <property name="styleSheet"><string notr="true">color:#0f73df;</string></property>
-    <property name="text"><string>Quầy 1</string></property>
-    
+    <property name="geometry">
+     <rect>
+      <x>104</x>
+      <y>38</y>
+      <width>220</width>
+      <height>32</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>22</pointsize>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color:#0f73df;</string>
+    </property>
+    <property name="text">
+     <string>Quầy 1</string>
+    </property>
    </widget>
   </widget>
   <widget class="QFrame" name="cardKhachDangCho">
-   <property name="geometry"><rect><x>394</x><y>112</y><width>354</width><height>82</height></rect></property>
-   <property name="frameShape"><enum>QFrame::StyledPanel</enum></property>
-   
-
+   <property name="geometry">
+    <rect>
+     <x>394</x>
+     <y>90</y>
+     <width>354</width>
+     <height>82</height>
+    </rect>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::Shape::StyledPanel</enum>
+   </property>
    <widget class="QLabel" name="cardKhachDangChoImage">
-    <property name="geometry"><rect><x>22</x><y>15</y><width>52</width><height>52</height></rect></property>
-    <property name="font"><font><family>Segoe UI</family><pointsize>11</pointsize><bold>false</bold></font></property>
-    <property name="class"><string>imageSlot</string></property>
-    <property name="styleSheet"><string notr="true">background:#edf5ff; border:1px dashed #b8c7dc; border-radius:26px;</string></property>
-    <property name="text"><string></string></property>
-    <property name="alignment"><set>Qt::AlignCenter</set></property>
+    <property name="geometry">
+     <rect>
+      <x>22</x>
+      <y>15</y>
+      <width>52</width>
+      <height>52</height>
+     </rect>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>48</width>
+      <height>48</height>
+     </size>
+    </property>
+    <property name="font">
+     <font>
+      <family>Segoe UI</family>
+      <pointsize>11</pointsize>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">from PySide6.QtGui import QPixmap
+from PySide6.QtCore import Qt
+
+pix = QPixmap(&quot;assets/icons/customer.png&quot;)
+
+self.lblImgKhachDangPhucVu.setPixmap(
+    pix.scaled(
+        32,
+        32,
+        Qt.KeepAspectRatio,
+        Qt.SmoothTransformation
+    )
+)
+</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap>../images/khachcho.png</pixmap>
+    </property>
+    <property name="scaledContents">
+     <bool>true</bool>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignmentFlag::AlignCenter</set>
+    </property>
+    <property name="class" stdset="0">
+     <string>imageSlot</string>
+    </property>
    </widget>
    <widget class="QLabel" name="cardKhachDangChoTitle">
-    <property name="geometry"><rect><x>104</x><y>14</y><width>220</width><height>24</height></rect></property>
-    <property name="font"><font><family>Segoe UI</family><pointsize>11</pointsize><bold>false</bold></font></property>
-    
-    
-    <property name="text"><string>Khách đang chờ</string></property>
-    
+    <property name="geometry">
+     <rect>
+      <x>104</x>
+      <y>14</y>
+      <width>220</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Segoe UI</family>
+      <pointsize>11</pointsize>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>Khách đang chờ</string>
+    </property>
    </widget>
-   <widget class="QLabel" name="lblKhachDangCho">
-    <property name="geometry"><rect><x>104</x><y>38</y><width>220</width><height>32</height></rect></property>
-    <property name="font"><font><family>Segoe UI</family><pointsize>20</pointsize><bold>true</bold></font></property>
-    
-    <property name="styleSheet"><string notr="true">color:#f59e0b;</string></property>
-    <property name="text"><string>17</string></property>
-    
+   <widget class="QLabel" name="lblKhachChoCount">
+    <property name="geometry">
+     <rect>
+      <x>104</x>
+      <y>38</y>
+      <width>220</width>
+      <height>32</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>22</pointsize>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color:#f59e0b;</string>
+    </property>
+    <property name="text">
+     <string>17</string>
+    </property>
    </widget>
   </widget>
   <widget class="QFrame" name="cardDaPhucVu">
-   <property name="geometry"><rect><x>772</x><y>112</y><width>354</width><height>82</height></rect></property>
-   <property name="frameShape"><enum>QFrame::StyledPanel</enum></property>
-   
-
+   <property name="geometry">
+    <rect>
+     <x>772</x>
+     <y>90</y>
+     <width>354</width>
+     <height>82</height>
+    </rect>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::Shape::StyledPanel</enum>
+   </property>
    <widget class="QLabel" name="cardDaPhucVuImage">
-    <property name="geometry"><rect><x>22</x><y>15</y><width>52</width><height>52</height></rect></property>
-    <property name="font"><font><family>Segoe UI</family><pointsize>11</pointsize><bold>false</bold></font></property>
-    <property name="class"><string>imageSlot</string></property>
-    <property name="styleSheet"><string notr="true">background:#edf5ff; border:1px dashed #b8c7dc; border-radius:26px;</string></property>
-    <property name="text"><string></string></property>
-    <property name="alignment"><set>Qt::AlignCenter</set></property>
+    <property name="geometry">
+     <rect>
+      <x>22</x>
+      <y>15</y>
+      <width>52</width>
+      <height>52</height>
+     </rect>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>48</width>
+      <height>48</height>
+     </size>
+    </property>
+    <property name="font">
+     <font>
+      <family>Segoe UI</family>
+      <pointsize>11</pointsize>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">from PySide6.QtGui import QPixmap
+from PySide6.QtCore import Qt
+
+pix = QPixmap(&quot;assets/icons/customer.png&quot;)
+
+self.lblImgKhachDangPhucVu.setPixmap(
+    pix.scaled(
+        32,
+        32,
+        Qt.KeepAspectRatio,
+        Qt.SmoothTransformation
+    )
+)
+</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap>../images/tải xuống.png</pixmap>
+    </property>
+    <property name="scaledContents">
+     <bool>true</bool>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignmentFlag::AlignCenter</set>
+    </property>
+    <property name="class" stdset="0">
+     <string>imageSlot</string>
+    </property>
    </widget>
    <widget class="QLabel" name="cardDaPhucVuTitle">
-    <property name="geometry"><rect><x>104</x><y>14</y><width>220</width><height>24</height></rect></property>
-    <property name="font"><font><family>Segoe UI</family><pointsize>11</pointsize><bold>false</bold></font></property>
-    
-    
-    <property name="text"><string>Đã phục vụ hôm nay</string></property>
-    
+    <property name="geometry">
+     <rect>
+      <x>104</x>
+      <y>14</y>
+      <width>220</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Segoe UI</family>
+      <pointsize>11</pointsize>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>Đã phục vụ hôm nay</string>
+    </property>
    </widget>
-   <widget class="QLabel" name="lblDaPhucVuHomNay">
-    <property name="geometry"><rect><x>104</x><y>38</y><width>220</width><height>32</height></rect></property>
-    <property name="font"><font><family>Segoe UI</family><pointsize>20</pointsize><bold>true</bold></font></property>
-    
-    <property name="styleSheet"><string notr="true">color:#16a34a;</string></property>
-    <property name="text"><string>24</string></property>
-    
+   <widget class="QLabel" name="lblDaPhucVuCount">
+    <property name="geometry">
+     <rect>
+      <x>104</x>
+      <y>38</y>
+      <width>220</width>
+      <height>32</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>22</pointsize>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color:#16a34a;</string>
+    </property>
+    <property name="text">
+     <string>24</string>
+    </property>
    </widget>
   </widget>
   <widget class="QFrame" name="cardTrangThaiQuay">
-   <property name="geometry"><rect><x>1150</x><y>112</y><width>354</width><height>82</height></rect></property>
-   <property name="frameShape"><enum>QFrame::StyledPanel</enum></property>
-   
-
+   <property name="geometry">
+    <rect>
+     <x>1150</x>
+     <y>90</y>
+     <width>354</width>
+     <height>82</height>
+    </rect>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::Shape::StyledPanel</enum>
+   </property>
    <widget class="QLabel" name="cardTrangThaiQuayImage">
-    <property name="geometry"><rect><x>22</x><y>15</y><width>52</width><height>52</height></rect></property>
-    <property name="font"><font><family>Segoe UI</family><pointsize>11</pointsize><bold>false</bold></font></property>
-    <property name="class"><string>imageSlot</string></property>
-    <property name="styleSheet"><string notr="true">background:#edf5ff; border:1px dashed #b8c7dc; border-radius:26px;</string></property>
-    <property name="text"><string></string></property>
-    <property name="alignment"><set>Qt::AlignCenter</set></property>
+    <property name="geometry">
+     <rect>
+      <x>22</x>
+      <y>15</y>
+      <width>52</width>
+      <height>52</height>
+     </rect>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>48</width>
+      <height>48</height>
+     </size>
+    </property>
+    <property name="font">
+     <font>
+      <family>Segoe UI</family>
+      <pointsize>11</pointsize>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">from PySide6.QtGui import QPixmap
+from PySide6.QtCore import Qt
+
+pix = QPixmap(&quot;assets/icons/customer.png&quot;)
+
+self.lblImgKhachDangPhucVu.setPixmap(
+    pix.scaled(
+        32,
+        32,
+        Qt.KeepAspectRatio,
+        Qt.SmoothTransformation
+    )
+)
+</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap>../images/thoigiantb.png</pixmap>
+    </property>
+    <property name="scaledContents">
+     <bool>true</bool>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignmentFlag::AlignCenter</set>
+    </property>
+    <property name="class" stdset="0">
+     <string>imageSlot</string>
+    </property>
    </widget>
    <widget class="QLabel" name="cardTrangThaiQuayTitle">
-    <property name="geometry"><rect><x>104</x><y>14</y><width>220</width><height>24</height></rect></property>
-    <property name="font"><font><family>Segoe UI</family><pointsize>11</pointsize><bold>false</bold></font></property>
-    
-    
-    <property name="text"><string>Trạng thái quầy</string></property>
-    
+    <property name="geometry">
+     <rect>
+      <x>104</x>
+      <y>14</y>
+      <width>220</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Segoe UI</family>
+      <pointsize>11</pointsize>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>Trạng thái quầy</string>
+    </property>
    </widget>
    <widget class="QLabel" name="lblTrangThai">
-    <property name="geometry"><rect><x>104</x><y>38</y><width>220</width><height>32</height></rect></property>
-    <property name="font"><font><family>Segoe UI</family><pointsize>20</pointsize><bold>true</bold></font></property>
-    
-    <property name="styleSheet"><string notr="true">color:#6d3fd1;</string></property>
-    <property name="text"><string>Đang phục vụ</string></property>
-    
+    <property name="geometry">
+     <rect>
+      <x>100</x>
+      <y>30</y>
+      <width>220</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>22</pointsize>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color:#6d3fd1;</string>
+    </property>
+    <property name="text">
+     <string>Đang phục vụ</string>
+    </property>
    </widget>
   </widget>
   <widget class="QFrame" name="panelKhachDangPhucVu">
-   <property name="geometry"><rect><x>16</x><y>208</y><width>744</width><height>360</height></rect></property>
-   <property name="frameShape"><enum>QFrame::StyledPanel</enum></property>
-   
+   <property name="geometry">
+    <rect>
+     <x>16</x>
+     <y>180</y>
+     <width>751</width>
+     <height>411</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string>QTableWidget {
+	padding: 4px;
+    gridline-color: #E5E7EB;
+    background: white;
+    alternate-background-color: #F8FAFC;
+item.setBackground(QColor(&quot;#DBEAFE&quot;));
+}
 
+QHeaderView::section {
+    background: #2563EB;
+    color: white;
+    font-weight: bold;
+    border: none;
+    padding: 6px;
+}</string>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::Shape::StyledPanel</enum>
+   </property>
    <widget class="QLabel" name="lblImgKhachDangPhucVu">
-    <property name="geometry"><rect><x>18</x><y>13</y><width>28</width><height>28</height></rect></property>
-    <property name="font"><font><family>Segoe UI</family><pointsize>11</pointsize><bold>false</bold></font></property>
-    <property name="class"><string>imageSlot</string></property>
-    <property name="styleSheet"><string notr="true">background:#edf5ff; border:1px dashed #b8c7dc; border-radius:14px;</string></property>
-    <property name="text"><string></string></property>
-    <property name="alignment"><set>Qt::AlignCenter</set></property>
+    <property name="geometry">
+     <rect>
+      <x>18</x>
+      <y>163</y>
+      <width>28</width>
+      <height>28</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Segoe UI</family>
+      <pointsize>11</pointsize>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background:#edf5ff; border:1px dashed #b8c7dc; border-radius:14px;</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap>../images/nguoi.png</pixmap>
+    </property>
+    <property name="scaledContents">
+     <bool>true</bool>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignmentFlag::AlignCenter</set>
+    </property>
+    <property name="class" stdset="0">
+     <string>imageSlot</string>
+    </property>
    </widget>
-   <widget class="QLabel" name="lblSection1">
-    <property name="geometry"><rect><x>56</x><y>14</y><width>300</width><height>28</height></rect></property>
-    <property name="font"><font><family>Segoe UI</family><pointsize>12</pointsize><bold>true</bold></font></property>
-    <property name="class"><string>sectionTitle</string></property>
-    
-    <property name="text"><string>Khách hàng đang phục vụ</string></property>
-    
+   <widget class="QLabel" name="txt_current_customer">
+    <property name="geometry">
+     <rect>
+      <x>56</x>
+      <y>164</y>
+      <width>300</width>
+      <height>28</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Segoe UI</family>
+      <pointsize>16</pointsize>
+      <fontweight>ExtraBold</fontweight>
+     </font>
+    </property>
+    <property name="text">
+     <string>Khách hàng đang phục vụ</string>
+    </property>
+    <property name="class" stdset="0">
+     <string>sectionTitle</string>
+    </property>
    </widget>
    <widget class="QLabel" name="lblDangPhucVuBadge">
-    <property name="geometry"><rect><x>604</x><y>14</y><width>120</width><height>28</height></rect></property>
-    <property name="font"><font><family>Segoe UI</family><pointsize>10</pointsize><bold>true</bold></font></property>
-    <property name="class"><string>badgeGreen</string></property>
-    
-    <property name="text"><string>●  Đang phục vụ</string></property>
-    <property name="alignment"><set>Qt::AlignCenter</set></property>
+    <property name="geometry">
+     <rect>
+      <x>610</x>
+      <y>180</y>
+      <width>120</width>
+      <height>28</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Segoe UI</family>
+      <pointsize>10</pointsize>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>●  Đang phục vụ</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignmentFlag::AlignCenter</set>
+    </property>
+    <property name="class" stdset="0">
+     <string>badgeGreen</string>
+    </property>
    </widget>
    <widget class="QLabel" name="lblSoThuTu">
-    <property name="geometry"><rect><x>592</x><y>58</y><width>132</width><height>32</height></rect></property>
-    <property name="font"><font><family>Segoe UI</family><pointsize>11</pointsize><bold>true</bold></font></property>
-    <property name="class"><string>badgeBlue</string></property>
-    
-    <property name="text"><string>Số thứ tự: A01</string></property>
-    <property name="alignment"><set>Qt::AlignCenter</set></property>
+    <property name="geometry">
+     <rect>
+      <x>610</x>
+      <y>220</y>
+      <width>132</width>
+      <height>32</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Segoe UI</family>
+      <pointsize>11</pointsize>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>Số thứ tự: A01</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignmentFlag::AlignCenter</set>
+    </property>
+    <property name="class" stdset="0">
+     <string>badgeBlue</string>
+    </property>
    </widget>
    <widget class="QTextEdit" name="txtKhachDangPhucVu">
-    <property name="geometry"><rect><x>18</x><y>58</y><width>540</width><height>168</height></rect></property>
-    <property name="font"><font><family>Consolas</family><pointsize>10</pointsize><bold>false</bold></font></property>
-    <property name="plainText"><string>Mã khách:        KH001
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>200</y>
+      <width>281</width>
+      <height>105</height>
+     </rect>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>0</width>
+      <height>35</height>
+     </size>
+    </property>
+    <property name="font">
+     <font>
+      <family>Segoe UI</family>
+      <pointsize>11</pointsize>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background:#F0FDF4;
+border:1px solid #BBF7D0;
+border-radius:8px;</string>
+    </property>
+    <property name="html">
+     <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;meta charset=&quot;utf-8&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+hr { height: 1px; border-width: 0; }
+li.unchecked::marker { content: &quot;\2610&quot;; }
+li.checked::marker { content: &quot;\2612&quot;; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Segoe UI'; font-size:11pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Mã khách:        KH001&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Họ và tên:       Phạm Quang Huy&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Loại dịch vụ:    Giao dịch nhanh&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Nhóm khách:      VIP&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Mức ưu tiên:     1&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+    <property name="plainText">
+     <string>Mã khách:        KH001
 Họ và tên:       Phạm Quang Huy
-Loại dịch vụ:    Khám tổng quát
+Loại dịch vụ:    Giao dịch nhanh
 Nhóm khách:      VIP
-Mức ưu tiên:     1
-
-Thời gian đến:   09:02
-Bắt đầu phục vụ: 09:14
-Thời gian chờ:   12 phút
-Ghi chú:         Cần hỗ trợ nhanh</string></property>
+Mức ưu tiên:     1</string>
+    </property>
    </widget>
-   <widget class="QPushButton" name="btnGoiKhach">
-    <property name="geometry"><rect><x>18</x><y>246</y><width>330</width><height>42</height></rect></property>
-    <property name="font"><font><family>Segoe UI</family><pointsize>11</pointsize><bold>true</bold></font></property>
-    <property name="class"><string>primary</string></property>
-    <property name="text"><string>Gọi khách tiếp theo</string></property>
-    <property name="cursor"><cursorShape>PointingHandCursor</cursorShape></property>
+   <widget class="QPushButton" name="btn_next_customer">
+    <property name="geometry">
+     <rect>
+      <x>14</x>
+      <y>310</y>
+      <width>330</width>
+      <height>50</height>
+     </rect>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>0</width>
+      <height>50</height>
+     </size>
+    </property>
+    <property name="font">
+     <font>
+      <family>Segoe UI</family>
+      <pointsize>11</pointsize>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background:#2563EB;
+color:white;
+border-radius:8px;
+font-weight:bold;</string>
+    </property>
+    <property name="text">
+     <string>Gọi khách tiếp theo</string>
+    </property>
+    <property name="class" stdset="0">
+     <string>primary</string>
+    </property>
    </widget>
-   <widget class="QPushButton" name="btnHoanThanh">
-    <property name="geometry"><rect><x>374</x><y>246</y><width>350</width><height>42</height></rect></property>
-    <property name="font"><font><family>Segoe UI</family><pointsize>11</pointsize><bold>true</bold></font></property>
-    <property name="class"><string>success</string></property>
-    <property name="text"><string>Hoàn thành phục vụ</string></property>
-    <property name="cursor"><cursorShape>PointingHandCursor</cursorShape></property>
+   <widget class="QPushButton" name="btn_finish_service">
+    <property name="geometry">
+     <rect>
+      <x>370</x>
+      <y>310</y>
+      <width>350</width>
+      <height>50</height>
+     </rect>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>0</width>
+      <height>50</height>
+     </size>
+    </property>
+    <property name="font">
+     <font>
+      <family>Segoe UI</family>
+      <pointsize>11</pointsize>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background:#16A34A;
+color:white;
+border-radius:8px;
+font-weight:bold;</string>
+    </property>
+    <property name="text">
+     <string>Hoàn thành phục vụ</string>
+    </property>
+    <property name="class" stdset="0">
+     <string>success</string>
+    </property>
    </widget>
    <widget class="QLabel" name="lblQuyTacUuTien">
-    <property name="geometry"><rect><x>18</x><y>306</y><width>706</width><height>38</height></rect></property>
-    <property name="font"><font><family>Segoe UI</family><pointsize>11</pointsize><bold>false</bold></font></property>
-    <property name="class"><string>badgeBlue</string></property>
-    
-    <property name="text"><string>i   Hệ thống sẽ ưu tiên hàng ưu tiên trước, sau đó mới đến hàng thường.</string></property>
-    <property name="alignment"><set>Qt::AlignVCenter</set></property>
+    <property name="geometry">
+     <rect>
+      <x>18</x>
+      <y>364</y>
+      <width>706</width>
+      <height>38</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Segoe UI</family>
+      <pointsize>11</pointsize>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>i   Hệ thống sẽ ưu tiên hàng ưu tiên trước, sau đó mới đến hàng thường.</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignmentFlag::AlignVCenter</set>
+    </property>
+    <property name="class" stdset="0">
+     <string>badgeBlue</string>
+    </property>
+   </widget>
+   <widget class="QTextEdit" name="textEdit">
+    <property name="geometry">
+     <rect>
+      <x>320</x>
+      <y>200</y>
+      <width>281</width>
+      <height>105</height>
+     </rect>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>0</width>
+      <height>35</height>
+     </size>
+    </property>
+    <property name="font">
+     <font>
+      <family>Segoe UI</family>
+      <pointsize>11</pointsize>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background:#F0FDF4;
+border:1px solid #BBF7D0;
+border-radius:8px;
+</string>
+    </property>
+    <property name="html">
+     <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;meta charset=&quot;utf-8&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+hr { height: 1px; border-width: 0; }
+li.unchecked::marker { content: &quot;\2610&quot;; }
+li.checked::marker { content: &quot;\2612&quot;; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Segoe UI'; font-size:11pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Consolas'; font-size:10pt;&quot;&gt;Thời gian đến:   09:02&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Consolas'; font-size:10pt;&quot;&gt;Bắt đầu phục vụ: 09:14&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Consolas'; font-size:10pt;&quot;&gt;Thời gian chờ:   12 phút&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Consolas'; font-size:10pt;&quot;&gt;Ghi chú:         Cần hỗ trợ nhanh&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+   </widget>
+   <widget class="QFrame" name="panelThongTinQuay">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>10</y>
+      <width>708</width>
+      <height>141</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::Shape::NoFrame</enum>
+    </property>
+    <widget class="QLabel" name="lblImgThongTinQuay">
+     <property name="geometry">
+      <rect>
+       <x>18</x>
+       <y>13</y>
+       <width>28</width>
+       <height>28</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Segoe UI</family>
+       <pointsize>11</pointsize>
+       <bold>false</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background:#edf5ff; border:1px dashed #b8c7dc; border-radius:14px;</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="pixmap">
+      <pixmap>../images/quaydangban.png</pixmap>
+     </property>
+     <property name="scaledContents">
+      <bool>true</bool>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignmentFlag::AlignCenter</set>
+     </property>
+     <property name="class" stdset="0">
+      <string>imageSlot</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="lblTitleThongTinQuay">
+     <property name="geometry">
+      <rect>
+       <x>56</x>
+       <y>14</y>
+       <width>220</width>
+       <height>28</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Segoe UI</family>
+       <pointsize>12</pointsize>
+       <fontweight>ExtraBold</fontweight>
+      </font>
+     </property>
+     <property name="text">
+      <string>Thông tin quầy</string>
+     </property>
+     <property name="class" stdset="0">
+      <string>sectionTitle</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="lblMaQuay">
+     <property name="geometry">
+      <rect>
+       <x>36</x>
+       <y>48</y>
+       <width>230</width>
+       <height>24</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Segoe UI</family>
+       <pointsize>10</pointsize>
+       <bold>false</bold>
+      </font>
+     </property>
+     <property name="text">
+      <string>Mã quầy:          1</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="lblTrangThaiMo">
+     <property name="geometry">
+      <rect>
+       <x>36</x>
+       <y>76</y>
+       <width>230</width>
+       <height>24</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Segoe UI</family>
+       <pointsize>10</pointsize>
+       <bold>false</bold>
+      </font>
+     </property>
+     <property name="text">
+      <string>Trạng thái:       Đang mở</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignmentFlag::AlignVCenter</set>
+     </property>
+     <property name="class" stdset="0">
+      <string>badgeGreen</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="lblTinhTrang">
+     <property name="geometry">
+      <rect>
+       <x>36</x>
+       <y>108</y>
+       <width>230</width>
+       <height>24</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Segoe UI</family>
+       <pointsize>10</pointsize>
+       <bold>false</bold>
+      </font>
+     </property>
+     <property name="text">
+      <string>Tình trạng:       Đang phục vụ</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignmentFlag::AlignVCenter</set>
+     </property>
+     <property name="class" stdset="0">
+      <string>badgeGreen</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="lblTongLuot">
+     <property name="geometry">
+      <rect>
+       <x>340</x>
+       <y>56</y>
+       <width>250</width>
+       <height>24</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Segoe UI</family>
+       <pointsize>10</pointsize>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="text">
+      <string>Tổng lượt hôm nay:      24</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="lblKhachCuoi">
+     <property name="geometry">
+      <rect>
+       <x>340</x>
+       <y>84</y>
+       <width>250</width>
+       <height>24</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Segoe UI</family>
+       <pointsize>10</pointsize>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="text">
+      <string>Khách cuối cùng:        KH014</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="lblTgTb">
+     <property name="geometry">
+      <rect>
+       <x>340</x>
+       <y>112</y>
+       <width>250</width>
+       <height>24</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Segoe UI</family>
+       <pointsize>10</pointsize>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="text">
+      <string>Thời gian phục vụ TB:   15 phút</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="lblImgTrangThaiTot">
+     <property name="geometry">
+      <rect>
+       <x>630</x>
+       <y>40</y>
+       <width>58</width>
+       <height>61</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Segoe UI</family>
+       <pointsize>11</pointsize>
+       <bold>false</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background:#edf5ff; border:1px dashed #b8c7dc; border-radius:29px;</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="pixmap">
+      <pixmap>../images/tải xuống (2).png</pixmap>
+     </property>
+     <property name="scaledContents">
+      <bool>true</bool>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignmentFlag::AlignCenter</set>
+     </property>
+     <property name="class" stdset="0">
+      <string>imageSlot</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="lblHieuSuat">
+     <property name="geometry">
+      <rect>
+       <x>340</x>
+       <y>30</y>
+       <width>181</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: green;
+font-weight: bold;</string>
+     </property>
+     <property name="text">
+      <string>Hiệu suất hôm nay: Tốt</string>
+     </property>
+    </widget>
    </widget>
   </widget>
   <widget class="QFrame" name="panelHangCho">
-   <property name="geometry"><rect><x>776</x><y>208</y><width>708</width><height>344</height></rect></property>
-   <property name="frameShape"><enum>QFrame::StyledPanel</enum></property>
-   
-
+   <property name="geometry">
+    <rect>
+     <x>776</x>
+     <y>180</y>
+     <width>708</width>
+     <height>411</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string>QHeaderView::section{
+    background:#2563EB;
+    color:white;
+    font-weight:bold;
+    border:none;
+    padding:6px;
+}</string>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::Shape::StyledPanel</enum>
+   </property>
    <widget class="QLabel" name="lblImgHangCho">
-    <property name="geometry"><rect><x>18</x><y>13</y><width>28</width><height>28</height></rect></property>
-    <property name="font"><font><family>Segoe UI</family><pointsize>11</pointsize><bold>false</bold></font></property>
-    <property name="class"><string>imageSlot</string></property>
-    <property name="styleSheet"><string notr="true">background:#edf5ff; border:1px dashed #b8c7dc; border-radius:14px;</string></property>
-    <property name="text"><string></string></property>
-    <property name="alignment"><set>Qt::AlignCenter</set></property>
+    <property name="geometry">
+     <rect>
+      <x>18</x>
+      <y>13</y>
+      <width>28</width>
+      <height>28</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Segoe UI</family>
+      <pointsize>11</pointsize>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background:#edf5ff; border:1px dashed #b8c7dc; border-radius:14px;</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap>../images/khachcho.png</pixmap>
+    </property>
+    <property name="scaledContents">
+     <bool>true</bool>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignmentFlag::AlignCenter</set>
+    </property>
+    <property name="class" stdset="0">
+     <string>imageSlot</string>
+    </property>
    </widget>
    <widget class="QLabel" name="lblTitleHangCho">
-    <property name="geometry"><rect><x>56</x><y>14</y><width>260</width><height>28</height></rect></property>
-    <property name="font"><font><family>Segoe UI</family><pointsize>12</pointsize><bold>true</bold></font></property>
-    <property name="class"><string>sectionTitle</string></property>
-    
-    <property name="text"><string>Hàng chờ tiếp theo</string></property>
-    
+    <property name="geometry">
+     <rect>
+      <x>56</x>
+      <y>14</y>
+      <width>260</width>
+      <height>28</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Segoe UI</family>
+      <pointsize>12</pointsize>
+      <fontweight>ExtraBold</fontweight>
+     </font>
+    </property>
+    <property name="text">
+     <string>Hàng chờ tiếp theo</string>
+    </property>
+    <property name="class" stdset="0">
+     <string>sectionTitle</string>
+    </property>
    </widget>
    <widget class="QLabel" name="lblQuyTacGoiKhach">
-    <property name="geometry"><rect><x>468</x><y>14</y><width>232</width><height>28</height></rect></property>
-    <property name="font"><font><family>Segoe UI</family><pointsize>10</pointsize><bold>true</bold></font></property>
-    <property name="class"><string>badgeBlue</string></property>
-    
-    <property name="text"><string>Quy tắc gọi khách: Ưu tiên trước</string></property>
-    <property name="alignment"><set>Qt::AlignCenter</set></property>
+    <property name="geometry">
+     <rect>
+      <x>468</x>
+      <y>14</y>
+      <width>232</width>
+      <height>28</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Segoe UI</family>
+      <pointsize>10</pointsize>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>Quy tắc gọi khách: Ưu tiên trước</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignmentFlag::AlignCenter</set>
+    </property>
+    <property name="class" stdset="0">
+     <string>badgeBlue</string>
+    </property>
    </widget>
    <widget class="QLabel" name="lblUuTienTitle">
-    <property name="geometry"><rect><x>18</x><y>52</y><width>130</width><height>24</height></rect></property>
-    <property name="font"><font><family>Segoe UI</family><pointsize>11</pointsize><bold>true</bold></font></property>
-    <property name="class"><string>badgeRed</string></property>
-    
-    <property name="text"><string>Ưu tiên</string></property>
-    <property name="alignment"><set>Qt::AlignVCenter</set></property>
+    <property name="geometry">
+     <rect>
+      <x>18</x>
+      <y>52</y>
+      <width>130</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Segoe UI</family>
+      <pointsize>11</pointsize>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background:#FEE2E2;
+color:#DC2626;
+font-weight:bold;
+padding:4px;
+border-radius:6px;</string>
+    </property>
+    <property name="text">
+     <string>Ưu tiên</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignmentFlag::AlignVCenter</set>
+    </property>
+    <property name="class" stdset="0">
+     <string>badgeRed</string>
+    </property>
    </widget>
-   <widget class="QTableWidget" name="tblHangChoUuTien">
-    <property name="geometry"><rect><x>18</x><y>80</y><width>690</width><height>92</height></rect></property>
-    <property name="font"><font><family>Segoe UI</family><pointsize>10</pointsize><bold>false</bold></font></property>
-    <property name="focusPolicy"><enum>Qt::NoFocus</enum></property>
-    <property name="alternatingRowColors"><bool>true</bool></property>
-    <property name="selectionMode"><enum>QAbstractItemView::NoSelection</enum></property>
-    <property name="editTriggers"><set>QAbstractItemView::NoEditTriggers</set></property>
-    <property name="showGrid"><bool>true</bool></property>
-    <property name="rowCount"><number>3</number></property>
-    <property name="columnCount"><number>4</number></property><column><property name="text"><string>#</string></property></column><column><property name="text"><string>Mã KH</string></property></column><column><property name="text"><string>Tên khách</string></property></column><column><property name="text"><string>Nhóm</string></property></column><item row="0" column="0"><property name="text"><string>1</string></property></item><item row="0" column="1"><property name="text"><string>KH015</string></property></item><item row="0" column="2"><property name="text"><string>Lê Hoàng Nam</string></property></item><item row="0" column="3"><property name="text"><string>VIP</string></property></item><item row="1" column="0"><property name="text"><string>2</string></property></item><item row="1" column="1"><property name="text"><string>KH018</string></property></item><item row="1" column="2"><property name="text"><string>Ngô Gia Bảo</string></property></item><item row="1" column="3"><property name="text"><string>Cấp cứu</string></property></item><item row="2" column="0"><property name="text"><string>3</string></property></item><item row="2" column="1"><property name="text"><string>KH021</string></property></item><item row="2" column="2"><property name="text"><string>Phan Anh Tuấn</string></property></item><item row="2" column="3"><property name="text"><string>VIP</string></property></item></widget>
-   <widget class="QLabel" name="lblThuongTitle">
-    <property name="geometry"><rect><x>18</x><y>182</y><width>130</width><height>24</height></rect></property>
-    <property name="font"><font><family>Segoe UI</family><pointsize>11</pointsize><bold>true</bold></font></property>
-    <property name="class"><string>badgeBlue</string></property>
-    
-    <property name="text"><string>Thường</string></property>
-    <property name="alignment"><set>Qt::AlignVCenter</set></property>
-   </widget>
-   <widget class="QTableWidget" name="tblHangChoThuong">
-    <property name="geometry"><rect><x>18</x><y>210</y><width>690</width><height>116</height></rect></property>
-    <property name="font"><font><family>Segoe UI</family><pointsize>10</pointsize><bold>false</bold></font></property>
-    <property name="focusPolicy"><enum>Qt::NoFocus</enum></property>
-    <property name="alternatingRowColors"><bool>true</bool></property>
-    <property name="selectionMode"><enum>QAbstractItemView::NoSelection</enum></property>
-    <property name="editTriggers"><set>QAbstractItemView::NoEditTriggers</set></property>
-    <property name="showGrid"><bool>true</bool></property>
-    <property name="rowCount"><number>4</number></property>
-    <property name="columnCount"><number>4</number></property><column><property name="text"><string>#</string></property></column><column><property name="text"><string>Mã KH</string></property></column><column><property name="text"><string>Tên khách</string></property></column><column><property name="text"><string>Nhóm</string></property></column><item row="0" column="0"><property name="text"><string>1</string></property></item><item row="0" column="1"><property name="text"><string>KH003</string></property></item><item row="0" column="2"><property name="text"><string>Trần Thị Bích</string></property></item><item row="0" column="3"><property name="text"><string>Thường</string></property></item><item row="1" column="0"><property name="text"><string>2</string></property></item><item row="1" column="1"><property name="text"><string>KH004</string></property></item><item row="1" column="2"><property name="text"><string>Phạm Thu Hà</string></property></item><item row="1" column="3"><property name="text"><string>Thường</string></property></item><item row="2" column="0"><property name="text"><string>3</string></property></item><item row="2" column="1"><property name="text"><string>KH005</string></property></item><item row="2" column="2"><property name="text"><string>Bùi Thanh Tâm</string></property></item><item row="2" column="3"><property name="text"><string>Thường</string></property></item><item row="3" column="0"><property name="text"><string>4</string></property></item><item row="3" column="1"><property name="text"><string>KH008</string></property></item><item row="3" column="2"><property name="text"><string>Vũ Thị Lan</string></property></item><item row="3" column="3"><property name="text"><string>Thường</string></property></item></widget>
-  </widget>
-  <widget class="QFrame" name="panelThongTinQuay">
-   <property name="geometry"><rect><x>776</x><y>562</y><width>708</width><height>146</height></rect></property>
-   <property name="frameShape"><enum>QFrame::StyledPanel</enum></property>
-   
+   <widget class="QTableWidget" name="tbl_priority_queue">
+    <property name="geometry">
+     <rect>
+      <x>18</x>
+      <y>80</y>
+      <width>681</width>
+      <height>141</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Segoe UI</family>
+      <pointsize>10</pointsize>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::FocusPolicy::NoFocus</enum>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QTableWidget {
+	padding: 4px;
+    gridline-color: #E5E7EB;
+    background: white;
+    alternate-background-color: #F8FAFC;
+	item.setBackground(QColor(&quot;#DBEAFE&quot;));
+	 border:1px solid #D1D5DB;
+    border-radius:6px;
+    gridline-color:#E5E7EB;
+}
 
-   <widget class="QLabel" name="lblImgThongTinQuay">
-    <property name="geometry"><rect><x>18</x><y>13</y><width>28</width><height>28</height></rect></property>
-    <property name="font"><font><family>Segoe UI</family><pointsize>11</pointsize><bold>false</bold></font></property>
-    <property name="class"><string>imageSlot</string></property>
-    <property name="styleSheet"><string notr="true">background:#edf5ff; border:1px dashed #b8c7dc; border-radius:14px;</string></property>
-    <property name="text"><string></string></property>
-    <property name="alignment"><set>Qt::AlignCenter</set></property>
+QHeaderView::section {
+    background: #2563EB;
+    color: white;
+    font-weight: bold;
+    border: none;
+    padding: 6px;
+}</string>
+    </property>
+    <property name="editTriggers">
+     <set>QAbstractItemView::EditTrigger::NoEditTriggers</set>
+    </property>
+    <property name="alternatingRowColors">
+     <bool>true</bool>
+    </property>
+    <property name="selectionMode">
+     <enum>QAbstractItemView::SelectionMode::NoSelection</enum>
+    </property>
+    <property name="showGrid">
+     <bool>true</bool>
+    </property>
+    <property name="rowCount">
+     <number>3</number>
+    </property>
+    <property name="columnCount">
+     <number>3</number>
+    </property>
+    <attribute name="horizontalHeaderCascadingSectionResizes">
+     <bool>false</bool>
+    </attribute>
+    <attribute name="horizontalHeaderDefaultSectionSize">
+     <number>220</number>
+    </attribute>
+    <attribute name="horizontalHeaderShowSortIndicator" stdset="0">
+     <bool>false</bool>
+    </attribute>
+    <attribute name="horizontalHeaderStretchLastSection">
+     <bool>false</bool>
+    </attribute>
+    <attribute name="verticalHeaderVisible">
+     <bool>false</bool>
+    </attribute>
+    <row/>
+    <row/>
+    <row/>
+    <column>
+     <property name="text">
+      <string>Mã KH</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>Tên khách</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>Nhóm</string>
+     </property>
+    </column>
+    <item row="0" column="0">
+     <property name="text">
+      <string>KH015</string>
+     </property>
+    </item>
+    <item row="0" column="1">
+     <property name="text">
+      <string>Lê Hoàng Nam</string>
+     </property>
+    </item>
+    <item row="0" column="2">
+     <property name="text">
+      <string>VIP</string>
+     </property>
+    </item>
+    <item row="1" column="0">
+     <property name="text">
+      <string>KH018</string>
+     </property>
+    </item>
+    <item row="1" column="1">
+     <property name="text">
+      <string>Ngô Gia Bảo</string>
+     </property>
+    </item>
+    <item row="1" column="2">
+     <property name="text">
+      <string>Khẩn cấp</string>
+     </property>
+    </item>
+    <item row="2" column="0">
+     <property name="text">
+      <string>KH021</string>
+     </property>
+    </item>
+    <item row="2" column="1">
+     <property name="text">
+      <string>Phan Anh Tuấn</string>
+     </property>
+    </item>
+    <item row="2" column="2">
+     <property name="text">
+      <string>VIP</string>
+     </property>
+    </item>
    </widget>
-   <widget class="QLabel" name="lblTitleThongTinQuay">
-    <property name="geometry"><rect><x>56</x><y>14</y><width>220</width><height>28</height></rect></property>
-    <property name="font"><font><family>Segoe UI</family><pointsize>12</pointsize><bold>true</bold></font></property>
-    <property name="class"><string>sectionTitle</string></property>
-    
-    <property name="text"><string>Thông tin quầy</string></property>
-    
+   <widget class="QLabel" name="lblThuongTitle">
+    <property name="geometry">
+     <rect>
+      <x>18</x>
+      <y>230</y>
+      <width>130</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Segoe UI</family>
+      <pointsize>11</pointsize>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background:#DBEAFE;
+color:#2563EB;
+font-weight:bold;
+padding:4px;
+border-radius:6px;</string>
+    </property>
+    <property name="text">
+     <string>Thường</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignmentFlag::AlignVCenter</set>
+    </property>
+    <property name="class" stdset="0">
+     <string>badgeBlue</string>
+    </property>
    </widget>
-   <widget class="QLabel" name="lblMaQuay">
-    <property name="geometry"><rect><x>36</x><y>56</y><width>230</width><height>24</height></rect></property>
-    <property name="font"><font><family>Segoe UI</family><pointsize>10</pointsize><bold>false</bold></font></property>
-    
-    
-    <property name="text"><string>Mã quầy:          1</string></property>
-    
-   </widget>
-   <widget class="QLabel" name="lblTrangThaiMo">
-    <property name="geometry"><rect><x>36</x><y>84</y><width>230</width><height>24</height></rect></property>
-    <property name="font"><font><family>Segoe UI</family><pointsize>10</pointsize><bold>false</bold></font></property>
-    <property name="class"><string>badgeGreen</string></property>
-    
-    <property name="text"><string>Trạng thái:       Đang mở</string></property>
-    <property name="alignment"><set>Qt::AlignVCenter</set></property>
-   </widget>
-   <widget class="QLabel" name="lblTinhTrang">
-    <property name="geometry"><rect><x>36</x><y>112</y><width>230</width><height>24</height></rect></property>
-    <property name="font"><font><family>Segoe UI</family><pointsize>10</pointsize><bold>false</bold></font></property>
-    <property name="class"><string>badgeGreen</string></property>
-    
-    <property name="text"><string>Tình trạng:       Đang phục vụ</string></property>
-    <property name="alignment"><set>Qt::AlignVCenter</set></property>
-   </widget>
-   <widget class="QLabel" name="lblTongLuot">
-    <property name="geometry"><rect><x>340</x><y>56</y><width>250</width><height>24</height></rect></property>
-    <property name="font"><font><family>Segoe UI</family><pointsize>10</pointsize><bold>true</bold></font></property>
-    
-    
-    <property name="text"><string>Tổng lượt hôm nay:      24</string></property>
-    
-   </widget>
-   <widget class="QLabel" name="lblKhachCuoi">
-    <property name="geometry"><rect><x>340</x><y>84</y><width>250</width><height>24</height></rect></property>
-    <property name="font"><font><family>Segoe UI</family><pointsize>10</pointsize><bold>true</bold></font></property>
-    
-    
-    <property name="text"><string>Khách cuối cùng:        KH014</string></property>
-    
-   </widget>
-   <widget class="QLabel" name="lblTgTb">
-    <property name="geometry"><rect><x>340</x><y>112</y><width>250</width><height>24</height></rect></property>
-    <property name="font"><font><family>Segoe UI</family><pointsize>10</pointsize><bold>true</bold></font></property>
-    
-    
-    <property name="text"><string>Thời gian phục vụ TB:   15 phút</string></property>
-    
-   </widget>
-   <widget class="QLabel" name="lblImgTrangThaiTot">
-    <property name="geometry"><rect><x>632</x><y>54</y><width>58</width><height>58</height></rect></property>
-    <property name="font"><font><family>Segoe UI</family><pointsize>11</pointsize><bold>false</bold></font></property>
-    <property name="class"><string>imageSlot</string></property>
-    <property name="styleSheet"><string notr="true">background:#edf5ff; border:1px dashed #b8c7dc; border-radius:29px;</string></property>
-    <property name="text"><string></string></property>
-    <property name="alignment"><set>Qt::AlignCenter</set></property>
+   <widget class="QTableWidget" name="tbl_normal_queue">
+    <property name="geometry">
+     <rect>
+      <x>18</x>
+      <y>260</y>
+      <width>681</width>
+      <height>141</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Segoe UI</family>
+      <pointsize>10</pointsize>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::FocusPolicy::NoFocus</enum>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QTableWidget {
+	padding: 4px;
+    gridline-color: #E5E7EB;
+    background: white;
+    alternate-background-color: #F8FAFC;
+	item.setBackground(QColor(&quot;#DBEAFE&quot;));
+	 border:1px solid #D1D5DB;
+    border-radius:6px;
+    gridline-color:#E5E7EB;
+}
+
+QHeaderView::section {
+    background: #2563EB;
+    color: white;
+    font-weight: bold;
+    border: none;
+    padding: 6px;
+}</string>
+    </property>
+    <property name="editTriggers">
+     <set>QAbstractItemView::EditTrigger::NoEditTriggers</set>
+    </property>
+    <property name="alternatingRowColors">
+     <bool>true</bool>
+    </property>
+    <property name="selectionMode">
+     <enum>QAbstractItemView::SelectionMode::NoSelection</enum>
+    </property>
+    <property name="showGrid">
+     <bool>true</bool>
+    </property>
+    <property name="rowCount">
+     <number>4</number>
+    </property>
+    <property name="columnCount">
+     <number>3</number>
+    </property>
+    <attribute name="horizontalHeaderCascadingSectionResizes">
+     <bool>false</bool>
+    </attribute>
+    <attribute name="horizontalHeaderDefaultSectionSize">
+     <number>220</number>
+    </attribute>
+    <attribute name="horizontalHeaderShowSortIndicator" stdset="0">
+     <bool>false</bool>
+    </attribute>
+    <attribute name="horizontalHeaderStretchLastSection">
+     <bool>false</bool>
+    </attribute>
+    <attribute name="verticalHeaderVisible">
+     <bool>false</bool>
+    </attribute>
+    <row/>
+    <row/>
+    <row/>
+    <row/>
+    <column>
+     <property name="text">
+      <string>Mã KH</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>Tên khách</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>Nhóm</string>
+     </property>
+    </column>
+    <item row="0" column="0">
+     <property name="text">
+      <string>KH003</string>
+     </property>
+    </item>
+    <item row="0" column="1">
+     <property name="text">
+      <string>Trần Thị Bích</string>
+     </property>
+    </item>
+    <item row="0" column="2">
+     <property name="text">
+      <string>Thường</string>
+     </property>
+    </item>
+    <item row="1" column="0">
+     <property name="text">
+      <string>KH004</string>
+     </property>
+    </item>
+    <item row="1" column="1">
+     <property name="text">
+      <string>Phạm Thu Hà</string>
+     </property>
+    </item>
+    <item row="1" column="2">
+     <property name="text">
+      <string>Thường</string>
+     </property>
+    </item>
+    <item row="2" column="0">
+     <property name="text">
+      <string>KH005</string>
+     </property>
+    </item>
+    <item row="2" column="1">
+     <property name="text">
+      <string>Bùi Thanh Tâm</string>
+     </property>
+    </item>
+    <item row="2" column="2">
+     <property name="text">
+      <string>Thường</string>
+     </property>
+    </item>
+    <item row="3" column="0">
+     <property name="text">
+      <string>KH008</string>
+     </property>
+    </item>
+    <item row="3" column="1">
+     <property name="text">
+      <string>Vũ Thị Lan</string>
+     </property>
+    </item>
+    <item row="3" column="2">
+     <property name="text">
+      <string>Thường</string>
+     </property>
+    </item>
    </widget>
   </widget>
   <widget class="QFrame" name="panelLichSu">
-   <property name="geometry"><rect><x>16</x><y>590</y><width>1468</width><height>174</height></rect></property>
-   <property name="frameShape"><enum>QFrame::StyledPanel</enum></property>
-   
-
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>600</y>
+     <width>1468</width>
+     <height>174</height>
+    </rect>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::Shape::StyledPanel</enum>
+   </property>
    <widget class="QLabel" name="lblImgLichSu">
-    <property name="geometry"><rect><x>18</x><y>13</y><width>28</width><height>28</height></rect></property>
-    <property name="font"><font><family>Segoe UI</family><pointsize>11</pointsize><bold>false</bold></font></property>
-    <property name="class"><string>imageSlot</string></property>
-    <property name="styleSheet"><string notr="true">background:#edf5ff; border:1px dashed #b8c7dc; border-radius:14px;</string></property>
-    <property name="text"><string></string></property>
-    <property name="alignment"><set>Qt::AlignCenter</set></property>
+    <property name="geometry">
+     <rect>
+      <x>18</x>
+      <y>13</y>
+      <width>28</width>
+      <height>28</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Segoe UI</family>
+      <pointsize>11</pointsize>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background:#edf5ff; border:1px dashed #b8c7dc; border-radius:14px;</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap>../images/tải xuống (1).png</pixmap>
+    </property>
+    <property name="scaledContents">
+     <bool>true</bool>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignmentFlag::AlignCenter</set>
+    </property>
+    <property name="class" stdset="0">
+     <string>imageSlot</string>
+    </property>
    </widget>
-   <widget class="QLabel" name="lblSection2">
-    <property name="geometry"><rect><x>56</x><y>14</y><width>320</width><height>28</height></rect></property>
-    <property name="font"><font><family>Segoe UI</family><pointsize>12</pointsize><bold>true</bold></font></property>
-    <property name="class"><string>sectionTitle</string></property>
-    
-    <property name="text"><string>Lịch sử phục vụ gần đây</string></property>
-    
-   </widget>
-   <widget class="QTextEdit" name="txtLichSu">
-    <property name="geometry"><rect><x>18</x><y>50</y><width>1</width><height>1</height></rect></property>
-    <property name="font"><font><family>Consolas</family><pointsize>10</pointsize><bold>false</bold></font></property>
-    <property name="plainText"><string></string></property>
+   <widget class="QLabel" name="lblLichSuPhucVu">
+    <property name="geometry">
+     <rect>
+      <x>56</x>
+      <y>14</y>
+      <width>320</width>
+      <height>28</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Segoe UI</family>
+      <pointsize>12</pointsize>
+      <fontweight>ExtraBold</fontweight>
+     </font>
+    </property>
+    <property name="text">
+     <string>Lịch sử phục vụ gần đây</string>
+    </property>
+    <property name="class" stdset="0">
+     <string>sectionTitle</string>
+    </property>
    </widget>
    <widget class="QTableWidget" name="tblLichSuPhucVu">
-    <property name="geometry"><rect><x>0</x><y>50</y><width>1468</width><height>116</height></rect></property>
-    <property name="font"><font><family>Segoe UI</family><pointsize>10</pointsize><bold>false</bold></font></property>
-    <property name="focusPolicy"><enum>Qt::NoFocus</enum></property>
-    <property name="alternatingRowColors"><bool>true</bool></property>
-    <property name="selectionMode"><enum>QAbstractItemView::NoSelection</enum></property>
-    <property name="editTriggers"><set>QAbstractItemView::NoEditTriggers</set></property>
-    <property name="showGrid"><bool>true</bool></property>
-    <property name="rowCount"><number>4</number></property>
-    <property name="columnCount"><number>6</number></property><column><property name="text"><string>Mã KH</string></property></column><column><property name="text"><string>Tên khách</string></property></column><column><property name="text"><string>Loại dịch vụ</string></property></column><column><property name="text"><string>Thời gian chờ</string></property></column><column><property name="text"><string>Thời gian phục vụ</string></property></column><column><property name="text"><string>Kết quả</string></property></column><item row="0" column="0"><property name="text"><string>KH014</string></property></item><item row="0" column="1"><property name="text"><string>Lê Hoàng Nam</string></property></item><item row="0" column="2"><property name="text"><string>Khám tim mạch</string></property></item><item row="0" column="3"><property name="text"><string>10 phút</string></property></item><item row="0" column="4"><property name="text"><string>14 phút</string></property></item><item row="0" column="5"><property name="text"><string>Hoàn thành</string></property></item><item row="1" column="0"><property name="text"><string>KH012</string></property></item><item row="1" column="1"><property name="text"><string>Đỗ Thị Hạnh</string></property></item><item row="1" column="2"><property name="text"><string>Khám mắt</string></property></item><item row="1" column="3"><property name="text"><string>22 phút</string></property></item><item row="1" column="4"><property name="text"><string>16 phút</string></property></item><item row="1" column="5"><property name="text"><string>Hoàn thành</string></property></item><item row="2" column="0"><property name="text"><string>KH011</string></property></item><item row="2" column="1"><property name="text"><string>Trương Minh Châu</string></property></item><item row="2" column="2"><property name="text"><string>Khám tai mũi họng</string></property></item><item row="2" column="3"><property name="text"><string>10 phút</string></property></item><item row="2" column="4"><property name="text"><string>12 phút</string></property></item><item row="2" column="5"><property name="text"><string>Hoàn thành</string></property></item><item row="3" column="0"><property name="text"><string>KH009</string></property></item><item row="3" column="1"><property name="text"><string>Lý Văn Dũng</string></property></item><item row="3" column="2"><property name="text"><string>Khám xương khớp</string></property></item><item row="3" column="3"><property name="text"><string>15 phút</string></property></item><item row="3" column="4"><property name="text"><string>18 phút</string></property></item><item row="3" column="5"><property name="text"><string>Hoàn thành</string></property></item></widget>
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>50</y>
+      <width>1441</width>
+      <height>116</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Segoe UI</family>
+      <pointsize>10</pointsize>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::FocusPolicy::NoFocus</enum>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QTableWidget {
+	padding: 4px;
+    gridline-color: #E5E7EB;
+    background: white;
+    alternate-background-color: #F8FAFC;
+	item.setBackground(QColor(&quot;#DBEAFE&quot;));
+	 border:1px solid #D1D5DB;
+    border-radius:6px;
+    gridline-color:#E5E7EB;
+}
+
+QHeaderView::section {
+    background: #2563EB;
+    color: white;
+    font-weight: bold;
+    border: none;
+    padding: 6px;
+}</string>
+    </property>
+    <property name="editTriggers">
+     <set>QAbstractItemView::EditTrigger::NoEditTriggers</set>
+    </property>
+    <property name="alternatingRowColors">
+     <bool>true</bool>
+    </property>
+    <property name="selectionMode">
+     <enum>QAbstractItemView::SelectionMode::NoSelection</enum>
+    </property>
+    <property name="showGrid">
+     <bool>true</bool>
+    </property>
+    <property name="rowCount">
+     <number>4</number>
+    </property>
+    <property name="columnCount">
+     <number>6</number>
+    </property>
+    <attribute name="horizontalHeaderDefaultSectionSize">
+     <number>235</number>
+    </attribute>
+    <attribute name="horizontalHeaderShowSortIndicator" stdset="0">
+     <bool>false</bool>
+    </attribute>
+    <attribute name="horizontalHeaderStretchLastSection">
+     <bool>false</bool>
+    </attribute>
+    <attribute name="verticalHeaderVisible">
+     <bool>false</bool>
+    </attribute>
+    <row/>
+    <row/>
+    <row/>
+    <row/>
+    <column>
+     <property name="text">
+      <string>Mã KH</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>Tên khách</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>Loại dịch vụ</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>Thời gian chờ</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>Thời gian phục vụ</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>Kết quả</string>
+     </property>
+    </column>
+    <item row="0" column="0">
+     <property name="text">
+      <string>KH014</string>
+     </property>
+    </item>
+    <item row="0" column="1">
+     <property name="text">
+      <string>Lê Hoàng Nam</string>
+     </property>
+    </item>
+    <item row="0" column="2">
+     <property name="text">
+      <string>Giao dịch phức tạp</string>
+     </property>
+    </item>
+    <item row="0" column="3">
+     <property name="text">
+      <string>10 phút</string>
+     </property>
+    </item>
+    <item row="0" column="4">
+     <property name="text">
+      <string>14 phút</string>
+     </property>
+    </item>
+    <item row="0" column="5">
+     <property name="text">
+      <string>Hoàn thành</string>
+     </property>
+    </item>
+    <item row="1" column="0">
+     <property name="text">
+      <string>KH012</string>
+     </property>
+    </item>
+    <item row="1" column="1">
+     <property name="text">
+      <string>Đỗ Thị Hạnh</string>
+     </property>
+    </item>
+    <item row="1" column="2">
+     <property name="text">
+      <string>Giao dịch nhanh</string>
+     </property>
+    </item>
+    <item row="1" column="3">
+     <property name="text">
+      <string>22 phút</string>
+     </property>
+    </item>
+    <item row="1" column="4">
+     <property name="text">
+      <string>16 phút</string>
+     </property>
+    </item>
+    <item row="1" column="5">
+     <property name="text">
+      <string>Hoàn thành</string>
+     </property>
+    </item>
+    <item row="2" column="0">
+     <property name="text">
+      <string>KH011</string>
+     </property>
+    </item>
+    <item row="2" column="1">
+     <property name="text">
+      <string>Trương Minh Châu</string>
+     </property>
+    </item>
+    <item row="2" column="2">
+     <property name="text">
+      <string>Tư vấn dịch vụ</string>
+     </property>
+    </item>
+    <item row="2" column="3">
+     <property name="text">
+      <string>10 phút</string>
+     </property>
+    </item>
+    <item row="2" column="4">
+     <property name="text">
+      <string>12 phút</string>
+     </property>
+    </item>
+    <item row="2" column="5">
+     <property name="text">
+      <string>Hoàn thành</string>
+     </property>
+    </item>
+    <item row="3" column="0">
+     <property name="text">
+      <string>KH009</string>
+     </property>
+    </item>
+    <item row="3" column="1">
+     <property name="text">
+      <string>Lý Văn Dũng</string>
+     </property>
+    </item>
+    <item row="3" column="2">
+     <property name="text">
+      <string>Giao dịch phức tạp</string>
+     </property>
+    </item>
+    <item row="3" column="3">
+     <property name="text">
+      <string>15 phút</string>
+     </property>
+    </item>
+    <item row="3" column="4">
+     <property name="text">
+      <string>18 phút</string>
+     </property>
+    </item>
+    <item row="3" column="5">
+     <property name="text">
+      <string>Hoàn thành</string>
+     </property>
+    </item>
+   </widget>
   </widget>
  </widget>
  <resources/>

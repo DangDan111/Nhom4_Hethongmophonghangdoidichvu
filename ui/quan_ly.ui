@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='utf-8'?>
+<?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
  <class>QuanLyForm</class>
  <widget class="QWidget" name="QuanLyForm">
@@ -29,7 +29,7 @@
    <string notr="true">
 QWidget#QuanLyForm {
     background: #f6f9ff;
-    font-family: "Segoe UI";
+    font-family: &quot;Segoe UI&quot;;
     color: #111827;
 }
 QFrame {
@@ -154,13 +154,13 @@ QHeaderView::section {
      </font>
     </property>
     <property name="text">
-     <string />
+     <string/>
     </property>
    </widget>
    <widget class="QLabel" name="lblTaiKhoan">
     <property name="geometry">
      <rect>
-      <x>1198</x>
+      <x>1183</x>
       <y>38</y>
       <width>170</width>
       <height>32</height>
@@ -169,7 +169,7 @@ QHeaderView::section {
     <property name="font">
      <font>
       <family>Segoe UI</family>
-      <pointsize>11</pointsize>
+      <pointsize>12</pointsize>
       <bold>true</bold>
      </font>
     </property>
@@ -177,14 +177,14 @@ QHeaderView::section {
      <string>Tài khoản: admin</string>
     </property>
     <property name="alignment">
-     <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
+     <set>Qt::AlignmentFlag::AlignCenter</set>
     </property>
    </widget>
    <widget class="QPushButton" name="btnDangXuat">
     <property name="geometry">
      <rect>
-      <x>1376</x>
-      <y>34</y>
+      <x>1365</x>
+      <y>38</y>
       <width>112</width>
       <height>38</height>
      </rect>
@@ -201,6 +201,12 @@ QHeaderView::section {
     </property>
     <property name="text">
      <string>Đăng xuất</string>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>23</width>
+      <height>23</height>
+     </size>
     </property>
    </widget>
   </widget>
@@ -224,9 +230,21 @@ QHeaderView::section {
      <rect>
       <x>18</x>
       <y>20</y>
-      <width>54</width>
-      <height>54</height>
+      <width>48</width>
+      <height>48</height>
      </rect>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>48</width>
+      <height>48</height>
+     </size>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>48</width>
+      <height>48</height>
+     </size>
     </property>
     <property name="font">
      <font>
@@ -236,10 +254,19 @@ QHeaderView::section {
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">background:#0f73df; color:white; border:0; border-radius:27px;</string>
+     <string notr="true">background-color: #E3F2FD;
+border-radius: 24px;
+min-width: 48px;
+max-width: 48px;
+min-height: 48px;
+max-height: 48px;
+image: url(icon1.png);</string>
     </property>
-    <property name="text">
-     <string>👥</string>
+    <property name="pixmap">
+     <pixmap>../images/tongkhach.png</pixmap>
+    </property>
+    <property name="scaledContents">
+     <bool>true</bool>
     </property>
     <property name="alignment">
      <set>Qt::AlignmentFlag::AlignCenter</set>
@@ -251,9 +278,9 @@ QHeaderView::section {
    <widget class="QLabel" name="cardTongDaPhucVuTitle">
     <property name="geometry">
      <rect>
-      <x>88</x>
-      <y>20</y>
-      <width>140</width>
+      <x>80</x>
+      <y>15</y>
+      <width>151</width>
       <height>24</height>
      </rect>
     </property>
@@ -267,13 +294,16 @@ QHeaderView::section {
     <property name="text">
      <string>Tổng khách đã phục vụ</string>
     </property>
+    <property name="alignment">
+     <set>Qt::AlignmentFlag::AlignCenter</set>
+    </property>
    </widget>
    <widget class="QLabel" name="lblTongDaPhucVu">
     <property name="geometry">
      <rect>
-      <x>88</x>
-      <y>46</y>
-      <width>140</width>
+      <x>100</x>
+      <y>40</y>
+      <width>111</width>
       <height>36</height>
      </rect>
     </property>
@@ -289,6 +319,9 @@ QHeaderView::section {
     </property>
     <property name="text">
      <string>128</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignmentFlag::AlignCenter</set>
     </property>
     <property name="class" stdset="0">
      <string>metricValue</string>
@@ -315,9 +348,21 @@ QHeaderView::section {
      <rect>
       <x>18</x>
       <y>20</y>
-      <width>54</width>
-      <height>54</height>
+      <width>48</width>
+      <height>48</height>
      </rect>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>48</width>
+      <height>48</height>
+     </size>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>48</width>
+      <height>48</height>
+     </size>
     </property>
     <property name="font">
      <font>
@@ -326,14 +371,20 @@ QHeaderView::section {
       <bold>true</bold>
      </font>
     </property>
-    <property name="styleSheet">
-     <string notr="true">background:#f59e0b; color:white; border:0; border-radius:27px;</string>
-    </property>
     <property name="text">
-     <string>◷</string>
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap>../images/khachcho.png</pixmap>
+    </property>
+    <property name="scaledContents">
+     <bool>true</bool>
     </property>
     <property name="alignment">
      <set>Qt::AlignmentFlag::AlignCenter</set>
+    </property>
+    <property name="wordWrap">
+     <bool>false</bool>
     </property>
     <property name="class" stdset="0">
      <string>iconCircle</string>
@@ -342,8 +393,8 @@ QHeaderView::section {
    <widget class="QLabel" name="cardKhachDangChoTitle">
     <property name="geometry">
      <rect>
-      <x>88</x>
-      <y>20</y>
+      <x>80</x>
+      <y>15</y>
       <width>140</width>
       <height>24</height>
      </rect>
@@ -358,13 +409,16 @@ QHeaderView::section {
     <property name="text">
      <string>Khách đang chờ</string>
     </property>
+    <property name="alignment">
+     <set>Qt::AlignmentFlag::AlignCenter</set>
+    </property>
    </widget>
    <widget class="QLabel" name="lblKhachDangCho">
     <property name="geometry">
      <rect>
-      <x>88</x>
-      <y>46</y>
-      <width>140</width>
+      <x>100</x>
+      <y>40</y>
+      <width>101</width>
       <height>36</height>
      </rect>
     </property>
@@ -380,6 +434,9 @@ QHeaderView::section {
     </property>
     <property name="text">
      <string>17</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignmentFlag::AlignCenter</set>
     </property>
     <property name="class" stdset="0">
      <string>metricValue</string>
@@ -406,9 +463,21 @@ QHeaderView::section {
      <rect>
       <x>18</x>
       <y>20</y>
-      <width>54</width>
-      <height>54</height>
+      <width>48</width>
+      <height>48</height>
      </rect>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>48</width>
+      <height>48</height>
+     </size>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>48</width>
+      <height>48</height>
+     </size>
     </property>
     <property name="font">
      <font>
@@ -417,11 +486,11 @@ QHeaderView::section {
       <bold>true</bold>
      </font>
     </property>
-    <property name="styleSheet">
-     <string notr="true">background:#16a34a; color:white; border:0; border-radius:27px;</string>
+    <property name="pixmap">
+     <pixmap>../images/iconquay.png</pixmap>
     </property>
-    <property name="text">
-     <string>▣</string>
+    <property name="scaledContents">
+     <bool>true</bool>
     </property>
     <property name="alignment">
      <set>Qt::AlignmentFlag::AlignCenter</set>
@@ -433,8 +502,8 @@ QHeaderView::section {
    <widget class="QLabel" name="cardQuayDangMoTitle">
     <property name="geometry">
      <rect>
-      <x>88</x>
-      <y>20</y>
+      <x>80</x>
+      <y>15</y>
       <width>140</width>
       <height>24</height>
      </rect>
@@ -449,13 +518,16 @@ QHeaderView::section {
     <property name="text">
      <string>Quầy đang mở</string>
     </property>
+    <property name="alignment">
+     <set>Qt::AlignmentFlag::AlignCenter</set>
+    </property>
    </widget>
    <widget class="QLabel" name="lblQuayDangMo">
     <property name="geometry">
      <rect>
-      <x>88</x>
-      <y>46</y>
-      <width>140</width>
+      <x>100</x>
+      <y>40</y>
+      <width>81</width>
       <height>36</height>
      </rect>
     </property>
@@ -471,6 +543,9 @@ QHeaderView::section {
     </property>
     <property name="text">
      <string>3</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignmentFlag::AlignCenter</set>
     </property>
     <property name="class" stdset="0">
      <string>metricValue</string>
@@ -497,9 +572,21 @@ QHeaderView::section {
      <rect>
       <x>18</x>
       <y>20</y>
-      <width>54</width>
-      <height>54</height>
+      <width>48</width>
+      <height>48</height>
      </rect>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>48</width>
+      <height>48</height>
+     </size>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>48</width>
+      <height>48</height>
+     </size>
     </property>
     <property name="font">
      <font>
@@ -508,11 +595,14 @@ QHeaderView::section {
       <bold>true</bold>
      </font>
     </property>
-    <property name="styleSheet">
-     <string notr="true">background:#6d3fd1; color:white; border:0; border-radius:27px;</string>
-    </property>
     <property name="text">
-     <string>▥</string>
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap>../images/quaydangban.png</pixmap>
+    </property>
+    <property name="scaledContents">
+     <bool>true</bool>
     </property>
     <property name="alignment">
      <set>Qt::AlignmentFlag::AlignCenter</set>
@@ -524,8 +614,8 @@ QHeaderView::section {
    <widget class="QLabel" name="cardQuayDangBanTitle">
     <property name="geometry">
      <rect>
-      <x>88</x>
-      <y>20</y>
+      <x>80</x>
+      <y>15</y>
       <width>140</width>
       <height>24</height>
      </rect>
@@ -540,13 +630,16 @@ QHeaderView::section {
     <property name="text">
      <string>Quầy đang bận</string>
     </property>
+    <property name="alignment">
+     <set>Qt::AlignmentFlag::AlignCenter</set>
+    </property>
    </widget>
    <widget class="QLabel" name="lblQuayDangBan">
     <property name="geometry">
      <rect>
-      <x>88</x>
-      <y>46</y>
-      <width>140</width>
+      <x>109</x>
+      <y>40</y>
+      <width>81</width>
       <height>36</height>
      </rect>
     </property>
@@ -562,6 +655,9 @@ QHeaderView::section {
     </property>
     <property name="text">
      <string>2</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignmentFlag::AlignCenter</set>
     </property>
     <property name="class" stdset="0">
      <string>metricValue</string>
@@ -588,9 +684,21 @@ QHeaderView::section {
      <rect>
       <x>18</x>
       <y>20</y>
-      <width>54</width>
-      <height>54</height>
+      <width>48</width>
+      <height>48</height>
      </rect>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>48</width>
+      <height>48</height>
+     </size>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>48</width>
+      <height>48</height>
+     </size>
     </property>
     <property name="font">
      <font>
@@ -599,11 +707,14 @@ QHeaderView::section {
       <bold>true</bold>
      </font>
     </property>
-    <property name="styleSheet">
-     <string notr="true">background:#0f73df; color:white; border:0; border-radius:27px;</string>
-    </property>
     <property name="text">
-     <string>◷</string>
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap>../images/thoigiantb.png</pixmap>
+    </property>
+    <property name="scaledContents">
+     <bool>true</bool>
     </property>
     <property name="alignment">
      <set>Qt::AlignmentFlag::AlignCenter</set>
@@ -615,9 +726,9 @@ QHeaderView::section {
    <widget class="QLabel" name="cardThoiGianChoTBTitle">
     <property name="geometry">
      <rect>
-      <x>88</x>
-      <y>20</y>
-      <width>146</width>
+      <x>78</x>
+      <y>15</y>
+      <width>161</width>
       <height>24</height>
      </rect>
     </property>
@@ -635,16 +746,16 @@ QHeaderView::section {
    <widget class="QLabel" name="lblThoiGianChoTB">
     <property name="geometry">
      <rect>
-      <x>88</x>
-      <y>46</y>
-      <width>140</width>
+      <x>84</x>
+      <y>43</y>
+      <width>135</width>
       <height>36</height>
      </rect>
     </property>
     <property name="font">
      <font>
       <family>Segoe UI</family>
-      <pointsize>23</pointsize>
+      <pointsize>22</pointsize>
       <fontweight>ExtraBold</fontweight>
      </font>
     </property>
@@ -653,6 +764,9 @@ QHeaderView::section {
     </property>
     <property name="text">
      <string>18 phút</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignmentFlag::AlignCenter</set>
     </property>
     <property name="class" stdset="0">
      <string>metricValue</string>
@@ -677,11 +791,23 @@ QHeaderView::section {
    <widget class="QLabel" name="lblIconCanhBao">
     <property name="geometry">
      <rect>
-      <x>18</x>
-      <y>20</y>
-      <width>54</width>
-      <height>54</height>
+      <x>16</x>
+      <y>17</y>
+      <width>53</width>
+      <height>53</height>
      </rect>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>53</width>
+      <height>53</height>
+     </size>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>53</width>
+      <height>53</height>
+     </size>
     </property>
     <property name="font">
      <font>
@@ -690,11 +816,14 @@ QHeaderView::section {
       <bold>true</bold>
      </font>
     </property>
-    <property name="styleSheet">
-     <string notr="true">background:#16a34a; color:white; border:0; border-radius:27px;</string>
-    </property>
     <property name="text">
-     <string>✓</string>
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap>../images/canhbao.png</pixmap>
+    </property>
+    <property name="scaledContents">
+     <bool>true</bool>
     </property>
     <property name="alignment">
      <set>Qt::AlignmentFlag::AlignCenter</set>
@@ -706,8 +835,8 @@ QHeaderView::section {
    <widget class="QLabel" name="cardCanhBaoTitle">
     <property name="geometry">
      <rect>
-      <x>88</x>
-      <y>20</y>
+      <x>80</x>
+      <y>15</y>
       <width>116</width>
       <height>24</height>
      </rect>
@@ -722,20 +851,23 @@ QHeaderView::section {
     <property name="text">
      <string>Cảnh báo</string>
     </property>
+    <property name="alignment">
+     <set>Qt::AlignmentFlag::AlignCenter</set>
+    </property>
    </widget>
    <widget class="QLabel" name="lblCanhBao">
     <property name="geometry">
      <rect>
-      <x>88</x>
-      <y>46</y>
-      <width>120</width>
+      <x>84</x>
+      <y>43</y>
+      <width>126</width>
       <height>36</height>
      </rect>
     </property>
     <property name="font">
      <font>
       <family>Segoe UI</family>
-      <pointsize>23</pointsize>
+      <pointsize>21</pointsize>
       <fontweight>ExtraBold</fontweight>
      </font>
     </property>
@@ -744,6 +876,9 @@ QHeaderView::section {
     </property>
     <property name="text">
      <string>Ổn định</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignmentFlag::AlignCenter</set>
     </property>
     <property name="class" stdset="0">
      <string>metricValue</string>
@@ -778,11 +913,14 @@ QHeaderView::section {
       <bold>true</bold>
      </font>
     </property>
-    <property name="styleSheet">
-     <string notr="true">color:#0f73df;</string>
-    </property>
     <property name="text">
-     <string>★</string>
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap>../../Downloads/star.png</pixmap>
+    </property>
+    <property name="scaledContents">
+     <bool>true</bool>
     </property>
     <property name="alignment">
      <set>Qt::AlignmentFlag::AlignCenter</set>
@@ -865,11 +1003,14 @@ QHeaderView::section {
       <bold>true</bold>
      </font>
     </property>
-    <property name="styleSheet">
-     <string notr="true">color:#0f73df;</string>
-    </property>
     <property name="text">
-     <string>👥</string>
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap>../../Downloads/star (1).png</pixmap>
+    </property>
+    <property name="scaledContents">
+     <bool>true</bool>
     </property>
     <property name="alignment">
      <set>Qt::AlignmentFlag::AlignCenter</set>
@@ -952,11 +1093,14 @@ QHeaderView::section {
       <bold>true</bold>
      </font>
     </property>
-    <property name="styleSheet">
-     <string notr="true">color:#0f73df;</string>
-    </property>
     <property name="text">
-     <string>♟</string>
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap>../../Downloads/receptionist.png</pixmap>
+    </property>
+    <property name="scaledContents">
+     <bool>true</bool>
     </property>
     <property name="alignment">
      <set>Qt::AlignmentFlag::AlignCenter</set>
@@ -991,8 +1135,8 @@ QHeaderView::section {
    <widget class="QTableWidget" name="tblQuay">
     <property name="geometry">
      <rect>
-      <x>10</x>
-      <y>58</y>
+      <x>0</x>
+      <y>50</y>
       <width>416</width>
       <height>142</height>
      </rect>
@@ -1118,11 +1262,14 @@ QHeaderView::section {
       <bold>true</bold>
      </font>
     </property>
-    <property name="styleSheet">
-     <string notr="true">color:#0f73df;</string>
-    </property>
     <property name="text">
-     <string>▤</string>
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap>../../Downloads/pencil.png</pixmap>
+    </property>
+    <property name="scaledContents">
+     <bool>true</bool>
     </property>
     <property name="alignment">
      <set>Qt::AlignmentFlag::AlignCenter</set>
@@ -1201,6 +1348,6 @@ QHeaderView::section {
    </widget>
   </widget>
  </widget>
- <resources />
- <connections />
+ <resources/>
+ <connections/>
 </ui>

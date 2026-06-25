@@ -1,4 +1,4 @@
-﻿from datetime import datetime
+from datetime import datetime
 
 
 class KhachHang:
@@ -12,6 +12,8 @@ class KhachHang:
         thoi_gian_bat_dau_phuc_vu=None,
         thoi_gian_ket_thuc=None,
         trang_thai="Đang chờ",
+        so_tien_giao_dich=0,
+        muc_do_hai_long=0,
     ):
         self.id = id
         self.ten = ten
@@ -21,6 +23,8 @@ class KhachHang:
         self.thoi_gian_bat_dau_phuc_vu = thoi_gian_bat_dau_phuc_vu
         self.thoi_gian_ket_thuc = thoi_gian_ket_thuc
         self.trang_thai = trang_thai
+        self.so_tien_giao_dich = so_tien_giao_dich
+        self.muc_do_hai_long = muc_do_hai_long
 
     def tinh_thoi_gian_cho(self):
         if self.thoi_gian_bat_dau_phuc_vu is None:

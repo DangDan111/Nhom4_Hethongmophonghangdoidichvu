@@ -1,6 +1,6 @@
-﻿from PySide6.QtWidgets import QLabel, QLineEdit, QPushButton, QComboBox, QTextEdit, QMessageBox
+from PySide6.QtWidgets import QLabel, QLineEdit, QPushButton, QComboBox, QTextEdit, QMessageBox
 
-from views.ui_helpers import find_required, load_ui
+from views.ui_helpers import confirm_logout, find_required, load_ui
 
 
 class TiepNhanView:
@@ -22,11 +22,11 @@ class TiepNhanView:
         self.txtTheoDoi = find_required(self.window, QTextEdit, "txtTheoDoi")
 
         self.service_options = {
-            "Khám tổng quát - Thường": ("Khám tổng quát", 5),
-            "Khám da liễu - Thường": ("Khám da liễu", 5),
-            "Khám mắt - Thường": ("Khám mắt", 5),
+            "Giao dịch nhanh - Thường": ("Giao dịch nhanh", 5),
+            "Giao dịch phức tạp - Thường": ("Giao dịch phức tạp", 5),
+            "Tư vấn dịch vụ - Thường": ("Tư vấn dịch vụ", 5),
             "VIP - Ưu tiên": ("VIP", 1),
-            "Cấp cứu - Ưu tiên": ("Cấp cứu", 2),
+            "Khẩn cấp - Ưu tiên": ("Khẩn cấp", 2),
             "Người cao tuổi - Ưu tiên": ("Người cao tuổi", 3),
         }
 
@@ -46,23 +46,8 @@ class TiepNhanView:
         self.window.show()
 
     def xac_nhan_dang_xuat(self):
-        try:
-            tra_loi = QMessageBox.question(
-                None,
-                "Xác nhận đăng xuất",
-                "Bạn có muốn đăng xuất không?",
-                QMessageBox.StandardButton.Yes | QMessageBox.StandardButton.No,
-                QMessageBox.StandardButton.No
-            )
-
-            if tra_loi == QMessageBox.StandardButton.Yes:
-                print("Người dùng chọn YES")
+        if confirm_logout(self.window):
             self.on_logout()
-        except Exception as e:
-            print(f"Lỗi rồi bạn ơi: {e}") # Xem lỗi cụ thể ở terminal
-    def on_logout(self):
-        print("Đã đăng xuất thành công!")
-    # Code đóng cửa sổ hoặc chuyển trang ở đây
 
     def them_khach(self):
         ten = self.txtTenKhach.text().strip()

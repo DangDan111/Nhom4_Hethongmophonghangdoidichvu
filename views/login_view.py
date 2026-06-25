@@ -11,7 +11,7 @@ class LoginView:
         self.on_login_success = on_login_success
         self.auth_service = AuthService()
         self.window = load_ui(ui_path)
-        self.window.setFixedSize(520, 470)
+        self.window.setFixedSize(1280, 720)
 
         self.lblTieuDe = find_required(self.window, QLabel, "lblTieuDe")
         self.lblPhuDe = find_required(self.window, QLabel, "lblPhuDe")
@@ -23,7 +23,15 @@ class LoginView:
         self.lblTieuDe.setText("ĐĂNG NHẬP HỆ THỐNG")
         self.lblPhuDe.setText("Hệ thống mô phỏng hàng đợi dịch vụ")
         self.lblThongBao.setText("")
-        self.lblThongBao.setStyleSheet("color: #dc2626; font-weight: 600;")
+        self.lblThongBao.setStyleSheet("""
+    QLabel {
+        color: #dc2626;
+        font-size: 14px;
+        font-weight: 600;
+        border: none;
+        background: transparent;
+    }
+""")
         self.txtPassword.setEchoMode(QLineEdit.Password)
         self.btnDangNhap.clicked.connect(self.dang_nhap)
         self.txtUsername.returnPressed.connect(self.dang_nhap)

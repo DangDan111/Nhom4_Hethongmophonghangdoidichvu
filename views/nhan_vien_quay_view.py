@@ -42,7 +42,6 @@ class NhanVienQuayView:
         )
         self.lblKhachChoCount = find_required(self.window, QLabel, "lblKhachChoCount")
         self.lblDaPhucVuCount = find_required(self.window, QLabel, "lblDaPhucVuCount")
-        self.lblSoThuTu = find_required(self.window, QLabel, "lblSoThuTu")
         self.lblMaQuay = find_required(self.window, QLabel, "lblMaQuay")
         self.lblTrangThaiMo = find_required(self.window, QLabel, "lblTrangThaiMo")
         self.lblTinhTrang = find_required(self.window, QLabel, "lblTinhTrang")
@@ -208,12 +207,11 @@ class NhanVienQuayView:
         khach = quay.khach_dang_phuc_vu
 
         if khach is None:
-            self.lblSoThuTu.setText("-")
             self.txtKhachDangPhucVu.setPlainText(
-                "Hiện chưa có khách hàng nào đang phục vụ."
+            "Hiện chưa có khách hàng nào đang phục vụ."
             )
         else:
-            self.lblSoThuTu.setText(khach.ma_khach())
+            
             self.txtKhachDangPhucVu.setPlainText(
                 f"Mã khách: {khach.ma_khach()}\n"
                 f"Tên khách: {khach.ten}\n"
@@ -234,7 +232,45 @@ class NhanVienQuayView:
             self.lblKhachCuoi.setText(f"Khách cuối: {khach_cuoi.ma_khach()}")
             self.lblTgTb.setText(f"TG TB: {tg_tb:.1f} phút")
 
-        self.lblHieuSuat.setText("Đang phục vụ" if khach is not None else "Sẵn sàng")
+        if not quay.dang_mo:
+            self.lblHieuSuat.setText("● Đang đóng")
+            self.lblHieuSuat.setStyleSheet("""
+                QLabel{
+    background:#FEE2E2;
+    color:#DC2626;
+    border:1px solid #FCA5A5;
+    border-radius:12px;
+    padding:4px 10px;
+    font-size:12pt;
+    font-weight:700;
+}
+             """)
+        elif khach is not None:
+            self.lblHieuSuat.setText("● Đang phục vụ")
+            self.lblHieuSuat.setStyleSheet("""
+        QLabel{
+            background-color:#DCFCE7;
+            color:#16A34A;
+            border:1px solid #86EFAC;
+            border-radius:14px;
+            padding:6px 14px;
+            font-size:13pt;
+            font-weight:bold;
+        }
+    """)
+        else:
+            self.lblHieuSuat.setText("● Sẵn sàng")
+            self.lblHieuSuat.setStyleSheet("""
+        QLabel{
+            background-color:#FFF7ED;
+            color:#EA580C;
+            border:1px solid #FDBA74;
+            border-radius:14px;
+            padding:6px 14px;
+            font-size:13pt;
+            font-weight:bold;
+        }
+    """)
         fill_table(
             self.tblHangDoiUuTien,
             self._rows_khach_cho(self.he_thong.lay_danh_sach_hang_doi_uu_tien())

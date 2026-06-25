@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
  <class>NhanVienQuayForm</class>
  <widget class="QWidget" name="NhanVienQuayForm">
@@ -765,7 +765,7 @@ font-weight:bold;</string>
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap>../images/nguoi.png</pixmap>
+     <pixmap>../images/user.png</pixmap>
     </property>
     <property name="scaledContents">
      <bool>true</bool>
@@ -1261,7 +1261,7 @@ background:transparent;</string>
       <string/>
      </property>
      <property name="pixmap">
-      <pixmap>../images/tải xuống (2).png</pixmap>
+      <pixmap>../images/pencil.png</pixmap>
      </property>
      <property name="scaledContents">
       <bool>true</bool>

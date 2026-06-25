@@ -1,10 +1,12 @@
 from PySide6.QtWidgets import (
+    QDialog,
+    QHBoxLayout,
     QLabel,
     QPushButton,
     QComboBox,
     QTableWidget,
-    QMessageBox,
     QHeaderView,
+    QVBoxLayout,
 )
 
 from views.ui_helpers import confirm_logout, fill_table, find_required, load_ui, setup_table
@@ -146,23 +148,92 @@ class QuanLyView:
 
     def mo_quay(self):
         ok, msg = self.he_thong.mo_quay(self._selected_quay())
-
-        if ok:
-            QMessageBox.information(self.window, "Thông báo", msg)
-        else:
-            QMessageBox.warning(self.window, "Thông báo", msg)
-
+        self._hien_thong_bao(msg, thanh_cong=ok)
         self.lam_moi()
 
     def dong_quay(self):
         ok, msg = self.he_thong.dong_quay(self._selected_quay())
-
-        if ok:
-            QMessageBox.information(self.window, "Thông báo", msg)
-        else:
-            QMessageBox.warning(self.window, "Thông báo", msg)
-
+        self._hien_thong_bao(msg, thanh_cong=ok)
         self.lam_moi()
+
+    def _hien_thong_bao(self, message, thanh_cong=True):
+        dialog = QDialog(self.window)
+        dialog.setWindowTitle("Th?ng b?o")
+        dialog.setModal(True)
+        dialog.setFixedSize(440, 220)
+        dialog.setStyleSheet("""
+            QDialog {
+                background: #f8fbff;
+                font-family: 'Segoe UI';
+            }
+            QLabel {
+                color: #111827;
+                border: none;
+                background: transparent;
+            }
+            QLabel#iconLabel {
+                color: white;
+                border-radius: 24px;
+                font-size: 26px;
+                font-weight: 800;
+                min-width: 48px;
+                min-height: 48px;
+                max-width: 48px;
+                max-height: 48px;
+            }
+            QLabel#messageLabel {
+                font-size: 16px;
+                font-weight: 500;
+            }
+            QPushButton {
+                background: #1769dc;
+                color: white;
+                border: 1px solid #0f5dc8;
+                border-radius: 7px;
+                min-width: 138px;
+                min-height: 46px;
+                font-size: 16px;
+                font-weight: 700;
+            }
+            QPushButton:hover {
+                background: #0f5dc8;
+            }
+        """)
+
+        layout = QVBoxLayout(dialog)
+        layout.setContentsMargins(34, 26, 34, 26)
+        layout.setSpacing(22)
+
+        content_layout = QHBoxLayout()
+        content_layout.setSpacing(18)
+        content_layout.addStretch()
+
+        icon = QLabel("i" if thanh_cong else "!")
+        icon.setObjectName("iconLabel")
+        icon.setAlignment(Qt.AlignCenter)
+        icon.setStyleSheet(
+            "background: #1d8fe8;" if thanh_cong else "background: #ef4444;"
+        )
+
+        label = QLabel(message)
+        label.setObjectName("messageLabel")
+        label.setAlignment(Qt.AlignCenter)
+        label.setWordWrap(True)
+        label.setMinimumWidth(230)
+
+        content_layout.addWidget(icon)
+        content_layout.addWidget(label)
+        content_layout.addStretch()
+
+        btn_ok = QPushButton("OK")
+        btn_ok.clicked.connect(dialog.accept)
+
+        layout.addStretch()
+        layout.addLayout(content_layout)
+        layout.addWidget(btn_ok, alignment=Qt.AlignCenter)
+        layout.addStretch()
+
+        dialog.exec()
 
     def chon_quay_tu_bang(self, row, column):
         item = self.tblQuay.item(row, 0)

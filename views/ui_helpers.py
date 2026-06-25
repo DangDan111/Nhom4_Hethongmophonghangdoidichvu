@@ -13,6 +13,7 @@ from PySide6.QtWidgets import (
 
 
 def load_ui(ui_path):
+    ui_path = ui_path.resolve()
     ui_file = QFile(str(ui_path))
     if not ui_file.open(QFile.ReadOnly):
         raise FileNotFoundError(f"Không mở được file giao diện: {ui_path}")

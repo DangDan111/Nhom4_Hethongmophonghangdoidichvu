@@ -379,11 +379,7 @@ f69cb689f384bddbeb8b8b3811cb1842600075d2
      <string/>
     </property>
     <property name="pixmap">
-<<<<<<< HEAD
-     <pixmap>../images/clock.png</pixmap>
-=======
      <pixmap>../images/khachcho.png</pixmap>
->>>>>>> f69cb689f384bddbeb8b8b3811cb1842600075d2
     </property>
     <property name="scaledContents">
      <bool>true</bool>
@@ -495,11 +491,7 @@ f69cb689f384bddbeb8b8b3811cb1842600075d2
      </font>
     </property>
     <property name="pixmap">
-<<<<<<< HEAD
-     <pixmap>../images/reception (1).png</pixmap>
-=======
      <pixmap>../images/iconquay.png</pixmap>
->>>>>>> f69cb689f384bddbeb8b8b3811cb1842600075d2
     </property>
     <property name="scaledContents">
      <bool>true</bool>
@@ -723,11 +715,7 @@ f69cb689f384bddbeb8b8b3811cb1842600075d2
      <string/>
     </property>
     <property name="pixmap">
-<<<<<<< HEAD
-     <pixmap>../images/hourglass.png</pixmap>
-=======
      <pixmap>../images/thoigiantb.png</pixmap>
->>>>>>> f69cb689f384bddbeb8b8b3811cb1842600075d2
     </property>
     <property name="scaledContents">
      <bool>true</bool>
@@ -836,11 +824,7 @@ f69cb689f384bddbeb8b8b3811cb1842600075d2
      <string/>
     </property>
     <property name="pixmap">
-<<<<<<< HEAD
-     <pixmap>../images/light.png</pixmap>
-=======
      <pixmap>../images/canhbao.png</pixmap>
->>>>>>> f69cb689f384bddbeb8b8b3811cb1842600075d2
     </property>
     <property name="scaledContents">
      <bool>true</bool>

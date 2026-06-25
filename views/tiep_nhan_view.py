@@ -1,6 +1,15 @@
-from PySide6.QtWidgets import QLabel, QLineEdit, QPushButton, QComboBox, QMessageBox, QTableWidget, QTableWidgetItem, QHeaderView
+from PySide6.QtWidgets import (
+    QLabel,
+    QLineEdit,
+    QPushButton,
+    QComboBox,
+    QMessageBox,
+    QTableWidget,
+    QTableWidgetItem,
+    QHeaderView,
+)
 
-from views.ui_helpers import confirm_logout, fill_table, find_required, load_ui, setup_table
+from views.ui_helpers import confirm_logout, find_required, load_ui
 
 
 class TiepNhanView:
@@ -18,10 +27,28 @@ class TiepNhanView:
         self.btnThemKhach = find_required(self.window, QPushButton, "btnThemKhach")
         self.btnLamMoi = find_required(self.window, QPushButton, "btnLamMoi")
         self.btnDangXuat = find_required(self.window, QPushButton, "btnDangXuat")
-        self.lblKhachDaTiepNhanHomNay = find_required(self.window, QLabel, "lblKhachDaTiepNhanHomNay")
-        self.lblSoKhachDangCho = find_required(self.window, QLabel, "lblSoKhachDangCho")
-        self.tblHangDoiUuTien = find_required(self.window, QTableWidget, "tblHangDoiUuTien")
-        self.tblHangDoiThuong = find_required(self.window, QTableWidget, "tblHangDoiThuong")
+
+        self.lblKhachDaTiepNhanHomNay = find_required(
+            self.window,
+            QLabel,
+            "lblKhachDaTiepNhanHomNay"
+        )
+        self.lblSoKhachDangCho = find_required(
+            self.window,
+            QLabel,
+            "lblSoKhachDangCho"
+        )
+
+        self.tblHangDoiUuTien = find_required(
+            self.window,
+            QTableWidget,
+            "tblHangDoiUuTien"
+        )
+        self.tblHangDoiThuong = find_required(
+            self.window,
+            QTableWidget,
+            "tblHangDoiThuong"
+        )
 
         self.service_options = {
             "Giao dịch nhanh - Thường": ("Giao dịch nhanh", 5),
@@ -36,17 +63,9 @@ class TiepNhanView:
         self.cboLoaiDichVu.addItems(list(self.service_options.keys()))
 
         self.lblTaiKhoan.setText(f"Tài khoản: {self.user.username}")
+
         self._setup_bang_hang_doi(self.tblHangDoiUuTien)
         self._setup_bang_hang_doi(self.tblHangDoiThuong)
-
-        setup_table(
-            self.tblKhachVuaTiepNhan,
-            ["Mã KH", "Tên khách", "Dịch vụ", "Ưu tiên", "Trạng thái"]
-        )
-        setup_table(
-            self.tblNhatKy,
-            ["Thời gian", "Nội dung", "Trạng thái"]
-        )
 
         self.btnThemKhach.clicked.connect(self.them_khach)
         self.btnLamMoi.clicked.connect(self.lam_moi)
@@ -63,7 +82,9 @@ class TiepNhanView:
 
     def them_khach(self):
         ten = self.txtTenKhach.text().strip()
-        loai_dich_vu, muc_do_uu_tien = self.service_options[self.cboLoaiDichVu.currentText()]
+        loai_dich_vu, muc_do_uu_tien = self.service_options[
+            self.cboLoaiDichVu.currentText()
+        ]
 
         ok, message, khach = self.he_thong.them_khach(
             ten,
@@ -81,9 +102,13 @@ class TiepNhanView:
 
     def lam_moi(self):
         tk = self.he_thong.tinh_thong_ke()
-        self.lblKhachDaTiepNhanHomNay.setText(str(tk["tong_khach_da_tiep_nhan"]))
-        self.lblSoKhachDangCho.setText(str(tk["tong_khach_dang_cho"]))
-        self.lblKhachUuTien.setText(str(tk["so_khach_uu_tien_dang_cho"]))
+
+        self.lblKhachDaTiepNhanHomNay.setText(
+            str(tk["tong_khach_da_tiep_nhan"])
+        )
+        self.lblSoKhachDangCho.setText(
+            str(tk["tong_khach_dang_cho"])
+        )
 
         self._do_du_lieu_bang(
             self.tblHangDoiUuTien,
@@ -95,27 +120,15 @@ class TiepNhanView:
             self.he_thong.lay_danh_sach_hang_doi_thuong()
         )
 
-    def _format_khach(self, ds):
-        if len(ds) == 0:
-            return "Chưa có khách đang chờ."
-
-        lines = [
-            "Mã KH   Tên khách                 Dịch vụ              Ưu tiên   Đến lúc"
-        ]
-
-        for k in ds:
-            lines.append(
-                f"{k.ma_khach():<7} "
-                f"{k.ten:<24} "
-                f"{k.loai_dich_vu:<20} "
-                f"{k.muc_do_uu_tien:<8} "
-                f"{k.thoi_gian_den.strftime('%H:%M:%S')}"
-            )
-
-        return "\n".join(lines)
     def _setup_bang_hang_doi(self, bang):
         bang.setColumnCount(5)
-        bang.setHorizontalHeaderLabels(["Mã KH", "Tên khách", "Dịch vụ", "Ưu tiên", "Đến lúc"])
+        bang.setHorizontalHeaderLabels([
+            "Mã KH",
+            "Tên khách",
+            "Dịch vụ",
+            "Ưu tiên",
+            "Đến lúc"
+        ])
         bang.verticalHeader().setVisible(False)
         bang.horizontalHeader().setSectionResizeMode(QHeaderView.Stretch)
         bang.setEditTriggers(QTableWidget.NoEditTriggers)
@@ -129,4 +142,8 @@ class TiepNhanView:
             bang.setItem(row, 1, QTableWidgetItem(k.ten))
             bang.setItem(row, 2, QTableWidgetItem(k.loai_dich_vu))
             bang.setItem(row, 3, QTableWidgetItem(str(k.muc_do_uu_tien)))
-            bang.setItem(row, 4, QTableWidgetItem(k.thoi_gian_den.strftime("%H:%M:%S")))
+            bang.setItem(
+                row,
+                4,
+                QTableWidgetItem(k.thoi_gian_den.strftime("%H:%M:%S"))
+            )

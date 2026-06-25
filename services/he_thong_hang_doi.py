@@ -125,12 +125,10 @@ class HeThongHangDoi:
         return self.danh_sach_da_phuc_vu.copy()
 
     def nap_du_lieu_mau(self):
-        khach_dang_phuc_vu = [
+        danh_sach_khach = [
             ("Nguyễn Minh Anh", "VIP", 1),
             ("Trần Quốc Bảo", "Khẩn cấp", 2),
             ("Lê Hoàng Nam", "Giao dịch nhanh", 5),
-        ]
-        khach_dang_cho = [
             ("Phạm Thanh Hà", "VIP", 1),
             ("Đỗ Gia Hân", "Khẩn cấp", 2),
             ("Võ Minh Khang", "Người cao tuổi", 3),
@@ -140,22 +138,7 @@ class HeThongHangDoi:
             ("Đặng Hải Yến", "Giao dịch nhanh", 5),
         ]
 
-        from datetime import datetime, timedelta
-        for i, (quay, (ten, loai_dich_vu, muc_do_uu_tien)) in enumerate(
-            zip(self.danh_sach_quay, khach_dang_phuc_vu)
-        ):
-            khach = self._tao_khach(
-                ten,
-                loai_dich_vu,
-                muc_do_uu_tien
-            )
-
-            # giả lập khách đến trước vài giây
-            khach.thoi_gian_den = datetime.now() - timedelta(seconds=(i + 1) * 5)
-
-            quay.tiep_nhan_khach(khach)
-
-        for ten, loai_dich_vu, muc_do_uu_tien in khach_dang_cho:
+        for ten, loai_dich_vu, muc_do_uu_tien in danh_sach_khach:
             self.them_khach(ten, loai_dich_vu, muc_do_uu_tien)
 
     def tinh_thong_ke(self):

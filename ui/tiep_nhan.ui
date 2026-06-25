@@ -165,16 +165,16 @@ QHeaderView::section {
    <widget class="QLabel" name="lblTaiKhoan">
     <property name="geometry">
      <rect>
-      <x>1200</x>
-      <y>32</y>
-      <width>150</width>
-      <height>30</height>
+      <x>1178</x>
+      <y>26</y>
+      <width>157</width>
+      <height>33</height>
      </rect>
     </property>
     <property name="font">
      <font>
       <family>Segoe UI</family>
-      <pointsize>11</pointsize>
+      <pointsize>12</pointsize>
       <bold>true</bold>
      </font>
     </property>
@@ -182,14 +182,14 @@ QHeaderView::section {
      <string>Tài khoản: tiepnhan</string>
     </property>
     <property name="alignment">
-     <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
+     <set>Qt::AlignmentFlag::AlignCenter</set>
     </property>
    </widget>
    <widget class="QPushButton" name="btnDangXuat">
     <property name="geometry">
      <rect>
-      <x>1368</x>
-      <y>24</y>
+      <x>1363</x>
+      <y>23</y>
       <width>112</width>
       <height>40</height>
      </rect>
@@ -216,7 +216,7 @@ QHeaderView::section {
    <property name="geometry">
     <rect>
      <x>16</x>
-     <y>96</y>
+     <y>90</y>
      <width>352</width>
      <height>78</height>
     </rect>
@@ -262,8 +262,8 @@ QHeaderView::section {
    <widget class="QLabel" name="cardDaTiepNhanTitle">
     <property name="geometry">
      <rect>
-      <x>96</x>
-      <y>14</y>
+      <x>100</x>
+      <y>10</y>
       <width>210</width>
       <height>24</height>
      </rect>
@@ -271,20 +271,23 @@ QHeaderView::section {
     <property name="font">
      <font>
       <family>Segoe UI</family>
-      <pointsize>11</pointsize>
+      <pointsize>12</pointsize>
       <bold>false</bold>
      </font>
     </property>
     <property name="text">
      <string>Khách đã tiếp nhận hôm nay</string>
     </property>
+    <property name="alignment">
+     <set>Qt::AlignmentFlag::AlignCenter</set>
+    </property>
    </widget>
    <widget class="QLabel" name="lblKhachDaTiepNhanHomNay">
     <property name="geometry">
      <rect>
-      <x>96</x>
-      <y>38</y>
-      <width>190</width>
+      <x>150</x>
+      <y>40</y>
+      <width>121</width>
       <height>30</height>
      </rect>
     </property>
@@ -301,13 +304,16 @@ QHeaderView::section {
     <property name="text">
      <string>56</string>
     </property>
+    <property name="alignment">
+     <set>Qt::AlignmentFlag::AlignCenter</set>
+    </property>
    </widget>
   </widget>
   <widget class="QFrame" name="cardDangCho">
    <property name="geometry">
     <rect>
      <x>394</x>
-     <y>96</y>
+     <y>90</y>
      <width>352</width>
      <height>78</height>
     </rect>
@@ -353,29 +359,32 @@ QHeaderView::section {
    <widget class="QLabel" name="cardDangChoTitle">
     <property name="geometry">
      <rect>
-      <x>96</x>
-      <y>14</y>
-      <width>210</width>
+      <x>130</x>
+      <y>10</y>
+      <width>171</width>
       <height>24</height>
      </rect>
     </property>
     <property name="font">
      <font>
       <family>Segoe UI</family>
-      <pointsize>11</pointsize>
+      <pointsize>12</pointsize>
       <bold>false</bold>
      </font>
     </property>
     <property name="text">
      <string>Khách đang chờ</string>
     </property>
+    <property name="alignment">
+     <set>Qt::AlignmentFlag::AlignCenter</set>
+    </property>
    </widget>
    <widget class="QLabel" name="lblSoKhachDangCho">
     <property name="geometry">
      <rect>
-      <x>96</x>
-      <y>38</y>
-      <width>190</width>
+      <x>170</x>
+      <y>40</y>
+      <width>101</width>
       <height>30</height>
      </rect>
     </property>
@@ -392,13 +401,16 @@ QHeaderView::section {
     <property name="text">
      <string>17</string>
     </property>
+    <property name="alignment">
+     <set>Qt::AlignmentFlag::AlignCenter</set>
+    </property>
    </widget>
   </widget>
   <widget class="QFrame" name="cardUuTien">
    <property name="geometry">
     <rect>
      <x>772</x>
-     <y>96</y>
+     <y>90</y>
      <width>352</width>
      <height>78</height>
     </rect>
@@ -444,29 +456,32 @@ QHeaderView::section {
    <widget class="QLabel" name="cardUuTienTitle">
     <property name="geometry">
      <rect>
-      <x>96</x>
-      <y>14</y>
-      <width>210</width>
+      <x>160</x>
+      <y>10</y>
+      <width>111</width>
       <height>24</height>
      </rect>
     </property>
     <property name="font">
      <font>
       <family>Segoe UI</family>
-      <pointsize>11</pointsize>
+      <pointsize>12</pointsize>
       <bold>false</bold>
      </font>
     </property>
     <property name="text">
      <string>Khách ưu tiên</string>
     </property>
+    <property name="alignment">
+     <set>Qt::AlignmentFlag::AlignCenter</set>
+    </property>
    </widget>
    <widget class="QLabel" name="lblKhachUuTien">
     <property name="geometry">
      <rect>
-      <x>96</x>
-      <y>38</y>
-      <width>190</width>
+      <x>140</x>
+      <y>40</y>
+      <width>121</width>
       <height>30</height>
      </rect>
     </property>
@@ -483,13 +498,16 @@ QHeaderView::section {
     <property name="text">
      <string>4</string>
     </property>
+    <property name="alignment">
+     <set>Qt::AlignmentFlag::AlignCenter</set>
+    </property>
    </widget>
   </widget>
   <widget class="QFrame" name="cardThanhCong">
    <property name="geometry">
     <rect>
      <x>1150</x>
-     <y>96</y>
+     <y>90</y>
      <width>334</width>
      <height>78</height>
     </rect>
@@ -535,29 +553,32 @@ QHeaderView::section {
    <widget class="QLabel" name="cardThanhCongTitle">
     <property name="geometry">
      <rect>
-      <x>96</x>
-      <y>14</y>
-      <width>210</width>
+      <x>120</x>
+      <y>10</y>
+      <width>171</width>
       <height>24</height>
      </rect>
     </property>
     <property name="font">
      <font>
       <family>Segoe UI</family>
-      <pointsize>11</pointsize>
+      <pointsize>12</pointsize>
       <bold>false</bold>
      </font>
     </property>
     <property name="text">
      <string>Tiếp nhận thành công</string>
     </property>
+    <property name="alignment">
+     <set>Qt::AlignmentFlag::AlignCenter</set>
+    </property>
    </widget>
    <widget class="QLabel" name="lblTiepNhanThanhCong">
     <property name="geometry">
      <rect>
-      <x>96</x>
-      <y>38</y>
-      <width>190</width>
+      <x>130</x>
+      <y>40</y>
+      <width>141</width>
       <height>30</height>
      </rect>
     </property>
@@ -574,13 +595,16 @@ QHeaderView::section {
     <property name="text">
      <string>Ổn định</string>
     </property>
+    <property name="alignment">
+     <set>Qt::AlignmentFlag::AlignCenter</set>
+    </property>
    </widget>
   </widget>
   <widget class="QFrame" name="panelThongTin">
    <property name="geometry">
     <rect>
      <x>16</x>
-     <y>188</y>
+     <y>180</y>
      <width>761</width>
      <height>411</height>
     </rect>
@@ -1056,7 +1080,7 @@ QHeaderView::section {
    <property name="geometry">
     <rect>
      <x>800</x>
-     <y>190</y>
+     <y>180</y>
      <width>681</width>
      <height>202</height>
     </rect>
@@ -1294,7 +1318,7 @@ QHeaderView::section {
    <property name="geometry">
     <rect>
      <x>803</x>
-     <y>410</y>
+     <y>398</y>
      <width>681</width>
      <height>191</height>
     </rect>
@@ -1444,10 +1468,10 @@ thứ tự phục vụ</string>
   <widget class="QFrame" name="panelNhatKy">
    <property name="geometry">
     <rect>
-     <x>10</x>
-     <y>610</y>
+     <x>16</x>
+     <y>603</y>
      <width>1468</width>
-     <height>142</height>
+     <height>171</height>
     </rect>
    </property>
    <property name="frameShape">
@@ -1476,7 +1500,7 @@ thứ tự phục vụ</string>
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap>C:/Users/ADMIN/Downloads/task.png</pixmap>
+     <pixmap>../../../../../ADMIN/Downloads/task.png</pixmap>
     </property>
     <property name="scaledContents">
      <bool>true</bool>
@@ -1517,7 +1541,7 @@ thứ tự phục vụ</string>
       <x>0</x>
       <y>50</y>
       <width>1468</width>
-      <height>91</height>
+      <height>111</height>
      </rect>
     </property>
     <property name="font">

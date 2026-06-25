@@ -32,6 +32,7 @@ class KhachHang:
         self.trang_thai = trang_thai
         self.so_tien_giao_dich = so_tien_giao_dich
         self.muc_do_hai_long = muc_do_hai_long
+        self.id_quay = None
 
     def tinh_thoi_gian_cho(self):
         """

@@ -7,7 +7,7 @@
     QMessageBox
 )
 
-from views.ui_helpers import confirm_logout, find_required, load_ui
+from views.ui_helpers import confirm_logout, fill_table, find_required, load_ui, setup_table
 
 
 class NhanVienQuayView:
@@ -40,6 +40,16 @@ class NhanVienQuayView:
             QLabel,
             "lblTrangThai"
         )
+        self.lblKhachChoCount = find_required(self.window, QLabel, "lblKhachChoCount")
+        self.lblDaPhucVuCount = find_required(self.window, QLabel, "lblDaPhucVuCount")
+        self.lblSoThuTu = find_required(self.window, QLabel, "lblSoThuTu")
+        self.lblMaQuay = find_required(self.window, QLabel, "lblMaQuay")
+        self.lblTrangThaiMo = find_required(self.window, QLabel, "lblTrangThaiMo")
+        self.lblTinhTrang = find_required(self.window, QLabel, "lblTinhTrang")
+        self.lblTongLuot = find_required(self.window, QLabel, "lblTongLuot")
+        self.lblKhachCuoi = find_required(self.window, QLabel, "lblKhachCuoi")
+        self.lblTgTb = find_required(self.window, QLabel, "lblTgTb")
+        self.lblHieuSuat = find_required(self.window, QLabel, "lblHieuSuat")
 
         # ===== Khách đang phục vụ =====
         self.txtKhachDangPhucVu = find_required(
@@ -53,6 +63,16 @@ class NhanVienQuayView:
             self.window,
             QTableWidget,
             "tblLichSuPhucVu"
+        )
+        self.tblHangDoiUuTien = find_required(
+            self.window,
+            QTableWidget,
+            "tbl_priority_queue"
+        )
+        self.tblHangDoiThuong = find_required(
+            self.window,
+            QTableWidget,
+            "tbl_normal_queue"
         )
 
         # ===== Buttons =====
@@ -84,6 +104,14 @@ class NhanVienQuayView:
         )
 
         self.txtKhachDangPhucVu.setReadOnly(True)
+        setup_table(
+            self.tblHangDoiUuTien,
+            ["Mã KH", "Tên khách", "Ưu tiên"]
+        )
+        setup_table(
+            self.tblHangDoiThuong,
+            ["Mã KH", "Tên khách", "Ưu tiên"]
+        )
 
         self.btnGoiKhach.clicked.connect(
             self.goi_khach
@@ -147,6 +175,7 @@ class NhanVienQuayView:
         self.lam_moi()
 
     def lam_moi(self):
+        tk = self.he_thong.tinh_thong_ke()
         quay = None
 
         for q in self.he_thong.lay_danh_sach_quay():
@@ -166,6 +195,12 @@ class NhanVienQuayView:
         self.lblTrangThai.setText(
             f"{mo_dong}"
         )
+        self.lblKhachChoCount.setText(str(tk["tong_khach_dang_cho"]))
+        self.lblDaPhucVuCount.setText(str(len(quay.lich_su_phuc_vu)))
+        self.lblMaQuay.setText(f"Mã quầy: Q{quay.id_quay:02d}")
+        self.lblTrangThaiMo.setText(f"Trạng thái mở: {mo_dong}")
+        self.lblTinhTrang.setText(f"Tình trạng: {quay.trang_thai}")
+        self.lblTongLuot.setText(f"Tổng lượt: {len(quay.lich_su_phuc_vu)}")
 
         # ==========================
         # Khách đang phục vụ
@@ -173,10 +208,12 @@ class NhanVienQuayView:
         khach = quay.khach_dang_phuc_vu
 
         if khach is None:
+            self.lblSoThuTu.setText("-")
             self.txtKhachDangPhucVu.setPlainText(
                 "Hiện chưa có khách hàng nào đang phục vụ."
             )
         else:
+            self.lblSoThuTu.setText(khach.ma_khach())
             self.txtKhachDangPhucVu.setPlainText(
                 f"Mã khách: {khach.ma_khach()}\n"
                 f"Tên khách: {khach.ten}\n"
@@ -187,6 +224,25 @@ class NhanVienQuayView:
                 f"Bắt đầu phục vụ: "
                 f"{khach.thoi_gian_bat_dau_phuc_vu.strftime('%H:%M:%S')}"
             )
+
+        if len(quay.lich_su_phuc_vu) == 0:
+            self.lblKhachCuoi.setText("Khách cuối: -")
+            self.lblTgTb.setText("TG TB: 0.0 phút")
+        else:
+            khach_cuoi = quay.lich_su_phuc_vu[-1]
+            tg_tb = sum(k.tinh_thoi_gian_phuc_vu() for k in quay.lich_su_phuc_vu) / len(quay.lich_su_phuc_vu)
+            self.lblKhachCuoi.setText(f"Khách cuối: {khach_cuoi.ma_khach()}")
+            self.lblTgTb.setText(f"TG TB: {tg_tb:.1f} phút")
+
+        self.lblHieuSuat.setText("Đang phục vụ" if khach is not None else "Sẵn sàng")
+        fill_table(
+            self.tblHangDoiUuTien,
+            self._rows_khach_cho(self.he_thong.lay_danh_sach_hang_doi_uu_tien())
+        )
+        fill_table(
+            self.tblHangDoiThuong,
+            self._rows_khach_cho(self.he_thong.lay_danh_sach_hang_doi_thuong())
+        )
 
         # ==========================
         # Lịch sử phục vụ
@@ -245,3 +301,13 @@ class NhanVienQuayView:
                     "Hoàn thành"
                 )
             )
+
+    def _rows_khach_cho(self, ds):
+        return [
+            [
+                k.ma_khach(),
+                k.ten,
+                k.muc_do_uu_tien,
+            ]
+            for k in ds
+        ]

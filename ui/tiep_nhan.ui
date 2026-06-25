@@ -26,89 +26,344 @@
    <string>Tiếp nhận khách hàng</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">
-QWidget#TiepNhanForm {
+   <string notr="true">QWidget#TiepNhanForm {
     background: #f6f9ff;
     font-family: &quot;Segoe UI&quot;;
+    font-size: 14px;
     color: #111827;
 }
-QFrame {
-    background: #ffffff;
-    border: 1px solid #dfe7f3;
-    border-radius: 7px;
-}
+
 QFrame#header {
-    border-left: 0px;
-    border-right: 0px;
-    border-top: 0px;
+    background: #ffffff;
+    border: none;
+    border-bottom: 1px solid #dfe7f3;
     border-radius: 0px;
 }
+
 QLabel {
     background: transparent;
     border: none;
+    color: #111827;
 }
+
 QLabel#lblTitle {
     color: #0f6fd8;
     font-size: 25px;
     font-weight: 800;
 }
-QLabel.sectionTitle {
-    color: #155eb8;
+
+QLabel#lblSubtitle {
+    color: #1f2937;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+QLabel#lblTaiKhoan {
+    color: #111827;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+QFrame#cardDaTiepNhan,
+QFrame#cardDangCho,
+QFrame#cardUuTien,
+QFrame#cardThanhCong,
+QFrame#panelThongTin,
+QFrame#panelDanhSach,
+QFrame#panelTongQuan,
+QFrame#panelNhatKy {
+    background: #ffffff;
+    border: 1px solid #dfe7f3;
+    border-radius: 7px;
+}
+
+QLabel#cardDaTiepNhanTitle,
+QLabel#cardDangChoTitle,
+QLabel#cardUuTienTitle,
+QLabel#cardThanhCongTitle {
+    color: #111827;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+QLabel#lblKhachDaTiepNhanHomNay {
+    color: #0f6fd8;
+    font-size: 24px;
     font-weight: 800;
 }
-QLabel.badgeGreen {
+
+QLabel#lblSoKhachDangCho {
+    color: #f59e0b;
+    font-size: 24px;
+    font-weight: 800;
+}
+
+QLabel#lblKhachUuTien {
+    color: #e83e63;
+    font-size: 24px;
+    font-weight: 800;
+}
+
+QLabel#lblTiepNhanThanhCong {
     color: #15803d;
-    background: #ecfdf5;
-    border: 1px solid #d1fae5;
-    border-radius: 5px;
+    font-size: 22px;
+    font-weight: 800;
 }
-QLabel.badgeBlue {
+
+QLabel#lblTitleThongTin,
+QLabel#lblTitleDanhSach,
+QLabel#lblTitleTongQuan,
+QLabel#lblTitleNhatKy {
     color: #155eb8;
-    background: #eef6ff;
-    border: 1px solid #d7e8fb;
-    border-radius: 5px;
+    font-size: 15px;
+    font-weight: 800;
 }
-QLineEdit, QComboBox, QTextEdit {
+
+QLabel#lblHoTen,
+QLabel#lblDienThoai,
+QLabel#lblLoaiDichVu,
+QLabel#lblNhomKhach,
+QLabel#lblMucUuTien,
+QLabel#lblGhiChu {
+    color: #111827;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+QLineEdit,
+QComboBox,
+QTextEdit,
+QPlainTextEdit {
     background: #ffffff;
     border: 1px solid #d7dfeb;
     border-radius: 5px;
     padding: 6px 8px;
     color: #111827;
+    font-size: 14px;
 }
+
+QLineEdit:hover,
+QComboBox:hover,
+QTextEdit:hover,
+QPlainTextEdit:hover {
+    border: 1px solid #9bbcf0;
+}
+
+QLineEdit:focus,
+QComboBox:focus,
+QTextEdit:focus,
+QPlainTextEdit:focus {
+    border: 1px solid #0f73df;
+}
+
+QComboBox::drop-down {
+    border: none;
+    width: 26px;
+}
+
+QComboBox QAbstractItemView {
+    background: #ffffff;
+    color: #111827;
+    border: 1px solid #d7dfeb;
+    selection-background-color: #eef6ff;
+    selection-color: #111827;
+}
+
 QPushButton {
     border-radius: 6px;
-    padding: 8px 10px;
+    font-family: &quot;Segoe UI&quot;;
+    font-size: 14px;
     font-weight: 700;
 }
-QPushButton.primary {
-    background: #0f73df;
-    color: white;
-    border: 1px solid #0b63c7;
-}
-QPushButton.secondary {
+
+QPushButton#btnDangXuat {
     background: #ffffff;
     color: #155eb8;
     border: 1px solid #bcd0ea;
+    padding: 8px 16px;
+    min-width: 112px;
+    min-height: 40px;
 }
-QPushButton.success {
+
+QPushButton#btnDangXuat:hover {
+    background: #eef6ff;
+    border: 1px solid #8fb4e8;
+}
+
+QPushButton#btnThemKhach {
+    background: #0f73df;
+    color: white;
+    border: 1px solid #0b63c7;
+    padding: 8px 14px;
+    min-width: 211px;
+    min-height: 48px;
+    font-size: 14px;
+    font-weight: 800;
+}
+
+QPushButton#btnThemKhach:hover {
+    background: #0b63c7;
+}
+
+QPushButton#btnThemKhach:pressed {
+    background: #094f9f;
+}
+
+QPushButton#btnLamMoi {
+    background: #ffffff;
+    color: #155eb8;
+    border: 1px solid #bcd0ea;
+    padding: 8px 14px;
+    min-width: 191px;
+    min-height: 48px;
+    font-size: 14px;
+    font-weight: 800;
+}
+
+QPushButton#btnLamMoi:hover {
+    background: #eef6ff;
+    border: 1px solid #8fb4e8;
+}
+
+QPushButton#btnLamMoi:pressed {
+    background: #dcecff;
+}
+
+QPushButton#btnTaoSoThuTu {
     background: #ffffff;
     color: #15803d;
     border: 1px solid #8fd0aa;
+    padding: 8px 14px;
+    min-width: 231px;
+    min-height: 48px;
+    font-size: 14px;
+    font-weight: 800;
 }
+
+QPushButton#btnTaoSoThuTu:hover {
+    background: #ecfdf5;
+    border: 1px solid #66c28a;
+}
+
+QPushButton#btnTaoSoThuTu:pressed {
+    background: #daf7e7;
+}
+
+QLabel#lblThongBaoThanhCong {
+    color: #15803d;
+    background: #ecfdf5;
+    border: 1px solid #d1fae5;
+    border-radius: 5px;
+    padding: 8px 10px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+QLabel#lblThongBaoThanhCong[status=&quot;error&quot;] {
+    color: #dc2626;
+    background: #fff1f2;
+    border: 1px solid #fecdd3;
+}
+
+QLabel#lblQuyTac,
+QLabel#lblLuuY {
+    color: #155eb8;
+    background: #eef6ff;
+    border: 1px solid #d7e8fb;
+    border-radius: 5px;
+    padding: 6px 8px;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+QTextEdit#txtTheoDoi {
+    background: #ffffff;
+    color: #111827;
+    border: 1px solid #d7dfeb;
+    border-radius: 5px;
+    padding: 8px;
+    font-family: &quot;Consolas&quot;;
+    font-size: 13px;
+}
+
 QTableWidget {
     background: #ffffff;
     alternate-background-color: #fbfdff;
-    border: 0px;
+    border: 1px solid #e5eaf2;
+    border-radius: 5px;
     gridline-color: #edf1f7;
+    color: #111827;
+    font-size: 13px;
+    selection-background-color: #e8f1ff;
+    selection-color: #111827;
 }
+
+QTableWidget::item {
+    padding: 5px;
+    border: none;
+}
+
+QTableWidget::item:selected {
+    background: #e8f1ff;
+    color: #111827;
+}
+
 QHeaderView::section {
     background: #ffffff;
-    border: 0px;
+    color: #111827;
+    border: none;
     border-bottom: 1px solid #e5eaf2;
     padding: 7px;
+    font-size: 13px;
     font-weight: 700;
 }
-</string>
+
+QTableCornerButton::section {
+    background: #ffffff;
+    border: none;
+}
+
+QScrollBar:vertical {
+    background: #f6f9ff;
+    width: 10px;
+    margin: 0px;
+}
+
+QScrollBar::handle:vertical {
+    background: #c6d4e8;
+    border-radius: 5px;
+    min-height: 25px;
+}
+
+QScrollBar::handle:vertical:hover {
+    background: #9fb5d3;
+}
+
+QScrollBar::add-line:vertical,
+QScrollBar::sub-line:vertical {
+    height: 0px;
+}
+
+QScrollBar:horizontal {
+    background: #f6f9ff;
+    height: 10px;
+    margin: 0px;
+}
+
+QScrollBar::handle:horizontal {
+    background: #c6d4e8;
+    border-radius: 5px;
+    min-width: 25px;
+}
+
+QScrollBar::handle:horizontal:hover {
+    background: #9fb5d3;
+}
+
+QScrollBar::add-line:horizontal,
+QScrollBar::sub-line:horizontal {
+    width: 0px;
+}</string>
   </property>
   <widget class="QFrame" name="header">
    <property name="geometry">
@@ -154,7 +409,7 @@ QHeaderView::section {
     <property name="font">
      <font>
       <family>Segoe UI</family>
-      <pointsize>12</pointsize>
+      <pointsize>-1</pointsize>
       <bold>false</bold>
      </font>
     </property>
@@ -174,7 +429,7 @@ QHeaderView::section {
     <property name="font">
      <font>
       <family>Segoe UI</family>
-      <pointsize>12</pointsize>
+      <pointsize>-1</pointsize>
       <bold>true</bold>
      </font>
     </property>
@@ -190,14 +445,14 @@ QHeaderView::section {
      <rect>
       <x>1363</x>
       <y>23</y>
-      <width>112</width>
-      <height>40</height>
+      <width>146</width>
+      <height>58</height>
      </rect>
     </property>
     <property name="font">
      <font>
       <family>Segoe UI</family>
-      <pointsize>11</pointsize>
+      <pointsize>-1</pointsize>
       <bold>true</bold>
      </font>
     </property>
@@ -271,8 +526,8 @@ QHeaderView::section {
     <property name="font">
      <font>
       <family>Segoe UI</family>
-      <pointsize>12</pointsize>
-      <bold>false</bold>
+      <pointsize>-1</pointsize>
+      <fontweight>DemiBold</fontweight>
      </font>
     </property>
     <property name="text">
@@ -294,8 +549,8 @@ QHeaderView::section {
     <property name="font">
      <font>
       <family>Segoe UI</family>
-      <pointsize>19</pointsize>
-      <bold>true</bold>
+      <pointsize>-1</pointsize>
+      <fontweight>ExtraBold</fontweight>
      </font>
     </property>
     <property name="styleSheet">
@@ -368,8 +623,8 @@ QHeaderView::section {
     <property name="font">
      <font>
       <family>Segoe UI</family>
-      <pointsize>12</pointsize>
-      <bold>false</bold>
+      <pointsize>-1</pointsize>
+      <fontweight>DemiBold</fontweight>
      </font>
     </property>
     <property name="text">
@@ -391,8 +646,8 @@ QHeaderView::section {
     <property name="font">
      <font>
       <family>Segoe UI</family>
-      <pointsize>19</pointsize>
-      <bold>true</bold>
+      <pointsize>-1</pointsize>
+      <fontweight>ExtraBold</fontweight>
      </font>
     </property>
     <property name="styleSheet">
@@ -465,8 +720,8 @@ QHeaderView::section {
     <property name="font">
      <font>
       <family>Segoe UI</family>
-      <pointsize>12</pointsize>
-      <bold>false</bold>
+      <pointsize>-1</pointsize>
+      <fontweight>DemiBold</fontweight>
      </font>
     </property>
     <property name="text">
@@ -488,8 +743,8 @@ QHeaderView::section {
     <property name="font">
      <font>
       <family>Segoe UI</family>
-      <pointsize>19</pointsize>
-      <bold>true</bold>
+      <pointsize>-1</pointsize>
+      <fontweight>ExtraBold</fontweight>
      </font>
     </property>
     <property name="styleSheet">
@@ -562,8 +817,8 @@ QHeaderView::section {
     <property name="font">
      <font>
       <family>Segoe UI</family>
-      <pointsize>12</pointsize>
-      <bold>false</bold>
+      <pointsize>-1</pointsize>
+      <fontweight>DemiBold</fontweight>
      </font>
     </property>
     <property name="text">
@@ -585,8 +840,8 @@ QHeaderView::section {
     <property name="font">
      <font>
       <family>Segoe UI</family>
-      <pointsize>19</pointsize>
-      <bold>true</bold>
+      <pointsize>-1</pointsize>
+      <fontweight>ExtraBold</fontweight>
      </font>
     </property>
     <property name="styleSheet">
@@ -659,7 +914,7 @@ QHeaderView::section {
     <property name="font">
      <font>
       <family>Segoe UI</family>
-      <pointsize>12</pointsize>
+      <pointsize>-1</pointsize>
       <fontweight>ExtraBold</fontweight>
      </font>
     </property>
@@ -682,8 +937,8 @@ QHeaderView::section {
     <property name="font">
      <font>
       <family>Segoe UI</family>
-      <pointsize>11</pointsize>
-      <bold>false</bold>
+      <pointsize>-1</pointsize>
+      <fontweight>Medium</fontweight>
      </font>
     </property>
     <property name="text">
@@ -702,7 +957,7 @@ QHeaderView::section {
     <property name="font">
      <font>
       <family>Segoe UI</family>
-      <pointsize>11</pointsize>
+      <pointsize>-1</pointsize>
       <bold>false</bold>
      </font>
     </property>
@@ -722,8 +977,8 @@ QHeaderView::section {
     <property name="font">
      <font>
       <family>Segoe UI</family>
-      <pointsize>11</pointsize>
-      <bold>false</bold>
+      <pointsize>-1</pointsize>
+      <fontweight>Medium</fontweight>
      </font>
     </property>
     <property name="text">
@@ -742,7 +997,7 @@ QHeaderView::section {
     <property name="font">
      <font>
       <family>Segoe UI</family>
-      <pointsize>11</pointsize>
+      <pointsize>-1</pointsize>
       <bold>false</bold>
      </font>
     </property>
@@ -762,8 +1017,8 @@ QHeaderView::section {
     <property name="font">
      <font>
       <family>Segoe UI</family>
-      <pointsize>11</pointsize>
-      <bold>false</bold>
+      <pointsize>-1</pointsize>
+      <fontweight>Medium</fontweight>
      </font>
     </property>
     <property name="text">
@@ -782,7 +1037,7 @@ QHeaderView::section {
     <property name="font">
      <font>
       <family>Segoe UI</family>
-      <pointsize>11</pointsize>
+      <pointsize>-1</pointsize>
       <bold>false</bold>
      </font>
     </property>
@@ -804,8 +1059,8 @@ QHeaderView::section {
     <property name="font">
      <font>
       <family>Segoe UI</family>
-      <pointsize>11</pointsize>
-      <bold>false</bold>
+      <pointsize>-1</pointsize>
+      <fontweight>Medium</fontweight>
      </font>
     </property>
     <property name="text">
@@ -824,7 +1079,7 @@ QHeaderView::section {
     <property name="font">
      <font>
       <family>Segoe UI</family>
-      <pointsize>11</pointsize>
+      <pointsize>-1</pointsize>
       <bold>false</bold>
      </font>
     </property>
@@ -856,8 +1111,8 @@ QHeaderView::section {
     <property name="font">
      <font>
       <family>Segoe UI</family>
-      <pointsize>11</pointsize>
-      <bold>false</bold>
+      <pointsize>-1</pointsize>
+      <fontweight>Medium</fontweight>
      </font>
     </property>
     <property name="text">
@@ -876,7 +1131,7 @@ QHeaderView::section {
     <property name="font">
      <font>
       <family>Segoe UI</family>
-      <pointsize>11</pointsize>
+      <pointsize>-1</pointsize>
       <bold>false</bold>
      </font>
     </property>
@@ -908,8 +1163,8 @@ QHeaderView::section {
     <property name="font">
      <font>
       <family>Segoe UI</family>
-      <pointsize>11</pointsize>
-      <bold>false</bold>
+      <pointsize>-1</pointsize>
+      <fontweight>Medium</fontweight>
      </font>
     </property>
     <property name="text">
@@ -928,7 +1183,7 @@ QHeaderView::section {
     <property name="font">
      <font>
       <family>Consolas</family>
-      <pointsize>10</pointsize>
+      <pointsize>-1</pointsize>
       <bold>false</bold>
      </font>
     </property>
@@ -941,15 +1196,15 @@ QHeaderView::section {
      <rect>
       <x>18</x>
       <y>254</y>
-      <width>211</width>
-      <height>40</height>
+      <width>241</width>
+      <height>66</height>
      </rect>
     </property>
     <property name="font">
      <font>
       <family>Segoe UI</family>
-      <pointsize>11</pointsize>
-      <bold>true</bold>
+      <pointsize>-1</pointsize>
+      <fontweight>ExtraBold</fontweight>
      </font>
     </property>
     <property name="cursor">
@@ -967,15 +1222,15 @@ QHeaderView::section {
      <rect>
       <x>272</x>
       <y>254</y>
-      <width>191</width>
-      <height>40</height>
+      <width>221</width>
+      <height>66</height>
      </rect>
     </property>
     <property name="font">
      <font>
       <family>Segoe UI</family>
-      <pointsize>11</pointsize>
-      <bold>true</bold>
+      <pointsize>-1</pointsize>
+      <fontweight>ExtraBold</fontweight>
      </font>
     </property>
     <property name="cursor">
@@ -993,15 +1248,15 @@ QHeaderView::section {
      <rect>
       <x>508</x>
       <y>254</y>
-      <width>231</width>
-      <height>40</height>
+      <width>261</width>
+      <height>66</height>
      </rect>
     </property>
     <property name="font">
      <font>
       <family>Segoe UI</family>
-      <pointsize>11</pointsize>
-      <bold>true</bold>
+      <pointsize>-1</pointsize>
+      <fontweight>ExtraBold</fontweight>
      </font>
     </property>
     <property name="cursor">
@@ -1026,8 +1281,8 @@ QHeaderView::section {
     <property name="font">
      <font>
       <family>Segoe UI</family>
-      <pointsize>11</pointsize>
-      <bold>false</bold>
+      <pointsize>-1</pointsize>
+      <fontweight>DemiBold</fontweight>
      </font>
     </property>
     <property name="text">
@@ -1135,7 +1390,7 @@ QHeaderView::section {
     <property name="font">
      <font>
       <family>Segoe UI</family>
-      <pointsize>12</pointsize>
+      <pointsize>-1</pointsize>
       <fontweight>ExtraBold</fontweight>
      </font>
     </property>
@@ -1158,7 +1413,7 @@ QHeaderView::section {
     <property name="font">
      <font>
       <family>Segoe UI</family>
-      <pointsize>10</pointsize>
+      <pointsize>-1</pointsize>
       <bold>false</bold>
      </font>
     </property>
@@ -1373,7 +1628,7 @@ QHeaderView::section {
     <property name="font">
      <font>
       <family>Segoe UI</family>
-      <pointsize>12</pointsize>
+      <pointsize>-1</pointsize>
       <fontweight>ExtraBold</fontweight>
      </font>
     </property>
@@ -1396,7 +1651,7 @@ QHeaderView::section {
     <property name="font">
      <font>
       <family>Consolas</family>
-      <pointsize>10</pointsize>
+      <pointsize>-1</pointsize>
       <bold>false</bold>
      </font>
     </property>
@@ -1420,8 +1675,8 @@ Chưa có khách đang chờ.</string>
     <property name="font">
      <font>
       <family>Segoe UI</family>
-      <pointsize>10</pointsize>
-      <bold>false</bold>
+      <pointsize>-1</pointsize>
+      <fontweight>Medium</fontweight>
      </font>
     </property>
     <property name="text">
@@ -1448,8 +1703,8 @@ Chưa có khách đang chờ.</string>
     <property name="font">
      <font>
       <family>Segoe UI</family>
-      <pointsize>10</pointsize>
-      <bold>false</bold>
+      <pointsize>-1</pointsize>
+      <fontweight>Medium</fontweight>
      </font>
     </property>
     <property name="text">
@@ -1524,7 +1779,7 @@ thứ tự phục vụ</string>
     <property name="font">
      <font>
       <family>Segoe UI</family>
-      <pointsize>12</pointsize>
+      <pointsize>-1</pointsize>
       <fontweight>ExtraBold</fontweight>
      </font>
     </property>
@@ -1547,7 +1802,7 @@ thứ tự phục vụ</string>
     <property name="font">
      <font>
       <family>Segoe UI</family>
-      <pointsize>10</pointsize>
+      <pointsize>-1</pointsize>
       <bold>false</bold>
      </font>
     </property>

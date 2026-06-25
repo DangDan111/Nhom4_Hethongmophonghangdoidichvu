@@ -13,15 +13,21 @@ from utils.statistics import (
 
 
 class HeThongHangDoi:
-    def __init__(self):
-        self.hang_doi_thuong = LinearQueue(max_size=50)
-        self.hang_doi_uu_tien = PriorityQueueHeap(max_size=20)
+    SO_KHACH_THUONG_TOI_DA = 5
+    SO_KHACH_UU_TIEN_TOI_DA = 3
+
+    def __init__(self, nap_du_lieu_mau=False):
+        self.hang_doi_thuong = LinearQueue(max_size=self.SO_KHACH_THUONG_TOI_DA)
+        self.hang_doi_uu_tien = PriorityQueueHeap(max_size=self.SO_KHACH_UU_TIEN_TOI_DA)
         self.danh_sach_quay = []
         self.danh_sach_da_phuc_vu = []
         self.next_customer_id = 1
 
         for id_quay in range(1, 4):
             self.danh_sach_quay.append(QuayGiaoDich(id_quay, dang_mo=True))
+
+        if nap_du_lieu_mau:
+            self.nap_du_lieu_mau()
 
     def them_khach(self, ten, loai_dich_vu, muc_do_uu_tien):
         ten = ten.strip()
@@ -118,6 +124,29 @@ class HeThongHangDoi:
     def lay_danh_sach_da_phuc_vu(self):
         return self.danh_sach_da_phuc_vu.copy()
 
+    def nap_du_lieu_mau(self):
+        khach_dang_phuc_vu = [
+            ("Nguyễn Minh Anh", "VIP", 1),
+            ("Trần Quốc Bảo", "Khẩn cấp", 2),
+            ("Lê Hoàng Nam", "Giao dịch nhanh", 5),
+        ]
+        khach_dang_cho = [
+            ("Phạm Thanh Hà", "VIP", 1),
+            ("Đỗ Gia Hân", "Khẩn cấp", 2),
+            ("Võ Minh Khang", "Người cao tuổi", 3),
+            ("Bùi Ngọc Lan", "Giao dịch nhanh", 5),
+            ("Hoàng Đức Long", "Giao dịch phức tạp", 5),
+            ("Ngô Thùy Dương", "Tư vấn dịch vụ", 5),
+            ("Đặng Hải Yến", "Giao dịch nhanh", 5),
+        ]
+
+        for quay, (ten, loai_dich_vu, muc_do_uu_tien) in zip(self.danh_sach_quay, khach_dang_phuc_vu):
+            khach = self._tao_khach(ten, loai_dich_vu, muc_do_uu_tien)
+            quay.tiep_nhan_khach(khach)
+
+        for ten, loai_dich_vu, muc_do_uu_tien in khach_dang_cho:
+            self.them_khach(ten, loai_dich_vu, muc_do_uu_tien)
+
     def tinh_thong_ke(self):
         tong_da_phuc_vu = len(self.danh_sach_da_phuc_vu)
         so_uu_tien_cho = self.hang_doi_uu_tien.size()
@@ -139,6 +168,7 @@ class HeThongHangDoi:
                 khach_cho_lau_nhat = khach
 
         return {
+            "tong_khach_da_tiep_nhan": self.next_customer_id - 1,
             "tong_khach_da_phuc_vu": tong_da_phuc_vu,
             "tong_khach_dang_cho": tong_dang_cho,
             "so_khach_uu_tien_dang_cho": so_uu_tien_cho,
@@ -167,6 +197,18 @@ class HeThongHangDoi:
             if quay.id_quay == id_quay:
                 return quay
         return None
+
+    def _tao_khach(self, ten, loai_dich_vu, muc_do_uu_tien):
+        khach = KhachHang(
+            id=self.next_customer_id,
+            ten=ten,
+            loai_dich_vu=loai_dich_vu,
+            muc_do_uu_tien=muc_do_uu_tien,
+            so_tien_giao_dich=self._uoc_tinh_so_tien(loai_dich_vu, muc_do_uu_tien),
+            muc_do_hai_long=self._uoc_tinh_hai_long(muc_do_uu_tien),
+        )
+        self.next_customer_id += 1
+        return khach
 
     def _uoc_tinh_so_tien(self, loai_dich_vu, muc_do_uu_tien):
         bang_gia = {

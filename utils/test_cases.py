@@ -49,6 +49,16 @@ def test_logic_uu_tien():
     assert khach.ten == "Nguyễn Văn A"
 
 
+def test_du_lieu_mau():
+    he_thong = HeThongHangDoi(nap_du_lieu_mau=True)
+    tk = he_thong.tinh_thong_ke()
+
+    assert tk["so_quay_dang_ban"] == 3
+    assert tk["so_khach_uu_tien_dang_cho"] == 3
+    assert tk["so_khach_thuong_dang_cho"] == 4
+    assert he_thong.next_customer_id == 11
+
+
 def test_overflow():
     hang_doi = LinearQueue(max_size=1)
     assert hang_doi.enqueue("KH001")
@@ -73,6 +83,7 @@ def chay_tat_ca_test():
     test_fifo()
     test_priority_queue_heap()
     test_logic_uu_tien()
+    test_du_lieu_mau()
     test_overflow()
     test_merge_sort_theo_thoi_gian_cho()
     print("Tất cả test đều đạt.")

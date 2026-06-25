@@ -1,4 +1,4 @@
-from models.tai_khoan import TaiKhoan
+﻿from models.tai_khoan import TaiKhoan
 
 
 class AuthService:
@@ -17,7 +17,6 @@ class AuthService:
 
         if username == "":
             return None, "Vui lòng nhập tên đăng nhập"
-
         if password == "":
             return None, "Vui lòng nhập mật khẩu"
 

@@ -153,8 +153,7 @@ class TiepNhanView:
                 "Mở/Đóng",
                 "Trạng thái",
                 "Khách đang phục vụ",
-                "Ưu tiên chờ",
-                "Thường chờ",
+                "Khách chờ",
                 "Đã phục vụ",
                 "Gợi ý",
             ],
@@ -212,9 +211,8 @@ class TiepNhanView:
         self._set_fixed_col(table, 2, 120)
         self._set_stretch_col(table, 3)
         self._set_fixed_col(table, 4, 90)
-        self._set_fixed_col(table, 5, 90)
-        self._set_fixed_col(table, 6, 90)
-        self._set_stretch_col(table, 7)
+        self._set_fixed_col(table, 5, 80)
+        self._set_stretch_col(table, 6)
 
     def _ap_dung_lai_do_rong_bang(self, table):
         if table is self.tblKhachVuaTiepNhan:
@@ -268,6 +266,7 @@ class TiepNhanView:
     def _fill_chi_tiet_quay(self):
         so_uu_tien_cho = len(self.he_thong.lay_danh_sach_hang_doi_uu_tien())
         so_thuong_cho = len(self.he_thong.lay_danh_sach_hang_doi_thuong())
+        tong_khach_cho = so_uu_tien_cho + so_thuong_cho
         rows = []
 
         for quay in self.he_thong.lay_danh_sach_quay():
@@ -291,10 +290,9 @@ class TiepNhanView:
                 "Mở" if quay.dang_mo else "Đóng",
                 quay.trang_thai,
                 khach_text,
-                so_uu_tien_cho,
-                so_thuong_cho,
+                tong_khach_cho,
                 len(quay.lich_su_phuc_vu),
-                goi_y,
+                goi_y
             ])
 
         self._fill_rows(self.tblNhatKy, rows, "Chưa có dữ liệu quầy")

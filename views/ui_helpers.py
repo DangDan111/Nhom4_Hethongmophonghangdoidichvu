@@ -52,12 +52,25 @@ def setup_table(table, headers, column_widths=None):
         header.setSectionResizeMode(len(headers) - 1, QHeaderView.Stretch)
     table.verticalHeader().setVisible(False)
     table.verticalHeader().setDefaultSectionSize(36)
+    if table.objectName() == "tblQuay":
+        table.verticalHeader().setDefaultSectionSize(30)
+        table.setVerticalScrollBarPolicy(Qt.ScrollBarAlwaysOff)
     table.setAlternatingRowColors(True)
     table.setSelectionBehavior(QAbstractItemView.SelectRows)
     table.setEditTriggers(QAbstractItemView.NoEditTriggers)
 
 
 def fill_table(table, rows):
+    table.clearSpans()
+    if len(rows) == 0:
+        table.setRowCount(1)
+        item = QTableWidgetItem("Chưa có dữ liệu")
+        item.setTextAlignment(Qt.AlignCenter)
+        table.setItem(0, 0, item)
+        if table.columnCount() > 1:
+            table.setSpan(0, 0, 1, table.columnCount())
+        return
+
     table.setRowCount(len(rows))
     for row_index, row in enumerate(rows):
         for col_index, value in enumerate(row):

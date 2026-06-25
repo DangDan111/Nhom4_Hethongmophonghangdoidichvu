@@ -46,7 +46,8 @@ class LoginView:
             "Quên mật khẩu?</a>"
         )
         self.lblQuenMatKhau.setTextFormat(Qt.RichText)
-        self.lblQuenMatKhau.setTextInteractionFlags(Qt.TextBrowserInteraction)
+        self.lblQuenMatKhau.setTextInteractionFlags(Qt.LinksAccessibleByMouse)
+        self.lblQuenMatKhau.setFocusPolicy(Qt.NoFocus)
         self.lblQuenMatKhau.setOpenExternalLinks(False)
         self.lblQuenMatKhau.setCursor(Qt.PointingHandCursor)
         self.lblQuenMatKhau.linkActivated.connect(self.quen_mat_khau)

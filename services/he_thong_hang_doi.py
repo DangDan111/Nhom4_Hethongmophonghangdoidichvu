@@ -1,3 +1,5 @@
+from datetime import datetime, timedelta
+
 from models.khach_hang import KhachHang
 from models.quay_giao_dich import QuayGiaoDich
 from data_structures.linear_queue import LinearQueue
@@ -22,6 +24,72 @@ class HeThongHangDoi:
 
         for id_quay in range(1, 4):
             self.danh_sach_quay.append(QuayGiaoDich(id_quay, dang_mo=True))
+
+    def nap_du_lieu_mau(self):
+        if (
+            self.hang_doi_thuong.size() > 0
+            or self.hang_doi_uu_tien.size() > 0
+            or len(self.danh_sach_da_phuc_vu) > 0
+            or any(quay.khach_dang_phuc_vu is not None for quay in self.danh_sach_quay)
+        ):
+            return
+
+        now = datetime.now()
+
+        khach_dang_phuc_vu = [
+            KhachHang(1, "Nguyễn Văn An", "Giao dịch nhanh", 5, thoi_gian_den=now - timedelta(minutes=18)),
+            KhachHang(2, "Trần Thị Mai", "Giao dịch phức tạp", 5, thoi_gian_den=now - timedelta(minutes=15)),
+            KhachHang(3, "Lê Quốc Huy", "Tư vấn dịch vụ", 5, thoi_gian_den=now - timedelta(minutes=12)),
+        ]
+
+        for quay, khach in zip(self.danh_sach_quay, khach_dang_phuc_vu):
+            quay.tiep_nhan_khach(khach)
+
+        khach_uu_tien = [
+            KhachHang(4, "Phạm Thanh Hà", "VIP", 1, thoi_gian_den=now - timedelta(minutes=8)),
+            KhachHang(5, "Đỗ Gia Hân", "Khẩn cấp", 2, thoi_gian_den=now - timedelta(minutes=7)),
+            KhachHang(6, "Võ Minh Khang", "Người cao tuổi", 3, thoi_gian_den=now - timedelta(minutes=6)),
+        ]
+        for khach in khach_uu_tien:
+            self.hang_doi_uu_tien.push(khach)
+
+        khach_thuong = [
+            KhachHang(7, "Bùi Ngọc Lan", "Giao dịch nhanh", 5, thoi_gian_den=now - timedelta(minutes=5)),
+            KhachHang(8, "Hoàng Đức Minh", "Giao dịch phức tạp", 5, thoi_gian_den=now - timedelta(minutes=4)),
+            KhachHang(9, "Ngô Thùy Dương", "Tư vấn dịch vụ", 5, thoi_gian_den=now - timedelta(minutes=3)),
+            KhachHang(10, "Đặng Hải Yến", "Giao dịch nhanh", 5, thoi_gian_den=now - timedelta(minutes=2)),
+        ]
+        for khach in khach_thuong:
+            self.hang_doi_thuong.enqueue(khach)
+
+        khach_da_phuc_vu = [
+            KhachHang(
+                11,
+                "Nguyễn Hoàng Nam",
+                "Giao dịch nhanh",
+                5,
+                thoi_gian_den=now - timedelta(minutes=45),
+                thoi_gian_bat_dau_phuc_vu=now - timedelta(minutes=32),
+                thoi_gian_ket_thuc=now - timedelta(minutes=24),
+                trang_thai="Đã phục vụ",
+                so_tien_giao_dich=80000,
+                muc_do_hai_long=8,
+            ),
+            KhachHang(
+                12,
+                "Phan Mỹ Linh",
+                "VIP",
+                1,
+                thoi_gian_den=now - timedelta(minutes=38),
+                thoi_gian_bat_dau_phuc_vu=now - timedelta(minutes=30),
+                thoi_gian_ket_thuc=now - timedelta(minutes=18),
+                trang_thai="Đã phục vụ",
+                so_tien_giao_dich=430000,
+                muc_do_hai_long=10,
+            ),
+        ]
+        self.danh_sach_da_phuc_vu.extend(khach_da_phuc_vu)
+        self.next_customer_id = 13
 
     def them_khach(self, ten, loai_dich_vu, muc_do_uu_tien):
         ten = ten.strip()

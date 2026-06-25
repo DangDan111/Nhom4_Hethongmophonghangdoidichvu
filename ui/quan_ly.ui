@@ -61,7 +61,7 @@ QLabel#cardQuayDangMoTitle,
 QLabel#cardQuayDangBanTitle,
 QLabel#cardThoiGianChoTBTitle,
 QLabel#cardCanhBaoTitle {
-    font-size: 15px;
+    font-size: 13px;
     font-weight: 800;
 }
 QLabel.metricValue {
@@ -107,6 +107,9 @@ QTableWidget {
     selection-background-color: #dbeafe;
     selection-color: #111827;
     font-size: 14px;
+}
+QTableWidget#tblQuay {
+    font-size: 13px;
 }
 QHeaderView::section {
     background: #ffffff;
@@ -292,10 +295,10 @@ image: url(icon1.png);</string>
    <widget class="QLabel" name="cardTongDaPhucVuTitle">
     <property name="geometry">
      <rect>
-      <x>80</x>
-      <y>15</y>
-      <width>151</width>
-      <height>24</height>
+      <x>76</x>
+      <y>10</y>
+      <width>152</width>
+      <height>38</height>
      </rect>
     </property>
     <property name="font">
@@ -311,14 +314,17 @@ image: url(icon1.png);</string>
     <property name="alignment">
      <set>Qt::AlignmentFlag::AlignCenter</set>
     </property>
+       <property name="wordWrap">
+     <bool>true</bool>
+    </property>
    </widget>
    <widget class="QLabel" name="lblTongDaPhucVu">
     <property name="geometry">
      <rect>
-      <x>100</x>
-      <y>40</y>
-      <width>111</width>
-      <height>36</height>
+      <x>76</x>
+      <y>49</y>
+      <width>152</width>
+      <height>30</height>
      </rect>
     </property>
     <property name="font">
@@ -407,10 +413,10 @@ image: url(icon1.png);</string>
    <widget class="QLabel" name="cardKhachDangChoTitle">
     <property name="geometry">
      <rect>
-      <x>80</x>
-      <y>15</y>
-      <width>140</width>
-      <height>24</height>
+      <x>76</x>
+      <y>10</y>
+      <width>152</width>
+      <height>38</height>
      </rect>
     </property>
     <property name="font">
@@ -426,14 +432,17 @@ image: url(icon1.png);</string>
     <property name="alignment">
      <set>Qt::AlignmentFlag::AlignCenter</set>
     </property>
+       <property name="wordWrap">
+     <bool>true</bool>
+    </property>
    </widget>
    <widget class="QLabel" name="lblKhachDangCho">
     <property name="geometry">
      <rect>
-      <x>100</x>
-      <y>40</y>
-      <width>101</width>
-      <height>36</height>
+      <x>76</x>
+      <y>49</y>
+      <width>152</width>
+      <height>30</height>
      </rect>
     </property>
     <property name="font">
@@ -516,10 +525,10 @@ image: url(icon1.png);</string>
    <widget class="QLabel" name="cardQuayDangMoTitle">
     <property name="geometry">
      <rect>
-      <x>80</x>
-      <y>15</y>
-      <width>140</width>
-      <height>24</height>
+      <x>76</x>
+      <y>10</y>
+      <width>152</width>
+      <height>38</height>
      </rect>
     </property>
     <property name="font">
@@ -535,14 +544,17 @@ image: url(icon1.png);</string>
     <property name="alignment">
      <set>Qt::AlignmentFlag::AlignCenter</set>
     </property>
+       <property name="wordWrap">
+     <bool>true</bool>
+    </property>
    </widget>
    <widget class="QLabel" name="lblQuayDangMo">
     <property name="geometry">
      <rect>
-      <x>100</x>
-      <y>40</y>
-      <width>81</width>
-      <height>36</height>
+      <x>76</x>
+      <y>49</y>
+      <width>152</width>
+      <height>30</height>
      </rect>
     </property>
     <property name="font">
@@ -628,10 +640,10 @@ image: url(icon1.png);</string>
    <widget class="QLabel" name="cardQuayDangBanTitle">
     <property name="geometry">
      <rect>
-      <x>80</x>
-      <y>15</y>
-      <width>140</width>
-      <height>24</height>
+      <x>76</x>
+      <y>10</y>
+      <width>152</width>
+      <height>38</height>
      </rect>
     </property>
     <property name="font">
@@ -647,14 +659,17 @@ image: url(icon1.png);</string>
     <property name="alignment">
      <set>Qt::AlignmentFlag::AlignCenter</set>
     </property>
+       <property name="wordWrap">
+     <bool>true</bool>
+    </property>
    </widget>
    <widget class="QLabel" name="lblQuayDangBan">
     <property name="geometry">
      <rect>
-      <x>109</x>
-      <y>40</y>
-      <width>81</width>
-      <height>36</height>
+      <x>76</x>
+      <y>49</y>
+      <width>152</width>
+      <height>30</height>
      </rect>
     </property>
     <property name="font">
@@ -740,10 +755,10 @@ image: url(icon1.png);</string>
    <widget class="QLabel" name="cardThoiGianChoTBTitle">
     <property name="geometry">
      <rect>
-      <x>78</x>
-      <y>15</y>
-      <width>161</width>
-      <height>24</height>
+      <x>76</x>
+      <y>10</y>
+      <width>152</width>
+      <height>38</height>
      </rect>
     </property>
     <property name="font">
@@ -756,14 +771,20 @@ image: url(icon1.png);</string>
     <property name="text">
      <string>Thời gian chờ trung bình</string>
     </property>
+       <property name="alignment">
+     <set>Qt::AlignmentFlag::AlignCenter</set>
+    </property>
+       <property name="wordWrap">
+     <bool>true</bool>
+    </property>
    </widget>
    <widget class="QLabel" name="lblThoiGianChoTB">
     <property name="geometry">
      <rect>
-      <x>84</x>
-      <y>43</y>
-      <width>135</width>
-      <height>36</height>
+      <x>76</x>
+      <y>49</y>
+      <width>152</width>
+      <height>30</height>
      </rect>
     </property>
     <property name="font">
@@ -849,10 +870,10 @@ image: url(icon1.png);</string>
    <widget class="QLabel" name="cardCanhBaoTitle">
     <property name="geometry">
      <rect>
-      <x>80</x>
-      <y>15</y>
-      <width>116</width>
-      <height>24</height>
+      <x>76</x>
+      <y>10</y>
+      <width>152</width>
+      <height>38</height>
      </rect>
     </property>
     <property name="font">
@@ -868,14 +889,17 @@ image: url(icon1.png);</string>
     <property name="alignment">
      <set>Qt::AlignmentFlag::AlignCenter</set>
     </property>
+       <property name="wordWrap">
+     <bool>true</bool>
+    </property>
    </widget>
    <widget class="QLabel" name="lblCanhBao">
     <property name="geometry">
      <rect>
-      <x>84</x>
-      <y>43</y>
-      <width>126</width>
-      <height>36</height>
+      <x>76</x>
+      <y>49</y>
+      <width>152</width>
+      <height>30</height>
      </rect>
     </property>
     <property name="font">
@@ -905,7 +929,7 @@ image: url(icon1.png);</string>
      <x>16</x>
      <y>226</y>
      <width>500</width>
-     <height>250</height>
+     <height>270</height>
     </rect>
    </property>
    <property name="frameShape">
@@ -970,9 +994,9 @@ image: url(icon1.png);</string>
     <property name="geometry">
      <rect>
       <x>0</x>
-      <y>58</y>
+      <y>62</y>
       <width>500</width>
-      <height>192</height>
+      <height>208</height>
      </rect>
     </property>
     <property name="focusPolicy">
@@ -995,7 +1019,7 @@ image: url(icon1.png);</string>
      <x>532</x>
      <y>226</y>
      <width>500</width>
-     <height>250</height>
+     <height>270</height>
     </rect>
    </property>
    <property name="frameShape">
@@ -1060,9 +1084,9 @@ image: url(icon1.png);</string>
     <property name="geometry">
      <rect>
       <x>0</x>
-      <y>58</y>
+      <y>62</y>
       <width>500</width>
-      <height>192</height>
+      <height>208</height>
      </rect>
     </property>
     <property name="focusPolicy">
@@ -1085,7 +1109,7 @@ image: url(icon1.png);</string>
      <x>1048</x>
      <y>226</y>
      <width>436</width>
-     <height>250</height>
+     <height>270</height>
     </rect>
    </property>
    <property name="frameShape">
@@ -1150,9 +1174,9 @@ image: url(icon1.png);</string>
     <property name="geometry">
      <rect>
       <x>0</x>
-      <y>58</y>
+      <y>62</y>
       <width>436</width>
-      <height>136</height>
+      <height>148</height>
      </rect>
     </property>
     <property name="focusPolicy">
@@ -1172,8 +1196,8 @@ image: url(icon1.png);</string>
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>204</y>
-      <width>80</width>
+      <y>222</y>
+      <width>82</width>
       <height>38</height>
      </rect>
     </property>
@@ -1181,9 +1205,9 @@ image: url(icon1.png);</string>
    <widget class="QPushButton" name="btnMoQuay">
     <property name="geometry">
      <rect>
-      <x>100</x>
-      <y>204</y>
-      <width>90</width>
+      <x>102</x>
+      <y>222</y>
+      <width>92</width>
       <height>38</height>
      </rect>
     </property>
@@ -1204,8 +1228,8 @@ image: url(icon1.png);</string>
    <widget class="QPushButton" name="btnDongQuay">
     <property name="geometry">
      <rect>
-      <x>200</x>
-      <y>204</y>
+      <x>204</x>
+      <y>222</y>
       <width>100</width>
       <height>38</height>
      </rect>
@@ -1227,9 +1251,9 @@ image: url(icon1.png);</string>
    <widget class="QPushButton" name="btnLamMoi">
     <property name="geometry">
      <rect>
-      <x>310</x>
-      <y>204</y>
-      <width>116</width>
+      <x>314</x>
+      <y>222</y>
+      <width>112</width>
       <height>38</height>
      </rect>
     </property>
@@ -1252,9 +1276,9 @@ image: url(icon1.png);</string>
    <property name="geometry">
     <rect>
      <x>16</x>
-     <y>492</y>
+     <y>512</y>
      <width>1468</width>
-     <height>272</height>
+     <height>252</height>
     </rect>
    </property>
    <property name="frameShape">
@@ -1342,9 +1366,9 @@ image: url(icon1.png);</string>
     <property name="geometry">
      <rect>
       <x>0</x>
-      <y>58</y>
+      <y>64</y>
       <width>1468</width>
-      <height>214</height>
+      <height>188</height>
      </rect>
     </property>
     <property name="focusPolicy">

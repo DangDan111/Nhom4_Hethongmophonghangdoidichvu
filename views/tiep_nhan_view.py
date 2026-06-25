@@ -245,10 +245,10 @@ class TiepNhanView:
 
         for khach in self._lay_khach_vua_tiep_nhan():
 
-            quay = "Đang chờ"
-
-            if hasattr(khach, "id_quay") and khach.id_quay is not None:
+            if getattr(khach, "id_quay", None):
                 quay = f"Quầy {khach.id_quay}"
+            else:
+                quay = "Đang chờ"
 
             rows.append([
                 khach.ma_khach(),
@@ -258,12 +258,12 @@ class TiepNhanView:
                 quay,
                 khach.thoi_gian_den.strftime("%H:%M:%S"),
             ])
-        self._fill_rows(
-                self.tblKhachVuaTiepNhan,
-                rows,
-                "Chưa có khách vừa tiếp nhận"
-            )
 
+        self._fill_rows(
+            self.tblKhachVuaTiepNhan,
+            rows,
+            "Chưa có khách vừa tiếp nhận",
+        )
     
     def _fill_chi_tiet_quay(self):
         so_uu_tien_cho = len(self.he_thong.lay_danh_sach_hang_doi_uu_tien())
@@ -326,15 +326,24 @@ class TiepNhanView:
         self._ap_dung_lai_do_rong_bang(table)
 
     def _lay_khach_vua_tiep_nhan(self):
-        ds = []
-        ds.extend(self.he_thong.lay_danh_sach_hang_doi_uu_tien())
-        ds.extend(self.he_thong.lay_danh_sach_hang_doi_thuong())
-        for quay in self.he_thong.lay_danh_sach_quay():
-            if quay.khach_dang_phuc_vu is not None:
-                ds.append(quay.khach_dang_phuc_vu)
-        ds.sort(key=lambda khach: khach.id, reverse=True)
-        return ds[:5]
 
+        ds = []
+
+        ds.extend(self.he_thong.lay_danh_sach_hang_doi_uu_tien())
+
+        ds.extend(self.he_thong.lay_danh_sach_hang_doi_thuong())
+
+        for quay in self.he_thong.lay_danh_sach_quay():
+            if quay.khach_dang_phuc_vu:
+                ds.append(quay.khach_dang_phuc_vu)
+
+        # ===== THÊM =====
+        ds.extend(self.he_thong.lay_danh_sach_da_phuc_vu())
+        # ================
+
+        ds.sort(key=lambda x: x.id, reverse=True)
+
+        return ds[:20]
     def _hien_thong_bao(self, message, thanh_cong=True):
         prefix = "✓" if thanh_cong else "!"
         self.lblThongBaoThanhCong.setText(f"{prefix}   {message}")

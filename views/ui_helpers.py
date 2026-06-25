@@ -13,6 +13,7 @@ from PySide6.QtWidgets import (
 
 
 def load_ui(ui_path):
+    ui_path = ui_path.resolve()
     ui_file = QFile(str(ui_path))
     if not ui_file.open(QFile.ReadOnly):
         raise FileNotFoundError(f"Không mở được file giao diện: {ui_path}")
@@ -35,48 +36,21 @@ def find_required(parent, widget_type, object_name):
     return widget
 
 
-def setup_table(table, headers, column_widths=None):
+def setup_table(table, headers):
     table.setColumnCount(len(headers))
     table.setHorizontalHeaderLabels(headers)
-    header = table.horizontalHeader()
-    header.setDefaultAlignment(Qt.AlignCenter)
-    header.setMinimumHeight(40)
-    if column_widths is None and table.objectName() == "tblQuay":
-        column_widths = [66, 78, 112, 180]
-    if column_widths is None:
-        header.setSectionResizeMode(QHeaderView.Stretch)
-    else:
-        for column_index, width in enumerate(column_widths):
-            header.setSectionResizeMode(column_index, QHeaderView.Fixed)
-            table.setColumnWidth(column_index, width)
-        header.setSectionResizeMode(len(headers) - 1, QHeaderView.Stretch)
+    table.horizontalHeader().setSectionResizeMode(QHeaderView.Stretch)
     table.verticalHeader().setVisible(False)
-    table.verticalHeader().setDefaultSectionSize(36)
-    if table.objectName() == "tblQuay":
-        table.verticalHeader().setDefaultSectionSize(30)
-        table.setVerticalScrollBarPolicy(Qt.ScrollBarAlwaysOff)
     table.setAlternatingRowColors(True)
     table.setSelectionBehavior(QAbstractItemView.SelectRows)
     table.setEditTriggers(QAbstractItemView.NoEditTriggers)
 
 
 def fill_table(table, rows):
-    table.clearSpans()
-    if len(rows) == 0:
-        table.setRowCount(1)
-        item = QTableWidgetItem("Chưa có dữ liệu")
-        item.setTextAlignment(Qt.AlignCenter)
-        table.setItem(0, 0, item)
-        if table.columnCount() > 1:
-            table.setSpan(0, 0, 1, table.columnCount())
-        return
-
     table.setRowCount(len(rows))
     for row_index, row in enumerate(rows):
         for col_index, value in enumerate(row):
-            item = QTableWidgetItem(str(value))
-            item.setTextAlignment(Qt.AlignCenter)
-            table.setItem(row_index, col_index, item)
+            table.setItem(row_index, col_index, QTableWidgetItem(str(value)))
 
 
 def confirm_logout(parent):

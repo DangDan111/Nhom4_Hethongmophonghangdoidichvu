@@ -5,7 +5,7 @@ class AppContext:
     def __init__(self, root=None):
         self.root = root
         self.current_user = None
-        self.he_thong_hang_doi = HeThongHangDoi()
+        self.he_thong_hang_doi = HeThongHangDoi(nap_du_lieu_mau=True)
 
     def set_current_user(self, user):
         self.current_user = user

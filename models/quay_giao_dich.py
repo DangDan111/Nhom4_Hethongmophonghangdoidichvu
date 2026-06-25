@@ -30,18 +30,21 @@ class QuayGiaoDich:
             and self.khach_dang_phuc_vu is None
         )
 
-    def tiep_nhan_khach(self, khach_hang):
+    def tiep_nhan_khach(self, khach_hang, id_quay):
         """
         Khi gọi khách tiếp theo.
         Thời gian bắt đầu phục vụ luôn lấy theo thời gian thực.
         """
-
+        
         if not self.co_the_nhan_khach():
             return False
 
         khach_hang.thoi_gian_bat_dau_phuc_vu = datetime.now()
         khach_hang.thoi_gian_ket_thuc = None
         khach_hang.trang_thai = "Đang phục vụ"
+
+        # Ghi nhận khách đang ở quầy nào
+        khach_hang.id_quay = self.id_quay
 
         self.khach_dang_phuc_vu = khach_hang
         self.trang_thai = "Đang phục vụ"
@@ -61,6 +64,9 @@ class QuayGiaoDich:
 
         khach.thoi_gian_ket_thuc = datetime.now()
         khach.trang_thai = "Đã phục vụ"
+
+        # Khách không còn ở quầy
+        khach.id_quay = None
 
         self.lich_su_phuc_vu.append(khach)
 

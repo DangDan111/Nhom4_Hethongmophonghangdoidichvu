@@ -8,7 +8,7 @@ from PySide6.QtWidgets import (
     QHeaderView,
     QVBoxLayout,
 )
-
+from PySide6.QtCore import QTimer
 from views.ui_helpers import confirm_logout, fill_table, find_required, load_ui, setup_table
 
 
@@ -80,6 +80,10 @@ class QuanLyView:
         self.tblQuay.cellClicked.connect(self.chon_quay_tu_bang)
 
         self.lam_moi()
+        # Tự động đồng bộ dữ liệu
+        self.timer = QTimer(self.window)
+        self.timer.timeout.connect(self.lam_moi)
+        self.timer.start(1000)
 
     def show(self):
         self.window.show()

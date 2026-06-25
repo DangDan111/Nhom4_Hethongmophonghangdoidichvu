@@ -1,4 +1,4 @@
-from PySide6.QtCore import Qt
+from PySide6.QtCore import Qt, QTimer
 from PySide6.QtWidgets import (
     QLabel,
     QLineEdit,
@@ -46,8 +46,6 @@ class TiepNhanView:
 
         self.tblKhachVuaTiepNhan = find_required(self.window, QTableWidget, "tblKhachVuaTiepNhan")
         self.tblNhatKy = find_required(self.window, QTableWidget, "tblNhatKy")
-        self.tblHangDoiUuTien = find_required(self.window, QTableWidget, "tblHangDoiUuTien")
-        self.tblHangDoiThuong = find_required(self.window, QTableWidget, "tblHangDoiThuong")
 
         self.service_options = {
             "Giao dịch nhanh": {"nhom": "Thường", "uu_tien": 5},
@@ -73,6 +71,11 @@ class TiepNhanView:
         self.btnDangXuat.clicked.connect(self.xac_nhan_dang_xuat)
 
         self.lam_moi()
+
+# Đồng bộ dữ liệu mỗi giây
+        self.timer = QTimer(self.window)
+        self.timer.timeout.connect(lambda: self.lam_moi(False))
+        self.timer.start(1000)
 
     def show(self):
         self.window.show()
@@ -110,8 +113,6 @@ class TiepNhanView:
         self.lblSoKhachDangCho.setText(str(tk["tong_khach_dang_cho"]))
 
         self._fill_khach_vua_tiep_nhan()
-        self._fill_hang_doi(self.tblHangDoiUuTien, self.he_thong.lay_danh_sach_hang_doi_uu_tien())
-        self._fill_hang_doi(self.tblHangDoiThuong, self.he_thong.lay_danh_sach_hang_doi_thuong())
         self._fill_chi_tiet_quay()
 
     def _setup_comboboxes(self):
@@ -134,7 +135,17 @@ class TiepNhanView:
         self._dong_bo_phan_loai(self.cboLoaiDichVu.currentText())
 
     def _setup_tables(self):
-        self._setup_table(self.tblKhachVuaTiepNhan, ["Mã KH", "Tên khách", "Dịch vụ", "Nhóm", "Thời gian"])
+        self._setup_table(
+    self.tblKhachVuaTiepNhan,
+            [
+                "Mã KH",
+                "Tên khách",
+                "Dịch vụ",
+                "Nhóm",
+                "Quầy",
+                "Thời gian"
+            ]
+        )
         self._setup_table(
             self.tblNhatKy,
             [
@@ -148,8 +159,6 @@ class TiepNhanView:
                 "Gợi ý",
             ],
         )
-        self._setup_table(self.tblHangDoiUuTien, ["Mã KH", "Tên khách", "Dịch vụ", "Ưu tiên", "Đến lúc"])
-        self._setup_table(self.tblHangDoiThuong, ["Mã KH", "Tên khách", "Dịch vụ", "Ưu tiên", "Đến lúc"])
 
         self._ap_dung_lai_do_rong_tat_ca_bang()
 
@@ -183,15 +192,6 @@ class TiepNhanView:
     def _set_stretch_col(self, table, col):
         table.horizontalHeader().setSectionResizeMode(col, QHeaderView.Stretch)
 
-    def _chinh_bang_hang_doi(self, table):
-        self._cau_hinh_bang_chung(table)
-
-        self._set_fixed_col(table, 0, 65)
-        self._set_stretch_col(table, 1)
-        self._set_stretch_col(table, 2)
-        self._set_fixed_col(table, 3, 55)
-        self._set_fixed_col(table, 4, 70)
-
     def _chinh_bang_khach_vua_tiep_nhan(self):
         table = self.tblKhachVuaTiepNhan
         self._cau_hinh_bang_chung(table)
@@ -199,8 +199,9 @@ class TiepNhanView:
         self._set_fixed_col(table, 0, 75)
         self._set_stretch_col(table, 1)
         self._set_stretch_col(table, 2)
-        self._set_fixed_col(table, 3, 85)
+        self._set_fixed_col(table, 3, 90)
         self._set_fixed_col(table, 4, 80)
+        self._set_fixed_col(table, 5, 100)
 
     def _chinh_bang_chi_tiet_quay(self):
         table = self.tblNhatKy
@@ -216,8 +217,11 @@ class TiepNhanView:
         self._set_stretch_col(table, 7)
 
     def _ap_dung_lai_do_rong_bang(self, table):
-        if table is self.tblHangDoiUuTien or table is self.tblHangDoiThuong:
-            self._chinh_bang_hang_doi(table)
+        if table is self.tblKhachVuaTiepNhan:
+            self._chinh_bang_khach_vua_tiep_nhan()
+
+        elif table is self.tblNhatKy:
+            self._chinh_bang_chi_tiet_quay()
         elif table is self.tblKhachVuaTiepNhan:
             self._chinh_bang_khach_vua_tiep_nhan()
         elif table is self.tblNhatKy:
@@ -226,8 +230,6 @@ class TiepNhanView:
     def _ap_dung_lai_do_rong_tat_ca_bang(self):
         self._chinh_bang_khach_vua_tiep_nhan()
         self._chinh_bang_chi_tiet_quay()
-        self._chinh_bang_hang_doi(self.tblHangDoiUuTien)
-        self._chinh_bang_hang_doi(self.tblHangDoiThuong)
 
     def _dong_bo_phan_loai(self, loai_dich_vu):
         info = self.service_options.get(loai_dich_vu)
@@ -240,28 +242,29 @@ class TiepNhanView:
 
     def _fill_khach_vua_tiep_nhan(self):
         rows = []
+
         for khach in self._lay_khach_vua_tiep_nhan():
+
+            quay = "Đang chờ"
+
+            if hasattr(khach, "id_quay") and khach.id_quay is not None:
+                quay = f"Quầy {khach.id_quay}"
+
             rows.append([
                 khach.ma_khach(),
                 khach.ten,
                 khach.loai_dich_vu,
                 "Ưu tiên" if khach.la_khach_uu_tien() else "Thường",
-                khach.thoi_gian_den.strftime("%H:%M"),
+                quay,
+                khach.thoi_gian_den.strftime("%H:%M:%S"),
             ])
-        self._fill_rows(self.tblKhachVuaTiepNhan, rows, "Chưa có khách vừa tiếp nhận")
+        self._fill_rows(
+                self.tblKhachVuaTiepNhan,
+                rows,
+                "Chưa có khách vừa tiếp nhận"
+            )
 
-    def _fill_hang_doi(self, table, ds):
-        rows = []
-        for khach in ds:
-            rows.append([
-                khach.ma_khach(),
-                khach.ten,
-                khach.loai_dich_vu,
-                khach.muc_do_uu_tien,
-                khach.thoi_gian_den.strftime("%H:%M"),
-            ])
-        self._fill_rows(table, rows, "Chưa có khách đang chờ")
-
+    
     def _fill_chi_tiet_quay(self):
         so_uu_tien_cho = len(self.he_thong.lay_danh_sach_hang_doi_uu_tien())
         so_thuong_cho = len(self.he_thong.lay_danh_sach_hang_doi_thuong())

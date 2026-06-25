@@ -103,7 +103,84 @@ QHeaderView::section {
     font-weight: 700;
     color: #111827;
 }
-</string>
+QFrame#cardTongDaPhucVu,
+QFrame#cardKhachDangCho,
+QFrame#cardQuayDangMo,
+QFrame#cardQuayDangBan,
+QFrame#cardThoiGianChoTB,
+QFrame#cardCanhBao {
+    background: #ffffff;
+    border: 1px solid #dbe7f5;
+    border-radius: 12px;
+}
+
+QLabel#cardTongDaPhucVuTitle,
+QLabel#cardKhachDangChoTitle,
+QLabel#cardQuayDangMoTitle,
+QLabel#cardQuayDangBanTitle,
+QLabel#cardThoiGianChoTBTitle,
+QLabel#cardCanhBaoTitle {
+    color: #475569;
+    font-family: &quot;Segoe UI&quot;;
+    font-size: 13px;
+    font-weight: 700;
+    background: transparent;
+    border: none;
+}
+
+QLabel#lblTongDaPhucVu {
+    color: #0f73df;
+    font-family: &quot;Segoe UI&quot;;
+    font-size: 30px;
+    font-weight: 900;
+    background: transparent;
+    border: none;
+}
+
+QLabel#lblKhachDangCho {
+    color: #f59e0b;
+    font-family: &quot;Segoe UI&quot;;
+    font-size: 30px;
+    font-weight: 900;
+    background: transparent;
+    border: none;
+}
+
+QLabel#lblQuayDangMo {
+    color: #16a34a;
+    font-family: &quot;Segoe UI&quot;;
+    font-size: 30px;
+    font-weight: 900;
+    background: transparent;
+    border: none;
+}
+
+QLabel#lblQuayDangBan {
+    color: #7c3aed;
+    font-family: &quot;Segoe UI&quot;;
+    font-size: 30px;
+    font-weight: 900;
+    background: transparent;
+    border: none;
+}
+
+QLabel#lblThoiGianChoTB {
+    color: #0f73df;
+    font-family: &quot;Segoe UI&quot;;
+    font-size: 25px;
+    font-weight: 900;
+    background: transparent;
+    border: none;
+}
+
+QLabel#lblCanhBao {
+    color: #16a34a;
+    font-family: &quot;Segoe UI&quot;;
+    font-size: 25px;
+    font-weight: 900;
+    background: transparent;
+    border: none;
+}</string>
   </property>
   <widget class="QFrame" name="header">
    <property name="geometry">
@@ -120,21 +197,32 @@ QHeaderView::section {
    <widget class="QLabel" name="lblTitle">
     <property name="geometry">
      <rect>
-      <x>36</x>
-      <y>24</y>
-      <width>430</width>
-      <height>42</height>
+      <x>10</x>
+      <y>20</y>
+      <width>371</width>
+      <height>51</height>
      </rect>
     </property>
     <property name="font">
      <font>
       <family>Segoe UI</family>
-      <pointsize>24</pointsize>
-      <fontweight>ExtraBold</fontweight>
+      <pointsize>-1</pointsize>
+      <fontweight>Black</fontweight>
      </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">    color: #16a34a;
+    font-family: &quot;Segoe UI&quot;;
+    font-size: 30px;
+    font-weight: 900;
+    background: transparent;
+    border: none;</string>
     </property>
     <property name="text">
      <string>GIAO DIỆN QUẢN LÝ</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignmentFlag::AlignCenter</set>
     </property>
    </widget>
    <widget class="QLabel" name="lblSubtitle">
@@ -169,9 +257,17 @@ QHeaderView::section {
     <property name="font">
      <font>
       <family>Segoe UI</family>
-      <pointsize>12</pointsize>
-      <bold>true</bold>
+      <pointsize>-1</pointsize>
+      <fontweight>Black</fontweight>
      </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: #000000;
+font-family: &quot;Segoe UI&quot;;
+font-size: 16px;
+font-weight: 900;
+background: transparent;
+border: none;</string>
     </property>
     <property name="text">
      <string>Tài khoản: admin</string>
@@ -183,8 +279,8 @@ QHeaderView::section {
    <widget class="QPushButton" name="btnDangXuat">
     <property name="geometry">
      <rect>
-      <x>1365</x>
-      <y>38</y>
+      <x>1358</x>
+      <y>34</y>
       <width>112</width>
       <height>38</height>
      </rect>
@@ -192,12 +288,22 @@ QHeaderView::section {
     <property name="font">
      <font>
       <family>Segoe UI</family>
-      <pointsize>10</pointsize>
-      <bold>true</bold>
+      <pointsize>-1</pointsize>
+      <fontweight>Black</fontweight>
      </font>
     </property>
     <property name="cursor">
      <cursorShape>PointingHandCursor</cursorShape>
+    </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: #0f73df;
+font-family: &quot;Segoe UI&quot;;
+font-size: 16px;
+font-weight: 900;
+</string>
     </property>
     <property name="text">
      <string>Đăng xuất</string>
@@ -263,11 +369,7 @@ max-height: 48px;
 image: url(icon1.png);</string>
     </property>
     <property name="pixmap">
-HEAD
-     <pixmap>../images/group.png</pixmap>
-
      <pixmap>../images/tongkhach.png</pixmap>
-f69cb689f384bddbeb8b8b3811cb1842600075d2
     </property>
     <property name="scaledContents">
      <bool>true</bool>
@@ -291,7 +393,7 @@ f69cb689f384bddbeb8b8b3811cb1842600075d2
     <property name="font">
      <font>
       <family>Segoe UI</family>
-      <pointsize>10</pointsize>
+      <pointsize>-1</pointsize>
       <bold>true</bold>
      </font>
     </property>
@@ -314,8 +416,8 @@ f69cb689f384bddbeb8b8b3811cb1842600075d2
     <property name="font">
      <font>
       <family>Segoe UI</family>
-      <pointsize>23</pointsize>
-      <fontweight>ExtraBold</fontweight>
+      <pointsize>-1</pointsize>
+      <fontweight>Black</fontweight>
      </font>
     </property>
     <property name="styleSheet">
@@ -352,20 +454,20 @@ f69cb689f384bddbeb8b8b3811cb1842600075d2
      <rect>
       <x>18</x>
       <y>20</y>
-      <width>48</width>
-      <height>48</height>
+      <width>54</width>
+      <height>54</height>
      </rect>
     </property>
     <property name="minimumSize">
      <size>
-      <width>48</width>
-      <height>48</height>
+      <width>54</width>
+      <height>54</height>
      </size>
     </property>
     <property name="maximumSize">
      <size>
-      <width>48</width>
-      <height>48</height>
+      <width>54</width>
+      <height>54</height>
      </size>
     </property>
     <property name="font">
@@ -406,7 +508,7 @@ f69cb689f384bddbeb8b8b3811cb1842600075d2
     <property name="font">
      <font>
       <family>Segoe UI</family>
-      <pointsize>10</pointsize>
+      <pointsize>-1</pointsize>
       <bold>true</bold>
      </font>
     </property>
@@ -429,8 +531,8 @@ f69cb689f384bddbeb8b8b3811cb1842600075d2
     <property name="font">
      <font>
       <family>Segoe UI</family>
-      <pointsize>23</pointsize>
-      <fontweight>ExtraBold</fontweight>
+      <pointsize>-1</pointsize>
+      <fontweight>Black</fontweight>
      </font>
     </property>
     <property name="styleSheet">
@@ -467,20 +569,20 @@ f69cb689f384bddbeb8b8b3811cb1842600075d2
      <rect>
       <x>18</x>
       <y>20</y>
-      <width>48</width>
-      <height>48</height>
+      <width>54</width>
+      <height>54</height>
      </rect>
     </property>
     <property name="minimumSize">
      <size>
-      <width>48</width>
-      <height>48</height>
+      <width>54</width>
+      <height>54</height>
      </size>
     </property>
     <property name="maximumSize">
      <size>
-      <width>48</width>
-      <height>48</height>
+      <width>54</width>
+      <height>54</height>
      </size>
     </property>
     <property name="font">
@@ -515,7 +617,7 @@ f69cb689f384bddbeb8b8b3811cb1842600075d2
     <property name="font">
      <font>
       <family>Segoe UI</family>
-      <pointsize>10</pointsize>
+      <pointsize>-1</pointsize>
       <bold>true</bold>
      </font>
     </property>
@@ -538,8 +640,8 @@ f69cb689f384bddbeb8b8b3811cb1842600075d2
     <property name="font">
      <font>
       <family>Segoe UI</family>
-      <pointsize>23</pointsize>
-      <fontweight>ExtraBold</fontweight>
+      <pointsize>-1</pointsize>
+      <fontweight>Black</fontweight>
      </font>
     </property>
     <property name="styleSheet">
@@ -576,20 +678,20 @@ f69cb689f384bddbeb8b8b3811cb1842600075d2
      <rect>
       <x>18</x>
       <y>20</y>
-      <width>48</width>
-      <height>48</height>
+      <width>54</width>
+      <height>54</height>
      </rect>
     </property>
     <property name="minimumSize">
      <size>
-      <width>48</width>
-      <height>48</height>
+      <width>54</width>
+      <height>54</height>
      </size>
     </property>
     <property name="maximumSize">
      <size>
-      <width>48</width>
-      <height>48</height>
+      <width>54</width>
+      <height>54</height>
      </size>
     </property>
     <property name="font">
@@ -627,7 +729,7 @@ f69cb689f384bddbeb8b8b3811cb1842600075d2
     <property name="font">
      <font>
       <family>Segoe UI</family>
-      <pointsize>10</pointsize>
+      <pointsize>-1</pointsize>
       <bold>true</bold>
      </font>
     </property>
@@ -650,8 +752,8 @@ f69cb689f384bddbeb8b8b3811cb1842600075d2
     <property name="font">
      <font>
       <family>Segoe UI</family>
-      <pointsize>23</pointsize>
-      <fontweight>ExtraBold</fontweight>
+      <pointsize>-1</pointsize>
+      <fontweight>Black</fontweight>
      </font>
     </property>
     <property name="styleSheet">
@@ -688,20 +790,20 @@ f69cb689f384bddbeb8b8b3811cb1842600075d2
      <rect>
       <x>18</x>
       <y>20</y>
-      <width>48</width>
-      <height>48</height>
+      <width>54</width>
+      <height>54</height>
      </rect>
     </property>
     <property name="minimumSize">
      <size>
-      <width>48</width>
-      <height>48</height>
+      <width>54</width>
+      <height>54</height>
      </size>
     </property>
     <property name="maximumSize">
      <size>
-      <width>48</width>
-      <height>48</height>
+      <width>54</width>
+      <height>54</height>
      </size>
     </property>
     <property name="font">
@@ -739,7 +841,7 @@ f69cb689f384bddbeb8b8b3811cb1842600075d2
     <property name="font">
      <font>
       <family>Segoe UI</family>
-      <pointsize>10</pointsize>
+      <pointsize>-1</pointsize>
       <bold>true</bold>
      </font>
     </property>
@@ -759,8 +861,8 @@ f69cb689f384bddbeb8b8b3811cb1842600075d2
     <property name="font">
      <font>
       <family>Segoe UI</family>
-      <pointsize>22</pointsize>
-      <fontweight>ExtraBold</fontweight>
+      <pointsize>-1</pointsize>
+      <fontweight>Black</fontweight>
      </font>
     </property>
     <property name="styleSheet">
@@ -797,20 +899,20 @@ f69cb689f384bddbeb8b8b3811cb1842600075d2
      <rect>
       <x>16</x>
       <y>17</y>
-      <width>53</width>
-      <height>53</height>
+      <width>54</width>
+      <height>54</height>
      </rect>
     </property>
     <property name="minimumSize">
      <size>
-      <width>53</width>
-      <height>53</height>
+      <width>54</width>
+      <height>54</height>
      </size>
     </property>
     <property name="maximumSize">
      <size>
-      <width>53</width>
-      <height>53</height>
+      <width>54</width>
+      <height>54</height>
      </size>
     </property>
     <property name="font">
@@ -848,7 +950,7 @@ f69cb689f384bddbeb8b8b3811cb1842600075d2
     <property name="font">
      <font>
       <family>Segoe UI</family>
-      <pointsize>10</pointsize>
+      <pointsize>-1</pointsize>
       <bold>true</bold>
      </font>
     </property>
@@ -871,8 +973,8 @@ f69cb689f384bddbeb8b8b3811cb1842600075d2
     <property name="font">
      <font>
       <family>Segoe UI</family>
-      <pointsize>21</pointsize>
-      <fontweight>ExtraBold</fontweight>
+      <pointsize>-1</pointsize>
+      <fontweight>Black</fontweight>
      </font>
     </property>
     <property name="styleSheet">
@@ -962,7 +1064,7 @@ f69cb689f384bddbeb8b8b3811cb1842600075d2
       <x>0</x>
       <y>58</y>
       <width>500</width>
-      <height>192</height>
+      <height>190</height>
      </rect>
     </property>
     <property name="focusPolicy">
@@ -1026,9 +1128,9 @@ f69cb689f384bddbeb8b8b3811cb1842600075d2
    <widget class="QLabel" name="lblTitleHangDoiThuong">
     <property name="geometry">
      <rect>
-      <x>58</x>
-      <y>18</y>
-      <width>260</width>
+      <x>59</x>
+      <y>16</y>
+      <width>151</width>
       <height>28</height>
      </rect>
     </property>
@@ -1049,10 +1151,10 @@ f69cb689f384bddbeb8b8b3811cb1842600075d2
    <widget class="QTableWidget" name="tblHangDoiThuong">
     <property name="geometry">
      <rect>
-      <x>90</x>
+      <x>0</x>
       <y>60</y>
       <width>500</width>
-      <height>192</height>
+      <height>190</height>
      </rect>
     </property>
     <property name="focusPolicy">
@@ -1116,9 +1218,9 @@ f69cb689f384bddbeb8b8b3811cb1842600075d2
    <widget class="QLabel" name="lblTitleTrangThaiQuay">
     <property name="geometry">
      <rect>
-      <x>58</x>
-      <y>18</y>
-      <width>240</width>
+      <x>130</x>
+      <y>10</y>
+      <width>181</width>
       <height>28</height>
      </rect>
     </property>
@@ -1132,6 +1234,9 @@ f69cb689f384bddbeb8b8b3811cb1842600075d2
     <property name="text">
      <string>Trạng thái quầy</string>
     </property>
+    <property name="alignment">
+     <set>Qt::AlignmentFlag::AlignCenter</set>
+    </property>
     <property name="class" stdset="0">
      <string>sectionTitle</string>
     </property>
@@ -1140,8 +1245,8 @@ f69cb689f384bddbeb8b8b3811cb1842600075d2
     <property name="geometry">
      <rect>
       <x>0</x>
-      <y>50</y>
-      <width>416</width>
+      <y>52</y>
+      <width>436</width>
       <height>142</height>
      </rect>
     </property>

@@ -1,4 +1,11 @@
-from PySide6.QtWidgets import QLabel, QPushButton, QComboBox, QTableWidget, QMessageBox
+from PySide6.QtWidgets import (
+    QLabel,
+    QPushButton,
+    QComboBox,
+    QTableWidget,
+    QMessageBox,
+    QHeaderView,
+)
 
 from views.ui_helpers import confirm_logout, fill_table, find_required, load_ui, setup_table
 
@@ -58,11 +65,17 @@ class QuanLyView:
             ["Mã KH", "Tên khách", "Loại dịch vụ", "Chờ", "Phục vụ", "Tiền", "Hài lòng"]
         )
 
+        self._chinh_do_rong_bang_hang_doi(self.tblHangDoiUuTien)
+        self._chinh_do_rong_bang_hang_doi(self.tblHangDoiThuong)
+        self._chinh_do_rong_bang_quay()
+        self._chinh_do_rong_bang_bao_cao()
+
         self.btnMoQuay.clicked.connect(self.mo_quay)
         self.btnDongQuay.clicked.connect(self.dong_quay)
         self.btnLamMoi.clicked.connect(self.lam_moi)
         self.btnSapXepBaoCao.clicked.connect(self.sap_xep_bao_cao)
         self.btnDangXuat.clicked.connect(self.xac_nhan_dang_xuat)
+        self.tblQuay.cellClicked.connect(self.chon_quay_tu_bang)
 
         self.lam_moi()
 
@@ -84,7 +97,10 @@ class QuanLyView:
 
         self.lblCanhBao.setText("Cần thêm quầy" if tk["canh_bao"] else "Ổn định")
         self.lblCanhBao.setStyleSheet(
-            "color: #dc2626;" if tk["canh_bao"] else "color: #16a34a;"
+            "color: #dc2626; font-weight: 900; background: transparent; border: none;"
+            if tk["canh_bao"]
+            else
+            "color: #16a34a; font-weight: 900; background: transparent; border: none;"
         )
 
         fill_table(
@@ -107,6 +123,11 @@ class QuanLyView:
             self._rows_bao_cao(self._lay_bao_cao())
         )
 
+        self._chinh_do_rong_bang_hang_doi(self.tblHangDoiUuTien)
+        self._chinh_do_rong_bang_hang_doi(self.tblHangDoiThuong)
+        self._chinh_do_rong_bang_quay()
+        self._chinh_do_rong_bang_bao_cao()
+
     def sap_xep_bao_cao(self):
         if self.che_do_bao_cao == "mac_dinh":
             self.che_do_bao_cao = "thoi_gian_cho"
@@ -120,6 +141,7 @@ class QuanLyView:
         else:
             self.che_do_bao_cao = "mac_dinh"
             self.btnSapXepBaoCao.setText("Sắp xếp báo cáo")
+
         self.lam_moi()
 
     def mo_quay(self):
@@ -142,16 +164,32 @@ class QuanLyView:
 
         self.lam_moi()
 
+    def chon_quay_tu_bang(self, row, column):
+        item = self.tblQuay.item(row, 0)
+
+        if item is None:
+            return
+
+        ten_quay = item.text().strip()
+        index = self.cboQuay.findText(ten_quay)
+
+        if index >= 0:
+            self.cboQuay.setCurrentIndex(index)
+
     def _selected_quay(self):
-        return int(self.cboQuay.currentText().replace("Quầy ", ""))
+        text = self.cboQuay.currentText().strip()
+        return int(text.replace("Quầy ", ""))
 
     def _lay_bao_cao(self):
         if self.che_do_bao_cao == "thoi_gian_cho":
             return self.he_thong.sap_xep_bao_cao_theo_thoi_gian_cho()
+
         if self.che_do_bao_cao == "so_tien":
             return self.he_thong.sap_xep_bao_cao_theo_so_tien()
+
         if self.che_do_bao_cao == "hai_long":
             return self.he_thong.sap_xep_bao_cao_theo_hai_long()
+
         return self.he_thong.lay_danh_sach_da_phuc_vu()
 
     def _rows_khach(self, ds):
@@ -201,3 +239,48 @@ class QuanLyView:
             ])
 
         return rows
+
+    def _chinh_do_rong_bang_hang_doi(self, bang):
+        header = bang.horizontalHeader()
+        header.setStretchLastSection(False)
+
+        header.setSectionResizeMode(0, QHeaderView.Fixed)
+        header.setSectionResizeMode(1, QHeaderView.Stretch)
+        header.setSectionResizeMode(2, QHeaderView.Stretch)
+        header.setSectionResizeMode(3, QHeaderView.Fixed)
+        header.setSectionResizeMode(4, QHeaderView.Fixed)
+
+        bang.setColumnWidth(0, 85)
+        bang.setColumnWidth(3, 60)
+        bang.setColumnWidth(4, 115)
+
+    def _chinh_do_rong_bang_quay(self):
+        header = self.tblQuay.horizontalHeader()
+        header.setStretchLastSection(False)
+
+        header.setSectionResizeMode(0, QHeaderView.Fixed)
+        header.setSectionResizeMode(1, QHeaderView.Fixed)
+        header.setSectionResizeMode(2, QHeaderView.Stretch)
+        header.setSectionResizeMode(3, QHeaderView.Fixed)
+
+        self.tblQuay.setColumnWidth(0, 90)
+        self.tblQuay.setColumnWidth(1, 105)
+        self.tblQuay.setColumnWidth(3, 135)
+
+    def _chinh_do_rong_bang_bao_cao(self):
+        header = self.tblBaoCao.horizontalHeader()
+        header.setStretchLastSection(False)
+
+        header.setSectionResizeMode(0, QHeaderView.Fixed)
+        header.setSectionResizeMode(1, QHeaderView.Stretch)
+        header.setSectionResizeMode(2, QHeaderView.Stretch)
+        header.setSectionResizeMode(3, QHeaderView.Fixed)
+        header.setSectionResizeMode(4, QHeaderView.Fixed)
+        header.setSectionResizeMode(5, QHeaderView.Fixed)
+        header.setSectionResizeMode(6, QHeaderView.Fixed)
+
+        self.tblBaoCao.setColumnWidth(0, 85)
+        self.tblBaoCao.setColumnWidth(3, 95)
+        self.tblBaoCao.setColumnWidth(4, 95)
+        self.tblBaoCao.setColumnWidth(5, 100)
+        self.tblBaoCao.setColumnWidth(6, 90)

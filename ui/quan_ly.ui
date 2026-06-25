@@ -263,7 +263,11 @@ max-height: 48px;
 image: url(icon1.png);</string>
     </property>
     <property name="pixmap">
+HEAD
+     <pixmap>../images/group.png</pixmap>
+
      <pixmap>../images/tongkhach.png</pixmap>
+f69cb689f384bddbeb8b8b3811cb1842600075d2
     </property>
     <property name="scaledContents">
      <bool>true</bool>
@@ -375,7 +379,11 @@ image: url(icon1.png);</string>
      <string/>
     </property>
     <property name="pixmap">
+<<<<<<< HEAD
+     <pixmap>../images/clock.png</pixmap>
+=======
      <pixmap>../images/khachcho.png</pixmap>
+>>>>>>> f69cb689f384bddbeb8b8b3811cb1842600075d2
     </property>
     <property name="scaledContents">
      <bool>true</bool>
@@ -487,7 +495,11 @@ image: url(icon1.png);</string>
      </font>
     </property>
     <property name="pixmap">
+<<<<<<< HEAD
+     <pixmap>../images/reception (1).png</pixmap>
+=======
      <pixmap>../images/iconquay.png</pixmap>
+>>>>>>> f69cb689f384bddbeb8b8b3811cb1842600075d2
     </property>
     <property name="scaledContents">
      <bool>true</bool>
@@ -711,7 +723,11 @@ image: url(icon1.png);</string>
      <string/>
     </property>
     <property name="pixmap">
+<<<<<<< HEAD
+     <pixmap>../images/hourglass.png</pixmap>
+=======
      <pixmap>../images/thoigiantb.png</pixmap>
+>>>>>>> f69cb689f384bddbeb8b8b3811cb1842600075d2
     </property>
     <property name="scaledContents">
      <bool>true</bool>
@@ -820,7 +836,11 @@ image: url(icon1.png);</string>
      <string/>
     </property>
     <property name="pixmap">
+<<<<<<< HEAD
+     <pixmap>../images/light.png</pixmap>
+=======
      <pixmap>../images/canhbao.png</pixmap>
+>>>>>>> f69cb689f384bddbeb8b8b3811cb1842600075d2
     </property>
     <property name="scaledContents">
      <bool>true</bool>
@@ -917,7 +937,7 @@ image: url(icon1.png);</string>
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap>../../Downloads/star.png</pixmap>
+     <pixmap>../images/star.png</pixmap>
     </property>
     <property name="scaledContents">
      <bool>true</bool>
@@ -1007,7 +1027,7 @@ image: url(icon1.png);</string>
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap>../../Downloads/star (1).png</pixmap>
+     <pixmap>../images/star (1).png</pixmap>
     </property>
     <property name="scaledContents">
      <bool>true</bool>
@@ -1045,8 +1065,8 @@ image: url(icon1.png);</string>
    <widget class="QTableWidget" name="tblHangDoiThuong">
     <property name="geometry">
      <rect>
-      <x>0</x>
-      <y>58</y>
+      <x>90</x>
+      <y>60</y>
       <width>500</width>
       <height>192</height>
      </rect>
@@ -1097,7 +1117,7 @@ image: url(icon1.png);</string>
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap>../../Downloads/receptionist.png</pixmap>
+     <pixmap>../images/receptionist.png</pixmap>
     </property>
     <property name="scaledContents">
      <bool>true</bool>
@@ -1266,7 +1286,7 @@ image: url(icon1.png);</string>
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap>../../Downloads/pencil.png</pixmap>
+     <pixmap>../images/tải xuống (1).png</pixmap>
     </property>
     <property name="scaledContents">
      <bool>true</bool>

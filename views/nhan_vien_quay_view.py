@@ -107,11 +107,11 @@ class NhanVienQuayView:
         self.txtKhachDangPhucVu.setReadOnly(True)
         setup_table(
             self.tblHangDoiUuTien,
-            ["Mã KH", "Tên khách", "Ưu tiên"]
+            ["Mã KH","Tên khách","Ưu tiên","TG chờ"]
         )
         setup_table(
             self.tblHangDoiThuong,
-            ["Mã KH", "Tên khách", "Ưu tiên"]
+            ["Mã KH","Tên khách","Ưu tiên","TG chờ"]
         )
 
         self.btnGoiKhach.clicked.connect(
@@ -126,7 +126,7 @@ class NhanVienQuayView:
             self.xac_nhan_dang_xuat
         )
         self.timer = QTimer(self.window)
-        self.timer.timeout.connect(self.cap_nhat_thoi_gian)
+        self.timer.timeout.connect(self.lam_moi)
         self.timer.start(1000)   # cập nhật mỗi 1 giây
 
         self.lam_moi()
@@ -213,19 +213,40 @@ class NhanVienQuayView:
 
         if khach is None:
             self.txtKhachDangPhucVu.setPlainText(
-            "Hiện chưa có khách hàng nào đang phục vụ."
+                "Hiện chưa có khách hàng nào đang phục vụ."
             )
         else:
-            
+
+            tg_cho = khach.dinh_dang_thoi_gian_cho()
+            tg_phuc_vu = khach.dinh_dang_thoi_gian_phuc_vu()
+
+            self.txtKhachDangPhucVu.setPlainText(
+                f"Mã khách: {khach.ma_khach()}\n"
+                f"Tên khách: {khach.ten}\n"
+                f"Loại dịch vụ: {khach.loai_dich_vu}\n"
+                f"Mức ưu tiên: {khach.muc_do_uu_tien}\n\n"
+
+                f"Thời gian đến:\n"
+                f"{khach.thoi_gian_den.strftime('%H:%M:%S')}\n\n"
+
+                f"Bắt đầu phục vụ:\n"
+                f"{khach.thoi_gian_bat_dau_phuc_vu.strftime('%H:%M:%S')}\n\n"
+
+                f"Thời gian chờ:\n"
+                f"{tg_cho}\n\n"
+
+                f"Thời gian phục vụ:\n"
+                f"{tg_phuc_vu}"
+            )
             self.txtKhachDangPhucVu.setPlainText(
                 f"Mã khách: {khach.ma_khach()}\n"
                 f"Tên khách: {khach.ten}\n"
                 f"Loại dịch vụ: {khach.loai_dich_vu}\n"
                 f"Mức ưu tiên: {khach.muc_do_uu_tien}\n"
-                f"Thời gian đến: "
-                f"{khach.thoi_gian_den.strftime('%H:%M:%S')}\n"
-                f"Bắt đầu phục vụ: "
-                f"{khach.thoi_gian_bat_dau_phuc_vu.strftime('%H:%M:%S')}"
+                f"Thời gian đến: {khach.thoi_gian_den.strftime('%H:%M:%S')}\n"
+                f"Bắt đầu phục vụ: {khach.thoi_gian_bat_dau_phuc_vu.strftime('%H:%M:%S')}\n"
+                f"Thời gian chờ: {khach.dinh_dang_thoi_gian_cho()}\n"
+                f"Thời gian phục vụ: {khach.dinh_dang_thoi_gian_phuc_vu()}"
             )
 
         if len(quay.lich_su_phuc_vu) == 0:
@@ -233,7 +254,10 @@ class NhanVienQuayView:
             self.lblTgTb.setText("TG TB: 0.0 phút")
         else:
             khach_cuoi = quay.lich_su_phuc_vu[-1]
-            tg_tb = sum(k.tinh_thoi_gian_phuc_vu() for k in quay.lich_su_phuc_vu) / len(quay.lich_su_phuc_vu)
+            tg_tb = sum(
+                k.tinh_thoi_gian_phuc_vu()
+                for k in quay.lich_su_phuc_vu
+            ) / 60 / len(quay.lich_su_phuc_vu)
             self.lblKhachCuoi.setText(f"Khách cuối: {khach_cuoi.ma_khach()}")
             self.lblTgTb.setText(f"TG TB: {tg_tb:.1f} phút")
 
@@ -323,7 +347,7 @@ class NhanVienQuayView:
                 row,
                 3,
                 QTableWidgetItem(
-                    f"{k.tinh_thoi_gian_cho():.1f}"
+                    k.dinh_dang_thoi_gian_cho()
                 )
             )
 
@@ -331,7 +355,7 @@ class NhanVienQuayView:
                 row,
                 4,
                 QTableWidgetItem(
-                    f"{k.tinh_thoi_gian_phuc_vu():.1f}"
+                    k.dinh_dang_thoi_gian_phuc_vu()
                 )
             )
 
@@ -344,45 +368,16 @@ class NhanVienQuayView:
             )
 
     def _rows_khach_cho(self, ds):
-        return [
-            [
+        rows = []
+
+        for k in ds:
+            rows.append([
                 k.ma_khach(),
                 k.ten,
                 k.muc_do_uu_tien,
-            ]
-            for k in ds
-        ]
+                k.dinh_dang_thoi_gian_cho()
+            ])
 
-    def cap_nhat_thoi_gian(self):
-        quay = None
+        return rows
 
-        for q in self.he_thong.lay_danh_sach_quay():
-            if q.id_quay == self.quay_id:
-                quay = q
-                break
-
-        if quay is None:
-            return
-
-        khach = quay.khach_dang_phuc_vu
-
-        if khach is None:
-            return
-
-        # Nếu đã bắt đầu phục vụ thì thời gian chờ không tăng nữa
-        tg_cho = khach.thoi_gian_bat_dau_phuc_vu - khach.thoi_gian_den
-
-        giay = int(tg_cho.total_seconds())
-
-        phut = giay // 60
-        giay = giay % 60
-
-        self.txtKhachDangPhucVu.setPlainText(
-            f"Mã khách: {khach.ma_khach()}\n"
-            f"Tên khách: {khach.ten}\n"
-            f"Loại dịch vụ: {khach.loai_dich_vu}\n"
-            f"Mức ưu tiên: {khach.muc_do_uu_tien}\n"
-            f"Thời gian đến: {khach.thoi_gian_den.strftime('%H:%M:%S')}\n"
-            f"Bắt đầu phục vụ: {khach.thoi_gian_bat_dau_phuc_vu.strftime('%H:%M:%S')}\n"
-            f"Thời gian chờ: {phut} phút {giay} giây"
-        )
+    

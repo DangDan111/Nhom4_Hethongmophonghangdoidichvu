@@ -530,6 +530,14 @@ QScrollBar::sub-line:horizontal {
       <fontweight>DemiBold</fontweight>
      </font>
     </property>
+<<<<<<< HEAD
+=======
+    <property name="styleSheet">
+     <string notr="true">color:#0f73df;
+font-size: 16px;
+font-weight: bold;</string>
+    </property>
+>>>>>>> 77c5dff (fix giao dien)
     <property name="text">
      <string>Khách đã tiếp nhận hôm nay</string>
     </property>
@@ -599,7 +607,11 @@ QScrollBar::sub-line:horizontal {
      <string/>
     </property>
     <property name="pixmap">
+<<<<<<< HEAD
      <pixmap>../images/clock.png</pixmap>
+=======
+     <pixmap>../../../../../ADMIN/Downloads/clock.png</pixmap>
+>>>>>>> 77c5dff (fix giao dien)
     </property>
     <property name="scaledContents">
      <bool>true</bool>
@@ -614,9 +626,15 @@ QScrollBar::sub-line:horizontal {
    <widget class="QLabel" name="cardDangChoTitle">
     <property name="geometry">
      <rect>
+<<<<<<< HEAD
       <x>130</x>
       <y>10</y>
       <width>171</width>
+=======
+      <x>110</x>
+      <y>10</y>
+      <width>181</width>
+>>>>>>> 77c5dff (fix giao dien)
       <height>24</height>
      </rect>
     </property>
@@ -627,6 +645,14 @@ QScrollBar::sub-line:horizontal {
       <fontweight>DemiBold</fontweight>
      </font>
     </property>
+<<<<<<< HEAD
+=======
+    <property name="styleSheet">
+     <string notr="true">color:#0f73df;
+font-size: 16px;
+font-weight: bold;</string>
+    </property>
+>>>>>>> 77c5dff (fix giao dien)
     <property name="text">
      <string>Khách đang chờ</string>
     </property>
@@ -724,6 +750,14 @@ QScrollBar::sub-line:horizontal {
       <fontweight>DemiBold</fontweight>
      </font>
     </property>
+<<<<<<< HEAD
+=======
+    <property name="styleSheet">
+     <string notr="true">color:#0f73df;
+font-size: 16px;
+font-weight: bold;</string>
+    </property>
+>>>>>>> 77c5dff (fix giao dien)
     <property name="text">
      <string>Khách ưu tiên</string>
     </property>
@@ -808,9 +842,15 @@ QScrollBar::sub-line:horizontal {
    <widget class="QLabel" name="cardThanhCongTitle">
     <property name="geometry">
      <rect>
+<<<<<<< HEAD
       <x>120</x>
       <y>10</y>
       <width>171</width>
+=======
+      <x>60</x>
+      <y>10</y>
+      <width>261</width>
+>>>>>>> 77c5dff (fix giao dien)
       <height>24</height>
      </rect>
     </property>
@@ -822,7 +862,7 @@ QScrollBar::sub-line:horizontal {
      </font>
     </property>
     <property name="text">
-     <string>Tiếp nhận thành công</string>
+     <string>Trạng thái</string>
     </property>
     <property name="alignment">
      <set>Qt::AlignmentFlag::AlignCenter</set>
@@ -833,8 +873,13 @@ QScrollBar::sub-line:horizontal {
      <rect>
       <x>130</x>
       <y>40</y>
+<<<<<<< HEAD
       <width>141</width>
       <height>30</height>
+=======
+      <width>131</width>
+      <height>21</height>
+>>>>>>> 77c5dff (fix giao dien)
      </rect>
     </property>
     <property name="font">
@@ -845,7 +890,13 @@ QScrollBar::sub-line:horizontal {
      </font>
     </property>
     <property name="styleSheet">
+<<<<<<< HEAD
      <string notr="true">color:#16a34a;</string>
+=======
+     <string notr="true">color: #0f73df;
+font-size: 17px;
+font-weight: bold;</string>
+>>>>>>> 77c5dff (fix giao dien)
     </property>
     <property name="text">
      <string>Ổn định</string>
@@ -962,7 +1013,7 @@ QScrollBar::sub-line:horizontal {
      </font>
     </property>
     <property name="text">
-     <string>Nguyễn Văn An</string>
+     <string/>
     </property>
    </widget>
    <widget class="QLabel" name="lblDienThoai">
@@ -1002,7 +1053,7 @@ QScrollBar::sub-line:horizontal {
      </font>
     </property>
     <property name="text">
-     <string>0912 345 678</string>
+     <string/>
     </property>
    </widget>
    <widget class="QLabel" name="lblLoaiDichVu">
@@ -1639,10 +1690,29 @@ QScrollBar::sub-line:horizontal {
      <string>sectionTitle</string>
     </property>
    </widget>
-   <widget class="QTextEdit" name="txtTheoDoi">
+   <widget class="QLabel" name="lblBangUuTien">
+    <property name="geometry">
+     <rect>
+      <x>115</x>
+      <y>40</y>
+      <width>132</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>12</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>Hàng đợi ưu tiên</string>
+    </property>
+   </widget>
+   <widget class="QTableWidget" name="tblHangDoiUuTien">
     <property name="geometry">
      <rect>
       <x>20</x>
+<<<<<<< HEAD
       <y>39</y>
       <width>416</width>
       <height>136</height>
@@ -1662,44 +1732,51 @@ Chưa có khách đang chờ.
 HÀNG ĐỢI THƯỜNG
 Chưa có khách đang chờ.</string>
     </property>
+=======
+      <y>70</y>
+      <width>311</width>
+      <height>110</height>
+     </rect>
+    </property>
+>>>>>>> 77c5dff (fix giao dien)
    </widget>
-   <widget class="QLabel" name="lblQuyTac">
+   <widget class="QLabel" name="lblBangThuong">
     <property name="geometry">
      <rect>
-      <x>520</x>
-      <y>39</y>
-      <width>146</width>
-      <height>61</height>
+      <x>450</x>
+      <y>40</y>
+      <width>131</width>
+      <height>25</height>
      </rect>
     </property>
     <property name="font">
      <font>
+<<<<<<< HEAD
       <family>Segoe UI</family>
       <pointsize>-1</pointsize>
       <fontweight>Medium</fontweight>
+=======
+      <pointsize>12</pointsize>
+>>>>>>> 77c5dff (fix giao dien)
      </font>
     </property>
     <property name="text">
-     <string>Quy tắc phục vụ:
-Ưu tiên trước,
- thường sau</string>
+     <string>Hàng đợi thường</string>
     </property>
     <property name="alignment">
      <set>Qt::AlignmentFlag::AlignCenter</set>
     </property>
-    <property name="class" stdset="0">
-     <string>badgeBlue</string>
-    </property>
    </widget>
-   <widget class="QLabel" name="lblLuuY">
+   <widget class="QTableWidget" name="tblHangDoiThuong">
     <property name="geometry">
      <rect>
-      <x>520</x>
-      <y>111</y>
-      <width>146</width>
-      <height>61</height>
+      <x>355</x>
+      <y>70</y>
+      <width>310</width>
+      <height>110</height>
      </rect>
     </property>
+<<<<<<< HEAD
     <property name="font">
      <font>
       <family>Segoe UI</family>
@@ -1718,6 +1795,8 @@ thứ tự phục vụ</string>
     <property name="class" stdset="0">
      <string>badgeBlue</string>
     </property>
+=======
+>>>>>>> 77c5dff (fix giao dien)
    </widget>
   </widget>
   <widget class="QFrame" name="panelNhatKy">

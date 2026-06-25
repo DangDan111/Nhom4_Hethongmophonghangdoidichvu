@@ -1,4 +1,6 @@
-﻿from PySide6.QtWidgets import (
+﻿from datetime import datetime
+from PySide6.QtCore import QTimer
+from PySide6.QtWidgets import (
     QLabel,
     QPushButton,
     QTextEdit,
@@ -123,6 +125,9 @@ class NhanVienQuayView:
         self.btnDangXuat.clicked.connect(
             self.xac_nhan_dang_xuat
         )
+        self.timer = QTimer(self.window)
+        self.timer.timeout.connect(self.cap_nhat_thoi_gian)
+        self.timer.start(1000)   # cập nhật mỗi 1 giây
 
         self.lam_moi()
 
@@ -347,3 +352,37 @@ class NhanVienQuayView:
             ]
             for k in ds
         ]
+
+    def cap_nhat_thoi_gian(self):
+        quay = None
+
+        for q in self.he_thong.lay_danh_sach_quay():
+            if q.id_quay == self.quay_id:
+                quay = q
+                break
+
+        if quay is None:
+            return
+
+        khach = quay.khach_dang_phuc_vu
+
+        if khach is None:
+            return
+
+        # Nếu đã bắt đầu phục vụ thì thời gian chờ không tăng nữa
+        tg_cho = khach.thoi_gian_bat_dau_phuc_vu - khach.thoi_gian_den
+
+        giay = int(tg_cho.total_seconds())
+
+        phut = giay // 60
+        giay = giay % 60
+
+        self.txtKhachDangPhucVu.setPlainText(
+            f"Mã khách: {khach.ma_khach()}\n"
+            f"Tên khách: {khach.ten}\n"
+            f"Loại dịch vụ: {khach.loai_dich_vu}\n"
+            f"Mức ưu tiên: {khach.muc_do_uu_tien}\n"
+            f"Thời gian đến: {khach.thoi_gian_den.strftime('%H:%M:%S')}\n"
+            f"Bắt đầu phục vụ: {khach.thoi_gian_bat_dau_phuc_vu.strftime('%H:%M:%S')}\n"
+            f"Thời gian chờ: {phut} phút {giay} giây"
+        )

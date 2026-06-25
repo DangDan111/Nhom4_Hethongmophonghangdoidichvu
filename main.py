@@ -1,8 +1,11 @@
 ﻿import sys
+import ctypes
+ctypes.windll.shell32.SetCurrentProcessExplicitAppUserModelID(
+    "nhom4.hethonghangdoi"
+)
 from pathlib import Path
-
 from PySide6.QtWidgets import QApplication, QMessageBox
-
+from PySide6.QtGui import QIcon
 from app_context import AppContext
 from views.login_view import LoginView
 from views.quan_ly_view import QuanLyView
@@ -44,8 +47,13 @@ class AppController:
     def _show(self, view):
         old_window = self.current_window.window if self.current_window is not None else None
         self.current_window = view
+
+        icon_path = BASE_DIR / "images" / "logobieutuong.ico"
+        self.current_window.window.setWindowIcon(QIcon(str(icon_path)))
+
         self._center_window(self.current_window.window)
         self.current_window.show()
+
         if old_window is not None:
             old_window.close()
 
@@ -61,6 +69,10 @@ class AppController:
 
 def main():
     app = QApplication(sys.argv)
+
+    ICON_PATH = BASE_DIR / "images" / "logobieutuong.ico"
+    app.setWindowIcon(QIcon(str(ICON_PATH)))
+
     app.setStyleSheet("""
         QWidget { font-family: 'Segoe UI'; font-size: 13px; color: #111827; }
         QMainWindow, QWidget#centralwidget { background: #f5f8ff; }
@@ -73,7 +85,6 @@ def main():
     controller = AppController()
     controller.start()
     return app.exec()
-
 
 if __name__ == "__main__":
     raise SystemExit(main())

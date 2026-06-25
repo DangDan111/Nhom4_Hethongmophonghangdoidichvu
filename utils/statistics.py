@@ -51,10 +51,14 @@ def _merge(trai, phai, lay_gia_tri, giam_dan):
 def tinh_thoi_gian_cho_trung_binh(danh_sach_da_phuc_vu):
     if len(danh_sach_da_phuc_vu) == 0:
         return 0
+
     tong = 0
+
     for khach in danh_sach_da_phuc_vu:
         tong += khach.tinh_thoi_gian_cho()
-    return tong / len(danh_sach_da_phuc_vu)
+
+    # đổi sang phút
+    return (tong / len(danh_sach_da_phuc_vu)) / 60
 
 
 def tinh_do_hai_long_trung_binh(danh_sach_da_phuc_vu):

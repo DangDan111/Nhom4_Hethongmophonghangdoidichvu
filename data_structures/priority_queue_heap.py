@@ -1,10 +1,14 @@
-﻿class PriorityQueueHeap:
-    def __init__(self):
+class PriorityQueueHeap:
+    def __init__(self, max_size=50):
+        self.max_size = max_size
         self.heap = []
 
     def push(self, khach_hang):
+        if self.is_full():
+            return False
         self.heap.append(khach_hang)
         self._heapify_up(len(self.heap) - 1)
+        return True
 
     def pop(self):
         if self.is_empty():
@@ -24,11 +28,14 @@
     def is_empty(self):
         return len(self.heap) == 0
 
+    def is_full(self):
+        return len(self.heap) >= self.max_size
+
     def size(self):
         return len(self.heap)
 
     def to_list(self):
-        ban_sao = PriorityQueueHeap()
+        ban_sao = PriorityQueueHeap(self.max_size)
         ban_sao.heap = self.heap.copy()
         ket_qua = []
         while not ban_sao.is_empty():

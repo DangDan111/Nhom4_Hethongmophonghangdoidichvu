@@ -1,6 +1,6 @@
-﻿from PySide6.QtWidgets import QLabel, QLineEdit, QPushButton, QComboBox, QTextEdit, QMessageBox
+from PySide6.QtWidgets import QLabel, QLineEdit, QPushButton, QComboBox, QTextEdit, QTableWidget, QMessageBox
 
-from views.ui_helpers import find_required, load_ui
+from views.ui_helpers import confirm_logout, fill_table, find_required, load_ui, setup_table
 
 
 class TiepNhanView:
@@ -18,15 +18,19 @@ class TiepNhanView:
         self.btnThemKhach = find_required(self.window, QPushButton, "btnThemKhach")
         self.btnLamMoi = find_required(self.window, QPushButton, "btnLamMoi")
         self.btnDangXuat = find_required(self.window, QPushButton, "btnDangXuat")
+        self.lblKhachDaTiepNhanHomNay = find_required(self.window, QLabel, "lblKhachDaTiepNhanHomNay")
         self.lblSoKhachDangCho = find_required(self.window, QLabel, "lblSoKhachDangCho")
+        self.lblKhachUuTien = find_required(self.window, QLabel, "lblKhachUuTien")
         self.txtTheoDoi = find_required(self.window, QTextEdit, "txtTheoDoi")
+        self.tblKhachVuaTiepNhan = find_required(self.window, QTableWidget, "tblKhachVuaTiepNhan")
+        self.tblNhatKy = find_required(self.window, QTableWidget, "tblNhatKy")
 
         self.service_options = {
-            "Khám tổng quát - Thường": ("Khám tổng quát", 5),
-            "Khám da liễu - Thường": ("Khám da liễu", 5),
-            "Khám mắt - Thường": ("Khám mắt", 5),
+            "Giao dịch nhanh - Thường": ("Giao dịch nhanh", 5),
+            "Giao dịch phức tạp - Thường": ("Giao dịch phức tạp", 5),
+            "Tư vấn dịch vụ - Thường": ("Tư vấn dịch vụ", 5),
             "VIP - Ưu tiên": ("VIP", 1),
-            "Cấp cứu - Ưu tiên": ("Cấp cứu", 2),
+            "Khẩn cấp - Ưu tiên": ("Khẩn cấp", 2),
             "Người cao tuổi - Ưu tiên": ("Người cao tuổi", 3),
         }
 
@@ -35,6 +39,15 @@ class TiepNhanView:
 
         self.lblTaiKhoan.setText(f"Tài khoản: {self.user.username}")
         self.txtTheoDoi.setReadOnly(True)
+
+        setup_table(
+            self.tblKhachVuaTiepNhan,
+            ["Mã KH", "Tên khách", "Dịch vụ", "Ưu tiên", "Trạng thái"]
+        )
+        setup_table(
+            self.tblNhatKy,
+            ["Thời gian", "Nội dung", "Trạng thái"]
+        )
 
         self.btnThemKhach.clicked.connect(self.them_khach)
         self.btnLamMoi.clicked.connect(self.lam_moi)
@@ -46,23 +59,8 @@ class TiepNhanView:
         self.window.show()
 
     def xac_nhan_dang_xuat(self):
-        try:
-            tra_loi = QMessageBox.question(
-                None,
-                "Xác nhận đăng xuất",
-                "Bạn có muốn đăng xuất không?",
-                QMessageBox.StandardButton.Yes | QMessageBox.StandardButton.No,
-                QMessageBox.StandardButton.No
-            )
-
-            if tra_loi == QMessageBox.StandardButton.Yes:
-                print("Người dùng chọn YES")
+        if confirm_logout(self.window):
             self.on_logout()
-        except Exception as e:
-            print(f"Lỗi rồi bạn ơi: {e}") # Xem lỗi cụ thể ở terminal
-    def on_logout(self):
-        print("Đã đăng xuất thành công!")
-    # Code đóng cửa sổ hoặc chuyển trang ở đây
 
     def them_khach(self):
         ten = self.txtTenKhach.text().strip()
@@ -84,7 +82,9 @@ class TiepNhanView:
 
     def lam_moi(self):
         tk = self.he_thong.tinh_thong_ke()
+        self.lblKhachDaTiepNhanHomNay.setText(str(tk["tong_khach_da_tiep_nhan"]))
         self.lblSoKhachDangCho.setText(str(tk["tong_khach_dang_cho"]))
+        self.lblKhachUuTien.setText(str(tk["so_khach_uu_tien_dang_cho"]))
 
         text = "HÀNG ĐỢI ƯU TIÊN\n"
         text += self._format_khach(self.he_thong.lay_danh_sach_hang_doi_uu_tien())
@@ -92,6 +92,8 @@ class TiepNhanView:
         text += self._format_khach(self.he_thong.lay_danh_sach_hang_doi_thuong())
 
         self.txtTheoDoi.setPlainText(text)
+        fill_table(self.tblKhachVuaTiepNhan, self._rows_tiep_nhan_gan_day())
+        fill_table(self.tblNhatKy, self._rows_nhat_ky(tk))
 
     def _format_khach(self, ds):
         if len(ds) == 0:
@@ -111,3 +113,33 @@ class TiepNhanView:
             )
 
         return "\n".join(lines)
+
+    def _rows_tiep_nhan_gan_day(self):
+        khach_dang_phuc_vu = [
+            q.khach_dang_phuc_vu
+            for q in self.he_thong.lay_danh_sach_quay()
+            if q.khach_dang_phuc_vu is not None
+        ]
+        khach_dang_cho = (
+            self.he_thong.lay_danh_sach_hang_doi_uu_tien()
+            + self.he_thong.lay_danh_sach_hang_doi_thuong()
+        )
+        ds = sorted(khach_dang_phuc_vu + khach_dang_cho, key=lambda k: k.id, reverse=True)
+
+        return [
+            [
+                k.ma_khach(),
+                k.ten,
+                k.loai_dich_vu,
+                k.muc_do_uu_tien,
+                k.trang_thai,
+            ]
+            for k in ds[:8]
+        ]
+
+    def _rows_nhat_ky(self, tk):
+        return [
+            ["Hiện tại", f"Đã tiếp nhận {tk['tong_khach_da_tiep_nhan']} khách", "Cập nhật"],
+            ["Hiện tại", f"{tk['so_khach_uu_tien_dang_cho']} khách ưu tiên đang chờ", "Đang chờ"],
+            ["Hiện tại", f"{tk['so_khach_thuong_dang_cho']} khách thường đang chờ", "Đang chờ"],
+        ]

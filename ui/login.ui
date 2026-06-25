@@ -44,24 +44,31 @@
    <widget class="QLabel" name="lblTieuDe1">
     <property name="geometry">
      <rect>
-      <x>45</x>
-      <y>55</y>
-      <width>340</width>
-      <height>45</height>
+      <x>24</x>
+      <y>36</y>
+      <width>365</width>
+      <height>50</height>
      </rect>
     </property>
     <property name="font">
      <font>
       <family>Segoe UI</family>
-      <pointsize>22</pointsize>
-      <bold>true</bold>
+      <pointsize>-1</pointsize>
+      <fontweight>ExtraBold</fontweight>
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">color:#0f5bd7;</string>
+     <string notr="true">QLabel#lblTieuDe1 {
+    color: #0f5bd7;
+    font-size: 30px;
+    font-weight: 800;
+    border: none;
+    background: transparent;
+    qproperty-alignment: AlignCenter;
+}</string>
     </property>
     <property name="text">
-     <string>👤  Thông tin đăng nhập</string>
+     <string>👤 Thông tin đăng nhập</string>
     </property>
     <property name="alignment">
      <set>Qt::AlignmentFlag::AlignCenter</set>
@@ -76,6 +83,12 @@
       <height>55</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <pointsize>-1</pointsize>
+      <bold>true</bold>
+     </font>
+    </property>
     <property name="text">
      <string>Đăng nhập</string>
     </property>
@@ -87,7 +100,7 @@
     <property name="geometry">
      <rect>
       <x>45</x>
-      <y>490</y>
+      <y>487</y>
       <width>340</width>
       <height>45</height>
      </rect>
@@ -100,6 +113,8 @@
     border-radius: 8px;
     padding-left: 12px;
     font-size: 14px;
+    border: none;
+    background: transparent;
 }</string>
     </property>
     <property name="text">
@@ -175,22 +190,9 @@ QLineEdit:focus{
     <property name="styleSheet">
      <string notr="true">QCheckBox {
     color: #111827;
-    font-size: 14px;
-    background: transparent;
+    font-size: 15px;
     border: none;
-}
-
-QCheckBox::indicator {
-    width: 18px;
-    height: 18px;
-    border: 1px solid #cbd5e1;
-    border-radius: 4px;
-    background: white;
-}
-
-QCheckBox::indicator:checked {
-    background-color: #0d6efd;
-    border: 1px solid #0d6efd;
+    background: transparent;
 }</string>
     </property>
     <property name="text">
@@ -288,16 +290,19 @@ QCheckBox::indicator:checked {
     <property name="geometry">
      <rect>
       <x>95</x>
-      <y>35</y>
+      <y>22</y>
       <width>470</width>
       <height>55</height>
      </rect>
     </property>
     <property name="styleSheet">
      <string notr="true">QLabel {
+    border: none;
+    background: transparent;
     color: #0d6efd;
     font-size: 34px;
     font-weight: bold;
+    qproperty-alignment: AlignCenter;
 }</string>
     </property>
     <property name="text">
@@ -307,11 +312,21 @@ QCheckBox::indicator:checked {
    <widget class="QLabel" name="lblPhuDe">
     <property name="geometry">
      <rect>
-      <x>170</x>
-      <y>95</y>
-      <width>320</width>
-      <height>30</height>
+      <x>157</x>
+      <y>81</y>
+      <width>355</width>
+      <height>32</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QLabel#lblPhuDe {
+    color: #2f3a4a;
+    font-size: 20px;
+    font-weight: 400;
+    qproperty-alignment: AlignCenter;
+    border: none;
+    background: transparent;
+}</string>
     </property>
     <property name="midLineWidth">
      <number>-5</number>
@@ -320,42 +335,38 @@ QCheckBox::indicator:checked {
      <string>Hệ thống mô phỏng hàng đợi dịch vụ</string>
     </property>
    </widget>
-   <widget class="QLabel" name="lblPhuDe_2">
-    <property name="geometry">
-     <rect>
-      <x>135</x>
-      <y>145</y>
-      <width>400</width>
-      <height>30</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Đăng nhập để sử dụng hệ thống quản lý và mô phỏng hàng đợi.</string>
-    </property>
-   </widget>
    <widget class="QLabel" name="label_3">
     <property name="geometry">
      <rect>
       <x>70</x>
-      <y>190</y>
+      <y>134</y>
       <width>520</width>
-      <height>220</height>
+      <height>271</height>
      </rect>
     </property>
     <property name="styleSheet">
      <string notr="true"/>
     </property>
     <property name="text">
-     <string>&quot;&quot;</string>
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap>../images/avatar_login.png</pixmap>
+    </property>
+    <property name="scaledContents">
+     <bool>true</bool>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignmentFlag::AlignCenter</set>
     </property>
    </widget>
    <widget class="QFrame" name="frameQuanLy">
     <property name="geometry">
      <rect>
       <x>30</x>
-      <y>440</y>
-      <width>185</width>
-      <height>95</height>
+      <y>420</y>
+      <width>186</width>
+      <height>120</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -374,8 +385,8 @@ QCheckBox::indicator:checked {
     <widget class="QLabel" name="label_4">
      <property name="geometry">
       <rect>
-       <x>15</x>
-       <y>12</y>
+       <x>26</x>
+       <y>8</y>
        <width>155</width>
        <height>25</height>
       </rect>
@@ -385,25 +396,35 @@ QCheckBox::indicator:checked {
     background-color: white;
     border: 1px solid #e5e7eb;
     border-radius: 12px;
+    border: none;
+    background: transparent;
 }</string>
      </property>
      <property name="text">
-      <string>👥  Quản lý hàng đợi</string>
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; font-weight:700;&quot;&gt;👥  Quản lý hàng đợi&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
      </property>
     </widget>
     <widget class="QLabel" name="label_8">
      <property name="geometry">
       <rect>
        <x>15</x>
-       <y>40</y>
+       <y>38</y>
        <width>155</width>
-       <height>45</height>
+       <height>74</height>
       </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>10</pointsize>
+      </font>
      </property>
      <property name="text">
       <string>Quản lý và theo dõi
 tình trạng hàng đợi
 theo thời gian thực.</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignmentFlag::AlignCenter</set>
      </property>
     </widget>
    </widget>
@@ -411,9 +432,9 @@ theo thời gian thực.</string>
     <property name="geometry">
      <rect>
       <x>237</x>
-      <y>440</y>
+      <y>420</y>
       <width>185</width>
-      <height>95</height>
+      <height>120</height>
      </rect>
     </property>
     <property name="frameShape">
@@ -425,9 +446,9 @@ theo thời gian thực.</string>
     <widget class="QLabel" name="label_5">
      <property name="geometry">
       <rect>
-       <x>15</x>
-       <y>12</y>
-       <width>155</width>
+       <x>10</x>
+       <y>8</y>
+       <width>167</width>
        <height>25</height>
       </rect>
      </property>
@@ -436,25 +457,35 @@ theo thời gian thực.</string>
     background-color: white;
     border: 1px solid #e5e7eb;
     border-radius: 12px;
+    border: none;
+    background: transparent;
 }</string>
      </property>
      <property name="text">
-      <string>➕  Tiếp nhận khách hàng</string>
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; font-weight:700;&quot;&gt;➕  Tiếp nhận khách hàng&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
      </property>
     </widget>
     <widget class="QLabel" name="label_9">
      <property name="geometry">
       <rect>
        <x>15</x>
-       <y>40</y>
+       <y>38</y>
        <width>155</width>
-       <height>45</height>
+       <height>74</height>
       </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>10</pointsize>
+      </font>
      </property>
      <property name="text">
       <string>Tiếp nhận và phân loại
 khách hàng nhanh chóng,
 chính xác.</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignmentFlag::AlignCenter</set>
      </property>
     </widget>
    </widget>
@@ -462,9 +493,9 @@ chính xác.</string>
     <property name="geometry">
      <rect>
       <x>444</x>
-      <y>440</y>
+      <y>420</y>
       <width>185</width>
-      <height>95</height>
+      <height>120</height>
      </rect>
     </property>
     <property name="frameShape">
@@ -476,9 +507,9 @@ chính xác.</string>
     <widget class="QLabel" name="label_6">
      <property name="geometry">
       <rect>
-       <x>15</x>
-       <y>12</y>
-       <width>155</width>
+       <x>5</x>
+       <y>8</y>
+       <width>177</width>
        <height>25</height>
       </rect>
      </property>
@@ -487,25 +518,35 @@ chính xác.</string>
     background-color: white;
     border: 1px solid #e5e7eb;
     border-radius: 12px;
+    border: none;
+    background: transparent;
 }</string>
      </property>
      <property name="text">
-      <string>📊  Theo dõi trạng thái quầy</string>
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; font-weight:700;&quot;&gt;📊  Theo dõi trạng thái quầy&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
      </property>
     </widget>
     <widget class="QLabel" name="label_10">
      <property name="geometry">
       <rect>
        <x>15</x>
-       <y>40</y>
+       <y>38</y>
        <width>155</width>
-       <height>45</height>
+       <height>74</height>
       </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>10</pointsize>
+      </font>
      </property>
      <property name="text">
       <string>Giám sát hoạt động
 các quầy và hiệu suất
 phục vụ.</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignmentFlag::AlignCenter</set>
      </property>
     </widget>
    </widget>

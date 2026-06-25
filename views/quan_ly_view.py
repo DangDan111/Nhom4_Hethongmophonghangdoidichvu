@@ -1,6 +1,6 @@
-﻿from PySide6.QtWidgets import QLabel, QPushButton, QComboBox, QTableWidget, QMessageBox
+from PySide6.QtWidgets import QLabel, QPushButton, QComboBox, QTableWidget, QMessageBox
 
-from views.ui_helpers import fill_table, find_required, load_ui, setup_table
+from views.ui_helpers import confirm_logout, fill_table, find_required, load_ui, setup_table
 
 
 class QuanLyView:
@@ -11,7 +11,7 @@ class QuanLyView:
         self.he_thong = app_context.get_he_thong_hang_doi()
         self.window = load_ui(ui_path)
         self.window.setFixedSize(1500, 780)
-        self.bao_cao_da_sap_xep = False
+        self.che_do_bao_cao = "mac_dinh"
 
         self.lblTaiKhoan = find_required(self.window, QLabel, "lblTaiKhoan")
         self.lblTongDaPhucVu = find_required(self.window, QLabel, "lblTongDaPhucVu")
@@ -55,7 +55,7 @@ class QuanLyView:
 
         setup_table(
             self.tblBaoCao,
-            ["Mã KH", "Tên khách", "Loại dịch vụ", "Thời gian chờ", "Thời gian phục vụ", "Trạng thái"]
+            ["Mã KH", "Tên khách", "Loại dịch vụ", "Chờ", "Phục vụ", "Tiền", "Hài lòng"]
         )
 
         self.btnMoQuay.clicked.connect(self.mo_quay)
@@ -70,14 +70,7 @@ class QuanLyView:
         self.window.show()
 
     def xac_nhan_dang_xuat(self):
-        tra_loi = QMessageBox.question(
-            self.window,
-            "Xác nhận đăng xuất",
-            "Bạn có muốn đăng xuất không?",
-            QMessageBox.StandardButton.Yes | QMessageBox.StandardButton.No,
-            QMessageBox.StandardButton.No
-        )
-        if tra_loi == QMessageBox.StandardButton.Yes:
+        if confirm_logout(self.window):
             self.on_logout()
 
     def lam_moi(self):
@@ -89,7 +82,7 @@ class QuanLyView:
         self.lblQuayDangBan.setText(str(tk["so_quay_dang_ban"]))
         self.lblThoiGianChoTB.setText(f"{tk['thoi_gian_cho_trung_binh']:.1f} phút")
 
-        self.lblCanhBao.setText("Quá tải" if tk["canh_bao"] else "Ổn định")
+        self.lblCanhBao.setText("Cần thêm quầy" if tk["canh_bao"] else "Ổn định")
         self.lblCanhBao.setStyleSheet(
             "color: #dc2626;" if tk["canh_bao"] else "color: #16a34a;"
         )
@@ -108,19 +101,25 @@ class QuanLyView:
             self.tblQuay,
             self._rows_quay()
         )
-#ádascv
-        if self.bao_cao_da_sap_xep:
-            ds = self.he_thong.sap_xep_bao_cao_theo_thoi_gian_cho()
-        else:
-            ds = self.he_thong.lay_danh_sach_da_phuc_vu()
 
         fill_table(
             self.tblBaoCao,
-            self._rows_bao_cao(ds)
+            self._rows_bao_cao(self._lay_bao_cao())
         )
 
     def sap_xep_bao_cao(self):
-        self.bao_cao_da_sap_xep = True
+        if self.che_do_bao_cao == "mac_dinh":
+            self.che_do_bao_cao = "thoi_gian_cho"
+            self.btnSapXepBaoCao.setText("Sắp xếp theo tiền")
+        elif self.che_do_bao_cao == "thoi_gian_cho":
+            self.che_do_bao_cao = "so_tien"
+            self.btnSapXepBaoCao.setText("Sắp xếp theo hài lòng")
+        elif self.che_do_bao_cao == "so_tien":
+            self.che_do_bao_cao = "hai_long"
+            self.btnSapXepBaoCao.setText("Báo cáo mặc định")
+        else:
+            self.che_do_bao_cao = "mac_dinh"
+            self.btnSapXepBaoCao.setText("Sắp xếp báo cáo")
         self.lam_moi()
 
     def mo_quay(self):
@@ -145,6 +144,15 @@ class QuanLyView:
 
     def _selected_quay(self):
         return int(self.cboQuay.currentText().replace("Quầy ", ""))
+
+    def _lay_bao_cao(self):
+        if self.che_do_bao_cao == "thoi_gian_cho":
+            return self.he_thong.sap_xep_bao_cao_theo_thoi_gian_cho()
+        if self.che_do_bao_cao == "so_tien":
+            return self.he_thong.sap_xep_bao_cao_theo_so_tien()
+        if self.che_do_bao_cao == "hai_long":
+            return self.he_thong.sap_xep_bao_cao_theo_hai_long()
+        return self.he_thong.lay_danh_sach_da_phuc_vu()
 
     def _rows_khach(self, ds):
         rows = []
@@ -188,7 +196,8 @@ class QuanLyView:
                 k.loai_dich_vu,
                 f"{k.tinh_thoi_gian_cho():.1f} phút",
                 f"{k.tinh_thoi_gian_phuc_vu():.1f} phút",
-                k.trang_thai
+                f"{k.so_tien_giao_dich:,}đ".replace(",", "."),
+                f"{k.muc_do_hai_long}/10"
             ])
 
         return rows

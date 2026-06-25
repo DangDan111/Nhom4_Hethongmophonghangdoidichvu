@@ -837,14 +837,14 @@ li.checked::marker { content: &quot;\2612&quot;; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Segoe UI'; font-size:11pt; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Mã khách:        KH001&lt;/p&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Họ và tên:       Phạm Quang Huy&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Loại dịch vụ:    Khám tổng quát&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Loại dịch vụ:    Giao dịch nhanh&lt;/p&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Nhóm khách:      VIP&lt;/p&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Mức ưu tiên:     1&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
     <property name="plainText">
      <string>Mã khách:        KH001
 Họ và tên:       Phạm Quang Huy
-Loại dịch vụ:    Khám tổng quát
+Loại dịch vụ:    Giao dịch nhanh
 Nhóm khách:      VIP
 Mức ưu tiên:     1</string>
     </property>
@@ -1504,7 +1504,7 @@ QHeaderView::section {
     </item>
     <item row="1" column="2">
      <property name="text">
-      <string>Cấp cứu</string>
+      <string>Khẩn cấp</string>
      </property>
     </item>
     <item row="2" column="0">
@@ -1894,7 +1894,7 @@ QHeaderView::section {
     </item>
     <item row="0" column="2">
      <property name="text">
-      <string>Khám tim mạch</string>
+      <string>Giao dịch phức tạp</string>
      </property>
     </item>
     <item row="0" column="3">
@@ -1924,7 +1924,7 @@ QHeaderView::section {
     </item>
     <item row="1" column="2">
      <property name="text">
-      <string>Khám mắt</string>
+      <string>Giao dịch nhanh</string>
      </property>
     </item>
     <item row="1" column="3">
@@ -1954,7 +1954,7 @@ QHeaderView::section {
     </item>
     <item row="2" column="2">
      <property name="text">
-      <string>Khám tai mũi họng</string>
+      <string>Tư vấn dịch vụ</string>
      </property>
     </item>
     <item row="2" column="3">
@@ -1984,7 +1984,7 @@ QHeaderView::section {
     </item>
     <item row="3" column="2">
      <property name="text">
-      <string>Khám xương khớp</string>
+      <string>Giao dịch phức tạp</string>
      </property>
     </item>
     <item row="3" column="3">

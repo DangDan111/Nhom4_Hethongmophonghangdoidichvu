@@ -13,7 +13,6 @@ from views.nhan_vien_quay_view import NhanVienQuayView
 BASE_DIR = Path(__file__).resolve().parent
 UI_DIR = BASE_DIR / "ui"
 
-
 class AppController:
     def __init__(self):
         self.app_context = AppContext()

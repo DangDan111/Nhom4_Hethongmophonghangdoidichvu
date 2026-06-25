@@ -43,6 +43,7 @@ QLabel {
 }
 QLabel#lblTitle {
     color: #0f6fd8;
+    font-size: 30px;
     font-weight: 800;
     letter-spacing: 0px;
 }
@@ -51,6 +52,16 @@ QLabel#lblSubtitle {
 }
 QLabel.sectionTitle {
     color: #155eb8;
+    font-size: 17px;
+    font-weight: 800;
+}
+QLabel#cardTongDaPhucVuTitle,
+QLabel#cardKhachDangChoTitle,
+QLabel#cardQuayDangMoTitle,
+QLabel#cardQuayDangBanTitle,
+QLabel#cardThoiGianChoTBTitle,
+QLabel#cardCanhBaoTitle {
+    font-size: 15px;
     font-weight: 800;
 }
 QLabel.metricValue {
@@ -68,6 +79,7 @@ QPushButton {
     border: 1px solid #0b63c7;
     border-radius: 6px;
     padding: 7px 14px;
+    font-size: 14px;
     font-weight: 700;
 }
 QPushButton#btnDangXuat,
@@ -94,12 +106,14 @@ QTableWidget {
     gridline-color: #edf1f7;
     selection-background-color: #dbeafe;
     selection-color: #111827;
+    font-size: 14px;
 }
 QHeaderView::section {
     background: #ffffff;
     border: 0px;
     border-bottom: 1px solid #e5eaf2;
     padding: 8px 6px;
+    font-size: 14px;
     font-weight: 700;
     color: #111827;
 }
@@ -121,9 +135,9 @@ QHeaderView::section {
     <property name="geometry">
      <rect>
       <x>36</x>
-      <y>24</y>
-      <width>430</width>
-      <height>42</height>
+      <y>20</y>
+      <width>520</width>
+      <height>50</height>
      </rect>
     </property>
     <property name="font">
@@ -1136,9 +1150,9 @@ image: url(icon1.png);</string>
     <property name="geometry">
      <rect>
       <x>0</x>
-      <y>50</y>
-      <width>416</width>
-      <height>142</height>
+      <y>58</y>
+      <width>436</width>
+      <height>136</height>
      </rect>
     </property>
     <property name="focusPolicy">
@@ -1158,19 +1172,19 @@ image: url(icon1.png);</string>
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>208</y>
-      <width>82</width>
-      <height>34</height>
+      <y>204</y>
+      <width>80</width>
+      <height>38</height>
      </rect>
     </property>
    </widget>
    <widget class="QPushButton" name="btnMoQuay">
     <property name="geometry">
      <rect>
-      <x>102</x>
-      <y>208</y>
-      <width>100</width>
-      <height>34</height>
+      <x>100</x>
+      <y>204</y>
+      <width>90</width>
+      <height>38</height>
      </rect>
     </property>
     <property name="font">
@@ -1190,10 +1204,10 @@ image: url(icon1.png);</string>
    <widget class="QPushButton" name="btnDongQuay">
     <property name="geometry">
      <rect>
-      <x>212</x>
-      <y>208</y>
+      <x>200</x>
+      <y>204</y>
       <width>100</width>
-      <height>34</height>
+      <height>38</height>
      </rect>
     </property>
     <property name="font">
@@ -1213,10 +1227,10 @@ image: url(icon1.png);</string>
    <widget class="QPushButton" name="btnLamMoi">
     <property name="geometry">
      <rect>
-      <x>322</x>
-      <y>208</y>
-      <width>104</width>
-      <height>34</height>
+      <x>310</x>
+      <y>204</y>
+      <width>116</width>
+      <height>38</height>
      </rect>
     </property>
     <property name="font">
@@ -1304,10 +1318,10 @@ image: url(icon1.png);</string>
    <widget class="QPushButton" name="btnSapXepBaoCao">
     <property name="geometry">
      <rect>
-      <x>1248</x>
+      <x>1214</x>
       <y>12</y>
-      <width>205</width>
-      <height>34</height>
+      <width>240</width>
+      <height>38</height>
      </rect>
     </property>
     <property name="font">

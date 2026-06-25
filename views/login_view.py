@@ -1,9 +1,15 @@
-﻿from PySide6.QtCore import Qt
-from PySide6.QtWidgets import QLabel, QLineEdit, QPushButton, QMessageBox
+from PySide6.QtCore import Qt
+from PySide6.QtWidgets import (
+    QDialog,
+    QLabel,
+    QLineEdit,
+    QPushButton,
+    QVBoxLayout,
+)
 
 from services.auth_service import AuthService
 from views.ui_helpers import find_required, load_ui
-from PySide6.QtWidgets import QLabel, QLineEdit, QPushButton, QMessageBox, QDialog, QVBoxLayout
+
 
 class LoginView:
     def __init__(self, ui_path, app_context, on_login_success):
@@ -17,7 +23,6 @@ class LoginView:
         self.lblPhuDe = find_required(self.window, QLabel, "lblPhuDe")
         self.lblThongBao = find_required(self.window, QLabel, "lblThongBao")
         self.lblQuenMatKhau = find_required(self.window, QLabel, "lblQuenMatKhau")
-
         self.txtUsername = find_required(self.window, QLineEdit, "txtUsername")
         self.txtPassword = find_required(self.window, QLineEdit, "txtPassword")
         self.btnDangNhap = find_required(self.window, QPushButton, "btnDangNhap")
@@ -36,16 +41,19 @@ class LoginView:
         """)
 
         self.txtPassword.setEchoMode(QLineEdit.Password)
+        self.lblQuenMatKhau.setText(
+            '<a href="forgot-password" style="color:#0d6efd; text-decoration:none;">'
+            "Quên mật khẩu?</a>"
+        )
+        self.lblQuenMatKhau.setTextFormat(Qt.RichText)
+        self.lblQuenMatKhau.setTextInteractionFlags(Qt.TextBrowserInteraction)
+        self.lblQuenMatKhau.setOpenExternalLinks(False)
+        self.lblQuenMatKhau.setCursor(Qt.PointingHandCursor)
+        self.lblQuenMatKhau.linkActivated.connect(self.quen_mat_khau)
 
         self.btnDangNhap.clicked.connect(self.dang_nhap)
         self.txtUsername.returnPressed.connect(self.dang_nhap)
         self.txtPassword.returnPressed.connect(self.dang_nhap)
-
-        self.lblQuenMatKhau.setText(
-    '<a href="#" style="color:#0d6efd; text-decoration:none;">Quên mật khẩu?</a>'
-)
-        self.lblQuenMatKhau.setOpenExternalLinks(False)
-        self.lblQuenMatKhau.linkActivated.connect(self.quen_mat_khau)
 
     def show(self):
         self.window.show()
@@ -63,7 +71,7 @@ class LoginView:
         self.app_context.set_current_user(user)
         self.on_login_success()
 
-    def quen_mat_khau(self):
+    def quen_mat_khau(self, link=None):
         dialog = QDialog(self.window)
         dialog.setWindowTitle("Quên mật khẩu")
         dialog.setFixedSize(420, 170)

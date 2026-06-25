@@ -35,11 +35,23 @@ def find_required(parent, widget_type, object_name):
     return widget
 
 
-def setup_table(table, headers):
+def setup_table(table, headers, column_widths=None):
     table.setColumnCount(len(headers))
     table.setHorizontalHeaderLabels(headers)
-    table.horizontalHeader().setSectionResizeMode(QHeaderView.Stretch)
+    header = table.horizontalHeader()
+    header.setDefaultAlignment(Qt.AlignCenter)
+    header.setMinimumHeight(40)
+    if column_widths is None and table.objectName() == "tblQuay":
+        column_widths = [66, 78, 112, 180]
+    if column_widths is None:
+        header.setSectionResizeMode(QHeaderView.Stretch)
+    else:
+        for column_index, width in enumerate(column_widths):
+            header.setSectionResizeMode(column_index, QHeaderView.Fixed)
+            table.setColumnWidth(column_index, width)
+        header.setSectionResizeMode(len(headers) - 1, QHeaderView.Stretch)
     table.verticalHeader().setVisible(False)
+    table.verticalHeader().setDefaultSectionSize(36)
     table.setAlternatingRowColors(True)
     table.setSelectionBehavior(QAbstractItemView.SelectRows)
     table.setEditTriggers(QAbstractItemView.NoEditTriggers)
@@ -49,7 +61,9 @@ def fill_table(table, rows):
     table.setRowCount(len(rows))
     for row_index, row in enumerate(rows):
         for col_index, value in enumerate(row):
-            table.setItem(row_index, col_index, QTableWidgetItem(str(value)))
+            item = QTableWidgetItem(str(value))
+            item.setTextAlignment(Qt.AlignCenter)
+            table.setItem(row_index, col_index, item)
 
 
 def confirm_logout(parent):

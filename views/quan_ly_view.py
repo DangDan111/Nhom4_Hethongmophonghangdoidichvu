@@ -1,13 +1,17 @@
+from datetime import datetime
+
 from PySide6.QtCore import Qt
 from PySide6.QtWidgets import (
     QDialog,
     QFrame,
     QHBoxLayout,
     QLabel,
+    QListView,
     QPushButton,
     QComboBox,
     QTableWidget,
     QHeaderView,
+    QTextEdit,
     QVBoxLayout,
     QSizePolicy,
 )
@@ -39,10 +43,13 @@ class QuanLyView:
 
         self.cboQuay = find_required(self.window, QComboBox, "cboQuay")
         self.cboLoaiKhachHang = find_required(self.window, QComboBox, "cboLoaiKhachHang")
-        self.cboQuayLoc = find_required(self.window, QComboBox, "cboQuayLoc")
+        self.cboLocDichVu = find_required(self.window, QComboBox, "cboLocDichVu")
+        self.cboThongKeThoiGian = find_required(self.window, QComboBox, "cboThongKeThoiGian")
+        self.cboThongKeQuay = find_required(self.window, QComboBox, "cboThongKeQuay")
+        self.txtThongKeChiTiet = find_required(self.window, QTextEdit, "txtThongKeChiTiet")
         self.frameBoLocHangDoi = find_required(self.window, QFrame, "frameBoLocHangDoi")
         self.lblLoaiKhachHang = find_required(self.window, QLabel, "lblLoaiKhachHang")
-        self.lblQuayLoc = find_required(self.window, QLabel, "lblQuayLoc")
+        self.lblDichVuLoc = find_required(self.window, QLabel, "lblDichVuLoc")
         self.btnMoQuay = find_required(self.window, QPushButton, "btnMoQuay")
         self.btnDongQuay = find_required(self.window, QPushButton, "btnDongQuay")
         self.btnLamMoi = find_required(self.window, QPushButton, "btnLamMoi")
@@ -53,6 +60,7 @@ class QuanLyView:
 
         self.setup_combo_quay()
         self.setup_combo_loc()
+        self.setup_combo_thong_ke()
         self.setup_bang()
         self.setup_giao_dien_bo_loc()
 
@@ -63,7 +71,9 @@ class QuanLyView:
         self.btnDangXuat.clicked.connect(self.xac_nhan_dang_xuat)
 
         self.cboLoaiKhachHang.currentIndexChanged.connect(self.loc_hang_doi)
-        self.cboQuayLoc.currentIndexChanged.connect(self.loc_hang_doi)
+        self.cboLocDichVu.currentIndexChanged.connect(self.loc_hang_doi)
+        self.cboThongKeThoiGian.currentTextChanged.connect(self.cap_nhat_thong_ke_chi_tiet)
+        self.cboThongKeQuay.currentTextChanged.connect(self.cap_nhat_thong_ke_chi_tiet)
 
         self.tblQuay.cellClicked.connect(self.chon_quay_tu_bang)
 
@@ -79,15 +89,34 @@ class QuanLyView:
         self.cboLoaiKhachHang.clear()
         self.cboLoaiKhachHang.addItems([
             "Tất cả",
-            "Thường",
             "Ưu tiên",
+            "Thường",
         ])
 
-        self.cboQuayLoc.clear()
-        self.cboQuayLoc.addItem("Tất cả")
+        self.cboLocDichVu.clear()
+        self.cboLocDichVu.addItems([
+            "Tất cả",
+            "Giao dịch nhanh",
+            "Giao dịch phức tạp",
+            "Tư vấn dịch vụ",
+            "VIP",
+            "Khẩn cấp",
+            "Người cao tuổi",
+        ])
 
+    def setup_combo_thong_ke(self):
+        self.cboThongKeThoiGian.clear()
+        self.cboThongKeThoiGian.addItems([
+            "Tất cả",
+            "Hôm nay",
+            "Tuần này",
+            "Tháng này",
+        ])
+
+        self.cboThongKeQuay.clear()
+        self.cboThongKeQuay.addItem("Tất cả")
         for q in self.he_thong.lay_danh_sach_quay():
-            self.cboQuayLoc.addItem(f"Quầy {q.id_quay}")
+            self.cboThongKeQuay.addItem(f"Quầy {q.id_quay}")
 
     def setup_bang(self):
         setup_table(
@@ -113,8 +142,13 @@ class QuanLyView:
 
         self.lblLoaiKhachHang.setFixedSize(125, 34)
         self.cboLoaiKhachHang.setFixedSize(110, 34)
-        self.lblQuayLoc.setFixedSize(45, 34)
-        self.cboQuayLoc.setFixedSize(110, 34)
+        self.lblDichVuLoc.setFixedSize(58, 34)
+        self.cboLocDichVu.setFixedSize(185, 34)
+        self._setup_combo_dich_vu_style()
+        self.txtThongKeChiTiet.setReadOnly(True)
+        self.txtThongKeChiTiet.setTextInteractionFlags(
+            Qt.TextSelectableByMouse | Qt.TextSelectableByKeyboard
+        )
 
         self.lam_moi()
         # Tự động đồng bộ dữ liệu
@@ -124,13 +158,105 @@ class QuanLyView:
 
         self.lblLoaiKhachHang.move(12, 12)
         self.cboLoaiKhachHang.move(140, 12)
-        self.lblQuayLoc.move(285, 12)
-        self.cboQuayLoc.move(335, 12)
+        self.lblDichVuLoc.move(265, 12)
+        self.cboLocDichVu.move(325, 12)
 
         self.lblLoaiKhachHang.raise_()
         self.cboLoaiKhachHang.raise_()
-        self.lblQuayLoc.raise_()
-        self.cboQuayLoc.raise_()
+        self.lblDichVuLoc.raise_()
+        self.cboLocDichVu.raise_()
+
+    def _setup_combo_dich_vu_style(self):
+        self.cboLocDichVu.setMaxVisibleItems(7)
+        self.cboLocDichVu.setSizeAdjustPolicy(QComboBox.AdjustToMinimumContentsLengthWithIcon)
+        self.cboLocDichVu.setMinimumContentsLength(12)
+        self.cboLocDichVu.setStyleSheet("""
+            QComboBox#cboLocDichVu {
+                background: #ffffff;
+                color: #111827;
+                border: 1px solid #c8d6eb;
+                border-radius: 7px;
+                padding-left: 10px;
+                padding-right: 30px;
+                font-family: "Segoe UI";
+                font-size: 14px;
+                font-weight: 600;
+                min-height: 32px;
+                max-height: 34px;
+            }
+            QComboBox#cboLocDichVu:hover {
+                border: 1px solid #0f73df;
+            }
+            QComboBox#cboLocDichVu::drop-down {
+                subcontrol-origin: border;
+                subcontrol-position: top right;
+                width: 28px;
+                border-left: 1px solid #d8e3f2;
+                border-top-right-radius: 7px;
+                border-bottom-right-radius: 7px;
+                background: #f6f9ff;
+            }
+            QComboBox#cboLocDichVu::down-arrow {
+                image: none;
+                width: 0px;
+                height: 0px;
+            }
+        """)
+
+        view = QListView(self.cboLocDichVu)
+        view.setObjectName("lstLocDichVu")
+        view.setFocusPolicy(Qt.NoFocus)
+        view.setMouseTracking(True)
+        view.setUniformItemSizes(True)
+        view.setMinimumWidth(self.cboLocDichVu.width())
+        view.setTextElideMode(Qt.ElideRight)
+        view.setStyleSheet("""
+            QListView#lstLocDichVu {
+                background: #ffffff;
+                color: #111827;
+                border: 1px solid #c8d6eb;
+                border-radius: 7px;
+                padding: 4px;
+                outline: 0px;
+                font-family: "Segoe UI";
+                font-size: 14px;
+                font-weight: 600;
+                selection-background-color: #eef4ff;
+                selection-color: #111827;
+            }
+            QListView#lstLocDichVu::item {
+                min-height: 34px;
+                padding-left: 10px;
+                padding-right: 8px;
+                border: 0px;
+                color: #111827;
+                background: #ffffff;
+            }
+            QListView#lstLocDichVu::item:hover {
+                background: #f2f6fd;
+                color: #111827;
+                border: 0px;
+            }
+            QListView#lstLocDichVu::item:selected,
+            QListView#lstLocDichVu::item:selected:active,
+            QListView#lstLocDichVu::item:selected:!active {
+                background: #eef4ff;
+                color: #111827;
+                border: 0px;
+            }
+        """)
+        self.cboLocDichVu.setView(view)
+
+        self.lblMuiTenDichVu = QLabel("▾", self.cboLocDichVu)
+        self.lblMuiTenDichVu.setAlignment(Qt.AlignCenter)
+        self.lblMuiTenDichVu.setFixedSize(28, 32)
+        self.lblMuiTenDichVu.move(self.cboLocDichVu.width() - 29, 1)
+        self.lblMuiTenDichVu.setAttribute(Qt.WA_TransparentForMouseEvents)
+        self.lblMuiTenDichVu.setStyleSheet(
+            "color: #475569; background: transparent; border: none; font-size: 14px; font-weight: 800;"
+        )
+        self.lblMuiTenDichVu.raise_()
+
     def show(self):
         self.window.show()
 
@@ -173,6 +299,7 @@ class QuanLyView:
         self._chinh_do_rong_bang_hang_doi(self.tblHangDoiUuTien)
         self._chinh_do_rong_bang_quay()
         self._chinh_do_rong_bang_bao_cao()
+        self.cap_nhat_thong_ke_chi_tiet()
 
     def loc_hang_doi(self):
         fill_table(
@@ -316,9 +443,8 @@ class QuanLyView:
         return self.he_thong.lay_danh_sach_da_phuc_vu()
 
     def _loai_khach_text(self, k):
-        if k.muc_do_uu_tien and k.muc_do_uu_tien > 0:
+        if k.muc_do_uu_tien < 5:
             return "Ưu tiên"
-
         return "Thường"
 
     def _dinh_dang_thoi_gian_den(self, k):
@@ -327,11 +453,23 @@ class QuanLyView:
 
         return str(k.thoi_gian_den)
 
+    def _khop_bo_loc_khach_hien_tai(self, khach):
+        loai_chon = self.cboLoaiKhachHang.currentText().strip()
+        dich_vu_chon = self.cboLocDichVu.currentText().strip()
+
+        if loai_chon == "Ưu tiên" and not khach.la_khach_uu_tien():
+            return False
+
+        if loai_chon == "Thường" and khach.la_khach_uu_tien():
+            return False
+
+        if dich_vu_chon != "Tất cả" and khach.loai_dich_vu != dich_vu_chon:
+            return False
+
+        return True
+
     def _rows_khach_hien_tai(self):
         rows = []
-
-        loai_chon = self.cboLoaiKhachHang.currentText().strip()
-        quay_chon = self.cboQuayLoc.currentText().strip()
 
         ds_uu_tien = self.he_thong.lay_danh_sach_hang_doi_uu_tien()
         ds_thuong = self.he_thong.lay_danh_sach_hang_doi_thuong()
@@ -340,10 +478,7 @@ class QuanLyView:
             loai_khach = self._loai_khach_text(k)
             vi_tri = "Đang chờ"
 
-            if loai_chon != "Tất cả" and loai_khach != loai_chon:
-                continue
-
-            if quay_chon != "Tất cả" and vi_tri != quay_chon:
+            if not self._khop_bo_loc_khach_hien_tai(k):
                 continue
 
             rows.append([
@@ -359,10 +494,7 @@ class QuanLyView:
             loai_khach = self._loai_khach_text(k)
             vi_tri = "Đang chờ"
 
-            if loai_chon != "Tất cả" and loai_khach != loai_chon:
-                continue
-
-            if quay_chon != "Tất cả" and vi_tri != quay_chon:
+            if not self._khop_bo_loc_khach_hien_tai(k):
                 continue
 
             rows.append([
@@ -382,10 +514,7 @@ class QuanLyView:
             loai_khach = self._loai_khach_text(k)
             vi_tri = f"Quầy {q.id_quay}"
 
-            if loai_chon != "Tất cả" and loai_khach != loai_chon:
-                continue
-
-            if quay_chon != "Tất cả" and vi_tri != quay_chon:
+            if not self._khop_bo_loc_khach_hien_tai(k):
                 continue
 
             rows.append([
@@ -398,6 +527,86 @@ class QuanLyView:
             ])
 
         return rows
+
+    def _lay_du_lieu_thong_ke_da_loc(self):
+        thoi_gian_chon = self.cboThongKeThoiGian.currentText().strip()
+        quay_chon = self.cboThongKeQuay.currentText().strip()
+        hom_nay = datetime.now().date()
+        ds = []
+
+        for khach in self.he_thong.lay_danh_sach_da_phuc_vu():
+            thoi_gian_ket_thuc = khach.thoi_gian_ket_thuc
+
+            if thoi_gian_ket_thuc is None:
+                continue
+
+            ngay_ket_thuc = thoi_gian_ket_thuc.date()
+
+            if thoi_gian_chon == "Hôm nay" and ngay_ket_thuc != hom_nay:
+                continue
+
+            if thoi_gian_chon == "Tuần này":
+                tuan_ket_thuc = ngay_ket_thuc.isocalendar()
+                tuan_hien_tai = hom_nay.isocalendar()
+                if tuan_ket_thuc.year != tuan_hien_tai.year or tuan_ket_thuc.week != tuan_hien_tai.week:
+                    continue
+
+            if thoi_gian_chon == "Tháng này":
+                if ngay_ket_thuc.year != hom_nay.year or ngay_ket_thuc.month != hom_nay.month:
+                    continue
+
+            if quay_chon != "Tất cả":
+                id_quay = int(quay_chon.replace("Quầy ", ""))
+                if khach.id_quay != id_quay:
+                    continue
+
+            ds.append(khach)
+
+        return ds
+
+    def cap_nhat_thong_ke_chi_tiet(self):
+        ds = self._lay_du_lieu_thong_ke_da_loc()
+
+        if not ds:
+            self._dat_noi_dung_thong_ke("Chưa có dữ liệu thống kê theo bộ lọc hiện tại.")
+            return
+
+        so_khach = len(ds)
+        tong_tien = sum(k.so_tien_giao_dich for k in ds)
+        hai_long_tb = sum(k.muc_do_hai_long for k in ds) / so_khach
+        thoi_gian_cho_tb = sum(k.tinh_thoi_gian_cho() for k in ds) / so_khach / 60
+        thoi_gian_phuc_vu_tb = sum(k.tinh_thoi_gian_phuc_vu() for k in ds) / so_khach / 60
+        khach_cho_lau_nhat = max(ds, key=lambda k: k.tinh_thoi_gian_cho())
+        thoi_gian_cho_lau_nhat = khach_cho_lau_nhat.tinh_thoi_gian_cho() / 60
+
+        if thoi_gian_cho_tb > 30:
+            goi_y = "Gợi ý vận hành: Cần thêm quầy hoặc ưu tiên xử lý nhóm chờ lâu."
+        elif hai_long_tb < 7:
+            goi_y = "Gợi ý vận hành: Nên rà soát thời gian phục vụ và chất lượng tư vấn."
+        else:
+            goi_y = "Gợi ý vận hành: Vận hành ổn định."
+
+        noi_dung = (
+            f"Số khách đã phục vụ: {so_khach}\n"
+            f"Tổng tiền giao dịch: {tong_tien:,.0f} VNĐ\n".replace(",", ".")
+            + f"Mức độ hài lòng trung bình: {hai_long_tb:.1f} / 10\n\n"
+            f"Thời gian chờ trung bình: {thoi_gian_cho_tb:.1f} phút\n"
+            f"Thời gian phục vụ trung bình: {thoi_gian_phuc_vu_tb:.1f} phút\n\n"
+            f"Thời gian chờ lâu nhất: {thoi_gian_cho_lau_nhat:.1f} phút\n"
+            f"Khách chờ lâu nhất: {khach_cho_lau_nhat.ma_khach()} - {khach_cho_lau_nhat.ten}\n\n"
+            f"{goi_y}"
+        )
+
+        self._dat_noi_dung_thong_ke(noi_dung)
+
+    def _dat_noi_dung_thong_ke(self, noi_dung):
+        if self.txtThongKeChiTiet.toPlainText() == noi_dung:
+            return
+
+        thanh_keo = self.txtThongKeChiTiet.verticalScrollBar()
+        vi_tri_cu = thanh_keo.value()
+        self.txtThongKeChiTiet.setPlainText(noi_dung)
+        thanh_keo.setValue(min(vi_tri_cu, thanh_keo.maximum()))
 
     def _rows_quay(self):
         rows = []
@@ -438,16 +647,21 @@ class QuanLyView:
         header.setStretchLastSection(False)
 
         header.setSectionResizeMode(0, QHeaderView.Fixed)
-        header.setSectionResizeMode(1, QHeaderView.Stretch)
-        header.setSectionResizeMode(2, QHeaderView.Stretch)
+        header.setSectionResizeMode(1, QHeaderView.Fixed)
+        header.setSectionResizeMode(2, QHeaderView.Fixed)
         header.setSectionResizeMode(3, QHeaderView.Fixed)
         header.setSectionResizeMode(4, QHeaderView.Fixed)
         header.setSectionResizeMode(5, QHeaderView.Fixed)
 
-        bang.setColumnWidth(0, 85)
-        bang.setColumnWidth(3, 95)
-        bang.setColumnWidth(4, 115)
-        bang.setColumnWidth(5, 105)
+        bang.setHorizontalScrollBarPolicy(Qt.ScrollBarAsNeeded)
+        bang.setWordWrap(False)
+        bang.setTextElideMode(Qt.ElideRight)
+        bang.setColumnWidth(0, 80)
+        bang.setColumnWidth(1, 180)
+        bang.setColumnWidth(2, 170)
+        bang.setColumnWidth(3, 110)
+        bang.setColumnWidth(4, 120)
+        bang.setColumnWidth(5, 120)
 
     def _chinh_do_rong_bang_quay(self):
         header = self.tblQuay.horizontalHeader()
@@ -467,15 +681,20 @@ class QuanLyView:
         header.setStretchLastSection(False)
 
         header.setSectionResizeMode(0, QHeaderView.Fixed)
-        header.setSectionResizeMode(1, QHeaderView.Stretch)
-        header.setSectionResizeMode(2, QHeaderView.Stretch)
+        header.setSectionResizeMode(1, QHeaderView.Fixed)
+        header.setSectionResizeMode(2, QHeaderView.Fixed)
         header.setSectionResizeMode(3, QHeaderView.Fixed)
         header.setSectionResizeMode(4, QHeaderView.Fixed)
         header.setSectionResizeMode(5, QHeaderView.Fixed)
         header.setSectionResizeMode(6, QHeaderView.Fixed)
 
-        self.tblBaoCao.setColumnWidth(0, 85)
-        self.tblBaoCao.setColumnWidth(3, 95)
-        self.tblBaoCao.setColumnWidth(4, 95)
-        self.tblBaoCao.setColumnWidth(5, 100)
-        self.tblBaoCao.setColumnWidth(6, 90)
+        self.tblBaoCao.setHorizontalScrollBarPolicy(Qt.ScrollBarAsNeeded)
+        self.tblBaoCao.setWordWrap(False)
+        self.tblBaoCao.setTextElideMode(Qt.ElideRight)
+        self.tblBaoCao.setColumnWidth(0, 80)
+        self.tblBaoCao.setColumnWidth(1, 230)
+        self.tblBaoCao.setColumnWidth(2, 170)
+        self.tblBaoCao.setColumnWidth(3, 75)
+        self.tblBaoCao.setColumnWidth(4, 85)
+        self.tblBaoCao.setColumnWidth(5, 125)
+        self.tblBaoCao.setColumnWidth(6, 85)

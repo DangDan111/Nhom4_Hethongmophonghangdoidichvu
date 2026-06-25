@@ -24,7 +24,6 @@ class NhanVienQuayView:
         self.window = load_ui(ui_path)
         self.window.setFixedSize(1500, 780)
 
-        # ===== Labels =====
         self.lblTaiKhoan = find_required(
             self.window,
             QLabel,
@@ -206,9 +205,6 @@ class NhanVienQuayView:
         self.lblTinhTrang.setText(f"Tình trạng: {quay.trang_thai}")
         self.lblTongLuot.setText(f"Tổng lượt: {len(quay.lich_su_phuc_vu)}")
 
-        # ==========================
-        # Khách đang phục vụ
-        # ==========================
         khach = quay.khach_dang_phuc_vu
 
         if khach is None:
@@ -237,16 +233,6 @@ class NhanVienQuayView:
 
                 f"Thời gian phục vụ:\n"
                 f"{tg_phuc_vu}"
-            )
-            self.txtKhachDangPhucVu.setPlainText(
-                f"Mã khách: {khach.ma_khach()}\n"
-                f"Tên khách: {khach.ten}\n"
-                f"Loại dịch vụ: {khach.loai_dich_vu}\n"
-                f"Mức ưu tiên: {khach.muc_do_uu_tien}\n"
-                f"Thời gian đến: {khach.thoi_gian_den.strftime('%H:%M:%S')}\n"
-                f"Bắt đầu phục vụ: {khach.thoi_gian_bat_dau_phuc_vu.strftime('%H:%M:%S')}\n"
-                f"Thời gian chờ: {khach.dinh_dang_thoi_gian_cho()}\n"
-                f"Thời gian phục vụ: {khach.dinh_dang_thoi_gian_phuc_vu()}"
             )
 
         if len(quay.lich_su_phuc_vu) == 0:
@@ -309,9 +295,6 @@ class NhanVienQuayView:
             self._rows_khach_cho(self.he_thong.lay_danh_sach_hang_doi_thuong())
         )
 
-        # ==========================
-        # Lịch sử phục vụ
-        # ==========================
         self.tblLichSuPhucVu.setRowCount(0)
 
         for row, k in enumerate(

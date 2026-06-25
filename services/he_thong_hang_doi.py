@@ -13,8 +13,8 @@ from utils.statistics import (
 
 
 class HeThongHangDoi:
-    SO_KHACH_THUONG_TOI_DA = 5
-    SO_KHACH_UU_TIEN_TOI_DA = 3
+    SO_KHACH_THUONG_TOI_DA = 50
+    SO_KHACH_UU_TIEN_TOI_DA = 50
 
     def __init__(self, nap_du_lieu_mau=False):
         self.hang_doi_thuong = LinearQueue(max_size=self.SO_KHACH_THUONG_TOI_DA)
@@ -44,7 +44,7 @@ class HeThongHangDoi:
             loai_dich_vu=loai_dich_vu,
             muc_do_uu_tien=muc_do_uu_tien,
             so_tien_giao_dich=self._uoc_tinh_so_tien(loai_dich_vu, muc_do_uu_tien),
-            muc_do_hai_long=self._uoc_tinh_hai_long(muc_do_uu_tien),
+            muc_do_hai_long=10,
         )
 
         if muc_do_uu_tien < 5:
@@ -94,6 +94,12 @@ class HeThongHangDoi:
         if khach is None:
             return False, "Quầy chưa có khách đang phục vụ", None
 
+        khach.so_tien_giao_dich = self._uoc_tinh_so_tien(
+            khach.loai_dich_vu,
+            khach.muc_do_uu_tien
+        )
+        khach.muc_do_hai_long = self._tinh_hai_long_sau_phuc_vu(khach)
+
         self.danh_sach_da_phuc_vu.append(khach)
         return True, f"Đã hoàn thành phục vụ {khach.ma_khach()} - {khach.ten}", khach
 
@@ -135,7 +141,6 @@ class HeThongHangDoi:
             ("Bùi Ngọc Lan", "Giao dịch nhanh", 5),
             ("Hoàng Đức Long", "Giao dịch phức tạp", 5),
             ("Ngô Thùy Dương", "Tư vấn dịch vụ", 5),
-            ("Đặng Hải Yến", "Giao dịch nhanh", 5),
         ]
 
         for ten, loai_dich_vu, muc_do_uu_tien in danh_sach_khach:
@@ -199,22 +204,47 @@ class HeThongHangDoi:
             loai_dich_vu=loai_dich_vu,
             muc_do_uu_tien=muc_do_uu_tien,
             so_tien_giao_dich=self._uoc_tinh_so_tien(loai_dich_vu, muc_do_uu_tien),
-            muc_do_hai_long=self._uoc_tinh_hai_long(muc_do_uu_tien),
-        )
+            muc_do_hai_long=10,
+)
         self.next_customer_id += 1
         return khach
+    
+    def _tinh_hai_long_sau_phuc_vu(self, khach):
+        thoi_gian_cho_phut = khach.tinh_thoi_gian_cho() / 60
+        thoi_gian_phuc_vu_phut = khach.tinh_thoi_gian_phuc_vu() / 60
 
+        diem = 10
+
+        if thoi_gian_cho_phut <= 5:
+            tru_cho = 0
+        elif thoi_gian_cho_phut <= 10:
+            tru_cho = 1
+        elif thoi_gian_cho_phut <= 20:
+            tru_cho = 2
+        elif thoi_gian_cho_phut <= 30:
+            tru_cho = 3
+        else:
+            tru_cho = 4
+
+        if thoi_gian_phuc_vu_phut <= 3:
+            tru_phuc_vu = 0
+        elif thoi_gian_phuc_vu_phut <= 7:
+            tru_phuc_vu = 1
+        elif thoi_gian_phuc_vu_phut <= 15:
+            tru_phuc_vu = 2
+        else:
+            tru_phuc_vu = 3
+
+        diem_hai_long = diem - tru_cho - tru_phuc_vu
+
+        return max(1, min(10, diem_hai_long))
     def _uoc_tinh_so_tien(self, loai_dich_vu, muc_do_uu_tien):
         bang_gia = {
-            "Giao dịch nhanh": 80000,
-            "Giao dịch phức tạp": 250000,
-            "Tư vấn dịch vụ": 120000,
-            "VIP": 350000,
+            "Giao dịch nhanh": 100000,
+            "Giao dịch phức tạp": 1000000,
+            "Tư vấn dịch vụ": 300000,
+            "VIP": 2000000,
             "Khẩn cấp": 500000,
-            "Người cao tuổi": 90000,
+            "Người cao tuổi": 200000,
         }
-        return bang_gia.get(loai_dich_vu, 100000) + max(0, 5 - muc_do_uu_tien) * 20000
-
-    def _uoc_tinh_hai_long(self, muc_do_uu_tien):
-        diem = 6 + max(0, 5 - muc_do_uu_tien)
-        return min(10, diem)
+        return bang_gia.get(loai_dich_vu, 100000)

@@ -236,7 +236,7 @@ QLabel#lblLoaiKhachHang {
     padding: 0px;
 }
 
-QLabel#lblQuayLoc {
+QLabel#lblDichVuLoc {
     color: #111827;
     font-family: &quot;Segoe UI&quot;;
     font-size: 15px;
@@ -247,7 +247,7 @@ QLabel#lblQuayLoc {
 }
 
 QComboBox#cboLoaiKhachHang,
-QComboBox#cboQuayLoc {
+QComboBox#cboThongKeThoiGian {
     background: #ffffff;
     color: #111827;
     border: 1px solid #c8d6eb;
@@ -264,12 +264,14 @@ QComboBox#cboQuayLoc {
 }
 
 QComboBox#cboLoaiKhachHang:hover,
-QComboBox#cboQuayLoc:hover {
+QComboBox#cboThongKeThoiGian:hover,
+QComboBox#cboThongKeQuay:hover {
     border: 1px solid #0f73df;
 }
 
 QComboBox#cboLoaiKhachHang::drop-down,
-QComboBox#cboQuayLoc::drop-down {
+QComboBox#cboThongKeThoiGian::drop-down,
+QComboBox#cboThongKeQuay::drop-down {
     border: none;
     width: 22px;
 }
@@ -305,6 +307,34 @@ QTableWidget#tblHangDoiUuTien QHeaderView::section {
 QTableWidget#tblHangDoiUuTien QTableCornerButton::section {
     background: #ffffff;
     border: none;
+}
+QComboBox#cboLocDichVu {
+    background: #ffffff;
+    color: #111827;
+    border: 1px solid #cbd5e1;
+    border-radius: 7px;
+    padding-left: 12px;
+    padding-right: 24px;
+    min-width: 105px;
+    max-width: 105px;
+    min-height: 34px;
+    max-height: 34px;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+QComboBox#cboLocDichVu::drop-down {
+    border: none;
+    width: 24px;
+}
+
+QComboBox#cboLocDichVu QAbstractItemView {
+    background: #ffffff;
+    color: #111827;
+    selection-background-color: #dbeafe;
+    selection-color: #111827;
+    font-size: 14px;
+    font-weight: 600;
 }</string>
   </property>
   <widget class="QFrame" name="header">
@@ -1263,18 +1293,7 @@ image: url(icon1.png);</string>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">QComboBox#cboLoaiKhachHang,
-QComboBox#cboQuayLoc {
-    background: #ffffff;
-    color: #111827;
-    border: 1px solid #c8d6eb;
-    border-radius: 7px;
-    padding: 6px 10px;
-    font-family: &quot;Segoe UI&quot;;
-    font-size: 14px;
-    font-weight: 600;
-    min-height: 26px;
-}</string>
+     <string notr="true"/>
     </property>
     <property name="frameShape">
      <enum>QFrame::Shape::StyledPanel</enum>
@@ -1307,8 +1326,8 @@ QComboBox#cboQuayLoc {
       <rect>
        <x>130</x>
        <y>11</y>
-       <width>90</width>
-       <height>40</height>
+       <width>101</width>
+       <height>36</height>
       </rect>
      </property>
      <property name="editable">
@@ -1330,17 +1349,42 @@ QComboBox#cboQuayLoc {
       </property>
      </item>
     </widget>
-    <widget class="QComboBox" name="cboQuayLoc">
+    <widget class="QComboBox" name="cboLocDichVu">
      <property name="geometry">
       <rect>
-       <x>380</x>
-       <y>11</y>
-       <width>90</width>
-       <height>40</height>
+       <x>340</x>
+       <y>10</y>
+       <width>111</width>
+       <height>36</height>
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true"/>
+      <string notr="true">QComboBox {
+    background: #ffffff;
+    color: #111827;
+    border: 1px solid #cbd5e1;
+    border-radius: 7px;
+    padding-left: 12px;
+    padding-right: 24px;
+    min-width: 50px;
+    min-height: 34px;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+QComboBox::drop-down {
+    border: none;
+    width: 24px;
+}
+
+QComboBox QAbstractItemView {
+    background: #ffffff;
+    color: #111827;
+    selection-background-color: #dbeafe;
+    selection-color: #111827;
+    font-size: 14px;
+    font-weight: 600;
+}</string>
      </property>
      <item>
       <property name="text">
@@ -1348,12 +1392,12 @@ QComboBox#cboQuayLoc {
       </property>
      </item>
     </widget>
-    <widget class="QLabel" name="lblQuayLoc">
+    <widget class="QLabel" name="lblDichVuLoc">
      <property name="geometry">
       <rect>
-       <x>320</x>
+       <x>265</x>
        <y>11</y>
-       <width>45</width>
+       <width>58</width>
        <height>36</height>
       </rect>
      </property>
@@ -1365,7 +1409,7 @@ QComboBox#cboQuayLoc {
       </font>
      </property>
      <property name="text">
-      <string>Quầy</string>
+      <string>Dịch vụ</string>
      </property>
     </widget>
    </widget>
@@ -1438,6 +1482,103 @@ QComboBox#cboQuayLoc {
     </property>
     <property name="class" stdset="0">
      <string>sectionTitle</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="lblThongKeThoiGian">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>54</y>
+      <width>82</width>
+      <height>28</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Segoe UI</family>
+      <pointsize>10</pointsize>
+      <fontweight>ExtraBold</fontweight>
+     </font>
+    </property>
+    <property name="text">
+     <string>Thời gian</string>
+    </property>
+   </widget>
+   <widget class="QComboBox" name="cboThongKeThoiGian">
+    <property name="geometry">
+     <rect>
+      <x>108</x>
+      <y>50</y>
+      <width>130</width>
+      <height>34</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLabel" name="lblThongKeQuay">
+    <property name="geometry">
+     <rect>
+      <x>258</x>
+      <y>54</y>
+      <width>46</width>
+      <height>28</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Segoe UI</family>
+      <pointsize>10</pointsize>
+      <fontweight>ExtraBold</fontweight>
+     </font>
+    </property>
+    <property name="text">
+     <string>Quầy</string>
+    </property>
+   </widget>
+   <widget class="QComboBox" name="cboThongKeQuay">
+    <property name="geometry">
+     <rect>
+      <x>308</x>
+      <y>50</y>
+      <width>130</width>
+      <height>34</height>
+     </rect>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>0</width>
+      <height>32</height>
+     </size>
+    </property>
+   </widget>
+   <widget class="QTextEdit" name="txtThongKeChiTiet">
+    <property name="geometry">
+     <rect>
+      <x>18</x>
+      <y>96</y>
+      <width>435</width>
+      <height>136</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Segoe UI</family>
+      <pointsize>10</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QTextEdit#txtThongKeChiTiet {
+    background: #ffffff;
+    color: #111827;
+    border: 1px solid #dbe7f5;
+    border-radius: 8px;
+    padding: 8px;
+}</string>
+    </property>
+    <property name="readOnly">
+     <bool>true</bool>
+    </property>
+    <property name="plainText">
+     <string>Chưa có dữ liệu thống kê theo bộ lọc hiện tại.</string>
     </property>
    </widget>
   </widget>
@@ -1537,7 +1678,7 @@ QComboBox#cboQuayLoc {
     <property name="geometry">
      <rect>
       <x>8</x>
-      <y>210</y>
+      <y>202</y>
       <width>101</width>
       <height>34</height>
      </rect>
@@ -1547,7 +1688,7 @@ QComboBox#cboQuayLoc {
     <property name="geometry">
      <rect>
       <x>115</x>
-      <y>208</y>
+      <y>202</y>
       <width>90</width>
       <height>34</height>
      </rect>
@@ -1570,7 +1711,7 @@ QComboBox#cboQuayLoc {
     <property name="geometry">
      <rect>
       <x>215</x>
-      <y>208</y>
+      <y>202</y>
       <width>90</width>
       <height>34</height>
      </rect>
@@ -1593,7 +1734,7 @@ QComboBox#cboQuayLoc {
     <property name="geometry">
      <rect>
       <x>322</x>
-      <y>208</y>
+      <y>202</y>
       <width>102</width>
       <height>34</height>
      </rect>
@@ -1669,7 +1810,7 @@ QComboBox#cboQuayLoc {
     <property name="font">
      <font>
       <family>Segoe UI</family>
-      <pointsize>13</pointsize>
+      <pointsize>14</pointsize>
       <fontweight>ExtraBold</fontweight>
      </font>
     </property>
@@ -1708,7 +1849,7 @@ QComboBox#cboQuayLoc {
      <rect>
       <x>0</x>
       <y>58</y>
-      <width>1468</width>
+      <width>911</width>
       <height>214</height>
      </rect>
     </property>

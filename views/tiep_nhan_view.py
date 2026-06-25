@@ -30,7 +30,7 @@ class TiepNhanView:
         self.lblKhachDaTiepNhanHomNay = find_required(self.window, QLabel, "lblKhachDaTiepNhanHomNay")
         self.lblSoKhachDangCho = find_required(self.window, QLabel, "lblSoKhachDangCho")
         self.lblThongBaoThanhCong = find_required(self.window, QLabel, "lblThongBaoThanhCong")
-
+        self.lblKhachUuTien = find_optional(self.window, QLabel, "lblKhachUuTien")
         self.txtTenKhach = find_required(self.window, QLineEdit, "txtTenKhach")
         self.txtSoDienThoai = find_required(self.window, QLineEdit, "txtSoDienThoai")
         self.txtGhiChu = find_required(self.window, QTextEdit, "txtGhiChu")
@@ -66,13 +66,14 @@ class TiepNhanView:
         self.cboLoaiDichVu.currentTextChanged.connect(self._dong_bo_phan_loai)
         self.btnThemKhach.clicked.connect(self.them_khach)
         self.btnLamMoi.clicked.connect(self.lam_moi)
+
         if self.btnTaoSoThuTu is not None:
             self.btnTaoSoThuTu.hide()
+
         self.btnDangXuat.clicked.connect(self.xac_nhan_dang_xuat)
 
         self.lam_moi()
 
-# Đồng bộ dữ liệu mỗi giây
         self.timer = QTimer(self.window)
         self.timer.timeout.connect(lambda: self.lam_moi(False))
         self.timer.start(1000)
@@ -112,9 +113,15 @@ class TiepNhanView:
         self.lblKhachDaTiepNhanHomNay.setText(str(tk["tong_khach_da_tiep_nhan"]))
         self.lblSoKhachDangCho.setText(str(tk["tong_khach_dang_cho"]))
 
+        if self.lblKhachUuTien is not None:
+            self.lblKhachUuTien.setText(str(tk["so_khach_uu_tien_dang_cho"]))
+
+        self.lblThongBaoThanhCong.setText(
+            "Ổn định" if not tk["canh_bao"] else "Cần thêm quầy"
+        )
+
         self._fill_khach_vua_tiep_nhan()
         self._fill_chi_tiet_quay()
-
     def _setup_comboboxes(self):
         self.cboLoaiDichVu.clear()
         self.cboLoaiDichVu.addItems(list(self.service_options.keys()))

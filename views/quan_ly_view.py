@@ -1,5 +1,7 @@
+from PySide6.QtCore import Qt
 from PySide6.QtWidgets import (
     QDialog,
+    QFrame,
     QHBoxLayout,
     QLabel,
     QPushButton,
@@ -7,6 +9,7 @@ from PySide6.QtWidgets import (
     QTableWidget,
     QHeaderView,
     QVBoxLayout,
+    QSizePolicy,
 )
 from PySide6.QtCore import QTimer
 from views.ui_helpers import confirm_logout, fill_table, find_required, load_ui, setup_table
@@ -31,11 +34,15 @@ class QuanLyView:
         self.lblCanhBao = find_required(self.window, QLabel, "lblCanhBao")
 
         self.tblHangDoiUuTien = find_required(self.window, QTableWidget, "tblHangDoiUuTien")
-        self.tblHangDoiThuong = find_required(self.window, QTableWidget, "tblHangDoiThuong")
         self.tblQuay = find_required(self.window, QTableWidget, "tblQuay")
         self.tblBaoCao = find_required(self.window, QTableWidget, "tblBaoCao")
 
         self.cboQuay = find_required(self.window, QComboBox, "cboQuay")
+        self.cboLoaiKhachHang = find_required(self.window, QComboBox, "cboLoaiKhachHang")
+        self.cboQuayLoc = find_required(self.window, QComboBox, "cboQuayLoc")
+        self.frameBoLocHangDoi = find_required(self.window, QFrame, "frameBoLocHangDoi")
+        self.lblLoaiKhachHang = find_required(self.window, QLabel, "lblLoaiKhachHang")
+        self.lblQuayLoc = find_required(self.window, QLabel, "lblQuayLoc")
         self.btnMoQuay = find_required(self.window, QPushButton, "btnMoQuay")
         self.btnDongQuay = find_required(self.window, QPushButton, "btnDongQuay")
         self.btnLamMoi = find_required(self.window, QPushButton, "btnLamMoi")
@@ -44,17 +51,48 @@ class QuanLyView:
 
         self.lblTaiKhoan.setText(f"Tài khoản: {self.user.username}")
 
-        self.cboQuay.clear()
-        self.cboQuay.addItems(["Quầy 1", "Quầy 2", "Quầy 3"])
+        self.setup_combo_quay()
+        self.setup_combo_loc()
+        self.setup_bang()
+        self.setup_giao_dien_bo_loc()
 
+        self.btnMoQuay.clicked.connect(self.mo_quay)
+        self.btnDongQuay.clicked.connect(self.dong_quay)
+        self.btnLamMoi.clicked.connect(self.lam_moi)
+        self.btnSapXepBaoCao.clicked.connect(self.sap_xep_bao_cao)
+        self.btnDangXuat.clicked.connect(self.xac_nhan_dang_xuat)
+
+        self.cboLoaiKhachHang.currentIndexChanged.connect(self.loc_hang_doi)
+        self.cboQuayLoc.currentIndexChanged.connect(self.loc_hang_doi)
+
+        self.tblQuay.cellClicked.connect(self.chon_quay_tu_bang)
+
+        self.lam_moi()
+
+    def setup_combo_quay(self):
+        self.cboQuay.clear()
+
+        for q in self.he_thong.lay_danh_sach_quay():
+            self.cboQuay.addItem(f"Quầy {q.id_quay}")
+
+    def setup_combo_loc(self):
+        self.cboLoaiKhachHang.clear()
+        self.cboLoaiKhachHang.addItems([
+            "Tất cả",
+            "Thường",
+            "Ưu tiên",
+        ])
+
+        self.cboQuayLoc.clear()
+        self.cboQuayLoc.addItem("Tất cả")
+
+        for q in self.he_thong.lay_danh_sach_quay():
+            self.cboQuayLoc.addItem(f"Quầy {q.id_quay}")
+
+    def setup_bang(self):
         setup_table(
             self.tblHangDoiUuTien,
-            ["Mã KH", "Tên khách", "Dịch vụ", "Ưu tiên", "Thời gian đến"]
-        )
-
-        setup_table(
-            self.tblHangDoiThuong,
-            ["Mã KH", "Tên khách", "Dịch vụ", "Ưu tiên", "Thời gian đến"]
+            ["Mã KH", "Tên khách", "Dịch vụ", "Loại khách", "Thời gian đến", "Vị trí"]
         )
 
         setup_table(
@@ -68,16 +106,15 @@ class QuanLyView:
         )
 
         self._chinh_do_rong_bang_hang_doi(self.tblHangDoiUuTien)
-        self._chinh_do_rong_bang_hang_doi(self.tblHangDoiThuong)
         self._chinh_do_rong_bang_quay()
         self._chinh_do_rong_bang_bao_cao()
+    def setup_giao_dien_bo_loc(self):
+        self.frameBoLocHangDoi.setFixedHeight(58)
 
-        self.btnMoQuay.clicked.connect(self.mo_quay)
-        self.btnDongQuay.clicked.connect(self.dong_quay)
-        self.btnLamMoi.clicked.connect(self.lam_moi)
-        self.btnSapXepBaoCao.clicked.connect(self.sap_xep_bao_cao)
-        self.btnDangXuat.clicked.connect(self.xac_nhan_dang_xuat)
-        self.tblQuay.cellClicked.connect(self.chon_quay_tu_bang)
+        self.lblLoaiKhachHang.setFixedSize(125, 34)
+        self.cboLoaiKhachHang.setFixedSize(110, 34)
+        self.lblQuayLoc.setFixedSize(45, 34)
+        self.cboQuayLoc.setFixedSize(110, 34)
 
         self.lam_moi()
         # Tự động đồng bộ dữ liệu
@@ -85,6 +122,15 @@ class QuanLyView:
         self.timer.timeout.connect(self.lam_moi)
         self.timer.start(1000)
 
+        self.lblLoaiKhachHang.move(12, 12)
+        self.cboLoaiKhachHang.move(140, 12)
+        self.lblQuayLoc.move(285, 12)
+        self.cboQuayLoc.move(335, 12)
+
+        self.lblLoaiKhachHang.raise_()
+        self.cboLoaiKhachHang.raise_()
+        self.lblQuayLoc.raise_()
+        self.cboQuayLoc.raise_()
     def show(self):
         self.window.show()
 
@@ -111,12 +157,7 @@ class QuanLyView:
 
         fill_table(
             self.tblHangDoiUuTien,
-            self._rows_khach(self.he_thong.lay_danh_sach_hang_doi_uu_tien())
-        )
-
-        fill_table(
-            self.tblHangDoiThuong,
-            self._rows_khach(self.he_thong.lay_danh_sach_hang_doi_thuong())
+            self._rows_khach_hien_tai()
         )
 
         fill_table(
@@ -130,9 +171,16 @@ class QuanLyView:
         )
 
         self._chinh_do_rong_bang_hang_doi(self.tblHangDoiUuTien)
-        self._chinh_do_rong_bang_hang_doi(self.tblHangDoiThuong)
         self._chinh_do_rong_bang_quay()
         self._chinh_do_rong_bang_bao_cao()
+
+    def loc_hang_doi(self):
+        fill_table(
+            self.tblHangDoiUuTien,
+            self._rows_khach_hien_tai()
+        )
+
+        self._chinh_do_rong_bang_hang_doi(self.tblHangDoiUuTien)
 
     def sap_xep_bao_cao(self):
         if self.che_do_bao_cao == "mac_dinh":
@@ -162,7 +210,7 @@ class QuanLyView:
 
     def _hien_thong_bao(self, message, thanh_cong=True):
         dialog = QDialog(self.window)
-        dialog.setWindowTitle("Th?ng b?o")
+        dialog.setWindowTitle("Thông báo")
         dialog.setModal(True)
         dialog.setFixedSize(440, 220)
         dialog.setStyleSheet("""
@@ -267,16 +315,86 @@ class QuanLyView:
 
         return self.he_thong.lay_danh_sach_da_phuc_vu()
 
-    def _rows_khach(self, ds):
+    def _loai_khach_text(self, k):
+        if k.muc_do_uu_tien and k.muc_do_uu_tien > 0:
+            return "Ưu tiên"
+
+        return "Thường"
+
+    def _dinh_dang_thoi_gian_den(self, k):
+        if hasattr(k.thoi_gian_den, "strftime"):
+            return k.thoi_gian_den.strftime("%H:%M:%S")
+
+        return str(k.thoi_gian_den)
+
+    def _rows_khach_hien_tai(self):
         rows = []
 
-        for k in ds:
+        loai_chon = self.cboLoaiKhachHang.currentText().strip()
+        quay_chon = self.cboQuayLoc.currentText().strip()
+
+        ds_uu_tien = self.he_thong.lay_danh_sach_hang_doi_uu_tien()
+        ds_thuong = self.he_thong.lay_danh_sach_hang_doi_thuong()
+
+        for k in ds_uu_tien:
+            loai_khach = self._loai_khach_text(k)
+            vi_tri = "Đang chờ"
+
+            if loai_chon != "Tất cả" and loai_khach != loai_chon:
+                continue
+
+            if quay_chon != "Tất cả" and vi_tri != quay_chon:
+                continue
+
             rows.append([
                 k.ma_khach(),
                 k.ten,
                 k.loai_dich_vu,
-                k.muc_do_uu_tien,
-                k.thoi_gian_den.strftime("%H:%M:%S")
+                loai_khach,
+                self._dinh_dang_thoi_gian_den(k),
+                vi_tri
+            ])
+
+        for k in ds_thuong:
+            loai_khach = self._loai_khach_text(k)
+            vi_tri = "Đang chờ"
+
+            if loai_chon != "Tất cả" and loai_khach != loai_chon:
+                continue
+
+            if quay_chon != "Tất cả" and vi_tri != quay_chon:
+                continue
+
+            rows.append([
+                k.ma_khach(),
+                k.ten,
+                k.loai_dich_vu,
+                loai_khach,
+                self._dinh_dang_thoi_gian_den(k),
+                vi_tri
+            ])
+
+        for q in self.he_thong.lay_danh_sach_quay():
+            if q.khach_dang_phuc_vu is None:
+                continue
+
+            k = q.khach_dang_phuc_vu
+            loai_khach = self._loai_khach_text(k)
+            vi_tri = f"Quầy {q.id_quay}"
+
+            if loai_chon != "Tất cả" and loai_khach != loai_chon:
+                continue
+
+            if quay_chon != "Tất cả" and vi_tri != quay_chon:
+                continue
+
+            rows.append([
+                k.ma_khach(),
+                k.ten,
+                k.loai_dich_vu,
+                loai_khach,
+                self._dinh_dang_thoi_gian_den(k),
+                vi_tri
             ])
 
         return rows
@@ -324,10 +442,12 @@ class QuanLyView:
         header.setSectionResizeMode(2, QHeaderView.Stretch)
         header.setSectionResizeMode(3, QHeaderView.Fixed)
         header.setSectionResizeMode(4, QHeaderView.Fixed)
+        header.setSectionResizeMode(5, QHeaderView.Fixed)
 
         bang.setColumnWidth(0, 85)
-        bang.setColumnWidth(3, 60)
+        bang.setColumnWidth(3, 95)
         bang.setColumnWidth(4, 115)
+        bang.setColumnWidth(5, 105)
 
     def _chinh_do_rong_bang_quay(self):
         header = self.tblQuay.horizontalHeader()

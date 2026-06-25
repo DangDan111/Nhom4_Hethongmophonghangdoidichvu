@@ -26,42 +26,49 @@
    <string>Giao diện quản lý</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">
-QWidget#QuanLyForm {
+   <string notr="true">QWidget#QuanLyForm {
     background: #f6f9ff;
     font-family: &quot;Segoe UI&quot;;
     color: #111827;
 }
+
 QFrame {
     background: #ffffff;
     border: 1px solid #dfe7f3;
     border-radius: 8px;
 }
+
 QLabel {
     background: transparent;
     border: none;
 }
+
 QLabel#lblTitle {
     color: #0f6fd8;
     font-weight: 800;
     letter-spacing: 0px;
 }
+
 QLabel#lblSubtitle {
     color: #374151;
 }
+
 QLabel.sectionTitle {
     color: #155eb8;
     font-weight: 800;
 }
+
 QLabel.metricValue {
     font-weight: 800;
 }
+
 QLabel.iconCircle {
     min-width: 54px;
     min-height: 54px;
     max-width: 54px;
     max-height: 54px;
 }
+
 QPushButton {
     background: #0f73df;
     color: white;
@@ -70,6 +77,7 @@ QPushButton {
     padding: 7px 14px;
     font-weight: 700;
 }
+
 QPushButton#btnDangXuat,
 QPushButton#btnSapXepBaoCao,
 QPushButton#btnLamMoi {
@@ -77,16 +85,29 @@ QPushButton#btnLamMoi {
     color: #155eb8;
     border: 1px solid #c8d6eb;
 }
+
 QPushButton#btnDongQuay {
     background: #ef4444;
     border-color: #dc2626;
 }
+
 QComboBox {
     background: #ffffff;
     border: 1px solid #c8d6eb;
     border-radius: 6px;
-    padding: 5px 10px;
+    padding-left: 10px;
+    padding-right: 22px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    min-height: 30px;
+    max-height: 34px;
 }
+
+QComboBox::drop-down {
+    border: none;
+    width: 22px;
+}
+
 QTableWidget {
     background: #ffffff;
     alternate-background-color: #fbfdff;
@@ -95,6 +116,7 @@ QTableWidget {
     selection-background-color: #dbeafe;
     selection-color: #111827;
 }
+
 QHeaderView::section {
     background: #ffffff;
     border: 0px;
@@ -103,6 +125,7 @@ QHeaderView::section {
     font-weight: 700;
     color: #111827;
 }
+
 QFrame#cardTongDaPhucVu,
 QFrame#cardKhachDangCho,
 QFrame#cardQuayDangMo,
@@ -179,6 +202,108 @@ QLabel#lblCanhBao {
     font-size: 25px;
     font-weight: 900;
     background: transparent;
+    border: none;
+}
+
+QFrame#frameDanhSachKhach {
+    background: #ffffff;
+    border: 1px solid #dbe7f5;
+    border-radius: 12px;
+}
+
+QFrame#frameBoLocHangDoi {
+    background: #ffffff;
+    border: 1px solid #dbe7f5;
+    border-radius: 10px;
+}
+
+QLabel#lblTieuDeDanhSach {
+    color: #155eb8;
+    font-family: &quot;Segoe UI&quot;;
+    font-size: 22px;
+    font-weight: 900;
+    background: transparent;
+    border: none;
+}
+
+QLabel#lblLoaiKhachHang {
+    color: #111827;
+    font-family: &quot;Segoe UI&quot;;
+    font-size: 15px;
+    font-weight: 800;
+    background: transparent;
+    border: none;
+    padding: 0px;
+}
+
+QLabel#lblQuayLoc {
+    color: #111827;
+    font-family: &quot;Segoe UI&quot;;
+    font-size: 15px;
+    font-weight: 800;
+    background: transparent;
+    border: none;
+    padding: 0px;
+}
+
+QComboBox#cboLoaiKhachHang,
+QComboBox#cboQuayLoc {
+    background: #ffffff;
+    color: #111827;
+    border: 1px solid #c8d6eb;
+    border-radius: 6px;
+    padding-left: 10px;
+    padding-right: 22px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    font-family: &quot;Segoe UI&quot;;
+    font-size: 14px;
+    font-weight: 600;
+    min-height: 32px;
+    max-height: 34px;
+}
+
+QComboBox#cboLoaiKhachHang:hover,
+QComboBox#cboQuayLoc:hover {
+    border: 1px solid #0f73df;
+}
+
+QComboBox#cboLoaiKhachHang::drop-down,
+QComboBox#cboQuayLoc::drop-down {
+    border: none;
+    width: 22px;
+}
+
+QTableWidget#tblHangDoiUuTien {
+    background: #ffffff;
+    alternate-background-color: #fbfdff;
+    border: 0px;
+    gridline-color: #edf1f7;
+    color: #111827;
+    font-family: &quot;Segoe UI&quot;;
+    font-size: 14px;
+    selection-background-color: #dbeafe;
+    selection-color: #111827;
+}
+
+QTableWidget#tblHangDoiUuTien::item {
+    padding: 8px;
+    border: none;
+}
+
+QTableWidget#tblHangDoiUuTien QHeaderView::section {
+    background: #ffffff;
+    color: #111827;
+    font-family: &quot;Segoe UI&quot;;
+    font-size: 14px;
+    font-weight: 900;
+    padding: 10px 6px;
+    border: none;
+    border-bottom: 2px solid #e5eaf2;
+}
+
+QTableWidget#tblHangDoiUuTien QTableCornerButton::section {
+    background: #ffffff;
     border: none;
 }</string>
   </property>
@@ -991,13 +1116,13 @@ image: url(icon1.png);</string>
     </property>
    </widget>
   </widget>
-  <widget class="QFrame" name="panelHangDoiUuTien">
+  <widget class="QFrame" name="frameDanhSachKhach">
    <property name="geometry">
     <rect>
      <x>16</x>
      <y>226</y>
-     <width>500</width>
-     <height>250</height>
+     <width>531</width>
+     <height>541</height>
     </rect>
    </property>
    <property name="frameShape">
@@ -1006,8 +1131,8 @@ image: url(icon1.png);</string>
    <widget class="QLabel" name="lblIconHangDoiUuTien">
     <property name="geometry">
      <rect>
-      <x>18</x>
-      <y>16</y>
+      <x>80</x>
+      <y>10</y>
       <width>34</width>
       <height>32</height>
      </rect>
@@ -1023,7 +1148,7 @@ image: url(icon1.png);</string>
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap>../images/star.png</pixmap>
+     <pixmap>../images/danhsachkh.png</pixmap>
     </property>
     <property name="scaledContents">
      <bool>true</bool>
@@ -1038,10 +1163,10 @@ image: url(icon1.png);</string>
    <widget class="QLabel" name="lblTitleHangDoiUuTien">
     <property name="geometry">
      <rect>
-      <x>58</x>
-      <y>18</y>
-      <width>260</width>
-      <height>28</height>
+      <x>110</x>
+      <y>10</y>
+      <width>271</width>
+      <height>31</height>
      </rect>
     </property>
     <property name="font">
@@ -1052,7 +1177,10 @@ image: url(icon1.png);</string>
      </font>
     </property>
     <property name="text">
-     <string>Hàng đợi ưu tiên</string>
+     <string>Danh sách khách hàng hiện tại</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignmentFlag::AlignCenter</set>
     </property>
     <property name="class" stdset="0">
      <string>sectionTitle</string>
@@ -1062,13 +1190,16 @@ image: url(icon1.png);</string>
     <property name="geometry">
      <rect>
       <x>0</x>
-      <y>58</y>
-      <width>500</width>
-      <height>190</height>
+      <y>118</y>
+      <width>531</width>
+      <height>421</height>
      </rect>
     </property>
     <property name="focusPolicy">
      <enum>Qt::FocusPolicy::NoFocus</enum>
+    </property>
+    <property name="editTriggers">
+     <set>QAbstractItemView::EditTrigger::NoEditTriggers</set>
     </property>
     <property name="alternatingRowColors">
      <bool>true</bool>
@@ -1079,14 +1210,172 @@ image: url(icon1.png);</string>
     <property name="showGrid">
      <bool>true</bool>
     </property>
+    <property name="columnCount">
+     <number>6</number>
+    </property>
+    <column>
+     <property name="text">
+      <string>STT</string>
+     </property>
+     <property name="foreground">
+      <brush brushstyle="NoBrush">
+       <color alpha="240">
+        <red>0</red>
+        <green>0</green>
+        <blue>0</blue>
+       </color>
+      </brush>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>Mã KH</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>Tên khách</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>New Column</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>Thời gian đến</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>Vị trí</string>
+     </property>
+    </column>
+   </widget>
+   <widget class="QFrame" name="frameBoLocHangDoi">
+    <property name="geometry">
+     <rect>
+      <x>19</x>
+      <y>50</y>
+      <width>491</width>
+      <height>58</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QComboBox#cboLoaiKhachHang,
+QComboBox#cboQuayLoc {
+    background: #ffffff;
+    color: #111827;
+    border: 1px solid #c8d6eb;
+    border-radius: 7px;
+    padding: 6px 10px;
+    font-family: &quot;Segoe UI&quot;;
+    font-size: 14px;
+    font-weight: 600;
+    min-height: 26px;
+}</string>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::Shape::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Shadow::Raised</enum>
+    </property>
+    <widget class="QLabel" name="lblLoaiKhachHang">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>10</y>
+       <width>121</width>
+       <height>36</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Segoe UI</family>
+       <pointsize>-1</pointsize>
+       <fontweight>ExtraBold</fontweight>
+      </font>
+     </property>
+     <property name="text">
+      <string>Loại khách hàng</string>
+     </property>
+    </widget>
+    <widget class="QComboBox" name="cboLoaiKhachHang">
+     <property name="geometry">
+      <rect>
+       <x>130</x>
+       <y>11</y>
+       <width>90</width>
+       <height>40</height>
+      </rect>
+     </property>
+     <property name="editable">
+      <bool>false</bool>
+     </property>
+     <item>
+      <property name="text">
+       <string>Tất cả</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Thường</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Ưu tiên</string>
+      </property>
+     </item>
+    </widget>
+    <widget class="QComboBox" name="cboQuayLoc">
+     <property name="geometry">
+      <rect>
+       <x>380</x>
+       <y>11</y>
+       <width>90</width>
+       <height>40</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true"/>
+     </property>
+     <item>
+      <property name="text">
+       <string>Tất cả</string>
+      </property>
+     </item>
+    </widget>
+    <widget class="QLabel" name="lblQuayLoc">
+     <property name="geometry">
+      <rect>
+       <x>320</x>
+       <y>11</y>
+       <width>45</width>
+       <height>36</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Segoe UI</family>
+       <pointsize>-1</pointsize>
+       <fontweight>ExtraBold</fontweight>
+      </font>
+     </property>
+     <property name="text">
+      <string>Quầy</string>
+     </property>
+    </widget>
    </widget>
   </widget>
   <widget class="QFrame" name="panelHangDoiThuong">
    <property name="geometry">
     <rect>
-     <x>532</x>
+     <x>561</x>
      <y>226</y>
-     <width>500</width>
+     <width>471</width>
      <height>250</height>
     </rect>
    </property>
@@ -1097,7 +1386,7 @@ image: url(icon1.png);</string>
     <property name="geometry">
      <rect>
       <x>18</x>
-      <y>16</y>
+      <y>6</y>
       <width>34</width>
       <height>32</height>
      </rect>
@@ -1113,7 +1402,7 @@ image: url(icon1.png);</string>
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap>../images/star (1).png</pixmap>
+     <pixmap>../images/task.png</pixmap>
     </property>
     <property name="scaledContents">
      <bool>true</bool>
@@ -1128,9 +1417,9 @@ image: url(icon1.png);</string>
    <widget class="QLabel" name="lblTitleHangDoiThuong">
     <property name="geometry">
      <rect>
-      <x>59</x>
-      <y>16</y>
-      <width>151</width>
+      <x>66</x>
+      <y>8</y>
+      <width>101</width>
       <height>28</height>
      </rect>
     </property>
@@ -1142,32 +1431,13 @@ image: url(icon1.png);</string>
      </font>
     </property>
     <property name="text">
-     <string>Hàng đợi thường</string>
+     <string>Thống kê</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignmentFlag::AlignCenter</set>
     </property>
     <property name="class" stdset="0">
      <string>sectionTitle</string>
-    </property>
-   </widget>
-   <widget class="QTableWidget" name="tblHangDoiThuong">
-    <property name="geometry">
-     <rect>
-      <x>0</x>
-      <y>60</y>
-      <width>500</width>
-      <height>190</height>
-     </rect>
-    </property>
-    <property name="focusPolicy">
-     <enum>Qt::FocusPolicy::NoFocus</enum>
-    </property>
-    <property name="alternatingRowColors">
-     <bool>true</bool>
-    </property>
-    <property name="selectionBehavior">
-     <enum>QAbstractItemView::SelectionBehavior::SelectRows</enum>
-    </property>
-    <property name="showGrid">
-     <bool>true</bool>
     </property>
    </widget>
   </widget>
@@ -1244,9 +1514,9 @@ image: url(icon1.png);</string>
    <widget class="QTableWidget" name="tblQuay">
     <property name="geometry">
      <rect>
-      <x>0</x>
+      <x>1</x>
       <y>52</y>
-      <width>436</width>
+      <width>434</width>
       <height>142</height>
      </rect>
     </property>
@@ -1266,9 +1536,9 @@ image: url(icon1.png);</string>
    <widget class="QComboBox" name="cboQuay">
     <property name="geometry">
      <rect>
-      <x>10</x>
-      <y>208</y>
-      <width>82</width>
+      <x>8</x>
+      <y>210</y>
+      <width>101</width>
       <height>34</height>
      </rect>
     </property>
@@ -1276,9 +1546,9 @@ image: url(icon1.png);</string>
    <widget class="QPushButton" name="btnMoQuay">
     <property name="geometry">
      <rect>
-      <x>102</x>
+      <x>115</x>
       <y>208</y>
-      <width>100</width>
+      <width>90</width>
       <height>34</height>
      </rect>
     </property>
@@ -1299,9 +1569,9 @@ image: url(icon1.png);</string>
    <widget class="QPushButton" name="btnDongQuay">
     <property name="geometry">
      <rect>
-      <x>212</x>
+      <x>215</x>
       <y>208</y>
-      <width>100</width>
+      <width>90</width>
       <height>34</height>
      </rect>
     </property>
@@ -1324,7 +1594,7 @@ image: url(icon1.png);</string>
      <rect>
       <x>322</x>
       <y>208</y>
-      <width>104</width>
+      <width>102</width>
       <height>34</height>
      </rect>
     </property>
@@ -1346,9 +1616,9 @@ image: url(icon1.png);</string>
   <widget class="QFrame" name="panelBaoCao">
    <property name="geometry">
     <rect>
-     <x>16</x>
+     <x>561</x>
      <y>492</y>
-     <width>1468</width>
+     <width>921</width>
      <height>272</height>
     </rect>
    </property>

@@ -232,8 +232,8 @@ class QuanLyView:
                 k.ma_khach(),
                 k.ten,
                 k.loai_dich_vu,
-                f"{k.tinh_thoi_gian_cho():.1f} phút",
-                f"{k.tinh_thoi_gian_phuc_vu():.1f} phút",
+                k.dinh_dang_thoi_gian_cho(),
+                k.dinh_dang_thoi_gian_phuc_vu(),
                 f"{k.so_tien_giao_dich:,}đ".replace(",", "."),
                 f"{k.muc_do_hai_long}/10"
             ])

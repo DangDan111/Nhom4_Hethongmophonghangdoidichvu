@@ -140,8 +140,19 @@ class HeThongHangDoi:
             ("Đặng Hải Yến", "Giao dịch nhanh", 5),
         ]
 
-        for quay, (ten, loai_dich_vu, muc_do_uu_tien) in zip(self.danh_sach_quay, khach_dang_phuc_vu):
-            khach = self._tao_khach(ten, loai_dich_vu, muc_do_uu_tien)
+        from datetime import datetime, timedelta
+        for i, (quay, (ten, loai_dich_vu, muc_do_uu_tien)) in enumerate(
+            zip(self.danh_sach_quay, khach_dang_phuc_vu)
+        ):
+            khach = self._tao_khach(
+                ten,
+                loai_dich_vu,
+                muc_do_uu_tien
+            )
+
+            # giả lập khách đến trước vài giây
+            khach.thoi_gian_den = datetime.now() - timedelta(seconds=(i + 1) * 5)
+
             quay.tiep_nhan_khach(khach)
 
         for ten, loai_dich_vu, muc_do_uu_tien in khach_dang_cho:
